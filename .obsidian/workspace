@@ -1,0 +1,83 @@
+{
+  "main": {
+    "id": "050a09f7e1e61b8b",
+    "type": "split",
+    "children": [
+      {
+        "id": "72290caf3f4c87a2",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "docs/_sidebar.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "58988cb49e1a4649",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "208a3f0ebd404b1a",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "8f48cccb371a2d07",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "35977fe09e30654f",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "9deb419a929fc68d",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "docs/_sidebar.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "72290caf3f4c87a2",
+  "lastOpenFiles": [
+    "docs/_sidebar.md",
+    "epoch_10_billing_tax/README.md",
+    "README.md",
+    "docs/epoch10_billing_tax/README.md",
+    "Untitled.md"
+  ]
+}
