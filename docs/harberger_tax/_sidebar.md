@@ -10,7 +10,7 @@
 - [Hosting service billing tax](harberger_tax/hosting_service_billing_tax.md)
 - [How to set memory tax rate](harberger_tax/how_to_set_memory_tax_rate.md)
 - [Maintainer income tax](harberger_tax/maintainer_income_tax.md)
-- [Memory bonding curve](harberger_tax/Marketplace.md)
+- [Memory bonding curve](harberger_tax/memory_bonding_curve.md)
 - [Memory tax billing model](harberger_tax/Memory_tax_billing_model.md)
 - [Pre-mined](harberger_tax/pre_mined.md)
 - [Self-estimated price](harberger_tax/self_estimate_price.md)
