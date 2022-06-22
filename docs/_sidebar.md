@@ -1,12 +1,12 @@
 - [Home](/)
 - **Account Model**
-- [TApp Tutor - Getting Started](account-model/README.md)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Account Model](account-model/README.md)
 - **Appstore UI**
-- [TEA Mining](appstore_ui/README.md)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Appstore UI](appstore_ui/README.md)
 - **Global CML Marketplace**
-- [Epochs Overview](Global_CML_trade_in_marketplace/README.md)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Global CML Marketplace](Global_CML_trade_in_marketplace/README.md)
 - **Harberger Tax**
-- [TApps Overview](harberger_tax/README.md)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Harberger Tax](harberger_tax/README.md)
 
 
 

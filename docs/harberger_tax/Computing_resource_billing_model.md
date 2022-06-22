@@ -6,8 +6,14 @@ As code loaded into mini-runtime and start execution, the TEA Project will meter
 
 This is similar to AWS EC2 or Lambda billing model.
 
-If this computing happens inside a hosting CML node. The hosting node miner will get paid. ![[Pasted image 20220618165623.png]]
+If this computing happens inside a hosting CML node. The hosting node miner will get paid. 
+
+![]("harberger_tax/Pasted image 20220618165623.png")
 
 
-If this computing happens inside the [[Global_state_maintainer_nodes]],
-![[Pasted image 20220618165650.png]] it is called [[Txns_computing_cost]] and pay to and shared by  [[Global_state_maintainer_nodes]]
+If this computing happens inside the [[Global_state_maintainer_nodes]]
+
+
+![]("harberger_tax/Pasted image 20220618165650.png")
+
+it is called [[Txns_computing_cost]] and pay to and shared by  [[Global_state_maintainer_nodes]]
