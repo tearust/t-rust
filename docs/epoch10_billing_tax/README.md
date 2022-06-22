@@ -4,15 +4,18 @@ The top purpose of epoch10 is migrating most logic to layer2, but we can (if pos
 The whole billing system is complex, we do not expect to have it ready in epoch10, but we can have a minimized placeholder version in epoch10 that end user can see some of the UI, but the data is not accuracy. Note, even the features in this file may not need to be there at the beginning of epoch10, they can join in the middle.
 
 # What we can compromise in epoch10?
-## Memory tax
+## Memory tax set to fixed placeholder
 We can give a constant tax value every block that charged from tappstore, marketplace and teaparty. We can set three different const value. This const value will be replaced in future epoch with the real billing result. We do not have billing system ready yet, so use a const value as a placeholder.
 
 At this moment, we did not design the tappstore or marketplace to charge the end user, so we will use public service fund to support those two apps. But for the tea party, it has its own revenue model, it should pay on its own.
 
-## Global txn fee
+## Global txn fee set to zero
 We can ignore this transaction fee for now. So there is only memory tax is used in epoch10
 
-# What we should include?
+## Use linear bonding curve
+If the square root bonding curve is complicated to compute, we can use a linear curve instead.
+
+# What should we include?
 ## Payment of Memory tax
 we can charge every block a const value as placeholder. The tax is stored in a temp (Global pool) account after collected. 
 ## Buy/Sell/Suspend Global maintainer
@@ -61,3 +64,21 @@ sequenceDiagram
 	Genesis_block_reserved_miner_reward-->>Income_tax_pool: At the end of a day, if the balance of pool buffer is less than 1000T. topup from the reserved token
     
 ```
+
+# Development
+## Every 1000 block, Charge memory tax
+We can set the memory tax to 1T per 100 block.
+All Tappstore, marketplace and TEA party pay 1T per 100 block
+
+To cold start, we can give every TApp a large amount of TEA as start funding.
+## End of every day, calculate income tax and maintainer revenue
+We do not use the real human time, we use block height instead. So every 7200 blocks (equal to 24 hours) run a cron job. This cron job will do the following tasks
+- Calculate maintainer income tax and revenue
+- Collect income tax to income_pool and pay maintainer
+- income_pool pay exceed (1000T) to Global bonding curve
+- Topup income_pool if lower than 1000T
+## At any time, instantly pay off RA public service
+This is not a daily cron job. RA is paid from the income_pool
+The initi balance is 1000T. So the income_tax_pool can start to pay RA from the very beginning
+## Add the query API from TAppstore to Marketplace 
+Marketplace is a standalone tapp. It will need to get data from TAppstore. So the API is needed to query/response data between Marketplace and TAppstore.
