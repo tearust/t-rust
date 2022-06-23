@@ -1,4 +1,7 @@
 {
   "newFileLocation": "current",
-  "promptDelete": false
+  "promptDelete": false,
+  "legacyEditor": false,
+  "livePreview": true,
+  "vimMode": true
 }
