@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/README.md",
+            "file": "docs/harberger_tax/why_do_we_need_state_tax.md",
             "mode": "source",
             "source": false
           }
@@ -19,85 +19,70 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "37902246ba2eaf68",
-    "type": "split",
+    "id": "58988cb49e1a4649",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "0c4d4e520f9b755e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a4c0788ccbf112a0",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "5a5d631582ff5557",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "208a3f0ebd404b1a",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "8f48cccb371a2d07",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300
+    "currentTab": 0
   },
   "right": {
-    "id": "f1a7b7c71dcb06fd",
-    "type": "split",
+    "id": "35977fe09e30654f",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "92795b616dd373e3",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "bfdde07840369123",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "docs/README.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
+        "id": "9deb419a929fc68d",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "docs/harberger_tax/why_do_we_need_state_tax.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 0
   },
   "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
-    "docs/README.md",
-    "docs/global_CML_trade_in_marketplace/README.md",
+    "docs/harberger_tax/why_do_we_need_state_tax.md",
+    "docs/epoch10_billing_tax/README.md",
+    "docs/account-model/README.md",
+    "docs/account-model/apptoken.md",
+    "docs/appstore_ui/_sidebar.md",
+    "docs/appstore_ui/Account.md",
+    "docs/appstore_ui/Asset.md",
+    "docs/appstore_ui/Inbox.md",
     "docs/_sidebar.md",
-    "README.md",
-    "docs/global_CML_trade_in_marketplace/Maintainer_CML_Status.md",
-    "docs/global_CML_trade_in_marketplace/_sidebar.md",
-    "docs/harberger_tax/README.md",
-    "docs/harberger_tax/_sidebar.md",
-    "docs/harberger_tax/Global_CML.md",
-    "docs/README.md"
+    "epoch_10_billing_tax/README.md"
   ]
 }
