@@ -1,6 +1,6 @@
 - [Home](/)
-- [Intro to Global CML Marketplace](Global_CML_trade_in_marketplace/README.md)
-- [Maintainer CML Status](Global_CML_trade_in_marketplace/Maintainer_CML_Status.md)
+- [Intro to Global CML Marketplace](README.md.md)
+- [Maintainer CML Status](Maintainer_CML_Status.md)
 
 
 
