@@ -15,24 +15,24 @@ The cap of number of the [[Global_state_maintainer_nodes]] is 100. Income tax ra
 
 Day_0, no one own any node. The remaining number of maintainer nodes is 100. 
 
-Day_1, Alice claim a [[Global_CML]] at [[self_estimate_price]] of $1 which is the minimal value. Since no one own such [[Global_CML]] at the beginning, Alice doesn't need to pay anyone $1 for owning such a CML. Because the [[self_estimate_price]] has a minimal value of 1T, she cannot claim it value of 0. Although she actually pays $0 to own it.
+Day_1, Alice claim a [[Maintainer_seat]] at [[self_estimate_price]] of $1 which is the minimal value. Since no one own such [[Maintainer_seat]] at the beginning, Alice doesn't need to pay anyone $1 for owning such a CML. Because the [[self_estimate_price]] has a minimal value of 1T, she cannot claim it value of 0. Although she actually pays $0 to own it.
 Day_2. Alice is the only node. So she earn total 1000T from the memory tax income (no one else share with her). She will need to pay $0.01 = 1% * 1T as income tax. This income tax will go to the Global staker bonding curve as consume, eventually share by all staker holders. Her revenu is $999.99. Of course, very profitable.
 
 The $0.01 income tax goes to the [[Global_bonding_curve]] as consume dividends share to all init stake holders. They get passive income. No doubt at early stage, the income is too low to cover the basic public service. We will have special [[cold_start_funding_support]] to make the project cold start.
 
-Day_3. Bob get the second [[Global_CML]] at [[self_estimate_price]] of $1. Again, since no one owns such CML at this moment. Bob doesn't need to pay to own it.
+Day_3. Bob get the second [[Maintainer_seat]] at [[self_estimate_price]] of $1. Again, since no one owns such CML at this moment. Bob doesn't need to pay to own it.
 
 Day_4. Alice and Bob share the $1000 evenly, so Alice get $500, Bob get $500..Now Alice pay income tax of  $0.01, Bob pays income tax of $0.01 The total of the income tax is still $0.02. Both Alice and Bob earn $499.99
 
-Day_5, All 100 [[Global_CML]] are claimed by new miners. They all claim the price to be $1. So that they all share the same income tax of $0.01. No doubt, it is very profitable to run a node, as the income is $10 = $1000/100, after paying $0.01 tax everyone still earn $9.99 revenue every day. The dividend is $0.01 * 100 = $1 pay to stakers.
+Day_5, All 100 [[Maintainer_seat]] are claimed by new miners. They all claim the price to be $1. So that they all share the same income tax of $0.01. No doubt, it is very profitable to run a node, as the income is $10 = $1000/100, after paying $0.01 tax everyone still earn $9.99 revenue every day. The dividend is $0.01 * 100 = $1 pay to stakers.
 
 Because being a miner is so profitable, more miners will join the compete. Let's see what is gonna happen.
 
-Day_6. Charlie was original a staker, when he realized being a miners is so profitable than a staker, he wants to be a maintainer too. but all 100 [[Global_CML]] are occupied and all of them set the claimed price at $1. Charlie pays $1.5 and buy a [[Global_CML]] from any of them, say Alice. So Alice get $1.5 and be removed from the [[Global_state_maintainer_nodes]] list. Charlie starts mining and pay tax $1.5 * 1%= $0.015.
+Day_6. Charlie was original a staker, when he realized being a miners is so profitable than a staker, he wants to be a maintainer too. but all 100 [[Maintainer_seat]] are occupied and all of them set the claimed price at $1. Charlie pays $1.5 and buy a [[Maintainer_seat]] from any of them, say Alice. So Alice get $1.5 and be removed from the [[Global_state_maintainer_nodes]] list. Charlie starts mining and pay tax $1.5 * 1%= $0.015.
 Now everyone else except Charlie pays $0.01 tax. 
 
 
-Day_7. As Alice lose the [[Global_CML]] to be a miner, she wants to continue mining, so she pay $2 and buy Bob's. Bob knows that and do not want to lose the mining oppotunity, he increase his self-estimate to $2. So does everyone else. So all the 100 minutes increase the self-estimate to $2. If Alice really wants to buy a [[Global_CML]] she may have to pay any price higher than $2. Finally, everyone set the [[self_estimate_price]] to $800. 
+Day_7. As Alice lose the [[Maintainer_seat]] to be a miner, she wants to continue mining, so she pay $2 and buy Bob's. Bob knows that and do not want to lose the mining oppotunity, he increase his self-estimate to $2. So does everyone else. So all the 100 minutes increase the self-estimate to $2. If Alice really wants to buy a [[Maintainer_seat]] she may have to pay any price higher than $2. Finally, everyone set the [[self_estimate_price]] to $800. 
 
 The daily tax is 1% * $800 = $8. The memory tax income is $10, so every maintainer has $2 profit. At this point, the profit is much lower than before but still barely cover the maintaining cost. No one else want to pay more than $800 to buy a CML because it will not be profitable. This become a new balance point. At this balance point, the total mainter income tax is $8 * 100 = $800. Being a staker is much profitable than before.
 

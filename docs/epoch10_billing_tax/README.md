@@ -41,7 +41,24 @@ Using this method, we can make the public service get paid instantly since the 1
 ## Pay public service (RA) from the pool
 As the [[Distibution_pool]] has 1000T buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
 
+## Reward detail pages
+We will have three Reward detial page for three kind of reward
+- Global token reward (from the [[Global_bonding_curve]])
+- Hosting CML investment (from the hosting bonding curve)
+- TApp token reward (from the tapp bonding curve)
+They are all standalone tab that logged in end user can click the links in the following pages
+- My investment / TApp
+- My investment / Global 
+- My investment / CML
+They are three tabls, every row is a invested entity. Click the "Reward detail" open this new page.
 
+inside the reward page, list the history (up to one month to save the memory) of rewards.
+
+> Question? What do you store the data after one month? IPFS?
+
+In order to show this data, the TAppStore need to store the data at last for a month.
+
+See [[Data_structure]]
 # Fund flow at this stage
 ```mermaid
 sequenceDiagram  

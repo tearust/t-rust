@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/epoch10_billing_tax/README.md",
+            "file": "docs/epoch10_billing_tax/Data_structure.md",
             "mode": "source",
             "source": false
           }
@@ -58,7 +58,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "docs/epoch10_billing_tax/README.md",
+            "file": "docs/epoch10_billing_tax/Data_structure.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -74,15 +74,15 @@
   },
   "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
+    "docs/epoch10_billing_tax/Data_structure.md",
     "docs/epoch10_billing_tax/README.md",
-    "docs/harberger_tax/maintainer_tax.md",
-    "docs/epoch10_billing_tax/maintainer tax.md",
-    "docs/epoch10_billing_tax/Maitainer Seat.md",
-    "docs/epoch10_billing_tax/Transaction_cost.md",
-    "docs/epoch10_billing_tax/Memory_tax.md",
-    "docs/epoch10_billing_tax/marketplace_trade_global_license.md",
-    "docs/epoch10_billing_tax/Maintainer_Seat_Status.md",
-    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
-    "docs/epoch10_billing_tax/Distibution_pool.md"
+    "docs/harberger_tax/how_to_set_memory_tax_rate.md",
+    "docs/harberger_tax/pre_mined.md",
+    "docs/harberger_tax/README.md",
+    "docs/harberger_tax/Memory_tax_billing_model.md",
+    "docs/epoch10_billing_tax/maintainer_tax.md",
+    "docs/harberger_tax/Collection_pool.md",
+    "docs/harberger_tax/Computing_resource_billing_model.md",
+    "docs/harberger_tax/API_billing_model.md"
   ]
 }
