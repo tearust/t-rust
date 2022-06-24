@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/harberger_tax/why_do_we_need_state_tax.md",
+            "file": "docs/epoch10_billing_tax/README.md",
             "mode": "source",
             "source": false
           }
@@ -58,7 +58,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "docs/harberger_tax/why_do_we_need_state_tax.md",
+            "file": "docs/epoch10_billing_tax/README.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -74,15 +74,15 @@
   },
   "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
-    "docs/harberger_tax/why_do_we_need_state_tax.md",
     "docs/epoch10_billing_tax/README.md",
-    "docs/account-model/README.md",
-    "docs/account-model/apptoken.md",
-    "docs/appstore_ui/_sidebar.md",
-    "docs/appstore_ui/Account.md",
-    "docs/appstore_ui/Asset.md",
-    "docs/appstore_ui/Inbox.md",
-    "docs/_sidebar.md",
-    "epoch_10_billing_tax/README.md"
+    "docs/harberger_tax/maintainer_tax.md",
+    "docs/epoch10_billing_tax/maintainer tax.md",
+    "docs/epoch10_billing_tax/Maitainer Seat.md",
+    "docs/epoch10_billing_tax/Transaction_cost.md",
+    "docs/epoch10_billing_tax/Memory_tax.md",
+    "docs/epoch10_billing_tax/marketplace_trade_global_license.md",
+    "docs/epoch10_billing_tax/Maintainer_Seat_Status.md",
+    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
+    "docs/epoch10_billing_tax/Distibution_pool.md"
   ]
 }

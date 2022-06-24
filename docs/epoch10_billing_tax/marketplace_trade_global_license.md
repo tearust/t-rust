@@ -12,7 +12,7 @@ Below the header, there is a table for all type A CMLs
 All type A CML are listed here. Every CML is row. Columns are
 - ID: The id of the CML. 
 - Current owner address. clickable to a new browser tab with TAppStore's User Detail page. This page shows the detail public information for this owner.
-- Status: [[Maintainer_CML_Status]] Inactive / Pending / Active
+- Status: [[Maintainer_Seat_Status]] Inactive / Pending / Active
 - Current self estimate price. If owner changes price, it shows here immedaitely. This is the default sorting column, low to high. 
 - Last self estimate price before update. if owner change price, the old price shows here imemdaitely. 
 - Last price change time. When the owner updated the price in UTC.

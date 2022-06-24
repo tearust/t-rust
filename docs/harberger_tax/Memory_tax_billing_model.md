@@ -21,7 +21,7 @@ The Apps pay the memory tax which is based on the current market price (when oth
 
 In this case, the usage fee is similar to Harberger tax. We can set the memory tax rate to 1% of the current market price of 1M memory per day. [[how_to_set_memory_tax_rate]]. 
 
-The tax is paid to Global state machine nodes. ![diagram](https://user-images.githubusercontent.com/1761809/175086867-4f2a6caa-1b68-4e44-9f2b-a504e6f4906c.png) They will need to pay [[maintainer_income_tax]] later.
+The tax is paid to Global state machine nodes. ![diagram](https://user-images.githubusercontent.com/1761809/175086867-4f2a6caa-1b68-4e44-9f2b-a504e6f4906c.png) They will need to pay [[maintainer_tax]] later.
 # Use case exmaple
 
 Day_0. The total memory of state machine is 1000M. The init price of memory is $10 / MB. App_A estimate it need 2M of state storage. So App_A pays $20 (may be a little higher due to bonding curve, just make it sample to set to $20) and receive the right to occupy 2M space in the state memory. The remaining memory is 998M. The price is increased to $11/MB based on the curve.
