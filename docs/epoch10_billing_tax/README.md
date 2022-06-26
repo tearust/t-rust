@@ -20,7 +20,7 @@ If the square root bonding curve is complicated to compute, we can use a linear 
 ## Payment of Memory tax
 we can charge every block a const value as placeholder. The tax is stored in [[Collection Pool]] account after collected. 
 ## Buy/Sell/Suspend Global maintainer
-Allow the [[Maitainer Seat]] to be sold and transferred in marketplace. The seat has [[Maintainer_Seat_Status]]
+Allow the [[Maintainer_Seat]] to be sold and transferred in marketplace. The seat has [[Maintainer_Seat_Status]]
 ## Calculate [[maintainer_tax]] 
 use a const tax rate 1% multiply the [[self_estimate_price]]. The 1% is subject to change.
 ## Distribute the revenue to the maintainer
