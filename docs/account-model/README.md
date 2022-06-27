@@ -30,6 +30,7 @@ Alice spend 20T in her tappstore layer2 account, in return she receive 2 App789t
 Initial state:
 
 `ft_states.get(tapp_store_token)` has table
+
 | address | balance | notes |
 | -------- |------- |------|
 | 123 | 100 | Alice account in tappstore |
@@ -37,6 +38,7 @@ Initial state:
 | 0 | doesn't matter number | this is tappstore reserve TEA as a standard tapp |
 
 `ft_states.get(789)` has table 
+
 | address | balance | notes |
 | -------- |------- |------|
 | 123 | 0 | Alice account in App789 layer2, Alice has no App789 token yet |
@@ -54,6 +56,7 @@ mint 2 App789token to alice address inside `ft_states.get(789)`
 
 After buy operation
 `ft_states.get(tapp_store_token)` has table
+
 | address | balance | notes |
 | -------- |------- |------|
 | 123 | 80 | Alice account in tappstore |
