@@ -1,0 +1,1 @@
+The TApps pay for the code execution fee when running inside [[Global_state_maintainer_nodes]]. They are Global actors. The code is usually used to update the Global state.

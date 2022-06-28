@@ -1,0 +1,1 @@
+Collection Pool is a system buffer account. It temporary stored the fund that all TApps pay for [[Memory_tax]] and [[Transaction_cost]]. They will be dumped by the end of everyday, and the fund will be paid to [[Distibution_pool]] and maintainers personal account as salary.

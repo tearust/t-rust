@@ -1,0 +1,1 @@
+The TApps pay for the usage of state storage. See [[Memory_tax_billing_model]] for detail

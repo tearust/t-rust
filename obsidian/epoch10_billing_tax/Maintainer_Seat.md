@@ -1,0 +1,1 @@
+Global state needs [[Global_state_maintainer_nodes]] to run consensus. But we do not need too many of them. There is a limit, (for example, we set the number to 100. this is subject to change). So there are 100 Maintainer Seats available in the [[Marketplace]]. Everyone can buy a seat and pay the [[maintainer_tax]] to become a maintainer, 
