@@ -10,7 +10,12 @@ These are paid by **app state actors** into a [collection pool](/epoch10_billing
 
 These payments happen either continuously or at regular intervals. For computing costs, the payment stream is continuous as the txns occur. For memory tax payments, this income is moved into the [collection pool](/epoch10_billing_tax/Collection_Pool.md)as often as they’re charged (i.e. every 10 minutes, or every hour depending on what’s set by the DAO).
 
-So as long as there is app usage on the network, we can expect there to be money sitting in the [collection pool](/epoch10_billing_tax/Collection_Pool.md)
+So as long as there is app usage on the network, we can expect there to be money sitting in the   [collection pool](/epoch10_billing_tax/Collection_Pool.md)
+
+[[Collection_Pool]]
+
+[[Distribution_Pool]]
+
 
 ### Meanwhile, the Maintainer Tax Needs Paying Once a Day
 

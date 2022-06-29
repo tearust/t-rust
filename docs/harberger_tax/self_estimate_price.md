@@ -3,6 +3,7 @@ Based on the Harberger tax theory, anyone who owns a [Maintainer seat](epoch10_b
 The value is this Global CML's self estimate price.
 
 # Note on the self estimate price
-The maintainer can set any value of the CML he owns. But if he set it too high, he may need to pay more [[maintainer_tax]]. If he set it too low, someone else will pay this price and take away his CML.
+
+The maintainer can set any value of the CML he owns. But if he set it too high, he may need to pay more [maintainer_tax](maintainer_tax.md). If he set it too low, someone else will pay this price and take away his CML.
 
 So the maintainer will usualy set to a price that make reasonable profit while discourage other miners to take away his CML.
