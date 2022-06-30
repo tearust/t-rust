@@ -14,8 +14,8 @@ Instead of standard ERC20 smart contract, we can use bonding curve algorithm to 
 
 The benefits are:
 
-- They can use USDT to buy / sell TAppToken directly. No longer need to convert to TEA.
-- Automatically supported by major CEX DEX. TEA Project doesn't need to design a DEX for them.
+* They can use USDT to buy / sell TAppToken directly. No longer need to convert to TEA.
+* Automatically supported by major CEX DEX. TEA Project doesn't need to design a DEX for them.
 
 ## The bonding curve can be specially designed
 
@@ -34,4 +34,3 @@ They can sell their own token in market to get USDT/ETH then swap to TEA to pay 
 In our original design, we require every TApp to use TEA as the currency. This is hard as TEA is not a universal currency at the early stage. This make the barrier of cold start pretty high. So we change to allow consumer to pay TAppToken when using TApp. This can encourage TApp developers to build application on TEA. The price of their token is priced using USDT stable coin. Which is more faimilar for most users.
 
 The price of the TAppToken can be defined using Bonding curve if the app owner prefer. But they can choose wotherever pricing model base on their own need. As a TEA platform, we only care about the gas fee paid in TEA.
-

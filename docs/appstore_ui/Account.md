@@ -8,9 +8,7 @@ Send TEA
 Send Coffee
 We will have send other layer2 token in the future
 
-
 We may not have Genesis Exchange in mainnet
 
-> Q: Do we still need TEA debt, Locked TEA?
-
-
+ > 
+ > Q: Do we still need TEA debt, Locked TEA?

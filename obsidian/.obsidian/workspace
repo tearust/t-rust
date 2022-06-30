@@ -1,17 +1,16 @@
 {
   "main": {
-    "id": "050a09f7e1e61b8b",
+    "id": "573558a17e3bf8d2",
     "type": "split",
     "children": [
       {
-        "id": "72290caf3f4c87a2",
+        "id": "08e8ab90fb05ebe6",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/epoch10_billing_tax/user_story.md",
-            "mode": "source",
-            "source": false
+            "file": "harberger_tax/README.md",
+            "mode": "source"
           }
         }
       }
@@ -19,15 +18,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "b9988a9e6d52b41d",
+    "id": "a6d665a8e0edf501",
     "type": "split",
     "children": [
       {
-        "id": "0906d0fdbd05e607",
+        "id": "eacc8f36dfd86b23",
         "type": "tabs",
         "children": [
           {
-            "id": "2b24997bef8600ac",
+            "id": "1f66834ad893c1af",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +34,7 @@
             }
           },
           {
-            "id": "4a0a22cedb8a381f",
+            "id": "3812f90c5807eb63",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,20 +55,20 @@
     "width": 300
   },
   "right": {
-    "id": "dfb6aa2b637a71b2",
+    "id": "a1a0979fb1d0a2ed",
     "type": "split",
     "children": [
       {
-        "id": "04b441425c944071",
+        "id": "7e41f9e8666e02d1",
         "type": "tabs",
         "children": [
           {
-            "id": "b818c721787bb1a4",
+            "id": "31c7c614499c98a9",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/epoch10_billing_tax/user_story.md",
+                "file": "harberger_tax/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,20 +83,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "72290caf3f4c87a2",
+  "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
-    "docs/epoch10_billing_tax/user_story.md",
-    "docs/epoch10_billing_tax/Global_token.md",
-    "docs/epoch10_billing_tax/Corner_cases.md",
-    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
-    "docs/epoch10_billing_tax/Maintainer_Seat_Status.md",
-    "docs/epoch10_billing_tax/Maintainer_Seat.md",
-    "docs/epoch10_billing_tax/Data_structure.md",
-    "docs/epoch10_billing_tax/README.md",
-    "docs/harberger_tax/how_to_set_memory_tax_rate.md",
-    "docs/harberger_tax/pre_mined.md"
+    "harberger_tax/README.md",
+    "harberger_tax/App_User_billing_model.md",
+    "appstore_ui/Log.md",
+    "user_page.md",
+    "appstore_ui/Asset.md",
+    "appstore_ui/README.md",
+    "token_detail.md",
+    "TApps.md",
+    "cold_start_funding_support.md",
+    "epoch10_billing_tax/maintainer_tax.md"
   ]
 }

@@ -1,37 +1,52 @@
 # Why do we need to test harberger tax to the Maintainer Seats in epoch10?
+
 The top purpose of epoch10 is migrating most logic to layer2, but we can (if possible) also test the harberger tax as a new business model.
 
 The whole billing system is complex, we do not expect to have it ready in epoch10, but we can have a minimized placeholder version in epoch10 that end user can see some of the UI, but the data is not accuracy. Note, even the features in this file may not need to be there at the beginning of epoch10, they can join in the middle.
 
 # What we can compromise in epoch10?
+
 ## Memory tax set to fixed number as placeholder
+
 We can give a constant tax value every block that charged from tappstore, marketplace and teaparty. We can set three different const value(three values for TAppStore, Tea party and Maketplace, our three existing tapps). This const value will be replaced in future epoch with the real billing result. We do not have billing system ready yet, so use a const value as a placeholder.
 
 At this moment, we did not design the tappstore or marketplace to charge the end user, so we will use public service fund to support those two apps. But for the tea party, it has its own revenue model, it should pay on its own.
 
 We can manually pay TAppStore and Maketplace from the Sudo account in epoch10. In the future version, we can make it auto
+
 ## Global txn fee set to zero
+
 We can ignore this transaction fee for now. So there is only memory tax is used in epoch10
 
 ## Use linear bonding curve
+
 If the square root bonding curve is complicated to compute, we can use a linear curve instead.
 
 # What should we include?
+
 ## Payment of Memory tax
-we can charge every block a const value as placeholder. The tax is stored in [[Collection Pool]] account after collected. 
+
+we can charge every block a const value as placeholder. The tax is stored in [Collection_Pool](Collection_Pool.md) account after collected. 
+
 ## Buy/Sell/Suspend Global maintainer
-Allow the [[Maintainer_Seat]] to be sold and transferred in marketplace. The seat has [[Maintainer_Seat_Status]]
-## Calculate [[maintainer_tax]] 
-use a const tax rate 1% multiply the [[self_estimate_price]]. The 1% is subject to change.
+
+Allow the [Maintainer_Seat](Maintainer_Seat.md) to be sold and transferred in marketplace. The seat has [Maintainer_Seat_Status](Maintainer_Seat_Status.md)
+
+## Calculate [maintainer_tax](../harberger_tax/maintainer_tax.md)
+
+use a const tax rate 1% multiply the [self_estimate_price](../harberger_tax/self_estimate_price.md). The 1% is subject to change.
+
 ## Distribute the revenue to the maintainer
+
 Revenue is the (total memory tax / total number of active maintiner) - (this maintainer self estamate * 1%)
 
 This is a daily cron job, runs once a day at a block height that triggered around midnight.
 
-The maintainer revenue is sent from the [[Collection Pool]] account to each maintainer daily as well as the [[maintainer_tax]] sent to [[Distibution_pool]] too.
+The maintainer revenue is sent from the [Collection Pool](../Collection%20Pool.md) account to each maintainer daily as well as the [maintainer_tax](../harberger_tax/maintainer_tax.md) sent to [Distibution_pool](../Distibution_pool.md) too.
 
-## Collect [[maintainer_tax]] to a [[Distibution_pool]]
-The maintainer tax is stored to [[Distibution_pool]] for one day. 
+## Collect [maintainer_tax](../harberger_tax/maintainer_tax.md) to a [Distibution_pool](../Distibution_pool.md)
+
+The maintainer tax is stored to [Distibution_pool](../Distibution_pool.md) for one day. 
 the temp pool has a minimal balance, we can set it to 1000T. 
 At the end of a day, if the balance of the pool is above 1000T, the exceed part will be sent to the Bonding curve for dividend.
 If the balance is lower than 1000T, we will need to take the fund from Reserved Miner Reward to topup the balance to 1000T. 
@@ -39,28 +54,34 @@ If the balance is lower than 1000T, we will need to take the fund from Reserved 
 Using this method, we can make the public service get paid instantly since the 1000T is used as buffer.
 
 ## Pay public service (RA) from the pool
-As the [[Distibution_pool]] has 1000T buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
+
+As the [Distibution_pool](../Distibution_pool.md) has 1000T buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
 
 ## Reward detail pages
+
 We will have three Reward detial page for three kind of reward
-- Global token reward (from the [[Global_bonding_curve]])
-- Hosting CML investment (from the hosting bonding curve)
-- TApp token reward (from the tapp bonding curve)
-They are all standalone tab that logged in end user can click the links in the following pages
-- My investment / TApp
-- My investment / Global 
-- My investment / CML
-They are three tabls, every row is a invested entity. Click the "Reward detail" open this new page.
+
+* Global token reward (from the [Global_bonding_curve](../harberger_tax/Global_bonding_curve.md))
+* Hosting CML investment (from the hosting bonding curve)
+* TApp token reward (from the tapp bonding curve)
+  They are all standalone tab that logged in end user can click the links in the following pages
+* My investment / TApp
+* My investment / Global 
+* My investment / CML
+  They are three tabls, every row is a invested entity. Click the "Reward detail" open this new page.
 
 inside the reward page, list the history (up to one month to save the memory) of rewards.
 
-> Question? What do you store the data after one month? IPFS?
+ > 
+ > Question? What do you store the data after one month? IPFS?
 
 In order to show this data, the TAppStore need to store the data at last for a month.
 
-See [[Data_structure]]
+See [Data_structure](Data_structure.md)
+
 # Fund flow at this stage
-```mermaid
+
+````mermaid
 sequenceDiagram  
     participant Apps  
     participant Collection_pool  
@@ -81,22 +102,31 @@ sequenceDiagram
 	Global_bonding_curve-->>Global_bonding_curve_stakers: Use the standard bonding curve logic, the stakers will earn dividend in the curve. If they withdraw (sell Global token) they will receive TEA token
 	Genesis_block_reserved_miner_reward-->>Distribution_pool: At the end of a day, if the balance of pool buffer is less than 1000T. topup from the reserved token
     
-```
+````
 
 # Development
+
 ## Every 1000 block, Charge memory tax
+
 We can set the memory tax to 1T per 100 block.
 All Tappstore, marketplace and TEA party pay 1T per 100 block
 
 To cold start, we can give every TApp a large amount of TEA as start funding.
-## End of every day, calculate [[maintainer_tax]]  and maintainer revenue
+
+## End of every day, calculate [maintainer_tax](../harberger_tax/maintainer_tax.md)  and maintainer revenue
+
 We do not use the real human time, we use block height instead. So every 7200 blocks (equal to 24 hours) run a cron job. This cron job will do the following tasks
-- Calculate maintainer maintainer tax and revenue
-- Collect income tax to income_pool and pay maintainer
-- income_pool pay exceed (1000T) to Global bonding curve
-- Topup income_pool if lower than 1000T
+
+* Calculate maintainer maintainer tax and revenue
+* Collect income tax to income_pool and pay maintainer
+* income_pool pay exceed (1000T) to Global bonding curve
+* Topup income_pool if lower than 1000T
+
 ## At any time, instantly pay off RA public service
-This is not a daily cron job. RA is paid from the [[Distibution_pool]]
-The initi balance is 1000T. So the [[Distribution_pool]] can start to pay RA from the very beginning
-## Add the query API from TAppstore to Marketplace 
+
+This is not a daily cron job. RA is paid from the [Distribution_Pool](Distribution_Pool.md)
+The initi balance is 1000T. So the [Distribution_pool](Distribution_Pool.md) can start to pay RA from the very beginning
+
+## Add the query API from TAppstore to Marketplace
+
 Marketplace is a standalone tapp. It will need to get data from TAppstore. So the API is needed to query/response data between Marketplace and TAppstore.

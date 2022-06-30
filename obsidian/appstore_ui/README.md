@@ -10,12 +10,12 @@ Major changes:
 Logo
 
 - [[Home]] // also includes [[Account]] (detailed account information including TEA token balance) and then investments (tokens), and then user saved apps. 
-- [[TApps]] // TApps to use. This is what most consumers will expect to see when we advertise that this is the TAppstore.
-- [[Invest]]// All available TApp tokens, CML hosting tokens, and CML (global / state machine) tokens. Users come to this tab to invest.
+- TApps // TApps to use. This is what most consumers will expect to see when we advertise that this is the TAppstore.
+- Invest// All available TApp tokens, CML hosting tokens, and CML (global / state machine) tokens. Users come to this tab to invest.
 - [[Mining]]// Only seen by miners. All mining related content in this page
 - <s>[[Leader_board]]</s>  // Only seen by miners. The same as current leader board. **Suggesting to delete this, see below**.
 - [[Inbox]]//Click go to TEA Party [[app_detail]] page
-- [[Help]] // Welcome, help, about etc.
+- Help // Welcome, help, about etc.
 - [[User_pull_down]] //No change from existing version. login etc.
 
 Some comments on this new structure:
@@ -59,13 +59,13 @@ In discussion with Kevin, the following aspects will be deprecated:
 
 <img width="773" alt="Screen Shot 2022-06-07 at 3 58 43 PM" src="https://user-images.githubusercontent.com/86096370/172497011-d79685aa-4d53-4fea-b952-e81a076169b8.png">
 
-**[[Leader board]] tab** This will be deprecated by the time mainnet launches / only for testnet purposes.
+**[[Leader_board]] tab** This will be deprecated by the time mainnet launches / only for testnet purposes.
 
 Note we can keep **Marketplace** tab as well (it can just redirect to new Marketplace TApp) or it can just be a link in the [[Mining]] section.
 
 ## Help tab
 
-[[Help]] is also where the "Welcome" type of information migrates to. We want users to be able to find it, but not be the first thing they see all the time which would just induce frustration / something they would have to automatically ignore and click over to something more useful
+Help is also where the "Welcome" type of information migrates to. We want users to be able to find it, but not be the first thing they see all the time which would just induce frustration / something they would have to automatically ignore and click over to something more useful
 
 
 # Account summary

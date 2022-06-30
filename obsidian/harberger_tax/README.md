@@ -31,7 +31,7 @@ App devs pay to dev of other app's API for usage of that API. More details on [[
 App pays to the miner the hosting service fee. More detail [[Computing_resource_billing_model]]
 App pays to the [[Global_state_maintainer_nodes]] (old name is A-CML miners) the Memory tax. More detail [[Memory_tax_billing_model]]
 App pays to the Global state maintiner the txn computing fee. More detail [[Txns_computing_fee]]
-Global miners pay [[maintainer_tax]] to the [[Global pool]]
+Global miners pay [[maintainer_tax]] to the [[Distribution_Pool]]
 Global pool split all kinds of tax to public service cost and stakers dividend in bonding curve.
 Public sevice pays to all miners(A or B) for public services such as RA.
 

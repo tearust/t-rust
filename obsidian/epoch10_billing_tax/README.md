@@ -18,7 +18,7 @@ If the square root bonding curve is complicated to compute, we can use a linear 
 
 # What should we include?
 ## Payment of Memory tax
-we can charge every block a const value as placeholder. The tax is stored in [[Collection Pool]] account after collected. 
+we can charge every block a const value as placeholder. The tax is stored in [[Collection_Pool]] account after collected. 
 ## Buy/Sell/Suspend Global maintainer
 Allow the [[Maintainer_Seat]] to be sold and transferred in marketplace. The seat has [[Maintainer_Seat_Status]]
 ## Calculate [[maintainer_tax]] 
@@ -96,7 +96,7 @@ We do not use the real human time, we use block height instead. So every 7200 bl
 - income_pool pay exceed (1000T) to Global bonding curve
 - Topup income_pool if lower than 1000T
 ## At any time, instantly pay off RA public service
-This is not a daily cron job. RA is paid from the [[Distibution_pool]]
+This is not a daily cron job. RA is paid from the [[Distribution_Pool]]
 The initi balance is 1000T. So the [[Distribution_pool]] can start to pay RA from the very beginning
 ## Add the query API from TAppstore to Marketplace 
 Marketplace is a standalone tapp. It will need to get data from TAppstore. So the API is needed to query/response data between Marketplace and TAppstore.

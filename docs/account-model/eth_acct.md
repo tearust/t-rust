@@ -15,22 +15,23 @@ Because layer2 nodes cannot listen to every erc20 smart contracts. We have to ha
 When user withdraw this token, the state machine nodes will multsign a txn to transfer fund to the receiptant. 
 
 ## Other project (new tapps or existing eth projects) smart contract address
+
 Because TEA is just a erc20 compatible token. So we treat other erc20 token the same. 
 
 # Different Tokens can or cannot
 
-| Feature | TEA | other erc20, such as USDT | tapp token from bonding curve |
-| --- | ---- | ---- | ---- |
-| Topup and withdraw between layer one and two | yes | yes |yes |
-| Consume as payment inside a TApp | yes | yes | yes |
-| Used to buy tapp token in bonding curve | yes | no | no |
-| Used as purchase target others can use TEA to buy | no | no | yes |
-| As the proof of ownership when share dividend of a tapp | yes | yes | yes |
-| Tapp owner use to pay gas fee in tea project | yes | no | no |
-| Miner's mining income | yes | no | no|
-| Investors staking dividend share | no. Even tapp revenue in TEA, we still convert to tapp token in bonding curve | yes if app revenue in USDT | yes |
-| ERC20 standard | yes | yes | yes |
-| Consider security token | no | - | yes |
+|Feature|TEA|other erc20, such as USDT|tapp token from bonding curve|
+|-------|---|-------------------------|-----------------------------|
+|Topup and withdraw between layer one and two|yes|yes|yes|
+|Consume as payment inside a TApp|yes|yes|yes|
+|Used to buy tapp token in bonding curve|yes|no|no|
+|Used as purchase target others can use TEA to buy|no|no|yes|
+|As the proof of ownership when share dividend of a tapp|yes|yes|yes|
+|Tapp owner use to pay gas fee in tea project|yes|no|no|
+|Miner's mining income|yes|no|no|
+|Investors staking dividend share|no. Even tapp revenue in TEA, we still convert to tapp token in bonding curve|yes if app revenue in USDT|yes|
+|ERC20 standard|yes|yes|yes|
+|Consider security token|no|-|yes|
 
 # Example combination of tokens if tapp use USDT as consumer payment:
 
@@ -41,7 +42,6 @@ Investors can trade tea_party_token as regular ERC 20 token outside of TEA Proje
 Investors can sell tea_party_token back to TEA using bonding curve.
 TEA party app pays TEA token as gas fee. The gas fee is calculated by how much resources it used. 
 Miners of TEA party earns TEA as mining income.
-
 
 # Example combination of tokens if tapp use tapp_token as consumer payment:
 
@@ -59,16 +59,21 @@ Miners of TEA party earns TEA as mining income.
 # Function
 
 ## Topup: transfer from layer one to layer two
+
 This is not the original topup we used before. that topup is now called approve.
 
 ### input
+
 token_id: the erc20 address (we used to use tappid) of the token smart contract. it is the unique id of every token type
 amount: how much to transfer in
 account: the eth address of the user
+
 ### output
+
 Ok or err
 
 ### notes.
+
 Alice can only transfer amount token_id from her own layer1 (eth) to her own layer2 account. She cannot transfer to other user's account.
 
 ## Withdraw: transfer from layer two to layer one.
@@ -84,6 +89,7 @@ account: the eth address of the user
 Ok or err
 
 ### notes.
+
 Alice can only transfer amount token_id from her own layer two (tea project layer two) to her own layer one (eth) account. She cannot transfer to other user's account.
 
 ## Approve: approve tapp to consume a certain amount of any erc20 token without additional confirmation
@@ -108,7 +114,7 @@ ok or err
 This function move the fund from ft_state.token_id.account to ft_allownce_state.token_id.account.
 If fails when overdraft
 
-## Revoke: revoke an existing approval. 
+## Revoke: revoke an existing approval.
 
 user decide to revoke a previous apprval. 
 This operation was called "withddraw" before. Now we use approve to be consistent with eth erc21 standard name.
@@ -133,22 +139,29 @@ Only the same user can operate.
 ## Deposit
 
 Deposit can NOT be done by user. It is the app who can temporarily reserve a certain amount of token to process a multiple steps operation. Only tapp can deposit or refund. We do not allow user to refund because user may not know when the multiple steps operation will complete.
+
 ### input
+
 token_id:
 amount:
 account:
 
 ### note
+
 It moves the fund from ft_allowance_state.token_id.account to ft_deposit_state.token_id.account
 
 ## Refund
+
 The oppsite of Deposit
+
 ### input
+
 token_id:
 amount:
 account:
 
 ### note
+
 It moves the fund from  ft_deposit_state.token_id.account to ft_allowance_state.token_id.account
 
 refund can be only called by the tapp, not the user. When the tapp complete a multiple steps operation, it will refund unused fund back to the user.
@@ -156,6 +169,7 @@ refund can be only called by the tapp, not the user. When the tapp complete a mu
 # Workflow
 
 ## Example background of tea party that use USDT
+
 Tea party has a te teaparty_token, which is a security token. It is not used to consume in tea party. Investors need to use TEA to buy teaparty_token
 Tea party use usdt_token as utility. User pay usdt for posting messages.
 
@@ -192,9 +206,11 @@ Before Alice can use tea party, she need to approve some fund first. Now she app
 Now, tea party knows there is 10 usdt in alice allowance. Tea party app can consume up to 10 usdt if alice use the paid feature of tea party
 
 ## Consume tea party
+
 Alice send 1 message, assume every message cost 0.1 usdt. The tea party will transfer 0.1 usdt from ft_allowance_state.token_id_tea_party.alice_usdt to ft_state.token_id_tea_party.hidden_consume_account. 
 
 # If TEA party use tea_party_token to consume what will be different?
+
 ## use tea_party_token to consume in tea party
 
 The previous example uses USDT as currency to pay posting message in tea party. What if the tea party developer decide to use tea_party_token to pay consuming. The gain is obviously, they can use boost the price of tea_party_token is it gets more and more popular. The cons are it adds initial barrier to the consumer, since they will need to exchange for tea_party_token before first time use.
@@ -215,10 +231,9 @@ The rest would be pretty much the same as other tapps. When user buy tea_party_t
 
 You probably have noticed that the hidden_system_account in layer two has the same funcitonity of TEA_L2_ADDRESS account in layer one. They are all used to store reserve token. Both of them are controlled by the state machine nodes.
 
-
 # Data structure
 
-``` json
+````json
 
 ft_state:{
   token_id_tea_party:{//this is actaully app id of tea party. it is also an erc20 address of the smart contract
@@ -248,4 +263,4 @@ ft_deposit_state{
     // note, we allow any tea app to hold funds in TEA and tapp_own_token. 
   }
 }
-```
+````
