@@ -1,11 +1,11 @@
-* [Home](/)
-* <strong>
+- [Home](/)
+- <strong>
 [Account Model](account-model/README.md)</strong>
-* <strong>
+- <strong>
 [Appstore UI](appstore_ui/README.md)</strong>
-* <strong>
+- <strong>
 [Global CML Marketplace](epoch10_billing_tax/marketplace_trade_maintainer_seat.md)</strong>
-* <strong>
+- <strong>
 [Harberger Tax](harberger_tax/README.md)</strong>
-* <strong>
+- <strong>
 [Epoch10 Billing and Tax](epoch10_billing_tax/README.md)</strong>
