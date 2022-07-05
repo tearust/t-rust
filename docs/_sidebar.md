@@ -4,3 +4,5 @@
 - <strong>[Global CML Marketplace](epoch10_billing_tax/marketplace_trade_maintainer_seat.md)</strong>
 - <strong>[Harberger Tax](harberger_tax/README.md)</strong>
 - <strong>[Epoch10 Billing and Tax](epoch10_billing_tax/README.md)</strong>
+- <strong>[DAPI Overview](dapi/README.md)</strong>
+- <strong>[Phala Comparison](comp_phala/README.md)</strong>
