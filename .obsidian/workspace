@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/epoch10_billing_tax/user_story.md",
+            "file": "docs/comp_phala/README.md",
             "mode": "source",
             "source": false
           }
@@ -19,76 +19,62 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "b9988a9e6d52b41d",
-    "type": "split",
+    "id": "9210e2ddc2729f4c",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "0906d0fdbd05e607",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2b24997bef8600ac",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "4a0a22cedb8a381f",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "faf830cd5399a48d",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "5cb8ce5b98c5fc8c",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300
+    "currentTab": 0
   },
   "right": {
-    "id": "dfb6aa2b637a71b2",
-    "type": "split",
+    "id": "dea35ef7ded4006b",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "04b441425c944071",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "b818c721787bb1a4",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "docs/epoch10_billing_tax/user_story.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
+        "id": "431ca57571df54e7",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "docs/comp_phala/README.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 0
   },
   "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
+    "docs/comp_phala/README.md",
     "docs/epoch10_billing_tax/user_story.md",
     "docs/epoch10_billing_tax/Global_token.md",
     "docs/epoch10_billing_tax/Corner_cases.md",
@@ -97,7 +83,6 @@
     "docs/epoch10_billing_tax/Maintainer_Seat.md",
     "docs/epoch10_billing_tax/Data_structure.md",
     "docs/epoch10_billing_tax/README.md",
-    "docs/harberger_tax/how_to_set_memory_tax_rate.md",
-    "docs/harberger_tax/pre_mined.md"
+    "docs/harberger_tax/how_to_set_memory_tax_rate.md"
   ]
 }
