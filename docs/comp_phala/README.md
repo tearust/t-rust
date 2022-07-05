@@ -4,14 +4,14 @@ The comparision with Phala Network
 # Disclaimer
 Because Tea project is still under heavy development, all the features we are talking in this article may or may not completed.
  
-# Things in common
+# Features in common
 ## Hardware protected enclave
 Instead of using cryptographic algorithm to protect privacy, both projects use hardware enclave. Phala uses CPU based TEE, TEA Project uses TPM based trusted computing.
 ## Help protect privacy and trustedless code execution
 Code and data running inside both enclaves are protected. Human (including the miners or the admin of the system) cannot access to the enclave. This is different than the traditional cloud computing (admin may access to the machine) and traditional blockchain (everything is publicly verifable)
 # Differences
 ## Project stage
-Phala has mainnet running for a while. Tea project is still under heavy development.
+Phala has mainnet running for a while. Tea project is still under heavy development. In this case, Phala is mature. 
 ## TEE vs Trusted computing
 TEE is a CPU technology, such as Intel SGX. It generate an enclave inside CPU hardware. Trusted computing is a security chip technology. It does not generate enclave inside the TPM chip, instead use TPM as "roof of trust" to protect a much larger system, such as a full node or partial node. 
 
@@ -29,9 +29,10 @@ Phala is a blockchain project. It has its own Substrate based DOT parachain. Tea
 ## Hardware requirement
 Phala node requires a TEE ready CPU. Tea project node requires a TPM chip on board and a GPS receiver. The GPS receiver is very important because Tea Project uses timestamp from the GPS sats to reach consensus of the state machine. It is called "proof of time".
 
-## Fat contract vs Micro services
+## Smart contract, Fat contract vs General purpose computing
 Phala introduces an enhanced verison of smart contract, it is called "Fat Contract". It can do much more than a regular smart contract. But it is still a task-based function, similar to the Lambda in cloud computing.
-Tea application is not a smart contract or fat contract. It is similar to the micro services in cloud computing. Tea applicaitons are 3-tiers architecture. the miners can host an application as if it hosts a web services. 
+
+Tea application is not a smart contract nor fat contract. It is general purpose computing, similar to the micro services in cloud computing. Tea applicaitons are 3-tiers architecture. the miners can host an application as if it hosts a web services. 
 
 ## State stored in blockchain or decentralized state machine
 Phala fat contract store state back to the caller. The state stored in the blockchain. That is why I said Phala is still a blockchain.
@@ -40,7 +41,7 @@ Applicaiton can store their app state into the layer2 state machine as if they a
 
 Due to the same reason, Tea project has no concepts called "TPS". Its state machine is a continue updating database. There is no block size limit, no block verification interval. 
 
-## Scalability limitations
+## Scalability and limitations
 Phala runs each fat contract in separated TEE nodes, there is no need to run consensus between them. It can reach a far higher scalability than traditional blockchain. The only limitataion may come from the blockchain layer. Because it is still a blockchain, the state is stored in its blockchain. If there are too many tasks running simultanously, the blockchain may be blocked.
 
 Tea project is not a blockchain, it is more like a distributed database. There is no block size limit or block interval. The database is continuous updating. The only limit would be the processing power and network limit. Technically it can run as fast as today's cloud computing.
