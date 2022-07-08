@@ -65,3 +65,10 @@ Apps may not use TEA Project because
 Akash is kind of docker management platform. It leverage blockchain's token financial incentive feature. There is nothing special on the application.
 
 TEA Project doesn't use docker due to seucrity reason. TEA has its own tokenomics, own database, own consensus, own execution environment. So it reach new level of decentralization and security.
+
+
+# Reference
+## Docker or Wasm?
+![[Pasted image 20220708093126.png]]
+This is from the commend of this video https://www.youtube.com/watch?v=UoRfr3Q2R8A
+Why wasm runtime is a better choice for secure application than docker? The answer also apply to "why TEA project is a better choice for secure application than Akash"
