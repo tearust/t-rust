@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "comp_aleph/README.md",
+            "file": "com_akash/README.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "comp_aleph/README.md",
+                "file": "com_akash/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +87,7 @@
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
+    "com_akash/README.md",
     "comp_aleph/README.md",
     "Untitled.md",
     "epoch10_billing_tax/marketplace_trade_maintainer_seat.md",
@@ -95,7 +96,6 @@
     "README.md",
     "harberger_tax/README.md",
     "harberger_tax/App_User_billing_model.md",
-    "appstore_ui/Log.md",
-    "user_page.md"
+    "appstore_ui/Log.md"
   ]
 }
