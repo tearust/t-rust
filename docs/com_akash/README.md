@@ -42,6 +42,31 @@ Akash is similar to AWS. The applications are run on both AWS or Akash. The adva
 
 TEA Project is NOT AWS. TEA Application cannot run on AWS. So that TEA Apps have many new features that AWS cloud apps do not have. 
 
+# Reasons to use
+
+Apps need Akash could because
+
+* Existing docker apps need cheaper host than AWS
+* Concern of AWS to ban this application
+
+Apps need TEA Project could because
+
+* Top level privacy that concern of AWS admin or other Akash miners to get the secrets.
+* Decentralized database support. 
+
+# Reasons not to use
+
+Apps may not use Akash because
+
+* Not sure how Akash store globe state. I did not see a distributed database. So if any application transfer from node A to node B, not sure how the app state transfer to the new node.
+* Worry about someone can login the node and get the secrets
+
+Apps may not use TEA Project because
+
+* Developer doesn't want to learn how to build TEA Apps
+* Existing AWS docker apps cannot migrate without modification
+* TEA is not ready yet
+
 # Conclusion
 
 Akash is kind of docker management platform. It leverage blockchain's token financial incentive feature. There is nothing special on the application.
