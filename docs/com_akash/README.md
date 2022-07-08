@@ -1,3 +1,9 @@
+Akash can be considered a tokenized Kubernates. Kubernates is a docker cluster management tool. When adding tokenized feature, Akash incentivize the miners to provider docker hosting service so that application can run on miner's machine instead of centralized Kubernates cluster.
+
+Akash's tokenization is done by blockchain technology. But the docker services have nothing to do with blockchain. It is standard docker container. Existing cloud apps (dockernized) can run on Akash. **Those apps are NOT dApps, they are still existing cloud apps**.
+
+This is very different than TEA Project. TEA Apps are not existing cloud apps. TEA Apps are designed to be decentralized apps.
+
 # Common features
 
 Both projects claim their applications are Nonstoppable.
