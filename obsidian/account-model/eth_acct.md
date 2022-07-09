@@ -4,10 +4,16 @@
 
 this is a smart contract address in eth. It is used as standard ERC 20 and additional RA, AA mint etc. Our main TEA token logic stays here.
 
+This contract is NOT payable. So far I did not think of any use case that other users pay ETH to this contract. We are not going to do ICO.
+
 ## TEA_L2_ADDRESS
 
-this is a smart contract address in eth. It is used to reserve fund from others who topup their ERC20 token to our layer two.
+This is the address inside TEA smart contract (layer1). It is used to reserve all TEA token that topup to layer2. 
 
+The [[Global_state_maintainer_nodes]] controls the fund inside this address. When a user withdraw, the fund is transferred from this account to its layer1 address.
+
+The features below are postponed to 2023!
+```
 This is a multisig account. It is controlled by the State Machine Validator group members. 
 
 Because layer2 nodes cannot listen to every erc20 smart contracts. We have to have a list of smart contract addresses. In those smart contract, there is a TEA_L2_ADDRESS that used to store reserved this erc20 token. State machine nodes also listen to the fund_transfer_in_event, then emit layer two topup txn.
@@ -15,7 +21,8 @@ Because layer2 nodes cannot listen to every erc20 smart contracts. We have to ha
 When user withdraw this token, the state machine nodes will multsign a txn to transfer fund to the receiptant. 
 
 ## Other project (new tapps or existing eth projects) smart contract address
-Because TEA is just a erc20 compatible token. So we treat other erc20 token the same. 
+Because TEA is just a erc20 compatible token. So we treat other erc20 token the same.
+
 
 # Different Tokens can or cannot
 
@@ -55,6 +62,8 @@ Investors can trade tea_party_token as regular ERC 20 token outside of TEA Proje
 Investors can sell tea_party_token back to TEA using bonding curve.
 TEA party app owner need to sell tea_party_token to TEA, then use the TEA to pay gas fee. The gas fee is calculated by how much resources it used. 
 Miners of TEA party earns TEA as mining income.
+
+```
 
 # Function
 
@@ -154,7 +163,8 @@ It moves the fund from  ft_deposit_state.token_id.account to ft_allowance_state.
 refund can be only called by the tapp, not the user. When the tapp complete a multiple steps operation, it will refund unused fund back to the user.
 
 # Workflow
-
+Update Jul2022. The USDT paymetn postponed to 2023
+```
 ## Example background of tea party that use USDT
 Tea party has a te teaparty_token, which is a security token. It is not used to consume in tea party. Investors need to use TEA to buy teaparty_token
 Tea party use usdt_token as utility. User pay usdt for posting messages.
@@ -215,6 +225,7 @@ The rest would be pretty much the same as other tapps. When user buy tea_party_t
 
 You probably have noticed that the hidden_system_account in layer two has the same funcitonity of TEA_L2_ADDRESS account in layer one. They are all used to store reserve token. Both of them are controlled by the state machine nodes.
 
+```
 
 # Data structure
 
@@ -249,3 +260,4 @@ ft_deposit_state{
   }
 }
 ```
+

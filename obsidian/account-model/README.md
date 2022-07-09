@@ -1,4 +1,57 @@
-# Tables
+# Update Jul 2022
+We no longer plan payment in USDT feature in 2022.
+
+Planned in 2022
+- TEA Project layer1 smart contract in ETH
+- Genesis block distribute all investors TEA token
+- Genesis block reserve all layer2 token
+- Vesting schedule in smart contract
+- Topup withdraw TEA token between layer1 and layer2
+
+Postpone to 2023
+- Payment in  USDT (USDT actually means other ERC20 token)
+- Bridge between USDT and TEA
+- Topup and withdraw USDT
+- AppToken support ERC20
+
+# Layer1 smart contract design
+## Standard ERC20 interface
+## Topup withdraw between two layers
+### Topup
+Topup in layer1 is actually sending fund from sender to [[eth_acct#TEA_L2_ADDRESS]]]. 
+### Withdraw
+Withdraw in layer1 is actually sending fund from [[eth_acct#TEA_L2_ADDRESS]] to receiver address.
+
+### Layer2
+The remaining workflow will be done in layer2. It mint new layer2 TEA in layer2 when toup, or burn Layer2 TEA when withdraw.
+
+## CML tokens
+CML is inside layer1 smart contract.
+
+## RA
+To reduce the layer1 cost, RA is intialized in layer2. 
+> Question? How layer1 can verify the RA is legally initialized from layer2? Can we use ETH block hash as random number? This is not controlled by layer2. We use this random number to generate attestee and validators.  If we cannot, we still need to intialize RA from layer1.
+
+As long as enough validators approve a CML is valid, it passes RA and become trusted.
+
+## Map between Hosting nodes to TApps
+End user need to check this map to find out which IP address (hosting node) actually hosting any given TApp.
+
+## List of bootstrap nodes
+
+## List of State Maintainers public key
+The smart contract logic will need this list to verify any txn that move fund in [[eth_acct#TEA_L2_ADDRESS]]
+we do not need to public the IP address or peer ID, just public key.
+
+## New block event
+> Question. Since layer1 is a smart contract, should we use ETH new block event instead?
+
+## Machine
+> Question: Can we handle machine in layer2?
+# Layer2 table and txn design
+
+
+## Tables
 ```
 pub type BalanceState = HashMap<Account, Balance>;
 
@@ -17,14 +70,14 @@ There are a few special accounts that not belonging to any real human user.
 
 For every tapp, it always has a HIDDEN_BONDING_RESERVE_ACCOUNT in `ft_states.get(tapp_store_token_id)`.
 
-# Use cases
+##  Use cases
 Let's assume a tapp name is App789 has a token_id = 0x789.
 tappstore_token_id = 0x0,
 Alice has address=0x123.
 Alice has topupped 100T in Tappstore account
 at this moment, assume the tapp App789 price is 10T/App789token.
 
-## Buy token
+### Buy token
 Alice spend 20T in her tappstore layer2 account, in return she receive 2 App789token. 
 
 Initial state:
@@ -70,10 +123,10 @@ After buy operation
 | -------- |------- |------|
 | 123 | 2  | Alice owns 2 App789 tokens |
 
-## Sell token
+### Sell token
 TODO
 
-# Auth
+## Auth
 When move fund out of address 789 which owned by the App789, only tappstore actor can be authorized for this operation. This is a sell token OP
 
 
