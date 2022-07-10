@@ -14,14 +14,7 @@ The slash is:
 
 # Distribution pool cannot cover public service
 
-We preset a minimal pool size to 1000T. At any end of a day, if the distribution pool balance is lower than 1000T, the [Genesis_block_miner_reward_reserve](Genesis_block_miner_reward_reserve.md)  will transfer enough fund to topup the balance back to 1000T.
-
-If in the middle of a day, all 1000T plus the income from [Collection Pool](../Collection%20Pool.md) cannot cover the public service, this corner case happens.
-
-Solution:
-Trigger the transfer from [Genesis_block_miner_reward_reserve](Genesis_block_miner_reward_reserve.md) 1000T immediately.
-
-We should try to avoid this corner case by increase the minimal pool size from 1000T to a larger number.
+We preset a minimal pool size [Distribution_pool_overflow](../Distribution_pool_overflow.md). At any time of a day, when public service trying to tranfer fund from [Distribution_Pool](Distribution_Pool.md) but its balance is zero,  a one-time transfer from the [Genesis_block_miner_reward_reserve](Genesis_block_miner_reward_reserve.md)  will be called to transfer 1000T, so that the [Distribution_Pool](Distribution_Pool.md) balance is enough fund to pay public service.
 
 # Genesis block miner reward reserve runs out
 

@@ -32,14 +32,14 @@ The maintainer revenue is sent from the [[Collection Pool]] account to each main
 
 ## Collect [[maintainer_tax]] to a [[Distibution_pool]]
 The maintainer tax is stored to [[Distibution_pool]] for one day. 
-the temp pool has a minimal balance, we can set it to 1000T. 
-At the end of a day, if the balance of the pool is above 1000T, the exceed part will be sent to the Bonding curve for dividend.
-If the balance is lower than 1000T, we will need to take the fund from Reserved Miner Reward to topup the balance to 1000T. 
+the temp pool has a minimal balance, we can set it to [[Distribution_pool_overflow]]. 
+At the end of a day, if the balance of the pool is above [[Distribution_pool_overflow]], the exceed part will be sent to the Bonding curve for dividend.
+If the balance is lower than [[Distribution_pool_overflow]], we will need to take the fund from Reserved Miner Reward to topup the balance to [[Distribution_pool_overflow]]
 
-Using this method, we can make the public service get paid instantly since the 1000T is used as buffer.
+Using this method, we can make the public service get paid instantly since the [[Distribution_pool_overflow]] is used as buffer.
 
 ## Pay public service (RA) from the pool
-As the [[Distibution_pool]] has 1000T buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
+As the [[Distibution_pool]] has [[Distribution_pool_overflow]] buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
 
 ## Reward detail pages
 We will have three Reward detial page for three kind of reward
@@ -93,10 +93,10 @@ To cold start, we can give every TApp a large amount of TEA as start funding.
 We do not use the real human time, we use block height instead. So every 7200 blocks (equal to 24 hours) run a cron job. This cron job will do the following tasks
 - Calculate maintainer maintainer tax and revenue
 - Collect income tax to income_pool and pay maintainer
-- income_pool pay exceed (1000T) to Global bonding curve
-- Topup income_pool if lower than 1000T
+- income_pool pay exceed ([[Distribution_pool_overflow]]) to Global bonding curve
+- Topup income_pool if lower than [[Distribution_pool_overflow]]
 ## At any time, instantly pay off RA public service
 This is not a daily cron job. RA is paid from the [[Distribution_Pool]]
-The initi balance is 1000T. So the [[Distribution_pool]] can start to pay RA from the very beginning
+The initi balance is [[Distribution_pool_overflow]]. So the [[Distribution_pool]] can start to pay RA from the very beginning
 ## Add the query API from TAppstore to Marketplace 
 Marketplace is a standalone tapp. It will need to get data from TAppstore. So the API is needed to query/response data between Marketplace and TAppstore.

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "account-model/README.md",
+            "file": "epoch10_billing_tax/Corner_cases.md",
             "mode": "source"
           }
         }
@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "1000T",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -48,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "account-model/README.md",
+                "file": "epoch10_billing_tax/Corner_cases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +88,15 @@
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
+    "epoch10_billing_tax/Corner_cases.md",
+    "epoch10_billing_tax/maintainer_tax.md",
+    "epoch10_billing_tax/README.md",
+    "harberger_tax/maintainer_tax.md",
+    "epoch10_billing_tax/Distribution_Pool.md",
+    "epoch10_billing_tax/Collection_Pool.md",
+    "Distribution_pool_overflow.md",
+    "Distibution_pool.md",
     "account-model/README.md",
-    "account-model/eth_acct.md",
-    "account-model/layer2bridge-2023.md",
-    "account-model/apptoken.md",
-    "appstore_ui/_sidebar.md",
-    "_sidebar.md",
-    "README.md",
-    "account-model/_sidebar.md",
-    "com_akash/README.md",
-    "comp_aleph/README.md"
+    "account-model/eth_acct.md"
   ]
 }

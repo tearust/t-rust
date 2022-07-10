@@ -47,15 +47,15 @@ The maintainer revenue is sent from the [Collection Pool](../Collection%20Pool.m
 ## Collect [maintainer_tax](../harberger_tax/maintainer_tax.md) to a [Distibution_pool](../Distibution_pool.md)
 
 The maintainer tax is stored to [Distibution_pool](../Distibution_pool.md) for one day. 
-the temp pool has a minimal balance, we can set it to 1000T. 
-At the end of a day, if the balance of the pool is above 1000T, the exceed part will be sent to the Bonding curve for dividend.
-If the balance is lower than 1000T, we will need to take the fund from Reserved Miner Reward to topup the balance to 1000T. 
+the temp pool has a minimal balance, we can set it to [Distribution_pool_overflow](../Distribution_pool_overflow.md). 
+At the end of a day, if the balance of the pool is above [Distribution_pool_overflow](../Distribution_pool_overflow.md), the exceed part will be sent to the Bonding curve for dividend.
+If the balance is lower than [Distribution_pool_overflow](../Distribution_pool_overflow.md), we will need to take the fund from Reserved Miner Reward to topup the balance to [Distribution_pool_overflow](../Distribution_pool_overflow.md)
 
-Using this method, we can make the public service get paid instantly since the 1000T is used as buffer.
+Using this method, we can make the public service get paid instantly since the [Distribution_pool_overflow](../Distribution_pool_overflow.md) is used as buffer.
 
 ## Pay public service (RA) from the pool
 
-As the [Distibution_pool](../Distibution_pool.md) has 1000T buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
+As the [Distibution_pool](../Distibution_pool.md) has [Distribution_pool_overflow](../Distribution_pool_overflow.md) buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
 
 ## Reward detail pages
 
@@ -119,13 +119,13 @@ We do not use the real human time, we use block height instead. So every 7200 bl
 
 * Calculate maintainer maintainer tax and revenue
 * Collect income tax to income_pool and pay maintainer
-* income_pool pay exceed (1000T) to Global bonding curve
-* Topup income_pool if lower than 1000T
+* income_pool pay exceed ([Distribution_pool_overflow](../Distribution_pool_overflow.md)) to Global bonding curve
+* Topup income_pool if lower than [Distribution_pool_overflow](../Distribution_pool_overflow.md)
 
 ## At any time, instantly pay off RA public service
 
 This is not a daily cron job. RA is paid from the [Distribution_Pool](Distribution_Pool.md)
-The initi balance is 1000T. So the [Distribution_pool](Distribution_Pool.md) can start to pay RA from the very beginning
+The initi balance is [Distribution_pool_overflow](../Distribution_pool_overflow.md). So the [Distribution_pool](Distribution_Pool.md) can start to pay RA from the very beginning
 
 ## Add the query API from TAppstore to Marketplace
 
