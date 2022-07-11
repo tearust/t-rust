@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "docs/comp_phala/README.md",
-            "mode": "source",
+            "file": "TApp_cold_start/README.md",
+            "mode": "preview",
             "source": false
           }
         }
@@ -58,7 +58,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "docs/comp_phala/README.md",
+            "file": "TApp_cold_start/README.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -74,6 +74,7 @@
   },
   "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
+    "docs/epoch10_billing_tax/README.md",
     "docs/comp_phala/README.md",
     "docs/epoch10_billing_tax/user_story.md",
     "docs/epoch10_billing_tax/Global_token.md",
@@ -82,7 +83,6 @@
     "docs/epoch10_billing_tax/Maintainer_Seat_Status.md",
     "docs/epoch10_billing_tax/Maintainer_Seat.md",
     "docs/epoch10_billing_tax/Data_structure.md",
-    "docs/epoch10_billing_tax/README.md",
     "docs/harberger_tax/how_to_set_memory_tax_rate.md"
   ]
 }
