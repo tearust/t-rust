@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TApp_cold_start/README.md",
+            "file": "obsidian/TApp_cold_start/README.md",
             "mode": "preview",
             "source": false
           }
@@ -58,7 +58,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "TApp_cold_start/README.md",
+            "file": "obsidian/TApp_cold_start/README.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -72,7 +72,7 @@
     ],
     "currentTab": 0
   },
-  "active": "72290caf3f4c87a2",
+  "active": "faf830cd5399a48d",
   "lastOpenFiles": [
     "docs/epoch10_billing_tax/README.md",
     "docs/comp_phala/README.md",
