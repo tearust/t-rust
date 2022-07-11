@@ -29,10 +29,9 @@ The remaining workflow will be done in layer2. It mint new layer2 TEA in layer2 
 CML is inside layer1 smart contract.
 
 ## RA
-To reduce the layer1 cost, RA is intialized in layer2. 
-> Question? How layer1 can verify the RA is legally initialized from layer2? Can we use ETH block hash as random number? This is not controlled by layer2. We use this random number to generate attestee and validators.  If we cannot, we still need to intialize RA from layer1.
-
-As long as enough validators approve a CML is valid, it passes RA and become trusted.
+To reduce the layer1 cost, RA is intialized and verified in layer2. 
+The punishment happens in layer1. 
+Layer 1 also store the flag indicate that if a CML is "trusted (passed)" or "untrusted(not verified or verify failed)".
 
 ## Map between Hosting nodes to TApps
 End user need to check this map to find out which IP address (hosting node) actually hosting any given TApp.
@@ -44,10 +43,12 @@ The smart contract logic will need this list to verify any txn that move fund in
 we do not need to public the IP address or peer ID, just public key.
 
 ## New block event
-> Question. Since layer1 is a smart contract, should we use ETH new block event instead?
+We use ETH mainchain new block event as trigger
 
 ## Machine
-> Question: Can we handle machine in layer2?
+We need machine ID in layer1, so that the TEA Box manufacturer can register device with vendor signature. 
+
+This may be chanced if we have a better way to do this in layer2. 
 # Layer2 table and txn design
 
 
