@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TApp_cold_start/README.md",
+            "file": "_sidebar.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TApp_cold_start/README.md",
+                "file": "_sidebar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +87,7 @@
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
+    "_sidebar.md",
     "TApp_cold_start/README.md",
     "epoch10_billing_tax/Corner_cases.md",
     "account-model/README.md",
@@ -95,7 +96,6 @@
     "harberger_tax/maintainer_tax.md",
     "epoch10_billing_tax/Distribution_Pool.md",
     "epoch10_billing_tax/Collection_Pool.md",
-    "Distribution_pool_overflow.md",
-    "Distibution_pool.md"
+    "Distribution_pool_overflow.md"
   ]
 }
