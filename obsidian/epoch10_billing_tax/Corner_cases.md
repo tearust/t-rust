@@ -18,3 +18,5 @@ If the [[Genesis_block_miner_reward_reserve]] runs out, it runs out. We cannot m
 
 If this happens, our tokenomics design has problem. The project is likely fail..
 
+# Corner cases
+See [[Corner_cases]]

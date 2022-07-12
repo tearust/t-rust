@@ -83,16 +83,16 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100
+    "width": 349
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
     "_sidebar.md",
-    "TApp_cold_start/README.md",
     "epoch10_billing_tax/Corner_cases.md",
+    "epoch10_billing_tax/README.md",
+    "TApp_cold_start/README.md",
     "account-model/README.md",
     "epoch10_billing_tax/maintainer_tax.md",
-    "epoch10_billing_tax/README.md",
     "harberger_tax/maintainer_tax.md",
     "epoch10_billing_tax/Distribution_Pool.md",
     "epoch10_billing_tax/Collection_Pool.md",
