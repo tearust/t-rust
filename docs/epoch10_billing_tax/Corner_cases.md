@@ -21,3 +21,7 @@ We preset a minimal pool size [Distribution_pool_overflow](../Distribution_pool_
 If the [Genesis_block_miner_reward_reserve](Genesis_block_miner_reward_reserve.md) runs out, it runs out. We cannot mint new TEA to fill in.
 
 If this happens, our tokenomics design has problem. The project is likely fail..
+
+# Corner cases
+
+See [Corner_cases](Corner_cases.md)
