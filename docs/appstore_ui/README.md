@@ -1,4 +1,21 @@
-Major changes:
+## appstore_ui pages
+
+* [Intro for Appstore UI](appstore_ui/README.md)
+* [Account](appstore_ui/Account.md)
+* [App Detail](appstore_ui/app_detail.md)
+* [Asset](appstore_ui/Asset.md)
+* [Discover](appstore_ui/Discover.md)
+* [Home](appstore_ui/Home.md)
+* [Inbox](appstore_ui/Inbox.md)
+* [Leaderboard](appstore_ui/Leader_board.md)
+* [Log](appstore_ui/Log.md)
+* [Marketplace](appstore_ui/Marketplace.md)
+* [Mining](appstore_ui/Mining.md)
+* [Saved](appstore_ui/saved.md)
+* [User Pull Down](appstore_ui/User_pull_down.md)
+* [Welcome](appstore_ui/Welcome.md)
+
+# Major changes
 
 1. AppStore replace wallet
 1. AppStore has two modes. One fo regular non-miners. Another for miners. Only miners will see the complex mining related UI. Regular users will only see the tapp list, staking investment and regular token operation (transfer etc.)
