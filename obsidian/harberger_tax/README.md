@@ -1,12 +1,10 @@
 # harberger_tax pages
-
-- [Intro for Harberger Tax](harberger_tax/README.md)
 - [API billing model](harberger_tax/API_billing_model.md)
 - [API user billing model](harberger_tax/App_User_billing_model.md)
 - [Computing resource billing model](harberger_tax/Computing_resource_billing_model.md)
 - [Global bonding curve](harberger_tax/Global_bonding_curve.md)
-- [Global CML](harberger_tax/Maintainer_seat.md)
-- [Global pool](harberger_tax/Collection_pool.md)
+- [Global CML](harberger_tax/Maintainer_tax.md)
+- [Global pool](epoch10_billing_tax/Collection_pool.md)
 - [Global state maintainer nodes](harberger_tax/Global_state_maintainer_nodes.md)
 - [Hosting service billing tax](harberger_tax/hosting_service_billing_tax.md)
 - [How to set memory tax rate](harberger_tax/how_to_set_memory_tax_rate.md)

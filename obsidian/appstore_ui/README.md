@@ -1,6 +1,5 @@
 ## appstore_ui pages
 
-- [Intro for Appstore UI](appstore_ui/README.md)
 - [Account](appstore_ui/Account.md)
 - [App Detail](appstore_ui/app_detail.md)
 - [Asset](appstore_ui/Asset.md)
