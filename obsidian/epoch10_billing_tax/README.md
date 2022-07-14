@@ -28,10 +28,10 @@ Revenue is the (total memory tax / total number of active maintiner) - (this mai
 
 This is a daily cron job, runs once a day at a block height that triggered around midnight.
 
-The maintainer revenue is sent from the [[Collection Pool]] account to each maintainer daily as well as the [[maintainer_tax]] sent to [[Distibution_pool]] too.
+The maintainer revenue is sent from the [[Collection_Pool]] account to each maintainer daily as well as the [[maintainer_tax]] sent to [[Distribution_Pool]] too.
 
-## Collect [[maintainer_tax]] to a [[Distibution_pool]]
-The maintainer tax is stored to [[Distibution_pool]] for one day. 
+## Collect [[maintainer_tax]] to a [[Distribution_Pool]]
+The maintainer tax is stored to [[Distribution_Pool]] for one day. 
 the temp pool has a minimal balance, we can set it to [[Distribution_pool_overflow]]. 
 At the end of a day, if the balance of the pool is above [[Distribution_pool_overflow]], the exceed part will be sent to the Bonding curve for dividend.
 If the balance is lower than [[Distribution_pool_overflow]], we will need to take the fund from Reserved Miner Reward to topup the balance to [[Distribution_pool_overflow]]
@@ -39,7 +39,7 @@ If the balance is lower than [[Distribution_pool_overflow]], we will need to tak
 Using this method, we can make the public service get paid instantly since the [[Distribution_pool_overflow]] is used as buffer.
 
 ## Pay public service (RA) from the pool
-As the [[Distibution_pool]] has [[Distribution_pool_overflow]] buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
+As the [[Distribution_Pool]] has [[Distribution_pool_overflow]] buffer balance(this buffer will be refill every day), we can pay the public service (RA) immediately from this pool
 
 ## Reward detail pages
 We will have three Reward detial page for three kind of reward

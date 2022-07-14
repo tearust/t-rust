@@ -7,7 +7,7 @@ List of apps.
 Columns:
 
 * Name: App name. Click to go to new page [app_detail](app_detail.md)
-* Tick: App tick. Click to go to new page [token_detail](../token_detail.md)
+* Tick: App tick. Click to go to new page
 * Description: 
 * Address: in the future, it is ERC20 address
 * MarketCap:
@@ -22,7 +22,7 @@ Columns:
 
 * Token name: For CML it is CML#xxx; for app, it is APP#tick
 * Address: In the future, it is ERC20 address
-* Owner address: Click to show [user_page](../user_page.md)
+* Owner address: Click to show
 * Description: can be empty for CML
 * Total supply:
 * Buy price:

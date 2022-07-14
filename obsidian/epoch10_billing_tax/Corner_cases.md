@@ -1,14 +1,12 @@
 # Maintainer income cannot cover tax
 If the maintainer set a high self estimate seat price but the income (from memory tax and txns fee) is too low to cover the maintainer tax. 
-We will set a negative number (special treatment in the data structure) means that the maintainer owe the tax. Starting from today, the days_of_default is set to 1.
 
-The next day, if the maintainer has enough income to cover tax, or If the maintainer pay off the owe tax from his personal wallet, the default is clear. days_of_default is set to 0. The tax is paid the next day.
-But if the maintainer does not pay the owed tax the next day, the days_of_default will be added one, to 2. 
-If the maintainer cannot pay the tax for the next 5 days. the days_of_default reaches 7, the grace period is run out. The slash happens
+Because every seat owner need to pay a [[Seat_owner_deposit]] when buying a seat. The tax is paid from this deposit.
 
-The slash is:
-- This maintainer seat is force to owned by the sudo. Reset the seat price to zero, any one can claim to own.
-- If the maintainer has balance in TAppStore, the balance will be used to pay the owed tax. If there is no remaining, this won't work.
+## Seat_owner_deposit cannot cover tax
+In the case that the maintainer do not reduce the estimate price and keep let the tax paid from the [[Seat_owner_deposit]], the deposit will be keep dropping until some time reach zero.
+
+If at any time the [[Seat_owner_deposit]] cannot cover the tax. the Seat will consider "forced to" owner give up to the DAO. This means the seat is owned by the dao and re-priced to zero. Anyone can buy it at any price above 1 T. Al the remaining deposit will paid the tax even cannot cover full price. The owner is no longer the owner. 
 
 # Distribution pool cannot cover public service
 We preset a minimal pool size [[Distribution_pool_overflow]]. At any time of a day, when public service trying to tranfer fund from [[Distribution_Pool]] but its balance is zero,  a one-time transfer from the [[Genesis_block_miner_reward_reserve]]  will be called to transfer 1000T, so that the [[Distribution_Pool]] balance is enough fund to pay public service.

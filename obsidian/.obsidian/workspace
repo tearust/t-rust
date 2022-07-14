@@ -7,11 +7,8 @@
         "id": "08e8ab90fb05ebe6",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "_sidebar.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_sidebar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +83,15 @@
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
-    "_sidebar.md",
-    "epoch10_billing_tax/Corner_cases.md",
+    "user_page.md",
+    "appstore_ui/Asset.md",
+    "token_detail.md",
+    "TApps.md",
+    "epoch10_billing_tax/Distribution_pool_overflow.md",
+    "Distibution_pool.md",
     "epoch10_billing_tax/README.md",
-    "TApp_cold_start/README.md",
-    "account-model/README.md",
-    "epoch10_billing_tax/maintainer_tax.md",
-    "harberger_tax/maintainer_tax.md",
-    "epoch10_billing_tax/Distribution_Pool.md",
-    "epoch10_billing_tax/Collection_Pool.md",
-    "Distribution_pool_overflow.md"
+    "Collection Pool.md",
+    "epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
+    "epoch10_billing_tax/Distribution_Pool.md"
   ]
 }
