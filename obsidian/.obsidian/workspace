@@ -7,8 +7,12 @@
         "id": "08e8ab90fb05ebe6",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "epoch10_billing_tax/Data_structure.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "epoch10_billing_tax/Data_structure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -83,15 +88,15 @@
   },
   "active": "08e8ab90fb05ebe6",
   "lastOpenFiles": [
-    "user_page.md",
-    "appstore_ui/Asset.md",
-    "token_detail.md",
-    "TApps.md",
+    "epoch10_billing_tax/Data_structure.md",
+    "epoch10_billing_tax/Distribution_Pool.md",
     "epoch10_billing_tax/Distribution_pool_overflow.md",
-    "Distibution_pool.md",
-    "epoch10_billing_tax/README.md",
-    "Collection Pool.md",
     "epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
-    "epoch10_billing_tax/Distribution_Pool.md"
+    "epoch10_billing_tax/Global_token.md",
+    "epoch10_billing_tax/Maintainer_Seat.md",
+    "epoch10_billing_tax/Maintainer_Seat_Status.md",
+    "epoch10_billing_tax/maintainer_tax.md",
+    "epoch10_billing_tax/Transaction_cost.md",
+    "epoch10_billing_tax/Seat_owner_deposit.md"
   ]
 }

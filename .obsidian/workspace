@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/TApp_cold_start/README.md",
-            "mode": "preview",
+            "file": "docs/TApp_cold_start/README.md",
+            "mode": "source",
             "source": false
           }
         }
@@ -19,61 +19,77 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "9210e2ddc2729f4c",
-    "type": "mobile-drawer",
+    "id": "086a5ffd1a82d21d",
+    "type": "split",
     "children": [
       {
-        "id": "faf830cd5399a48d",
-        "type": "leaf",
-        "state": {
-          "type": "file-explorer",
-          "state": {}
-        }
-      },
-      {
-        "id": "5cb8ce5b98c5fc8c",
-        "type": "leaf",
-        "state": {
-          "type": "search",
-          "state": {
-            "query": "",
-            "matchingCase": false,
-            "explainSearch": false,
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical"
+        "id": "e2a5f36969705783",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1922e69881118360",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "6793471ab4334b9c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300
   },
   "right": {
-    "id": "dea35ef7ded4006b",
-    "type": "mobile-drawer",
+    "id": "f7c98366fda420d3",
+    "type": "split",
     "children": [
       {
-        "id": "431ca57571df54e7",
-        "type": "leaf",
-        "state": {
-          "type": "backlink",
-          "state": {
-            "file": "obsidian/TApp_cold_start/README.md",
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical",
-            "showSearch": false,
-            "searchQuery": "",
-            "backlinkCollapsed": false,
-            "unlinkedCollapsed": true
+        "id": "2dd9448cf9e1c004",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c155066637632fe",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/TApp_cold_start/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
   },
-  "active": "faf830cd5399a48d",
+  "active": "72290caf3f4c87a2",
   "lastOpenFiles": [
+    "obsidian/TApp_cold_start/README.md",
     "docs/epoch10_billing_tax/README.md",
     "docs/comp_phala/README.md",
     "docs/epoch10_billing_tax/user_story.md",
@@ -82,7 +98,6 @@
     "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
     "docs/epoch10_billing_tax/Maintainer_Seat_Status.md",
     "docs/epoch10_billing_tax/Maintainer_Seat.md",
-    "docs/epoch10_billing_tax/Data_structure.md",
-    "docs/harberger_tax/how_to_set_memory_tax_rate.md"
+    "docs/epoch10_billing_tax/Data_structure.md"
   ]
 }
