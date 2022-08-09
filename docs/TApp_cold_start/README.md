@@ -4,7 +4,8 @@ This article explains the workflow from the very beginning as any TApplication i
 
 These steps include:
 
-- How the end user get the TApp CID.
+* How the end user get the TApp CID.
+
 * How the end user loads the bootloader js code.
 * How the bootloader finds the TEA Project layer1 smart contract on Ethereum.
 * How the bootloajjder js finds the hosting nodes for the TAppStore.
@@ -14,7 +15,7 @@ These steps include:
 The design of the bootloader has the following assumptions:
 
 * The end user has a modern browser and can connect to the internet.
-. The end user has access to any IPFS gateway, or has IPFS extension installed.
+  . The end user has access to any IPFS gateway, or has IPFS extension installed.
 * The end user has Metamask extension installed in the browser.
 * The Ethereum network is live and at least some of the nodes are reachable.
 * The TEA netowrk is live and at least some of the nodes are reachable.
@@ -40,11 +41,12 @@ CID(Content ID) is an IPFS term. As long as you have the CID, you can download t
 Our TApp's front end code (html, js, css in a package) is stored in IPFS. As long as the end user know the latest CID of front end code, he can go to any IPFS gateway or local IPFS extension to load the front end code into browser.
 
 End users can get CID of any TApp by any of the following methods:
-- He can access to wallet.teaproject.org
-- He can access to a local run TAppStore tapp. (this is the same as wallet.teaproject.org)
-- He can use tools like Etherscan to lookup CID from our smart contract "tapps" storage. This require higher tech skill, but someone may build a tool to do that.
-- He receive the CID from any social media  (He will need to verify its source manually)
-- He knew and saved the CID locally
+
+* He can access to wallet.teaproject.org
+* He can access to a local run TAppStore tapp. (this is the same as wallet.teaproject.org)
+* He can use tools like Etherscan to lookup CID from our smart contract "tapps" storage. This require higher tech skill, but someone may build a tool to do that.
+* He receive the CID from any social media  (He will need to verify its source manually)
+* He knew and saved the CID locally
 
 ## End users load front end code from IPFS
 
@@ -75,12 +77,13 @@ Any TApp will follow the same rule explained above. TAppStore is also a TApp, bu
 Right now, the end user has loaded the TAppStore. Inside TAppStore UI, a list of TApps can be selected by the end user. If the end user loggedin, he can also find his own favorite apps in list. He can click any of them to get the CID. Therefore launch the TApp in his browser.
 
 # TApp front end initialize and upgrade
+
 There are tables in both layer2 and layer1
 
-| tapp_id | name_version | cid |
-| ---- | ---- | ---- |
-| 0 | TAppStore_1.0.2 | Qm12345...|
-| 1 | TeaParty_0.2.1 | QmABCDE... |
+|tapp_id|name_version|cid|
+|-------|------------|---|
+|0|TAppStore_1.0.2|Qm12345...|
+|1|TeaParty_0.2.1|QmABCDE...|
 
 In layer2, when this app developer first init or update newer version of front end code, they will need to upload to IPFS. Get the CID, then sign a txn to layer2 to "upsert" this item in the table.
 
@@ -89,12 +92,12 @@ Our layer2 state maintainer will validate the txn, then update the table in laye
 The CID in this table is always the latest.
 
 ## What if end user start an older version of CID?
+
 Since the TApp continue update. It is very common that end user launch an older version (older CID).
 
 All the bootload js code has a "find latest CID" logic. Once it launch, it will look up layer1 smart contract for latest CID. If found, it will prompt end user to re-launch the latest one. 
 
 Fail or refused to do so may cause future API call to hosting node get rejected.
-
 
 # Design considerations
 
