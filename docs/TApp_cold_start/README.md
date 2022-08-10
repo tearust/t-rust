@@ -56,11 +56,13 @@ Once the code loaded into the browser, a bootload js module is loaded and execut
 
 ## Bootloader js connects the Ethereum network
 
-When the bootloader is loaded into the browser, the js code will try to connect to the Metamask in the browser. Using Metamask (web3.js) the bootloader js can connect to Ethereum network. Once connected, it will make a remote procedure call (RPC) to any Ethereum nodes to query the **list of currently active hosting nodes** for the TAppStore application. 
+When the bootloader is loaded into the browser, the js code will try to connect to the Metamask in the browser. Using Metamask (web3.js) the bootloader js can connect to Ethereum network. Once connected, it will make a remote procedure call (RPC) to any Ethereum nodes to query the **list of active bootstrap hosting nodes** for the TAppStore application. 
 
 The list is dynamically updated in the TEA Project's layer 1 smart contract. That means every time any one queries (RPC) the TEA Project smart contract, a current active list of IP address will be returned to the caller. 
 
-The end user can either mannually or automatically select a nearby (nearby means faster ping) any available hosting TEA node as the **host**. They will then go to that IP address to continue using the TAppStore app.
+The bootstrap js continue to query any of these bootstrap nodes for **a list of active hosting nodes for this TApp**. This time, the requested node will query the layer2 state and response the list of current active hosting nodes ips of this specific TApp.
+
+The end user can either mannually or automatically select a nearby (nearby means faster ping) any IP from the respond hosting nodes as the **host or "server"**. All the future API call will be sent to this IP address.
 
 ## TAppStore uses TEA network (a P2P network) to find the layer2 state machine.
 
@@ -72,9 +74,9 @@ The hosting nodes don't need to connect to the Ethereum network directly. They o
 
 ## End user launches any TApp
 
-Any TApp will follow the same rule explained above. TAppStore is also a TApp, but it is a portal of all other TApps. 
+Any TApp will follow the same rule explained above. TAppStore is also a TApp, but it is a portal of all other TApps. It is most likely the first TApp an end user start to use.
 
-Right now, the end user has loaded the TAppStore. Inside TAppStore UI, a list of TApps can be selected by the end user. If the end user loggedin, he can also find his own favorite apps in list. He can click any of them to get the CID. Therefore launch the TApp in his browser.
+Once the end user loaded the TAppStore(either from CID, or wallet.teaproject.org). Inside TAppStore UI, a list of TApps can be selected by the end user. If the end user loggedin, he can also find his own favorite apps in list. He can click any of them to get the CID. Therefore launch the TApp in his browser.
 
 # TApp front end initialize and upgrade
 
