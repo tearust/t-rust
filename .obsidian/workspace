@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "72290caf3f4c87a2",
+        "id": "4c74c5439743e9cb",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/TApp_cold_start/README.md",
+            "file": "obsidian/epoch10.1_exchange/README.md",
             "mode": "source",
             "source": false
           }
@@ -19,85 +19,70 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "086a5ffd1a82d21d",
-    "type": "split",
+    "id": "faf1bd4f77ab1575",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "e2a5f36969705783",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "1922e69881118360",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "6793471ab4334b9c",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "1f07c83900bb36aa",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "af88ca1e4b6701fd",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300
+    "currentTab": 0
   },
   "right": {
-    "id": "f7c98366fda420d3",
-    "type": "split",
+    "id": "2d2f8c9a5e44c0b3",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "2dd9448cf9e1c004",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7c155066637632fe",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "obsidian/TApp_cold_start/README.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
+        "id": "9b6b9601dbd22f74",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "obsidian/epoch10.1_exchange/README.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 0
   },
-  "active": "72290caf3f4c87a2",
+  "active": "1f07c83900bb36aa",
   "lastOpenFiles": [
+    "obsidian/epoch10_billing_tax/Untitled.md",
+    "obsidian/TApp_cold_start/README.md",
     "obsidian/README.md",
     "docs/TApp_cold_start/README.md",
-    "obsidian/TApp_cold_start/README.md",
     "docs/epoch10_billing_tax/README.md",
     "docs/comp_phala/README.md",
     "docs/epoch10_billing_tax/user_story.md",
     "docs/epoch10_billing_tax/Global_token.md",
     "docs/epoch10_billing_tax/Corner_cases.md",
-    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md",
-    "docs/epoch10_billing_tax/Maintainer_Seat_Status.md"
+    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md"
   ]
 }
