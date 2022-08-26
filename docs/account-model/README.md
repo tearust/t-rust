@@ -42,12 +42,12 @@ The User_address can be used in the first key when used as deposit. Such as
 
 ### Deposit account
 
-### TOTAL_SUPPLY
+### TOTAL_SUPPLY_RESERVE
 
-pub const TOTAL_SUPPLY:Account = \[255u8;32\];
-The total supply of a TAppToken. When new TAppToken is mint, this value increase, when burn, decrease. Look up this balance is the total supply. 
-`state[GlobalToken_address][TOTAL_SUPPLY]` Totaly supply of minted GlobalToken
-`state[TEA_ERC20_Address][TOTAL_SUPPLY]` Totaly topped up TEA token to layer 2.
+pub const TOTAL_SUPPLY_RESERVE:Account = \[255u8;32\];
+The total supply of a TAppToken. Its initial value is u32::MAX. When mining new TAppToken, it is actaully moving reserved TAppToken out from TOTAL_SUPPLY_RESERVE, when burn, moving in to this acocunt.
+`state[GlobalToken_address][TOTAL_SUPPLY_RESERVE]` Use u32::MAX minus this balance you will get the totaly supply of minted GlobalToken
+`state[TEA_ERC20_Address][TOTAL_SUPPLY_RESERVE]` Use u32::MAX minus this value you can get the totaly topped up TEA token to layer 2.
 
 The token of this balance is defined by the first key. GlobalToken_address or TEA_ERC20_Address
 
@@ -98,9 +98,9 @@ This address only apply to TEA_ERC20_Address, the first key must be TEA_ERC20_Ad
 
 ### Total layer2 TEA token for all users (total topped up TEA)
 
-`state[TEA_ERC20_address][TOTAL_SUPPLY]` returns the total layer2 (tappstore) TEA. When any user topup, this value increase. When withdraw, decrease. We need this Total Supply because we cannot iterate all address and sum up.
+`state[TEA_ERC20_address][TOTAL_SUPPLY_RESERVE]` returns u32::MAX minus the total layer2 (tappstore) TEA. When any user topup, this value decrease. When withdraw, increase. We need this Total Supply because we cannot iterate all address and sum up.
 
-This number should be always exactly the same as layer1 Lock.sol smart contract total lock. 
+u32::MAX minus this number should be always exactly the same as  layer1 Lock.sol smart contract total lock. 
 
 ### Any user's TappStore token balance
 
@@ -112,7 +112,7 @@ This number should be always exactly the same as layer1 Lock.sol smart contract 
 
 ### GlobalToken total supply
 
-`state[GlobalToken_address][TOTAL_SUPPLY]` returns the total supply of GlobalToken. Everytime new GlobalToken is minted, this value need to increase. When burn, decrease. Since we cannot iterate all acocunt to get the total supply. This account record the total supply.
+`state[GlobalToken_address][TOTAL_SUPPLY_RESERVE]` returns u32::MAX minus the total supply of GlobalToken. Everytime new GlobalToken is minted, this value need to increase. When burn, decrease. Since we cannot iterate all acocunt to get the total supply. This account record the total supply.
 
 ### TeaParty income (in TEA) before "consume" action to bonding curve
 
@@ -172,8 +172,8 @@ GlobalToken_address is a TokenId of TAppStore app ,it is a random address \[u8;3
 state[TEA_ERC20_address][Alice_address] move out 100
 state[GlobalToken_address][HIDDEN_BONDING_CURVE_ACCOUNT] move in 100
 let mint_new_token_amount = calculate_token_amount(100)
-state[GlobalToken_address][Alice_address] += mint_new_token_amount
-state[GlobalToken_address][TOTAL_SUPPLY] += mint_new_token_amount
+state[GlobalToken_address][Alice_address] move in mint_new_token_amount
+state[GlobalToken_address][TOTAL_SUPPLY_RESERVE] move out mint_new_token_amount
 
 ````
 
@@ -208,8 +208,8 @@ Case: Alice topup 10 USDT to TAppStore
 ````
 layer1 USDT_ERC20.sol(Deployed to USDT_ERC20_Address) transfer 10 from Alice_address to Lock.sol(Deployed to Lock_ERC20_Address)
 
-state[USDT_ERC20_address][Alice_address] += 10
-state[USDT_ERC20_address][TOTAL_SUPPLY] += 10
+state[USDT_ERC20_address][Alice_address] move in 10
+state[USDT_ERC20_address][TOTAL_SUPPLY_RESERVE] move out 10
 ````
 
 This operation cause Alice's USDT_ERC20 smart contract reduce 10 USDT, while Lock.sol smart contract gain 10USDT. These all happened on layer1.
@@ -221,8 +221,8 @@ If you replace USDT to TEA, it works the same way when topup TEA.
 If TeaParty allow use to pay in USDT. This is a new feature we have not decided yet
 
 ````
-state[USDT_ERC20_address][Alice_address] -= 10
-state[USDT_ERC20_address][TeaParty_address] += 10
+state[USDT_ERC20_address][Alice_address] move out 10
+state[USDT_ERC20_address][TeaParty_address] move in 10
 ````
 
 But we cannot run "consume" those USDT to buy Teaparty token. We donot accept buying TAppToken using non-TEA token.
@@ -234,8 +234,8 @@ If TeaParty allow use to pay in TeaParty Token. This is a new feature we have no
 Alice pay 1 TeaParty token to use Teaparty app.
 
 ````
-state[TeaParty_Token_address][Alice_address] -= 1
-state[TeaParty_Token_address][TeaParty_address] += 1
+state[TeaParty_Token_address][Alice_address] move out 1
+state[TeaParty_Token_address][TeaParty_address] move in 1
 ````
 
 After a while, when the Consume cron job starts, it will
@@ -255,6 +255,10 @@ Note: We have to allow a limited token type allowed for Tea party app to allow u
 * DAI
 * TeaParty Token
   As long as it is a limited list, we can always iterate all token addresses in the consume cron job.
+
+# The Neutral Context Balance for every token_address
+
+Because we only move in and move out token between accounts **within** the same TAppToken_address. (the first key). The balance of this TAppToken should always be zero. New new token is mint or burn (just move in and out between accounts of TOTAL_SUPPLY_RESERVE).
 
 # Development changes
 
