@@ -1,161 +1,154 @@
 # account-model pages
 
-* [Intro to Account Model](account-model/README.md)
 * [App Token](account-model/apptoken.md)
-* [Eth Account](account-model/eth_acct.md)
-* [Layer2 Bridge](account-model/layer2bridge.md)
 
-# Update Jul 2022
+# Update Aug 2022
 
-We no longer plan payment in USDT feature in 2022.
+## Class relationship
 
-Planned in 2022
+State machine has General State object
+General State has
 
-* TEA Project layer1 smart contract in ETH
-* Genesis block distribute all investors TEA token
-* Genesis block reserve all layer2 token
-* Vesting schedule in smart contract
-* Topup withdraw TEA token between layer1 and layer2
+* tea_state: UtilityState
+* bonding_state: BondingState
+* key_state: KeystoreState
 
-Postpone to 2023
+UtilityState has
 
-* Payment in  USDT (USDT actually means other ERC20 token)
-* Bridge between USDT and TEA
-* Topup and withdraw USDT
-* AppToken support ERC20
+* ft_state: BalanceState
+* ft_deposit_state: BalanceState
 
-# Layer1 smart contract design
+BalanceState is Map\<token_id, Balance>
 
-## Standard ERC20 interface
+Balance is Map\<Account, Balance>
 
-## Topup withdraw between two layers
+token_id is TokenId is \[u8;32\]. This is the ERC20 smart contract address in ETH. For example, the TEA in Goerli testnet is 0x1ec67D41a35CA11f07Fc3a6ed03B92A483d1AA61
 
-### Topup
+# Double map of State
 
-Topup in layer1 is actually sending fund from sender to [eth_acct > TEA_L2_ADDRESS](eth_acct.md#tea-l2-address)\]. 
+`State[Token_id][Address] = Balance`
 
-### Withdraw
+The combination of first and second keys can make different meaning.
 
-Withdraw in layer1 is actually sending fund from [eth_acct > TEA_L2_ADDRESS](eth_acct.md#tea-l2-address) to receiver address.
+Example:
+`state[TeaParty_app_token_id][alice_erc20_address]` returns how many Alice owns TeaPartyToken (the bonding curve token).
+`state[GlobalToken_id][alice_erc_20_address]` returns how many GlobalToken Alice owns.
+`state[TEA_ERC20_address][alice_erc_20_address]` returns how many TEA stays in Alice's layer2 wallet (we call it TAppStore wallet).
 
-### Layer2
+## Special account/token_id
 
-The remaining workflow will be done in layer2. It mint new layer2 TEA in layer2 when toup, or burn Layer2 TEA when withdraw.
+ > 
+ > Please remove consume account.  We use this tapp tokenid address as its consume account address
 
-## CML tokens
+### Deposit account
 
-CML is inside layer1 smart contract.
+pub const HIDDEN_DEPOSIT_ACCOUNT: Account = \[0u8;32\];
+Used as a TokenId not as Account. 
+`State[HIDDEN_DEPOSIT_ACCOUNT][Alice_Address]` is the balance of Alice's deposit TEA. 
 
-## RA
+### Bonding curve account
 
-To reduce the layer1 cost, RA is intialized and verified in layer2. 
-The punishment happens in layer1. 
-Layer 1 also store the flag indicate that if a CML is "trusted (passed)" or "untrusted(not verified or verify failed)".
+pub const HIDDEN_BONDING_CURVE_ACCOUNT: Account = \[1u8; 32\];
+This is used as a TokenId, not an Account.
+This is the bonding curve reserve account.
+`state[GlobalToken_address][HIDDEN_BONDING_CURVE_ACCOUNT]` is the balance of TEA that reserved for GlobalToken bonding curve.
 
-## Map between Hosting nodes to TApps
+When "consume" or "buy" in bonding curve happens, the TEA token used to buy TAppToken will be reserved here. When user sell TAppToken, the TEA token in this acocunt will be paid out to this user.
 
-End user need to check this map to find out which IP address (hosting node) actually hosting any given TApp.
+### Seat collection pool
 
-## List of bootstrap nodes
+pub const SEAT_COLLECTION_POOL: Account = \[3u8; 32\];
+Memory tax is paid to this collection pool before deduct maintainer tax and then shared to all state maintainer as income,
 
-## List of State Maintainers public key
+### Seat distribution pool
 
-The smart contract logic will need this list to verify any txn that move fund in [eth_acct > TEA_L2_ADDRESS](eth_acct.md#tea-l2-address)
-we do not need to public the IP address or peer ID, just public key.
+pub const SEAT_DISTRIBUTION_POOL: Account = \[4u8; 32\];
 
-## New block event
+maintainer's income tax is stored in this pool before pay off public service then share to all Global Token holders.
 
-We use ETH mainchain new block event as trigger
+### DAO reserved account
 
-## Machine
+pub const DAO_RESERVED_ACCOUNT: Account = \[254u8; 32\] as Account;
 
-We need machine ID in layer1, so that the TEA Box manufacturer can register device with vendor signature. 
+This reservation is topup from a reserved Genesis Block reservation layer1 account when TEA Project starts. The fund in this account is used to support public service at early stage. Early stage means the begining peirod that not enough TApp to generate enough tax to pay off public service. In order to make public service continue, we use this reserved TEA token to pay.
 
-This may be chanced if we have a better way to do this in layer2. 
+## Typical operation
 
-# Layer2 table and txn design
+### Deposit and refund
 
-## Tables
+Case 1: Alice deposit 100 TEA token 
 
 ````
-pub type BalanceState = HashMap<Account, Balance>;
-
-ft_states: HashMap<TokenId, BalanceState>,
-token_states: HashMap<TokenId, BalanceState>,
+tea_state.ft_state[TEA_ERC20_address][Alice_address] -= 100
+tea_state.ft_state[HIDDEN_DEPOSIT_ACCOUNT][Alice_address] += 100
 ````
 
-ft_state store TEA only. 
-token_states store token of every tapp. there is no TEA in this state.
+Refund is reverse operation
+Note: Deposit is only for TEA token. You cannot deposit USDT
 
-the value is type of BalanceState. Very BalanceState has key of account, value of balance. (balance unit is TEA for ft_state, or unit is token for token_state)
-There are a few special accounts that not belonging to any real human user.
+### Buy GlobalToken
 
-* HIDDEN_CONSUME_ACCOUNT: 0xFFFF..., init value is 0, store the user consume TEA before a cron job to distribute dividends and utility bill.
-* HIDDEN_SYSTEM_ACCOUNT: 0x0000...., init value is u128::MAX. it store the max of tea that used to transfer to user's account when user topup from layer1.
-* HIDDEN_BONDING_RESERVE_ACCOUNT: this account address is the same as this tapp's layer 1 reserve account address. But it store the bonding curve reserved TEA in layer2. This address is only exists in TAppStore's ft_states. Other token_id != tapp_store_token_id, the value BalanceState won't have this address. 
+Alice spend 100T to buy GlobalToken
 
-For every tapp, it always has a HIDDEN_BONDING_RESERVE_ACCOUNT in `ft_states.get(tapp_store_token_id)`.
+GlobalToken_address is a TokenId , a random address \[u8;32\] generated when initialize TAppStore.
 
-## Use cases
+````
+tea_state.ft_state[TEA_ERC20_address][Alice_address] -= 100
+tea_state.ft_state[GlobalToken_address][HIDDEN_BONDING_CURVE_ACCOUNT] += 100
+let mint_new_token_amount = calculate_token_amount(100)
+tea_state.ft_state[GlobalToken_address][Alice_address] += mint_new_token_amount
 
-Let's assume a tapp name is App789 has a token_id = 0x789.
-tappstore_token_id = 0x0,
-Alice has address=0x123.
-Alice has topupped 100T in Tappstore account
-at this moment, assume the tapp App789 price is 10T/App789token.
+````
 
-### Buy token
+Sell GlobalToken is reverse operation
 
-Alice spend 20T in her tappstore layer2 account, in return she receive 2 App789token. 
+ > 
+ > Note: The bonding_state.token_reserved_state should be removed. it is useless
 
-Initial state:
+### Consume in TEA Party App
 
-`ft_states.get(tapp_store_token)` has table
+TeaParty_address is tokenid for TeaParty App. It is random generated u8;32 address when TeaParty init
 
-|address|balance|notes|
-|-------|-------|-----|
-|123|100|Alice account in tappstore|
-|789|0|init value 0, no token has been sold yet|
-|0|doesn't matter number|this is tappstore reserve TEA as a standard tapp|
+Case: Alice spend 100TEA in TeaParty app
 
-`ft_states.get(789)` has table 
+````
+tea_state.ft_state[TEA_ERC20_address][Alice_address] -= 100
+tea_state.ft_state[TEA_ERC20_address][TeaParty_address] += 100
 
-|address|balance|notes|
-|-------|-------|-----|
-|123|0|Alice account in App789 layer2, Alice has no App789 token yet|
+````
 
-`token_state.get(789)` table
+In next cron job, this 100 TEA will be used to "consume" to buy TeaParty token and shared to all TeaParty token holders.
 
-|addr|balance|notes|
-|----|-------|-----|
-|123|0|init value 0, App789 has not minted any token yet|
+### Topup USDT
 
-During buy operation
-move alice address 123 20 T to address 789 inside `ft_balance under tapp_store`
-calculate how much token 20T can buy, it is 2 App789 tokens
-mint 2 App789token to alice address inside `ft_states.get(789)`
+Case: Alice topup 10 USDT to TAppStore
 
-After buy operation
-`ft_states.get(tapp_store_token)` has table
+````
+tea_state.ft_state[USDT_ERC20_address][Alice_address] += 10
 
-|address|balance|notes|
-|-------|-------|-----|
-|123|80|Alice account in tappstore|
-|789|20|init value 0, no token has been sold yet|
-|0|doesn't matter number|this is tappstore reserve TEA as a standard tapp|
+````
 
-`token_state.get(789)` table
+### Consume USDT in TEA Party
 
-|addr|balance|notes|
-|----|-------|-----|
-|123|2|Alice owns 2 App789 tokens|
+If TeaParty allow use to pay in USDT.
 
-### Sell token
+````
+tea_state.ft_state[USDT_ERC20_address][Alice_address] -= 10
+tea_state.ft_state[USDT_ERC20_address][TeaParty_address] += 10
+````
 
-TODO
+But we cannot run "consume" those USDT to buy Teaparty token. We donot accept buying TAppToken using non-TEA token.
 
-## Auth
+# Changes
 
-When move fund out of address 789 which owned by the App789, only tappstore actor can be authorized for this operation. This is a sell token OP
+In this case, we can make tea_state directly a double map because tea_state.ft_deposit_state is useless. We can make tea_state: Map\<Address, \<Address, Balance>>.
 
-Buy token can be authornized by Alice, because it is only add fund to address 789 not moving out. As long as Alice authorize to move out fund from her address 123, it would be ok
+GeneralState.bonding_state is useless too. We can remove it and its BondingState type
+
+After modification:
+GeneralState has
+
+* tea_state:BalanceState
+* key_state:KeystoreState
+
+We can also remove the UtilityState type

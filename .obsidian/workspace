@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/epoch10.1_exchange/README.md",
+            "file": "obsidian/account-model/README.md",
             "mode": "source",
             "source": false
           }
@@ -19,70 +19,85 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "faf1bd4f77ab1575",
-    "type": "mobile-drawer",
+    "id": "94bebc0b863575d7",
+    "type": "split",
     "children": [
       {
-        "id": "1f07c83900bb36aa",
-        "type": "leaf",
-        "state": {
-          "type": "file-explorer",
-          "state": {}
-        }
-      },
-      {
-        "id": "af88ca1e4b6701fd",
-        "type": "leaf",
-        "state": {
-          "type": "search",
-          "state": {
-            "query": "",
-            "matchingCase": false,
-            "explainSearch": false,
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical"
+        "id": "3fca39498781dd71",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5283f01f282caa04",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "d110a11e0615ad0a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300
   },
   "right": {
-    "id": "2d2f8c9a5e44c0b3",
-    "type": "mobile-drawer",
+    "id": "37030b507f74ecf5",
+    "type": "split",
     "children": [
       {
-        "id": "9b6b9601dbd22f74",
-        "type": "leaf",
-        "state": {
-          "type": "backlink",
-          "state": {
-            "file": "obsidian/epoch10.1_exchange/README.md",
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical",
-            "showSearch": false,
-            "searchQuery": "",
-            "backlinkCollapsed": false,
-            "unlinkedCollapsed": true
+        "id": "e46f1ea0b5247ae6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a35732d57c2839f2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian/account-model/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
   },
-  "active": "1f07c83900bb36aa",
+  "active": "4c74c5439743e9cb",
   "lastOpenFiles": [
+    "obsidian/account-model/layer2bridge-2023.md",
+    "obsidian/account-model/eth_acct.md",
+    "obsidian/account-model/apptoken.md",
+    "obsidian/account-model/README.md",
     "obsidian/epoch10_billing_tax/Untitled.md",
     "obsidian/TApp_cold_start/README.md",
     "obsidian/README.md",
     "docs/TApp_cold_start/README.md",
     "docs/epoch10_billing_tax/README.md",
-    "docs/comp_phala/README.md",
-    "docs/epoch10_billing_tax/user_story.md",
-    "docs/epoch10_billing_tax/Global_token.md",
-    "docs/epoch10_billing_tax/Corner_cases.md",
-    "docs/epoch10_billing_tax/Genesis_block_miner_reward_reserve.md"
+    "docs/comp_phala/README.md"
   ]
 }
