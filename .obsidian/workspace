@@ -14,6 +14,18 @@
             "source": false
           }
         }
+      },
+      {
+        "id": "7e3b9f1c2ee90910",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "obsidian/account-model/README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
       }
     ],
     "direction": "vertical"
@@ -87,12 +99,12 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4c74c5439743e9cb",
+  "active": "7e3b9f1c2ee90910",
   "lastOpenFiles": [
-    "obsidian/account-model/layer2bridge-2023.md",
-    "obsidian/account-model/eth_acct.md",
     "obsidian/account-model/apptoken.md",
     "obsidian/account-model/README.md",
+    "obsidian/account-model/layer2bridge-2023.md",
+    "obsidian/account-model/eth_acct.md",
     "obsidian/epoch10_billing_tax/Untitled.md",
     "obsidian/TApp_cold_start/README.md",
     "obsidian/README.md",

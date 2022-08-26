@@ -4,7 +4,7 @@ Any TApp can have its own AppToken.
 
 It is a security token issued by the bonding curve.
 
-It is NOT ERC20 token. So it cannot be sold as a regular token. Owners can only sell it in the TEA Project Marketplace for TEA token.
+It is NOT ERC20 token. So it cannot be sold as a regular token. Owners can only sell it in the TEA Project Bonding curve for TEA token.
 
 This to reduce the legal risk. 
 
