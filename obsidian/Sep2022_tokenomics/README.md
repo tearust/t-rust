@@ -31,7 +31,7 @@ All nodes regardless [[hosting_nodes]] or [[state_maintainers]] run computing lo
 End users are the ultimate source of all profit of the TEA eco system.
 
 End users -> [[hosting_nodes]] gas fee for using the hosting services.
-End users -> [[app_owners]] for in-app purchase (this how Apple calls it)
+End users -> app_owners for in-app purchase (this how Apple calls it)
 ## Hosting nodes
 ### Services provided
 - Feed static front end application code. There is no direct billing and profit from this service, but it is followed by the paid backend service from end users.

@@ -4,7 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "4c74c5439743e9cb",
+        "id": "b3b645edc3938a64",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "obsidian/Sep2022_tokenomics/README.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": false
+          }
+        }
+      },
+      {
+        "id": "2a22dc2f66156fec",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -19,70 +36,85 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "ff676466af23ce7b",
-    "type": "mobile-drawer",
+    "id": "007cbbfe40b57fab",
+    "type": "split",
     "children": [
       {
-        "id": "3f26b1fd3a6f7b7e",
-        "type": "leaf",
-        "state": {
-          "type": "file-explorer",
-          "state": {}
-        }
-      },
-      {
-        "id": "e6bad35ab0f44d28",
-        "type": "leaf",
-        "state": {
-          "type": "search",
-          "state": {
-            "query": "",
-            "matchingCase": false,
-            "explainSearch": false,
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical"
+        "id": "c1515b66ec940ee7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "00bb7190f687bec8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5a01d3ade6b07eb7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300
   },
   "right": {
-    "id": "b5b8e20db344e6f4",
-    "type": "mobile-drawer",
+    "id": "3042b4bb3afeea67",
+    "type": "split",
     "children": [
       {
-        "id": "c1bfe4e53072c581",
-        "type": "leaf",
-        "state": {
-          "type": "backlink",
-          "state": {
-            "file": "obsidian/Sep2022_tokenomics/README.md",
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical",
-            "showSearch": false,
-            "searchQuery": "",
-            "backlinkCollapsed": false,
-            "unlinkedCollapsed": true
+        "id": "45ce2c4a4c30fd6d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eeb0836357185280",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian/Sep2022_tokenomics/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
   },
-  "active": "4c74c5439743e9cb",
+  "active": "2a22dc2f66156fec",
   "lastOpenFiles": [
-    "obsidian/Sep2022_tokenomics/State maintainers.md",
-    "obsidian/Sep2022_tokenomics/README.md",
     "obsidian/Sep2022_tokenomics/state_maintainers.md",
+    "obsidian/Sep2022_tokenomics/maintainer tax.md",
+    "obsidian/Sep2022_tokenomics/README.md",
+    "obsidian/Sep2022_tokenomics/bonding_curve.md",
+    "obsidian/epoch10_billing_tax/README.md",
+    "obsidian/Sep2022_tokenomics/hosting_nodes.md",
     "obsidian/Sep2022_tokenomics/special designed hardware.md",
+    "obsidian/Sep2022_tokenomics/State maintainers.md",
     "obsidian/account-model/README.md",
-    "obsidian/Pasted image 20220708093126.png",
-    "obsidian/account-model/apptoken.md",
-    "obsidian/account-model/layer2bridge-2023.md",
-    "obsidian/account-model/eth_acct.md",
-    "obsidian/epoch10_billing_tax/Untitled.md"
+    "obsidian/Pasted image 20220708093126.png"
   ]
 }
