@@ -9,19 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/account-model/README.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "7e3b9f1c2ee90910",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "obsidian/account-model/README.md",
+            "file": "obsidian/Sep2022_tokenomics/README.md",
             "mode": "source",
             "source": false
           }
@@ -31,85 +19,70 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "94bebc0b863575d7",
-    "type": "split",
+    "id": "ff676466af23ce7b",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "3fca39498781dd71",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "5283f01f282caa04",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "d110a11e0615ad0a",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "3f26b1fd3a6f7b7e",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "e6bad35ab0f44d28",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300
+    "currentTab": 0
   },
   "right": {
-    "id": "37030b507f74ecf5",
-    "type": "split",
+    "id": "b5b8e20db344e6f4",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "e46f1ea0b5247ae6",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a35732d57c2839f2",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "obsidian/account-model/README.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
+        "id": "c1bfe4e53072c581",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "obsidian/Sep2022_tokenomics/README.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 0
   },
-  "active": "7e3b9f1c2ee90910",
+  "active": "4c74c5439743e9cb",
   "lastOpenFiles": [
-    "obsidian/account-model/apptoken.md",
+    "obsidian/Sep2022_tokenomics/State maintainers.md",
+    "obsidian/Sep2022_tokenomics/README.md",
+    "obsidian/Sep2022_tokenomics/state_maintainers.md",
+    "obsidian/Sep2022_tokenomics/special designed hardware.md",
     "obsidian/account-model/README.md",
+    "obsidian/Pasted image 20220708093126.png",
+    "obsidian/account-model/apptoken.md",
     "obsidian/account-model/layer2bridge-2023.md",
     "obsidian/account-model/eth_acct.md",
-    "obsidian/epoch10_billing_tax/Untitled.md",
-    "obsidian/TApp_cold_start/README.md",
-    "obsidian/README.md",
-    "docs/TApp_cold_start/README.md",
-    "docs/epoch10_billing_tax/README.md",
-    "docs/comp_phala/README.md"
+    "obsidian/epoch10_billing_tax/Untitled.md"
   ]
 }
