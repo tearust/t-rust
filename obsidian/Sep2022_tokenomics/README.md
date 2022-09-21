@@ -1,99 +1,101 @@
 # What does the TEA Project tokenomics do?
-TEA Project provides a decentralized web3 apps hosting platform. Miners provide [[special designed hardware]] called [[hosting_nodes]] to host application [[backend]]. End users can choose any agnostic hosting nodes to access web3 apps. A group of [[state_maintainers]] together maintain a global state that shared by all apps. Our tokenomics are designed to provide a billing and taxing system to keep this ecosystem work smoothly.
+TEA Project provides a decentralized web3 apps hosting platform. Miners provide [[special designed hardware]] called [[hosting_nodes]] to host the application [[backend]]. End users can choose any agnostic hosting nodes to access web3 apps. A group of [[state_maintainers]] together maintain a global state that's shared by all apps. Our tokenomics are designed to provide a billing and taxation system to keep this ecosystem working smoothly.
 
-# TEA Eco Players and their roles
+# TEA Ecosystem Players and their roles
 ## End users
-Unlikely web2 world that most services are free to use to end users. In the blockchain or web3 world, most of the services are no longer free. The end users would have to pay for services. In the popular Ethereum terminology, it is called "gas fee". 
+Unlike the web2 world where most services are free to use for end users, the blockchain or web3 world's services are generally no longer free. The end users has to pay for services. In the popular Ethereum terminology, this is called a "gas fee". 
 
 ## Hosting node providers
-They are sometimes called "miners" in the blockchain world. But in TEA Project, they do not waste hash power to maintain the global state. The specific [[state_maintainers]] play that role instead. The miners here are simply hosting service providers. They own and run those [[special designed hardware]] called "Tea Box". End user access to these tea boxes as if they are traditional internet servers. 
+Hosting node providers are sometimes called "miners" in the blockchain world. But in TEA Project, they don't waste hash power to maintain the global state (specific [[state_maintainers]] play that role instead). The miners in the TEA Project are simply hosting service providers. They own and run [[special designed hardware]] called "Tea Boxes". End users access these tea boxes as if they were traditional internet servers. 
 ## State maintainers
-[[state_maintainers]] work as database servers in traditional cloud computing platform. They receive queries and mutations from [[hosting_nodes]], update state, broacasts state to [[hosting_nodes]] by tiers. 
+[[state_maintainers]] work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [[hosting_nodes]], update the state, and broacast the current state to [[hosting_nodes]] by according to their tier. 
 ## App owners
-They build applications. In the TEA Project, we call them TApps(or tapps). TApps look similar to typical web application but runs decentrlized, so that they are
+App owners build applications which in the TEA Project are called TApps. TApps look similar to typical web applications but run decentrlized, which makes them
 - Non stoppable
 - Non breakable
 - Censorship-free
 ## Investors (token holders or stakes)
-Whoever owns CML tokens, Global tokens, TApp tokens are investors. They receive dividend as if they are traditional stock. Those tokens are different than stocks by the pricing model called [[bonding_curve]].
+Whoever owns CML tokens, Global tokens, or TApp tokens are investors. They receive dividends as if they held traditional dividend paying stocks. But these tokens are different than stocks by the virtue of the pricing model the follow called a [[bonding_curve]].
 
 # Basic data flow
-Unlike traditional web apps that user need to go to a specific web URL to access a specific web app, in TEA Project, you can go to any [[hosting_nodes]]with the same application CID. The app runs the same regardless which [[hosting_nodes]] you access. This concept is similar to IPFS: You can go to any IPFS gateway with the same file hash called CID, you will get the same file regardless where it is feed from. TEA Project hosts dynamic content not static content as IPFS does.
+Unlike traditional web apps where users need to go to a specific web URL to access a specific web app, in the TEA Project, you can go to any of the [[hosting_nodes]] using the same application CID. The app runs the same regardless which [[hosting_nodes]] you select. This concept is similar to IPFS: you can go to any IPFS gateway with the same file hash called a CID, and you will get the same file regardless where it's fed from. But the TEA Project hosts dynamic content and not static content as IPFS does.
 
-Dynamic content means users can use apps to query and mutation of state (or database as usually called in web2). In traditional cloud computing, this layer who receive user interaction is called backend. In TEA project, they are called [[hosting_nodes]]. In most cases, it is exactly the same [[hosting_nodes]] that you load your front end code from. Because the [[hosting_nodes]] has state cache, most queries can be done inside this node and returns to end users. For time sensitive queries or mutations, the [[hosting_nodes]] will send a txn to [[state_maintainers]] to query latest state or update(mutate) state. 
+Dynamic content means users can use apps to query and mutate the state (or update the database as it's usually called in web2). In traditional cloud computing, the layer that receives user interaction is called the backend. In the TEA project, they are called [[hosting_nodes]]. In most cases, it will be exactly the same [[hosting_nodes]] that you load your front end code from. Because the [[hosting_nodes]] have a state cache, most queries can be done inside of that node and return the result directly to end users. For time sensitive queries or mutations, the [[hosting_nodes]] will send a txn to [[state_maintainers]] to query the latest state or update (mutate) the global state. 
 
-[[state_maintainers]] broadcasts latest state in tiers to [[hosting_nodes]], so that they can update their cached local state, in turn, they can provide up to date services to end user.
+[[state_maintainers]] broadcast the latest state in tiers to [[hosting_nodes]], so that they can update their cached local state. This allows them to provide up to date services to end users.
 
-All nodes regardless [[hosting_nodes]] or [[state_maintainers]] run computing logic inside enclave that protected by trusted computing hardware. So that they can be trusted and data secure.
+All nodes regardless if they're [[hosting_nodes]] or [[state_maintainers]] run computing logic inside of enclaves that are protected by trusted computing hardware. This is so that their computational results can be trusted and the data has a space to remain secure.
 
 # Basic money flow
 ## End users 
-End users are the ultimate source of all profit of the TEA eco system.
+End users are the ultimate source of all profit of the TEA ecosystem.
 
 End users -> [[hosting_nodes]] gas fee for using the hosting services.
-End users -> app_owners for in-app purchase (this how Apple calls it)
+
+End users -> app_owners for in-app purchase (this is how it's called in platforms like Apple's).
+
 ## Hosting nodes
 ### Services provided
-- Feed static front end application code. There is no direct billing and profit from this service, but it is followed by the paid backend service from end users.
-- Back end services. Queries and Mutations from end users. Typically what a traditional web servers do. Billing system will measure the computing resources consumped and end user pay in TEA token
-- Keep a current global state and historical state data that will be used for queries
-- Broadcast state changes to state subscribers (other [[hosting_nodes]])
-- Public services, such as remote attestation
+- Feed static front end application code to end user. There's no direct billing and profit from providing this service, but it's followed up by the same node providing paid backend services to the end user.
+- Provide back end services including queries and mutations to end users. Typically what traditional web servers do. TEA's billing system will measure the computing resources used and the end user pays in TEA token.
+- Keep current global state and historical state data that will be used for queries.
+- Broadcast state changes to state subscribers (other [[hosting_nodes]]).
+- Public services, such as remote attestation.
 ### Revenue source
-- End user pay gas fee
-- State subscription fee from the lower tier [[hosting_nodes]]
+- End user pay gas fee.
+- State subscription fee from the lower tier [[hosting_nodes]].
 ### Operating cost
-- Purchase CML token
-- Purchase [[tiered_seat]]
-- Paying tiered seat tax to Global token
-- (Out of TEA eco system) Hardware and utility cost (network, electricity etc)
-- Paying state subscription fee to up stream (upper level hosting nodes or state maintainer)
+- Purchase CML token.
+- Purchase [[tiered_seat]].
+- Paying tiered seat tax to Global token.
+- (Outside of TEA ecosystem) Hardware and utility costs (network, electricity etc).
+- Paying state subscription fee to up stream (upper level hosting nodes or state maintainers).
 ### Owned assets
 - CML
 - Tiered seat
-- Initial investment to owned CML token (This is special front runner previllage to CML owner)
-### Profit goes to CML token and shared by holders
+- Initial investment of own CML token (this is special front runner privilege to the CML owner).
+### Profit goes to CML token and is shared by holders
 ## State maintainers
 ### Services provided
-- Maintain the global state in secured memory
-- Sort and execute txns quries and mutations to update the state
-- Broadcast state changes to the top tier [[hosting_nodes]]
-### Revenue source
-- Applications pay [[obsidian/harberger_tax/Txns_computing_fee|transaction execution fee]]
-- Applications pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]]
-- Top tier [[hosting_nodes]] pay state subscription fee
-### Operating cost
-- Purchase CML
-- Purchase state machine [[obsidian/epoch10_billing_tax/Maintainer_Seat| maintainer seat]]
-- (Out of TEA eco system) Hardware and utility cost
-- State maintainer income tax pays to the Global token
+- Maintain the global state in secure memory.
+- Sort and execute txns quries and mutations to update the state.
+- Broadcast state changes to the top tier [[hosting_nodes]].
+### Revenue sources
+- Applications pay [[obsidian/harberger_tax/Txns_computing_fee|transaction execution fee]].
+- Applications pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]].
+- Top tier [[hosting_nodes]] pay state subscription fee.
+### Operating costs
+- Purchasing CML.
+- Purchasing state machine [[obsidian/epoch10_billing_tax/Maintainer_Seat| maintainer seat]].
+- (Outside of the TEA ecosystem) Hardware and utility costs.
+- State maintainer income tax paid to the Global token.
 ### Owned assets
 - CML
-- Seat
+- Seat license
 ### Profit goes to maintainers themselves
 
 ## Application owners
 ### Services provided
-- Application that end users actually use
+- Application that end users actually use.
 ### Revenue source
-- In-App purchase
+- In-App purchases.
 ### Operating cost
-- (Out of TEA ecosystem)Software development cost
-- Pay [[obsidian/harberger_tax/Txns_computing_fee| transacction execution fee]] to state maintainer for both Queries and Mutations
-- Pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]] to state maintainers based on how much memory used in state
-- NOTE: App owners DO NOT pay hosting fee to [[hosting_nodes]]
+- (Outside of TEA ecosystem) Software development costs.
+- Pay the [[obsidian/harberger_tax/Txns_computing_fee| transacction execution fee]] to state maintainers for both Queries and Mutations.
+- Pay the [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]] to state maintainers based on how much state memory they use.
+- NOTE: App owners DO NOT pay any hosting fees to [[hosting_nodes]].
 ### Owned assets
-Nothing in TEA ecosystem. Out of the TEA eco system, the IP, brand name etc.
-### Profit goes to TApp token and shared by holders
+Nothing in TEA ecosystem. Out of the TEA ecosystem, the IP, brand name etc.
+### Profit goes to the TApp token and is shared by holders
 
 ### DAO members or Global token stakers
-This is the DAO of TEA Project. All tea ecosystem members are supposed to be the Global token stake holder .
+This is the DAO of TEA Project. All tea ecosystem members are encouraged to become Global token stake holders.
 ### Revenue sources
-- State maintainer income tax
-- Tiered hosting node seat tax
-- Slashed assets from bad actors
-- CML seeds auction
+- State maintainer income tax.
+- Tiered hosting node seat tax.
+- Slashed assets from bad actors.
+- CML seed auctions.
 ### Operating cost
 - Public services: Remote attestation
-- Future public affair (DAO management etc)
-### Profit goes to Global token and shared by token holders
+- Future public affair (DAO management etc.)
+### Profit goes to Global token and is shared by token holders
