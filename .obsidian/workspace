@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/Sep2022_tokenomics/backend.md",
+            "file": "obsidian/Sep2022_tokenomics/README.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "obsidian/Sep2022_tokenomics/backend.md",
+                "file": "obsidian/Sep2022_tokenomics/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,10 +87,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "00bb7190f687bec8",
+  "active": "2a22dc2f66156fec",
   "lastOpenFiles": [
-    "obsidian/Sep2022_tokenomics/front_end.md",
     "obsidian/Sep2022_tokenomics/backend.md",
+    "obsidian/Sep2022_tokenomics/front_end.md",
     "obsidian/Sep2022_tokenomics/state_broadcast.md",
     "obsidian/Sep2022_tokenomics/hosting_nodes.md",
     "docs/Sep2022_tokenomics/state_maintainers.md",
