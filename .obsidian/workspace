@@ -4,29 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "b3b645edc3938a64",
-        "type": "leaf",
-        "state": {
-          "type": "backlink",
-          "state": {
-            "file": "obsidian/Sep2022_tokenomics/README.md",
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical",
-            "showSearch": false,
-            "searchQuery": "",
-            "backlinkCollapsed": false,
-            "unlinkedCollapsed": false
-          }
-        }
-      },
-      {
         "id": "2a22dc2f66156fec",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "obsidian/Sep2022_tokenomics/README.md",
+            "file": "obsidian/Sep2022_tokenomics/backend.md",
             "mode": "source",
             "source": false
           }
@@ -86,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "obsidian/Sep2022_tokenomics/README.md",
+                "file": "obsidian/Sep2022_tokenomics/backend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "2a22dc2f66156fec",
+  "active": "00bb7190f687bec8",
   "lastOpenFiles": [
-    "obsidian/Sep2022_tokenomics/state_maintainers.md",
-    "obsidian/Sep2022_tokenomics/maintainer tax.md",
-    "obsidian/Sep2022_tokenomics/README.md",
-    "obsidian/Sep2022_tokenomics/bonding_curve.md",
-    "obsidian/epoch10_billing_tax/README.md",
+    "obsidian/Sep2022_tokenomics/front_end.md",
+    "obsidian/Sep2022_tokenomics/backend.md",
+    "obsidian/Sep2022_tokenomics/state_broadcast.md",
     "obsidian/Sep2022_tokenomics/hosting_nodes.md",
-    "obsidian/Sep2022_tokenomics/special designed hardware.md",
-    "obsidian/Sep2022_tokenomics/State maintainers.md",
-    "obsidian/account-model/README.md",
-    "obsidian/Pasted image 20220708093126.png"
+    "docs/Sep2022_tokenomics/state_maintainers.md",
+    "obsidian/Sep2022_tokenomics/mutations.md",
+    "obsidian/Sep2022_tokenomics/tiered_seat.md",
+    "obsidian/Sep2022_tokenomics/README.md",
+    "obsidian/Sep2022_tokenomics/harberger tax.md",
+    "obsidian/Sep2022_tokenomics/state_maintainers.md"
   ]
 }

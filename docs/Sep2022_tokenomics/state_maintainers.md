@@ -5,7 +5,7 @@ Unlikely traditional blockchain that update state in a new mined block every few
 
 ## Maintainer's seats
 
-There are limited number of the state maintainer in the TEA project. Each maintianer will require to own a "Seat"to work. The seat can be obtain via an auction. The owner of seat will need to pay [obsidian/epoch10_billing_tax/maintainer_tax](../epoch10_billing_tax/maintainer_tax.md).
+There are limited number of the state maintainer in the TEA project. Each maintianer will require to own a "Seat"to work. The seat can be obtain via an auction. The owner of seat will need to pay [ maintainer tax](../epoch10_billing_tax/maintainer_tax.md).
 
 ## State broadcasting
 

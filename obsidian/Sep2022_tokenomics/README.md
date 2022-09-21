@@ -1,7 +1,7 @@
 # What does the TEA Project tokenomics do?
-TEA Project provides a decentralized web3 apps hosting platform. Miners provide [[special designed hardware]] called [[hosting_nodes]] to host application backend. End users can choose any agnostic hosting nodes to access web3 apps. A group of [[state_maintainers]] together maintain a global state that shared by all apps. Our tokenomics are designed to provide a billing and taxing system to keep this ecosystem work smoothly.
+TEA Project provides a decentralized web3 apps hosting platform. Miners provide [[special designed hardware]] called [[hosting_nodes]] to host application [[backend]]. End users can choose any agnostic hosting nodes to access web3 apps. A group of [[state_maintainers]] together maintain a global state that shared by all apps. Our tokenomics are designed to provide a billing and taxing system to keep this ecosystem work smoothly.
 
-# Players and their roles
+# TEA Eco Players and their roles
 ## End users
 Unlikely web2 world that most services are free to use to end users. In the blockchain or web3 world, most of the services are no longer free. The end users would have to pay for services. In the popular Ethereum terminology, it is called "gas fee". 
 
@@ -44,7 +44,7 @@ End users -> app_owners for in-app purchase (this how Apple calls it)
 - State subscription fee from the lower tier [[hosting_nodes]]
 ### Operating cost
 - Purchase CML token
-- Purchase tiered seat
+- Purchase [[tiered_seat]]
 - Paying tiered seat tax to Global token
 - (Out of TEA eco system) Hardware and utility cost (network, electricity etc)
 - Paying state subscription fee to up stream (upper level hosting nodes or state maintainer)
@@ -59,12 +59,12 @@ End users -> app_owners for in-app purchase (this how Apple calls it)
 - Sort and execute txns quries and mutations to update the state
 - Broadcast state changes to the top tier [[hosting_nodes]]
 ### Revenue source
-- Applications pay [[obsidian/harberger_tax/Txns_computing_fee]]
-- Applications pay [[obsidian/epoch10_billing_tax/Memory_tax]]
+- Applications pay [[obsidian/harberger_tax/Txns_computing_fee|transaction execution fee]]
+- Applications pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]]
 - Top tier [[hosting_nodes]] pay state subscription fee
 ### Operating cost
 - Purchase CML
-- Purchase state machine [[obsidian/epoch10_billing_tax/Maintainer_Seat]]
+- Purchase state machine [[obsidian/epoch10_billing_tax/Maintainer_Seat| maintainer seat]]
 - (Out of TEA eco system) Hardware and utility cost
 - State maintainer income tax pays to the Global token
 ### Owned assets
@@ -79,8 +79,8 @@ End users -> app_owners for in-app purchase (this how Apple calls it)
 - In-App purchase
 ### Operating cost
 - (Out of TEA ecosystem)Software development cost
-- Pay [[obsidian/harberger_tax/Txns_computing_fee]] to state maintainer for both Queries and Mutations
-- Pay [[obsidian/epoch10_billing_tax/Memory_tax]] to state maintainers based on how much memory used in state
+- Pay [[obsidian/harberger_tax/Txns_computing_fee| transacction execution fee]] to state maintainer for both Queries and Mutations
+- Pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]] to state maintainers based on how much memory used in state
 - NOTE: App owners DO NOT pay hosting fee to [[hosting_nodes]]
 ### Owned assets
 Nothing in TEA ecosystem. Out of the TEA eco system, the IP, brand name etc.
