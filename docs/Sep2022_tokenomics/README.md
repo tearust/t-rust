@@ -66,7 +66,7 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 
 * Purchase CML token.
 * Purchase [state_subscription_seat](state_subscription_seat.md).
-* Paying [state_subscription_seat](state_subscription_seat.md) tax to Global token.
+* Pay [state_subscription_seat](state_subscription_seat.md) tax to Global token.
 * (Outside of TEA ecosystem) Hardware and utility costs (network, electricity etc).
 * Paying state subscription fee to up stream (upper level hosting nodes or state maintainers).
 

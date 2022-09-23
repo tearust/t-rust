@@ -46,7 +46,7 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 ### Operating cost
 - Purchase CML token.
 - Purchase [[state_subscription_seat]].
-- Paying [[state_subscription_seat]] tax to Global token.
+- Pay [[state_subscription_seat]] tax to Global token.
 - (Outside of TEA ecosystem) Hardware and utility costs (network, electricity etc).
 - Paying state subscription fee to up stream (upper level hosting nodes or state maintainers).
 ### Owned assets
