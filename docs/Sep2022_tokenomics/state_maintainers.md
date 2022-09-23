@@ -9,6 +9,6 @@ There are limited number of the state maintainer in the TEA project. Each mainti
 
 ## State broadcasting
 
-[hosting_nodes](hosting_nodes.md) can send query txns to state maintainers for latest state, but in most cases, the hosting nodes will cache a historical states in its own node. They will receive the update of latest state from state maintainer using state subscription model. This model runs in multi-tiers. The state maintainers only broadcasting to a limited number of "top tier" hosting nodes to reduce the network bandwidth consumption. Then the top tier hosting nodes broadcast to the "second tier", then "third tier" and so on.
+[hosting_nodes](hosting_nodes.md) can send query txns to state maintainers for latest state, but in most cases, the hosting nodes will cache a historical states in its own node. They will receive the update of latest state from state maintainer using state subscription model. The state maintainers only broadcasting to a limited number [seated_hosting](seated_hosting.md) to reduce the network bandwidth consumption. 
 
-The hosting nodes can join a tier by obtaining the tier seat via an auction. This similar to the state maintainer seat auction. Of course, they will need to pay tier tax too.
+The hosting nodes can become [seated_hosting](seated_hosting.md) by obtaining the [state_subscription_seat](state_subscription_seat.md) via an auction. This similar to the state maintainer seat auction. Of course, they will need to pay tax too.

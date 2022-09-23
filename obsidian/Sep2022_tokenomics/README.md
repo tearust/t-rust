@@ -8,7 +8,7 @@ Unlike the web2 world where most services are free to use for end users, the blo
 ## Hosting node providers
 Hosting node providers are sometimes called "miners" in the blockchain world. But in TEA Project, they don't waste hash power to maintain the global state (specific [[state_maintainers]] play that role instead). The miners in the TEA Project are simply hosting service providers. They own and run [[special designed hardware]] called "Tea Boxes". End users access these tea boxes as if they were traditional internet servers. 
 ## State maintainers
-[[state_maintainers]] work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [[hosting_nodes]], update the state, and broacast the current state to [[hosting_nodes]] by according to their tier. 
+[[state_maintainers]] work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [[hosting_nodes]], update the state, and broacast the current state to [[seated_hosting]].
 ## App owners
 App owners build applications which in the TEA Project are called TApps. TApps look similar to typical web applications but run decentrlized, which makes them
 - Non stoppable
@@ -22,7 +22,7 @@ Unlike traditional web apps where users need to go to a specific web URL to acce
 
 Dynamic content means users can use apps to query and mutate the state (or update the database as it's usually called in web2). In traditional cloud computing, the layer that receives user interaction is called the backend. In the TEA project, they are called [[hosting_nodes]]. In most cases, it will be exactly the same [[hosting_nodes]] that you load your front end code from. Because the [[hosting_nodes]] have a state cache, most queries can be done inside of that node and return the result directly to end users. For time sensitive queries or mutations, the [[hosting_nodes]] will send a txn to [[state_maintainers]] to query the latest state or update (mutate) the global state. 
 
-[[state_maintainers]] broadcast the latest state in tiers to [[hosting_nodes]], so that they can update their cached local state. This allows them to provide up to date services to end users.
+[[state_maintainers]] broadcast the latest state to [[seated_hosting]], so that they can update their cached local state. This allows them to provide up to date services to end users. Unseated hostings can get the state updates from the [[seated_hosting]]. 
 
 All nodes regardless if they're [[hosting_nodes]] or [[state_maintainers]] run computing logic inside of enclaves that are protected by trusted computing hardware. This is so that their computational results can be trusted and the data has a space to remain secure.
 
@@ -43,27 +43,26 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 - Public services, such as remote attestation.
 ### Revenue source
 - End user pay gas fee.
-- State subscription fee from the lower tier [[hosting_nodes]].
 ### Operating cost
 - Purchase CML token.
-- Purchase [[tiered_seat]].
-- Paying tiered seat tax to Global token.
+- Purchase [[state_subscription_seat]].
+- Paying [[state_subscription_seat]] tax to Global token.
 - (Outside of TEA ecosystem) Hardware and utility costs (network, electricity etc).
 - Paying state subscription fee to up stream (upper level hosting nodes or state maintainers).
 ### Owned assets
 - CML
-- Tiered seat
+- [[state_subscription_seat]]
 - Initial investment of own CML token (this is special front runner privilege to the CML owner).
 ### Profit goes to CML token and is shared by holders
 ## State maintainers
 ### Services provided
 - Maintain the global state in secure memory.
 - Sort and execute txns quries and mutations to update the state.
-- Broadcast state changes to the top tier [[hosting_nodes]].
+- Broadcast state changes to the [[seated_hosting]]
 ### Revenue sources
 - Applications pay [[obsidian/harberger_tax/Txns_computing_fee|transaction execution fee]].
 - Applications pay [[obsidian/epoch10_billing_tax/Memory_tax| memory tax]].
-- Top tier [[hosting_nodes]] pay state subscription fee.
+- [[seated_hosting]] pay state subscription fee.
 ### Operating costs
 - Purchasing CML.
 - Purchasing state machine [[obsidian/epoch10_billing_tax/Maintainer_Seat| maintainer seat]].
@@ -92,7 +91,7 @@ Nothing in TEA ecosystem. Out of the TEA ecosystem, the IP, brand name etc.
 This is the DAO of TEA Project. All tea ecosystem members are encouraged to become Global token stake holders.
 ### Revenue sources
 - State maintainer income tax.
-- Tiered hosting node seat tax.
+- [[state_subscription_seat]].
 - Slashed assets from bad actors.
 - CML seed auctions.
 ### Operating cost

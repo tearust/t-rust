@@ -14,7 +14,7 @@ Hosting node providers are sometimes called "miners" in the blockchain world. Bu
 
 ## State maintainers
 
-[state_maintainers](state_maintainers.md) work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [hosting_nodes](hosting_nodes.md), update the state, and broacast the current state to [hosting_nodes](hosting_nodes.md) by according to their tier. 
+[state_maintainers](state_maintainers.md) work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [hosting_nodes](hosting_nodes.md), update the state, and broacast the current state to [seated_hosting](seated_hosting.md).
 
 ## App owners
 
@@ -34,7 +34,7 @@ Unlike traditional web apps where users need to go to a specific web URL to acce
 
 Dynamic content means users can use apps to query and mutate the state (or update the database as it's usually called in web2). In traditional cloud computing, the layer that receives user interaction is called the backend. In the TEA project, they are called [hosting_nodes](hosting_nodes.md). In most cases, it will be exactly the same [hosting_nodes](hosting_nodes.md) that you load your front end code from. Because the [hosting_nodes](hosting_nodes.md) have a state cache, most queries can be done inside of that node and return the result directly to end users. For time sensitive queries or mutations, the [hosting_nodes](hosting_nodes.md) will send a txn to [state_maintainers](state_maintainers.md) to query the latest state or update (mutate) the global state. 
 
-[state_maintainers](state_maintainers.md) broadcast the latest state in tiers to [hosting_nodes](hosting_nodes.md), so that they can update their cached local state. This allows them to provide up to date services to end users.
+[state_maintainers](state_maintainers.md) broadcast the latest state to [seated_hosting](seated_hosting.md), so that they can update their cached local state. This allows them to provide up to date services to end users. Unseated hostings can get the state updates from the [seated_hosting](seated_hosting.md). 
 
 All nodes regardless if they're [hosting_nodes](hosting_nodes.md) or [state_maintainers](state_maintainers.md) run computing logic inside of enclaves that are protected by trusted computing hardware. This is so that their computational results can be trusted and the data has a space to remain secure.
 
@@ -61,20 +61,19 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 ### Revenue source
 
 * End user pay gas fee.
-* State subscription fee from the lower tier [hosting_nodes](hosting_nodes.md).
 
 ### Operating cost
 
 * Purchase CML token.
-* Purchase [tiered_seat](tiered_seat.md).
-* Paying tiered seat tax to Global token.
+* Purchase [state_subscription_seat](state_subscription_seat.md).
+* Paying [state_subscription_seat](state_subscription_seat.md) tax to Global token.
 * (Outside of TEA ecosystem) Hardware and utility costs (network, electricity etc).
 * Paying state subscription fee to up stream (upper level hosting nodes or state maintainers).
 
 ### Owned assets
 
 * CML
-* Tiered seat
+* [state_subscription_seat](state_subscription_seat.md)
 * Initial investment of own CML token (this is special front runner privilege to the CML owner).
 
 ### Profit goes to CML token and is shared by holders
@@ -85,13 +84,13 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 
 * Maintain the global state in secure memory.
 * Sort and execute txns quries and mutations to update the state.
-* Broadcast state changes to the top tier [hosting_nodes](hosting_nodes.md).
+* Broadcast state changes to the [seated_hosting](seated_hosting.md)
 
 ### Revenue sources
 
 * Applications pay [transaction execution fee](../harberger_tax/Txns_computing_fee.md).
 * Applications pay [ memory tax](../epoch10_billing_tax/Memory_tax.md).
-* Top tier [hosting_nodes](hosting_nodes.md) pay state subscription fee.
+* [seated_hosting](seated_hosting.md) pay state subscription fee.
 
 ### Operating costs
 
@@ -137,7 +136,7 @@ This is the DAO of TEA Project. All tea ecosystem members are encouraged to beco
 ### Revenue sources
 
 * State maintainer income tax.
-* Tiered hosting node seat tax.
+* [state_subscription_seat](state_subscription_seat.md).
 * Slashed assets from bad actors.
 * CML seed auctions.
 
