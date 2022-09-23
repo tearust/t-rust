@@ -1,14 +1,14 @@
-State maintainers play the similar role as database servers in traditional cloud computing platform. They are a group nodes runs the TEA Project state machine to keep a global state that shared by all apps. 
-They accepts txns (transactions) from [hosting_nodes](hosting_nodes.md). Those txns are quries (without changing the state) and mutations(changing the state). 
+State maintainers play a similar role as database servers in traditional cloud computing. They are a group of nodes running the TEA Project's state machine to keep a global state that's shared by all apps. 
+They accept txns (transactions) from [hosting_nodes](hosting_nodes.md). Those txns are queries (without changing the state) and mutations (change the state). 
 
-Unlikely traditional blockchain that update state in a new mined block every few seconds(or minutes), the state in TEA Project updates continuously like databases. 
+Unlike traditional blockchains that updates the state in a new mined block every few seconds (or minutes), the state in TEA Project updates continuously like databases. 
 
 ## Maintainer's seats
 
-There are limited number of the state maintainer in the TEA project. Each maintianer will require to own a "Seat"to work. The seat can be obtain via an auction. The owner of seat will need to pay [ maintainer tax](../epoch10_billing_tax/maintainer_tax.md).
+There are limited number of the state maintainer in the TEA project. Each maintainer will be required to own a "Seat"to work. The seat can be obtained via an auction. The owner of the seat will need to pay a [ maintainer tax](../epoch10_billing_tax/maintainer_tax.md).
 
 ## State broadcasting
 
-[hosting_nodes](hosting_nodes.md) can send query txns to state maintainers for latest state, but in most cases, the hosting nodes will cache a historical states in its own node. They will receive the update of latest state from state maintainer using state subscription model. The state maintainers only broadcasting to a limited number [seated_hosting](seated_hosting.md) to reduce the network bandwidth consumption. 
+[hosting_nodes](hosting_nodes.md) can send query txns to state maintainers for the latest state, but in most cases, the hosting nodes will cache a historical state in its own node. They will receive the update of the latest state from state maintainers using state subscription model. The state maintainers only broadcast to a limited number of [seated_hosting_nodes](seated_hosting_nodes.md) to reduce the network bandwidth consumption. 
 
-The hosting nodes can become [seated_hosting](seated_hosting.md) by obtaining the [state_subscription_seat](state_subscription_seat.md) via an auction. This similar to the state maintainer seat auction. Of course, they will need to pay tax too.
+The hosting nodes can become [seated_hosting_nodes](seated_hosting_nodes.md) by obtaining the [state_subscription_seat](state_subscription_seat.md) via an auction. This is similar to the state maintainer seat auction. Of course, they will need to pay tax too.

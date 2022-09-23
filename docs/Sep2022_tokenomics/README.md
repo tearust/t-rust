@@ -1,6 +1,6 @@
 # What does the TEA Project tokenomics do?
 
-TEA Project provides a decentralized web3 apps hosting platform. Miners provide [special designed hardware](special%20designed%20hardware.md) called [hosting_nodes](hosting_nodes.md) to host the application [backend](backend.md). End users can choose any agnostic hosting nodes to access web3 apps. A group of [state_maintainers](state_maintainers.md) together maintain a global state that's shared by all apps. Our tokenomics are designed to provide a billing and taxation system to keep this ecosystem working smoothly.
+TEA Project provides a decentralized web3 apps hosting platform. Miners provide [special_designed_hardware](special_designed_hardware.md) called [hosting_nodes](hosting_nodes.md) to host the application [backend](backend.md). End users can choose any agnostic hosting nodes to access web3 apps. A group of [state_maintainers](state_maintainers.md) together maintain a global state that's shared by all apps. Our tokenomics are designed to provide a billing and taxation system to keep this ecosystem working smoothly.
 
 # TEA Ecosystem Players and their roles
 
@@ -10,11 +10,11 @@ Unlike the web2 world where most services are free to use for end users, the blo
 
 ## Hosting node providers
 
-Hosting node providers are sometimes called "miners" in the blockchain world. But in TEA Project, they don't waste hash power to maintain the global state (specific [state_maintainers](state_maintainers.md) play that role instead). The miners in the TEA Project are simply hosting service providers. They own and run [special designed hardware](special%20designed%20hardware.md) called "Tea Boxes". End users access these tea boxes as if they were traditional internet servers. 
+Hosting node providers are sometimes called "miners" in the blockchain world. But in TEA Project, they don't waste hash power to maintain the global state (specific [state_maintainers](state_maintainers.md) play that role instead). The miners in the TEA Project are simply hosting service providers. They own and run [special_designed_hardware](special_designed_hardware.md) called "Tea Boxes". End users access these tea boxes as if they were traditional internet servers. 
 
 ## State maintainers
 
-[state_maintainers](state_maintainers.md) work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [hosting_nodes](hosting_nodes.md), update the state, and broacast the current state to [seated_hosting](seated_hosting.md).
+[state_maintainers](state_maintainers.md) work just like database servers in the traditional world of cloud computing. They receive queries and mutations from [hosting_nodes](hosting_nodes.md), update the state, and broacast the current state to [seated_hosting_nodes](seated_hosting_nodes.md).
 
 ## App owners
 
@@ -34,7 +34,7 @@ Unlike traditional web apps where users need to go to a specific web URL to acce
 
 Dynamic content means users can use apps to query and mutate the state (or update the database as it's usually called in web2). In traditional cloud computing, the layer that receives user interaction is called the backend. In the TEA project, they are called [hosting_nodes](hosting_nodes.md). In most cases, it will be exactly the same [hosting_nodes](hosting_nodes.md) that you load your front end code from. Because the [hosting_nodes](hosting_nodes.md) have a state cache, most queries can be done inside of that node and return the result directly to end users. For time sensitive queries or mutations, the [hosting_nodes](hosting_nodes.md) will send a txn to [state_maintainers](state_maintainers.md) to query the latest state or update (mutate) the global state. 
 
-[state_maintainers](state_maintainers.md) broadcast the latest state to [seated_hosting](seated_hosting.md), so that they can update their cached local state. This allows them to provide up to date services to end users. Unseated hostings can get the state updates from the [seated_hosting](seated_hosting.md). 
+[state_maintainers](state_maintainers.md) broadcast the latest state to [seated_hosting_nodes](seated_hosting_nodes.md), so that they can update their cached local state. This allows them to provide up to date services to end users. Unseated hostings can get the state updates from the [seated_hosting_nodes](seated_hosting_nodes.md). 
 
 All nodes regardless if they're [hosting_nodes](hosting_nodes.md) or [state_maintainers](state_maintainers.md) run computing logic inside of enclaves that are protected by trusted computing hardware. This is so that their computational results can be trusted and the data has a space to remain secure.
 
@@ -84,13 +84,13 @@ End users -> app_owners for in-app purchase (this is how it's called in platform
 
 * Maintain the global state in secure memory.
 * Sort and execute txns quries and mutations to update the state.
-* Broadcast state changes to the [seated_hosting](seated_hosting.md)
+* Broadcast state changes to the [seated_hosting_nodes](seated_hosting_nodes.md)
 
 ### Revenue sources
 
 * Applications pay [transaction execution fee](../harberger_tax/Txns_computing_fee.md).
 * Applications pay [ memory tax](../epoch10_billing_tax/Memory_tax.md).
-* [seated_hosting](seated_hosting.md) pay state subscription fee.
+* [seated_hosting_nodes](seated_hosting_nodes.md) pay state subscription fee.
 
 ### Operating costs
 
