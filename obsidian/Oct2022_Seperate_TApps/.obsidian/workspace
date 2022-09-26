@@ -1,0 +1,155 @@
+{
+  "main": {
+    "id": "73722cf5727d0e03",
+    "type": "split",
+    "children": [
+      {
+        "id": "35e8b16c66fcea5b",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "335a31c049c66997",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cd231f9c97cc89f7",
+    "type": "split",
+    "children": [
+      {
+        "id": "1831fec8b2490e19",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aec286c4f18e97ec",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "56d1e74b60ddacf4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a0a447fbbb6c8eef",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8dc4348c14ee26b3",
+    "type": "split",
+    "children": [
+      {
+        "id": "4fa7c0fd257daf60",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a1975ac02fa7ccb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2033a9fc51c863fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "29bd3a84f8243d10",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "700e9b7e576d726c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "335a31c049c66997",
+  "lastOpenFiles": [
+    "TApps.md",
+    "system_utility_tapp.md",
+    "deposit_to_tapp.md",
+    "launch_tapp.md",
+    "harberger_auction_tapp.md",
+    "README.md",
+    "special_approval.md",
+    "check_tapp_deposit_balance.md",
+    "leaderboard_tapp.md",
+    "refund_to_tappstore.md"
+  ]
+}
