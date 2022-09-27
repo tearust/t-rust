@@ -1,10 +1,7 @@
-Deposit to tapp will cross_move fund from this end user tappstore tea balance to this end user this_tapp deposit balance.
+In TAppStore, TApp page. End user can explicitly click deposit to tapp button to transfer fund from his tappstore account to his deposit account of this tapp.
 
-It is OP_DEPOSIT. but cross token_id.
+This is not limited or affect allowance. As long as the fund is in the TApp deposit, the TApp can use it without asking permission from TAppStore.
 
+User can also [[refund]] from tapp back to tappstore.
 
-move out: ft_state/tappstore_id/end_user_address 
-->
-move in: ft_deposit_state/this_tapp_token_id/end_user_address
-
-
+This operation detail in [[TApp_fund_operations#Deposit_from_tappstore]]

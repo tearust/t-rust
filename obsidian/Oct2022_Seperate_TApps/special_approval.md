@@ -1,13 +1,12 @@
 When a TApp (rather than TAppStore itself) want to access to read / move end user's assets, this user need to approve this action in TAppStore. under TApp tab, action column.
 
 The approve will including
-- read
-- move
-- expence XX TEA with YY minutes  (**Tentative**) for easier first-time-user experience. [[#Time_based_approval]] below.
+- read and show assets data to public
+-  (**Tentative**) auto renew allowrance. XX TEA with YY minutes. See[[#Time_based_approval]] below.
 
 When the approval from the end user, when the tapp calls TAppStore B Actor for some query or mutation, it  will be rejected due to AuthKey invalid.
 
-The approval will be saved in statemachine. So that the tApp and TAppStore can check if this user auth the operation at B actor without sending txns to A actor.
+Without the read and show assets data to public ([[leaderboard_tapp]] would be one of the tapp requires this), the AppStore will only allow [[check_tapp_allowrance]], not other assets.
 
 # Time_based_approval
 

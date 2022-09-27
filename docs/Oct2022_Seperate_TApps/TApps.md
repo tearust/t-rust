@@ -12,6 +12,7 @@ It has columns
 * ERC20 address(this was TApp id column)
 * Tapp name
 * Current front end CID , click to [launch_tapp](launch_tapp.md)
+* Remaining allowance [check_tapp_allowrance](check_tapp_allowrance.md)
 * Tapp ticker
 * Marketcap
 * Current hosts
@@ -21,5 +22,6 @@ It has columns
 # Actions
 
 * favourite
-* [deposit_to_tapp](deposit_to_tapp.md)
+* Adjust or revoke [approve_allowance_to_tapp](approve_allowance_to_tapp.md)
 * [special_approval](special_approval.md)
+* [deposit_to_tapp](deposit_to_tapp.md)

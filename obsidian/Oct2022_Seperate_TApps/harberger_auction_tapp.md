@@ -12,12 +12,12 @@ This TApp is not free. All action (query and mutation) is paid.
 TApp login is simplified, without the auth that required by [[special_approval]].
 
 # Deposit
-End user will need to use TAppStore TApps tab , the  [[deposit_to_tapp]]  feature to add deposit. Maintainer need to pay deposit before he can pay anything in the maintainer tapp. 
+End user will need to use TAppStore TApps tab , the  [[approve_allowance_to_tapp]]  feature to add deposit. Maintainer need to pay deposit before he can pay anything in the maintainer tapp. 
 
 For easier first-time-user ramp up, we are considering the [[special_approval#time_based_approval|time based approval]]
 
 # Refund
-User has [[refund_to_tappstore]] feature in the [[#Account component]]. User can reduce or refund in full. Refund is sending this user deposit in this tapp (seat_auction_tapp) deposit back to the same user's TAppStore account.
+User has [[refund]] feature in the [[#Account component]]. User can reduce or refund in full. Refund is sending this user deposit in this tapp (seat_auction_tapp) deposit back to the same user's TAppStore account.
 
 Refund can only be done within the TApp, not TAppStore. 
 
@@ -27,7 +27,7 @@ Refund can only be done within the TApp, not TAppStore.
 # Account component
 This account component can be show at the header.
 It shows the current maintainer tapp deposit balance of this user.
-A [[harberger_auction_tapp#Refund|refund]]refund button to refund the existing deposit back to tappstore. User will be promopt to input amount of TEA to refund. But [[deposit_to_tapp|deposit]] need to be done inside tappstore.
+A [[harberger_auction_tapp#Refund|refund]]refund button to refund the existing deposit back to tappstore. User will be promopt to input amount of TEA to refund. But [[approve_allowance_to_tapp|deposit]] need to be done inside tappstore.
 
 # Auto deposit (future feature)
 This is a feature plan to be done in epoch12. User can setup a rule, when deposit is low, it auto transfer from tappstore. This operation is [[special_approval]] inside TAppStore not in maintainer app.
