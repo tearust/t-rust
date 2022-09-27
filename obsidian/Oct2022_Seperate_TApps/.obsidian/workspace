@@ -4,27 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "58ab43a0ebca6f5e",
+        "id": "c156fab09b7b5b94",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "harberger_auction_tapp.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "809b1494cd152709",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "TApp_fund_operations.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -52,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "allowrance",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,7 +74,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "harberger_auction_tapp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +90,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "harberger_auction_tapp.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,9 +111,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "harberger_auction_tapp.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -140,17 +120,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "58ab43a0ebca6f5e",
+  "active": "c156fab09b7b5b94",
   "lastOpenFiles": [
+    "TApp_fund_operations.md",
+    "harberger_auction_tapp.md",
     "README.md",
     "update_price.md",
     "giveup_seat.md",
     "buy_seat.md",
-    "TApp_fund_operations.md",
     "special_approval.md",
     "approve_allowance_to_tapp.md",
     "check_tapp_allowance.md",
-    "deposit_to_tapp.md",
-    "login_harberger.md"
+    "deposit_to_tapp.md"
   ]
 }

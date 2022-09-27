@@ -1,7 +1,0 @@
-- [Home](/)
-- <strong>[Appstore UI](appstore_ui/README.md)</strong>
-- <strong>[Global CML Marketplace](epoch10_billing_tax/marketplace_trade_maintainer_seat.md)</strong>
-- <strong>[Harberger Tax](harberger_tax/README.md)</strong>
-- <strong>[Epoch10 Billing and Tax](epoch10_billing_tax/README.md)</strong>
-- <strong>[TApp bootloader and cold start from (local) static file](TApp_cold_start/README.md)</strong>
-- <strong>[Tokenomic design Sep 2022](Sep2022_tokenomics/README.md)</strong>
