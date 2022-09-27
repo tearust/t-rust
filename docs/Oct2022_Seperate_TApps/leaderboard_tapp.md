@@ -14,7 +14,7 @@ Register means the end user allow to show its financial data to the public insid
 
 Without registerring, tappstore will not allow to show the balance to public.
 
-Register is actually happen inside tappstore, because we cannot let any tapp to claim that it has the right to read any users data. The end user need to explicitly approve [special_approval](special_approval.md) another tapp (in this case leaderboard) to read my assets. Without such special approval, the normal TApp can only query TAppStore for [check_tapp_allowrance](check_tapp_allowrance.md) without checking assets.
+Register is actually happen inside tappstore, because we cannot let any tapp to claim that it has the right to read any users data. The end user need to explicitly approve [special_approval](special_approval.md) another tapp (in this case leaderboard) to read my assets. Without such special approval, the normal TApp can only query TAppStore for [check_tapp_allowance](check_tapp_allowance.md) without checking assets.
 
 In leaderboard, if user click Register button, it will show an instruction, tell him to do this in the [special_approval](special_approval.md) inside TApp tab inside TAppStore app.
 

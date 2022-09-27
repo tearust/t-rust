@@ -45,6 +45,8 @@ No change from existing Seat table
 
 User will need to [special_approval](special_approval.md) this TApp to query user's data and show in public. Seat data is public viewed by anyone. TAppStore will need such appoval from the end user to protect their privacy. 
 
+## [list_seats](list_seats.md)
+
 ## Check deposit
 
 Use the statemachine query ft_deposit_state/maintainer_token_id/end_user_address to get the TEA balance
@@ -60,6 +62,16 @@ Existing SQL
 ## Buy or sell seat
 
 The same logic but move to Seat Auction TApp.
+
+## [login_harberger](login_harberger.md)
+
+## [buy_seat](buy_seat.md)
+
+## [giveup_seat](giveup_seat.md)
+
+## [update_price](update_price.md)
+
+When buying first batch seat from sudo, the seller account is TAppStore hidden_consume_account.
 
 # Cron job
 

@@ -12,7 +12,7 @@ It has columns
 * ERC20 address(this was TApp id column)
 * Tapp name
 * Current front end CID , click to [launch_tapp](launch_tapp.md)
-* Remaining allowance [check_tapp_allowrance](check_tapp_allowrance.md)
+* Remaining allowance [check_tapp_allowance](check_tapp_allowance.md)
 * Tapp ticker
 * Marketcap
 * Current hosts
