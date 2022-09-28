@@ -2,10 +2,10 @@
 
 ## Check if payer has enough fund
 
-In B Actor of Harberger Auction. Before sending buy_seat txn after user click "buy seat", first check the buyer has enough fund to pay. Check buyer's [check_tapp_allowance](check_tapp_allowance.md) and [deposit](deposit_to_tapp.md).  If allowance  \< price + MIN_SEAT_DEPOSIT, prompt user to go to TAppStore to [ increase allowance](approve_allowance_to_tapp.md#increase-decrease-allowance) to reach the limit. 
+If our local cache state feature is ready, in B Actor of Harberger Auction. Before sending buy_seat txn after user click "buy seat", first check the buyer has enough fund to pay. Check buyer's [check_tapp_allowance](check_tapp_allowance.md)   If allowance  \< price + MIN_SEAT_DEPOSIT, prompt user to go to TAppStore to [ increase allowance](approve_allowance_to_tapp.md#increase-decrease-allowance) to reach the limit. 
 else, send request to TAppStore A Actor Buy_Seat
 
-In the TAppStore Actor BuySeat txn handler, Also need to check allowance and deposit again as the B actor did. We check because the time different between B actor check and now.
+In the TAppStore Actor BuySeat txn handler, Also need to check allowance  again as the B actor did. We check because the time different between B actor check and now.
 
 ## Pay MIN_SEAT_DEPOSIT
 
@@ -18,7 +18,7 @@ Run [TApp_fund_operations > Deposit_from_tappstore](TApp_fund_operations.md#depo
 
 ## Pay original owner, the seller
 
-Run [TApp_fund_operations > in_app_transfer](TApp_fund_operations.md#in-app-transfer) to pay the buyer seat price
+Run [TApp_fund_operations > payment_from_tappstore](TApp_fund_operations.md#payment-from-tappstore) to pay the buyer seat price
 
 * amount is price. 
 * sender is buyer, the new owner.

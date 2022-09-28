@@ -11,19 +11,6 @@ This TApp is not free. All action (query and mutation) is paid.
 # Login
 TApp login is simplified, without the auth that required by [[special_approval]].
 
-# Deposit
-End user will need to use TAppStore TApps tab , the  [[approve_allowance_to_tapp]]  feature to add deposit. Maintainer need to pay deposit before he can pay anything in the maintainer tapp. 
-
-For easier first-time-user ramp up, we are considering the [[special_approval#time_based_approval|time based approval]]
-
-# Refund
-User has [[refund]] feature in the [[#Account component]]. User can reduce or refund in full. Refund is sending this user deposit in this tapp (seat_auction_tapp) deposit back to the same user's TAppStore account.
-
-Refund can only be done within the TApp, not TAppStore. 
-
-> Question, what if the TApp has some bad behaivor logic that do not allow end user to refund?
-
-
 # Account component
 This account component can be show at the header.
 It shows the current maintainer tapp deposit balance of this user.

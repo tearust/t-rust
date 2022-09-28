@@ -18,4 +18,3 @@ It has columns
 - favourite
 - Adjust or revoke [[approve_allowance_to_tapp]]
 - [[special_approval]]
-- [[deposit_to_tapp]]

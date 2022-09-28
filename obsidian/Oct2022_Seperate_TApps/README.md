@@ -17,7 +17,6 @@ The Seats will move to [[harberger_auction_tapp]] . If the end user is not a mai
 The remaning features are the most relative features that a regular end user or investor need to use. The features are
 - [[approve_allowance_to_tapp]]
 - [[special_approval]]
-- [[deposit_to_tapp]]
 - [[check_tapp_allowance]](the remaining allowance )
 - [[launch_tapp]]
 - check layer2 balance. this is tappstore balance after user topup from layer1
@@ -37,12 +36,11 @@ Those featrues are done using ETH existing utilities, such as Uniswap, OpenSea, 
 Statemachine will enforce rules when cross_move fund between apps
 - If user did not login, no authkey, no operation is allowed
 - With the new [[check_tapp_allowance]] feature, the authkey can be simplified. Authkey only proof this user login to this TApp. TAppStore can check the allow/disallow table before execution any txns request from B actor. Becuase actually fund transfer or ownership transfer mostly happen in TAppStore. As long as we can control the TAppStore, we are most safe. For example, if this TApp has remaining allowance, it can request the TAppStore to cross_move at most the remaining allowance to this TApp's hidden consume account. TAppStore will also check before execute the cross_move.
-- In TAppStore, user can explicitly use [[deposit_to_tapp]] to transfer fund to a TApp's deposit account. 
 
 The operations that TApp can ask TAppStore
-- [[TApp_fund_operations#Consume_from_tappstore | Consume from tappstore]]
-- [[TApp_fund_operations#Deposit_from_tappstore| Deposit from tappstore]]
-- [[TApp_fund_operations#Refund | Refund]]
+- [[TApp_fund_operations#Consume_from_tappstore | Consume from tappstore]] .e.g. maintainer buy seat, use this money to pay the seller the seat price.
+- [[TApp_fund_operations#Deposit_from_tappstore| Deposit from tappstore]] e.g. maintainer buy seat and pay seat deposit form allowance to deposit account
+- [[TApp_fund_operations#Refund | Refund]]. e.g. maintainer giveup or sold seat, the remaining deposit shoudl go back to his tappstore balance.
 
 # Fund transfer inside tapp rules
 

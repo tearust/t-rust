@@ -22,7 +22,6 @@ The remaning features are the most relative features that a regular end user or 
 
 * [approve_allowance_to_tapp](approve_allowance_to_tapp.md)
 * [special_approval](special_approval.md)
-* [deposit_to_tapp](deposit_to_tapp.md)
 * [check_tapp_allowance](check_tapp_allowance.md)(the remaining allowance )
 * [launch_tapp](launch_tapp.md)
 * check layer2 balance. this is tappstore balance after user topup from layer1
@@ -45,13 +44,12 @@ Statemachine will enforce rules when cross_move fund between apps
 
 * If user did not login, no authkey, no operation is allowed
 * With the new [check_tapp_allowance](check_tapp_allowance.md) feature, the authkey can be simplified. Authkey only proof this user login to this TApp. TAppStore can check the allow/disallow table before execution any txns request from B actor. Becuase actually fund transfer or ownership transfer mostly happen in TAppStore. As long as we can control the TAppStore, we are most safe. For example, if this TApp has remaining allowance, it can request the TAppStore to cross_move at most the remaining allowance to this TApp's hidden consume account. TAppStore will also check before execute the cross_move.
-* In TAppStore, user can explicitly use [deposit_to_tapp](deposit_to_tapp.md) to transfer fund to a TApp's deposit account. 
 
 The operations that TApp can ask TAppStore
 
-* [ Consume from tappstore](TApp_fund_operations.md#consume-from-tappstore)
-* [ Deposit from tappstore](TApp_fund_operations.md#deposit-from-tappstore)
-* [ Refund](TApp_fund_operations.md#refund)
+* [ Consume from tappstore](TApp_fund_operations.md#consume-from-tappstore) .e.g. maintainer buy seat, use this money to pay the seller the seat price.
+* [ Deposit from tappstore](TApp_fund_operations.md#deposit-from-tappstore) e.g. maintainer buy seat and pay seat deposit form allowance to deposit account
+* [ Refund](TApp_fund_operations.md#refund). e.g. maintainer giveup or sold seat, the remaining deposit shoudl go back to his tappstore balance.
 
 # Fund transfer inside tapp rules
 

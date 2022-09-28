@@ -46,18 +46,29 @@ Transfer route
 - to ft_state -> tappstore_token_id -> user_address
 
 # in_app_consume
-No need TAppStore.
+No need TAppStore. This is not used in Harberger auction tapp. It may be used in other cases.
+
 Transfer inside TApp. StateProvider should allow this operation directly.
 
 Transfer route
 - from ft_deposit_state -> tapp_token_id -> user_address
 - to ft_state -> tappstore_token_id -> hidden_consume_account
 
-# in_app_transfer
-No need TAppStore.
+# payment_from_tappstore
+The TApp can call this txn when send one user payment to another user.
 
-Transfer inside TApp. StateProvider should allow this operation directly.
+txn is send to TAppStore actor.
+params:
+- actor. This is used to verify who is sending this req
+- payment_amount
+- authkey
+- user_address
+
+TAppStore check 
+- authkey to make sure the user login valid
+- this user allowance > payment_amount
+- txn coming from the actor of this tapp
 
 Transfer route
-- from ft_deposit_state -> tapp_token_id -> sender_address
-- to ft_state -> tappstore_token_id -> receiver_address
+-  from ft_state -> tappstore_token_id -> sender_address  
+-  to ft_state -> tappstore_token_id ->receiver_address 

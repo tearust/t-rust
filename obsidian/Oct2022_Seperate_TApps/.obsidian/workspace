@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "c156fab09b7b5b94",
+        "id": "5800aaf00a7f51d9",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -53,8 +57,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -74,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -111,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ]
@@ -120,17 +127,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "c156fab09b7b5b94",
+  "active": "5800aaf00a7f51d9",
   "lastOpenFiles": [
     "TApp_fund_operations.md",
-    "harberger_auction_tapp.md",
     "README.md",
-    "update_price.md",
     "giveup_seat.md",
     "buy_seat.md",
-    "special_approval.md",
-    "approve_allowance_to_tapp.md",
-    "check_tapp_allowance.md",
-    "deposit_to_tapp.md"
+    "list_seats.md",
+    "login_harberger.md",
+    "launch_tapp.md",
+    "deposit_to_tapp.md",
+    "refund.md",
+    "harberger_auction_tapp.md"
   ]
 }

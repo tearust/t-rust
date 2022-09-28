@@ -24,4 +24,3 @@ It has columns
 * favourite
 * Adjust or revoke [approve_allowance_to_tapp](approve_allowance_to_tapp.md)
 * [special_approval](special_approval.md)
-* [deposit_to_tapp](deposit_to_tapp.md)
