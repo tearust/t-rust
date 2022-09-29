@@ -9,7 +9,7 @@ These steps include:
 * How the end user loads the bootloader js code.
 * How the bootloader finds the TEA Project layer1 smart contract on Ethereum.
 * How the bootloajjder js finds the hosting nodes for the TAppStore.
-* How the hosting nodes find  [obsidian/harberger_tax/Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md).
+* How the hosting nodes find  [Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md).
 * How the first txn goes through (eg. Login).
 
 The design of the bootloader has the following assumptions:
@@ -60,15 +60,15 @@ When the bootloader is loaded into the browser, the js code will try to connect 
 
 The list is dynamically updated in the TEA Project's layer 1 smart contract. That means every time any one queries (RPC) the TEA Project smart contract, a current active list of IP address will be returned to the caller. 
 
-The bootstrap js continue to query any of these bootstrap nodes for **a list of active hosting nodes for this TApp**. This time, the requested node will query the layer2 state and response the list of current active hosting nodes ips of this specific TApp.
+The bootstrap js continue to query any of these bootstrap nodes for **a list of active hosting nodes for this TApp**. This time, the requested node will query the layer2 state and response the list of current active hosting nodes IPs of this specific TApp.
 
-The end user can either mannually or automatically select a nearby (nearby means faster ping) any IP from the respond hosting nodes as the **host or "server"**. All the future API call will be sent to this IP address.
+The end user can either mannually or automatically select a nearby (nearby means faster ping)  IP from the responding hosting nodes as the **host or "server"**. All the future API call will be sent to this IP address.
 
 ## TAppStore uses TEA network (a P2P network) to find the layer2 state machine.
 
-This happens between hosting nodes and [obsidian/harberger_tax/Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md). All of them are connected together using the TEA Network, a peer to peer network. The end user doesn't need to know anything about this. The end user only connects to one of the hosting nodes, and the rest would be handled by the hosting nodes.
+This happens between hosting nodes and [Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md). All of them are connected together using the TEA Network, a peer to peer network. The end user doesn't need to know anything about this. The end user only connects to one of the hosting nodes, and the rest would be handled by the hosting nodes.
 
-The TEA network is a big topic that we'll have to skip in this article. You can just simply assume the hosting node has already connected to the [obsidian/harberger_tax/Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md). It knows how to get the latest state update, and how to send the  query and command to the state machine. 
+The TEA network is a big topic that we'll have to skip in this article. You can just simply assume the hosting node has already connected to the [Global_state_maintainer_nodes](../harberger_tax/Global_state_maintainer_nodes.md). It knows how to get the latest state update, and how to send the  query and command to the state machine. 
 
 The hosting nodes don't need to connect to the Ethereum network directly. They only need to connect to the state machine, anything else would be handled by the state machine.
 

@@ -1,6 +1,6 @@
 # account-model pages
 
-* [App Token](account-model/apptoken.md)
+* [App Token](apptoken.md)
 
 # Existing data structure Aug 2022
 
