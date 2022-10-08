@@ -61,4 +61,4 @@ If someone want to leave the game. He will exchange TEA to Coffee, and manually 
 The 1:1000 (Coffee:TEA) is the init value when we start epoch11.0.
 For epoch11.1 starts, we will use the actualy rate in uniswap exchange. If might be 1:900, maybe 1:1200. 
 # At the end of epoch11. 0, how do we withdraw the uniswap LP?
-@George, this is a question for you
+@George, this is a question for you. we probably do not withdraw. leave it there, we will use it again in epoch12.
