@@ -1,4 +1,4 @@
-# Consume_from_tappstore
+# In_app_purchase
 The TApp can call consume when charge user payment.
 
 consume is send to TAppStore actor.
@@ -17,7 +17,7 @@ Transfer route
 -  from ft_state -> tappstore_token_id -> user_address  
 -  to ft_state -> tapp_token_id -> hidden_cosume_account
 
-# Deposit_from_tappstore
+# (Future feature)Deposit_from_tappstore
 User need to click deposit in TAppStore.
 
 params:
@@ -33,7 +33,7 @@ Transfer route
 - from ft_state -> tappstore_token_id -> user_address
 - to ft_deposit_state -> tapp_token_id -> user_address
 
-# Refund
+# (Future feature)Refund
 params:
 - user_address
 - refund_amount
@@ -45,9 +45,9 @@ Transfer route
 - from ft_deposit_state -> tapp_token_id -> user_address
 - to ft_state -> tappstore_token_id -> user_address
 
-# in_app_consume
+# in_app_consume(from deposit)
 No need TAppStore. This is not used in Harberger auction tapp. It may be used in other cases.
-
+Different from #In_app_purchase becuase it transfer fund from deposit in this tapp, not from tappstore.
 Transfer inside TApp. StateProvider should allow this operation directly.
 
 Transfer route
@@ -56,19 +56,6 @@ Transfer route
 
 # payment_from_tappstore
 The TApp can call this txn when send one user payment to another user.
+This is actove a move operation.
 
-txn is send to TAppStore actor.
-params:
-- actor. This is used to verify who is sending this req
-- payment_amount
-- authkey
-- user_address
-
-TAppStore check 
-- authkey to make sure the user login valid
-- this user allowance > payment_amount
-- txn coming from the actor of this tapp
-
-Transfer route
--  from ft_state -> tappstore_token_id -> sender_address  
--  to ft_state -> tappstore_token_id ->receiver_address 
+It happens inside the TApptore tokenid. The currency is TEA. 
