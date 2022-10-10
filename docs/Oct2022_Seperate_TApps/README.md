@@ -4,6 +4,8 @@
 
 * Leaderboard [leaderboard_tapp](leaderboard_tapp.md)
 * Seat Auction Portal [harberger_auction_tapp](harberger_auction_tapp.md) (oriingal tab Seats but add State Subscription Seat)
+* Miner's portal [miner_portal](miner_portal.md)
+* Seeds market [seeds_market](seeds_market.md)
 
 # TAppStore
 
@@ -47,7 +49,7 @@ Statemachine will enforce rules when cross_move fund between apps
 
 The operations that TApp can ask TAppStore
 
-* [ Consume from tappstore](TApp_fund_operations.md#consume-from-tappstore) .e.g. maintainer buy seat, use this money to pay the seller the seat price.
+* [ in app purchase](TApp_fund_operations.md#in-app-purchase) .e.g. maintainer buy seat, use this money to pay the seller the seat price.
 * [ Deposit from tappstore](TApp_fund_operations.md#deposit-from-tappstore) e.g. maintainer buy seat and pay seat deposit form allowance to deposit account
 * [ Refund](TApp_fund_operations.md#refund). e.g. maintainer giveup or sold seat, the remaining deposit shoudl go back to his tappstore balance.
 
@@ -73,3 +75,47 @@ Statemachine will enforce rules when move fund inside a single app.
 ## [update_price](update_price.md)
 
 When buying first batch seat from sudo, the seller account is TAppStore hidden_consume_account.
+
+# FAQs
+
+## Does TAppStore pay memory tax or txn exec fee?
+
+No, if it pay, it will just pay to itself. so it would be nonsense.
+
+# Why would (mostly) very hosting nodes would like to host TAppStore? Benefits?
+
+TAppStore is the default applications entry. By default, user will click tapp link to launch apps in THE SAME HOST. So the host will get more traffic and gas fee if hosting tappstore.
+
+Tappstore itself is profitable. User need to pay to use features in tappstore. hosting earn gas fee.
+
+# What the wallet.teaproject.org will look like at production?
+
+It will show a list of all registered hosting nodes that hosts TAppStore. End user can click to any of them to launch TAppStore. From there, they will access to any other TApp.
+
+# Will there be a https://store.teaproject.org?
+
+yes, it will be the same as wallet.teaproject.org, or maybe replace it in the future.
+
+# I am a hosting CML owner, do I have to register in TAppStore?
+
+You do not have to. You regsiter because you can be listed in the default store.teaproject.org. As long as you can promot yourself to end user and gain traffic, you do not need to.
+
+# Can I host other TApps, but not hosting TAppStore?
+
+Yes, you can. You just missed the entrance to other apps for your end user. 
+
+# Is there any exchange in TEA Project?
+
+Not yet, but plan to have an Uniswap like layer2 DEX. At this moment, use any exchange in ERC20 competible exchange will work. 
+
+# Will we have a CML seed auction app?
+
+It is planed in Epoch12. In Epoch11, buying a CML seed is still a manual process. Buying an existing CML can be done using OpenSea.
+
+# How can I release my vested TEA Token
+
+If you login using your address which owns any vested TEA, you will see a "TEA Vesting" tab in TAppStore. You can check and release there.
+
+# Why does my Global token account balance shrinks?
+
+Your token account holds Bonding Curve token which may increase or descrease based on the token entity operation. When the entity make profits, every one who hold this token will see the balance increase. On the other hands, when the entity is losing money, every one who hold this token will see the token balance decrease. 
