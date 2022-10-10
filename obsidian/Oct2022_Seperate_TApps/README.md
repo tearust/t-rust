@@ -2,7 +2,8 @@
 ## Seperate TAppStore into several smaller TApps
 - Leaderboard [[leaderboard_tapp]]
 - Seat Auction Portal [[harberger_auction_tapp]] (oriingal tab Seats but add State Subscription Seat)
-
+- Miner's portal [[miner_portal]]
+- Seeds market [[seeds_market]]
 # TAppStore
 After the change, the TAppStore will have a much simple UI.
 It keeps
@@ -88,4 +89,7 @@ It is planed in Epoch12. In Epoch11, buying a CML seed is still a manual process
 
 # How can I release my vested TEA Token
 If you login using your address which owns any vested TEA, you will see a "TEA Vesting" tab in TAppStore. You can check and release there.
+
+# Why does my Global token account balance shrinks?
+Your token account holds Bonding Curve token which may increase or descrease based on the token entity operation. When the entity make profits, every one who hold this token will see the balance increase. On the other hands, when the entity is losing money, every one who hold this token will see the token balance decrease. 
 
