@@ -7,12 +7,8 @@
         "id": "5800aaf00a7f51d9",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "README.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -127,10 +119,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "5800aaf00a7f51d9",
+  "active": "aec286c4f18e97ec",
   "lastOpenFiles": [
-    "TApp_fund_operations.md",
     "README.md",
+    "TApp_fund_operations.md",
     "giveup_seat.md",
     "buy_seat.md",
     "list_seats.md",
