@@ -1,0 +1,1 @@
+This is a secure oracle service we provide with TEA platform. If we use it, we will have our own Sendgrid_api key. Or, when we serve other partner, they will provide their own Sendgrid_api key.
