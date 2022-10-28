@@ -1,1 +1,6 @@
-[[Sending_tea_using_email]]
+- [[Sending_tea_using_email]]
+- [[obsidian/ideas/seeds_bidding]]
+- [[Sending_tea_using_email]]
+- [[end_user_use_sponsor]]
+- [[query_oracle_and_mutate_oracle]]
+- [[teafluencer_use_email_oracle]]

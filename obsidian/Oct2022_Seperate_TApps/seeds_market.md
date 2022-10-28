@@ -26,7 +26,7 @@ The UI of the Seed Market query SQL to get the Seeds CML id currenly added into 
 Show the CML info in this list.
 
 # Bid price, and grace period
-We use a new rule to bid. Click [[docs/seeds_bidding]]
+We use a new rule to bid. Click [[obsidian/ideas/seeds_bidding]]
 
 # Where the money goes ?
 The price the winner paid for the seed goes to the TAppStore consume account.

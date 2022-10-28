@@ -2,7 +2,7 @@ An additional button sit along side of login using Metamask.
 
 Click to ask input email address. Also an OTP input box and send OTP.
 
-We only allow the process this txn if the email has balance > 0. If there is no such email or balance == 0, we ignore this request. He would have to go to another *faucet_process* to get some TEA to start.
+We only allow the process this txn if the email has balance > 0. If there is no such email or balance == 0, we ignore this request. He would have to go to another [faucet_process](faucet_process.md) to get some TEA to start.
 
 Backend use [sendgrid_provider](sendgrid_provider.md) to send OTP to the email. Once receive, end user input the OTP and continue.
 

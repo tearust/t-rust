@@ -1,1 +1,6 @@
-[Sending_tea_using_email](Sending_tea_using_email.md)
+* [Sending_tea_using_email](Sending_tea_using_email.md)
+* [obsidian/ideas/seeds_bidding](../obsidian/ideas/seeds_bidding.md)
+* [Sending_tea_using_email](Sending_tea_using_email.md)
+* [end_user_use_sponsor](end_user_use_sponsor.md)
+* [query_oracle_and_mutate_oracle](query_oracle_and_mutate_oracle.md)
+* [teafluencer_use_email_oracle](teafluencer_use_email_oracle.md)
