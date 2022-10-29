@@ -1,0 +1,1 @@
+Apps like TeaFluencer will need a [[obsidian/ideas/query_oracle_and_mutate_oracle#Multiple query oracle|query_oracle]] to get the actualy youtube view counts. We have such logic in hosting node before, we should make it a general purpose oracle.

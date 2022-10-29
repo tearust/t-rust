@@ -4,3 +4,4 @@
 - [[end_user_use_sponsor]]
 - [[query_oracle_and_mutate_oracle]]
 - [[teafluencer_use_email_oracle]]
+- [[youtube_view_count_oracle]]
