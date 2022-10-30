@@ -4,3 +4,4 @@
 * [end_user_use_sponsor](end_user_use_sponsor.md)
 * [query_oracle_and_mutate_oracle](query_oracle_and_mutate_oracle.md)
 * [teafluencer_use_email_oracle](teafluencer_use_email_oracle.md)
+* [youtube_view_count_oracle](youtube_view_count_oracle.md)

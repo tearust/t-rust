@@ -1,0 +1,1 @@
+Apps like TeaFluencer will need a [query_oracle](query_oracle_and_mutate_oracle.md#multiple-query-oracle) to get the actualy youtube view counts. We have such logic in hosting node before, we should make it a general purpose oracle.
