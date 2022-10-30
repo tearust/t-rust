@@ -6,3 +6,5 @@
 - [[teafluencer_use_email_oracle]]
 - [[youtube_view_count_oracle]]
 - [[use_human_time_instead_of_block_height]]
+- [[allow_dev_select_curve]]
+- [[none_bunding_curve_dividend]]
