@@ -11,3 +11,5 @@
 * [how_to_calculate_ra_reward_in_mainnet](how_to_calculate_ra_reward_in_mainnet.md)
 * [disconnect_usd_connect_in_epoch12](disconnect_usd_connect_in_epoch12.md)
 * [api_client_to_hosting_workflow](api_client_to_hosting_workflow.md)
+* [tappstore_revenue_sharing](tappstore_revenue_sharing.md)
+* [algorithm_dispatch_oracle_task](algorithm_dispatch_oracle_task.md)
