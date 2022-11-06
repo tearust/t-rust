@@ -60,6 +60,11 @@ Our dev team makes those actors and apps and get user pay to use.
 
 We can also run TEA nodes to earn gas fee.
 
+**Very important**: IFT3 can work for non-crypto business clients, it is totally fine for IFT3 to get **fiat income** from client directly. When IFT 3 pay TEA to the miners, we can do exchange. 
+
+
+
+
 
 
 
