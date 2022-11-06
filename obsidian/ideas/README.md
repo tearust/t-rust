@@ -1,5 +1,5 @@
 - [[Sending_tea_using_email]]
-- [[seeds_bidding 1]]
+- [[seeds_bidding]]
 - [[Sending_tea_using_email]]
 - [[end_user_use_sponsor]]
 - [[query_oracle_and_mutate_oracle]]

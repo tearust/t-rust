@@ -10,4 +10,4 @@ This number is calculated based on
 * How many nodes are running
 * How much is the current cost. (at early stage, it is the cost of AWS Nitro rental)
 
-This number is set and adjusted by the DAO.
+This factor number (such as 80%) is set and adjusted by the DAO.

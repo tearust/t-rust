@@ -18,3 +18,21 @@ We currently use coveyor to find the smallest random nonce from all the random n
 If a node happens fall into this nonce in space, it is the winner
 ## Skip the busy nodes
 If a hosting node is overloaded, skip it, try to get the one next to this busy node.(the right neighbor)
+
+# Report system load from hosting nodes
+
+The state maintainers need to know the hosting node's system load. Overloaded nodes should be except from running oracle tasks.
+
+## New oracle task broadcast
+
+When state maintainer receive new oracle task. The maintainer node who receive such task should ask every other A nodes to broadcast the notification to all connected hosting nodes. The notification is the basic requirement of this task. So that the hosting nodes who receive such notification will know if they are eligable to this oracle task or not. If they think they shoudl apply, they will go to the next step.
+
+## Hosting node apply to task
+The hosting nodes who want to execute oracle task should send apply message to any state maintainer node. This will result this application as a txn in the conveyor. A random nonce will be added at this monment. This random nonce will be used for select min nonce and locate the final winner.
+
+## Notify the winner to execute
+Whoever finally selected to be the winner will get notification. 
+
+## Future remote attestation during oracle
+This is a future feature that during the execution, the executor will be under remote attestation.
+

@@ -1,5 +1,5 @@
 * [Sending_tea_using_email](Sending_tea_using_email.md)
-* [seeds_bidding 1](seeds_bidding%201.md)
+* [seeds_bidding](seeds_bidding.md)
 * [Sending_tea_using_email](Sending_tea_using_email.md)
 * [end_user_use_sponsor](end_user_use_sponsor.md)
 * [query_oracle_and_mutate_oracle](query_oracle_and_mutate_oracle.md)

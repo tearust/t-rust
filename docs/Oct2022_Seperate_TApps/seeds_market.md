@@ -29,7 +29,7 @@ Show the CML info in this list.
 
 # Bid price, and grace period
 
-We use a new rule to bid. Click [seeds_bidding 1](../ideas/seeds_bidding%201.md)
+We use a new rule to bid. Click [seeds_bidding](../ideas/seeds_bidding.md)
 
 # Where the money goes ?
 
