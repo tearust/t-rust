@@ -11,3 +11,5 @@
 - [[how_to_calculate_ra_reward_in_mainnet]]
 - [[disconnect_usd_connect_in_epoch12]]
 - [[api_client_to_hosting_workflow]]
+- [[tappstore_revenue_sharing]]
+- [[algorithm_dispatch_oracle_task]]
