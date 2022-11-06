@@ -1,3 +1,7 @@
+# Gist
+
+Similar to Zapier, IFT3 is a business automation tool. Business people can build IFTTT logic by connecting executable modules(we name them Actors) with business condition, so that the business workflow can run automatically, and more important **decentralized**. 
+
 # Web3 app should belong to owner not platform
 
 In Web2 world, the relationship between platform and users are unbalanced. Although users gereate content, but the platform (or the owner of the platform) has super power to control over users. If platform stopped working, the content or the assets that built by user on the platform would be in danger.
