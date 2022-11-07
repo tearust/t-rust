@@ -1,19 +1,19 @@
 There are three types of entity based on their investment mode
-- Solo
-- Bonding curve
-- None profit
+- Private
+- Tokenized
+- Non-profit
 
 Let's dive deep each of them
 
-# Solo
-The owner, e.g. the miner who own a CML node, do not allow others to invest to his CML. The owner owns 100% of all revenue, and also need to pay 100% deposit.
+# Private
+The owner, e.g. the miner who own a CML node, does not allow others to invest to their CML. The owner owns 100% of all revenue, and also needs to pay a deposit.
 
-# Bonding curve
-Unclear about whether it is a security token, but the owner wants to get other investors to join his venture. They can choose any kind of bonding curve. All token holders pays the deposit, taking risk and share the dividend. The owner has the priority to invest to his CML at first. He can also set the Theta value to gain additional income. All of this follow the bonding curve rule.
+# Tokenized
+Unclear about whether this would be a security token, but the owner wants to get other investors to join their venture. The owner chooses any kind of bonding curve. For CML tokens, all token holders' buy-ins are considered in aggregate as a deposit used to determine probability that a CML gets selected for a job. Everyone shares in the risks and the dividends. At the beginning, the owner has priority to invest to their CML. The CML owner can also set the Theta value to gain additional income. All of this follows the bonding curve rule.
 
-# None profit
-All income of these nodes go to the DAO via the TAppStore accrued balance. There is no bonding curve or investment since no revenue to share. 
+# Non-profit
+All income of these nodes goes to the DAO via the TAppStore accrued balance. There is no bonding curve or investment since there's no revenue to share. 
 
-At the early stage, all state machine nodes are this kind of nodes. They give all revenue back to the DAO. The operation can get subsidy from [[UBI]] and [[general_admin_reserve]] to cover their cost.
+At the early stage, all state machine nodes are this kind of node. They give all revenue back to the DAO. The operation can get subsidy from [[UBI]] and [[general_admin_reserve]] to cover their costs.
 
 
