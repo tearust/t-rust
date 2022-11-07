@@ -2,7 +2,7 @@
 
 We run a cron job periodically distribute the fund in TAppStore's accrued balance to the following pools.
 
-* Pool #1, [UBI](UBI.md), Universal basic income. 
+* Pool #1, [node-subsidy](node-subsidy.md), Universal basic income. 
 * Pool #2, [Subsidy_acquire_new_user](Subsidy_acquire_new_user.md), The fund to send new users for first time use.
 * Pool #3, [propotional_incentive_to_hosts](propotional_incentive_to_hosts.md). Based on how much contribution, propotional reward those hosting nodes. This pool is unlimited size. It will use all the remaining TAppStore accrued balance.
 
