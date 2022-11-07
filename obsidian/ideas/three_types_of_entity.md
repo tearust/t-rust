@@ -14,6 +14,6 @@ Unclear about whether this would be a security token, but the owner wants to get
 # Non-profit
 All income of these nodes goes to the DAO via the TAppStore accrued balance. There is no bonding curve or investment since there's no revenue to share. 
 
-At the early stage, all state machine nodes are this kind of node. They give all revenue back to the DAO. The operation can get subsidy from [[UBI]] and [[general_admin_reserve]] to cover their costs.
+At the early stage, all state machine nodes are this kind of node. They give all revenue back to the DAO. The operation can get subsidy from [[node-subsidy]] and [[general_admin_reserve]] to cover their costs.
 
 
