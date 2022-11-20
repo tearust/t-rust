@@ -14,3 +14,5 @@
 * [tappstore_revenue_sharing](tappstore_revenue_sharing.md)
 * [algorithm_dispatch_oracle_task](algorithm_dispatch_oracle_task.md)
 * [zero-code_tapps_business_automation](zero-code_tapps_business_automation.md)
+* [epoch12_rules](epoch12_rules.md)
+* 中文文章给水滴创投[chinese_waterdrip](chinese_waterdrip.md)
