@@ -116,7 +116,65 @@ Try to modify the hardware in any of the nodes, see if the remote attestation ca
 ## Step8: Stress test
 User computer to generate a large quantity of transactions, see how the nodes process all the transanctions. Furthermore, try to simulate DDOS attack, test how the system is resilence for those kind of attack.
 
-#  Wokflow in detail
+#  Business concepts
+
+## What is lock account
+
+Lock accounts are also called **Escrow** account. Before any CBDC fund can be used by the TEA Swap, it has to be locked in a TEA Swap controlled account. Only TEA Swap can use multisig to transfer the fund from this account.
+
+### Lock account for every CBDC
+
+After the TEA Swap system first start, there isn't any lock account for any CBDC, nor any Liquidity Pool for any trading pair. Before anyone can use the system, the first liquidity provider who generate a new liquidity pool will trigger the system to initialize lock account for any new CBDC. 
+
+For any CBDC currency, only one lock account need to be initialized. For example, if Alice generates EUR <> SGD liquidity pool, the system will automatically generate lock accounts for EUR and SGD. Later on Bob generates EUR <> JPY liquidity pool, only JPY lock account will be genereated this time, because EUR has been created already.
+
+## Initializing lock account
+
+When system generate new lock account for a CBDC, a public key is created using the multisig cryptographic algorithm such as "k of n" Schnorr mulsig(https://en.wikipedia.org/wiki/Schnorr_signature). The public is the account address. In Schnorr case, there is no single private key to this public key, instead, there will be n private key pieces shared by n nodes. Every one of the n node only know one of the n pieces. The Schnorr mulsig algorithm allows k of n signature to approve the transaction from this public address.
+
+If any CBDC doesn't support Schnorr mulsig,  Shamir algorithm (https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) can be used instead. The cons of Shamir is that we have to select one node to restore the private key from k of n pieces. This generate additional security risk.
+
+Once the lock account is created, the public key (address) is disclosed to public. Whoever want to topup (deposit) fund to TEA Swap just need to transfer fund to this address. 
+
+## Topup, Withdraw, Wrapped CBDC <> Real CBCD
+
+TEA Swap cannot directly transfer fund from any CBDC account in real time. The user need to topup (deposit) fund to the lock account first. When system confirmed the lock account received deposit fund, it will mint wrapped CBDC token inside TEA Swap. This new minted wrapped token is only used inside TEA Swap, and will be burnt when user withdraw from the lock account.
+
+For example, Alice send 100 SGD to the lock account in Singapore CBDC. The validator nodes are monitoring events from the transaction on Singapore CBDC. If more than 2/3 validator approve that Alice successfully transferred 100 SGD (topup), they will sign a transaction to mint 100 Wrapped SGD under Alice's account on TEA Swap. At this time, Alice can look up the 100 SGD balance in her TEA Swap account. Assuming Alice exchanges some of her SGD to 10 EUR. After a successful trade (let's skip the detail here) she will find 10 EUR (actually Wrapped EUR) in her TEA Swap account. If Alice withdraws 10 EUR, the validator will burn the 10 Wrapped EUR at the same time sign a transaction of sending 10 EUR from the locked account of EUR CBDC. Note, the 10 "real" or "unwrapped" EUR is actually someone else (Bob, or any liquidity provider) deposited to the lock account of EUR CBDC. Since Wrapped  token only mint when "real" CBDC locked (deposit/topup) and burn when "real" CBDC unlocked (withdraw). The wrapped and real CBDC is always 1:1 mapping. 
+
+## Price feeding oracle
+
+Depending which AMM algorithm to choose, most of them require price feeding oracle. It query the exchange rate from other exchange (e.g. centralized foreigh exchange) and feed into the AMM. 
+
+TEA infrastructure is a trusted network, it has built-in oracle system which can be used for price feeding. 
+
+## AMM Algorithm
+
+There are many popular AMM algorithms in the Defi world. This is one of the most innovative area. In the prototype we use the most popular Uniswap V2 for demo purpose. For more detail about Uniswap please go to https://www.semanticscholar.org/paper/Uniswap-v2-Core-Adams-Zinsmeister/3bf68dddcd4e817e50539a1382da701defef04a0
+
+# Infrastructure concepts
+
+## Trusted computing technology
+
+## Remote attestation network
+
+## Time based consensus on distributed state machine (distributed ledger)
+
+## Validator (state maintainer) and Gateway (hosts)
+
+## WebAssembly runtime
+
+## Resilience design
+
+## Attack prevention
+
+### Zero day attack
+
+### Side channel attack
+
+### DDoS attack
+
+## Overall safty boundary
 
 
 
