@@ -1,6 +1,5 @@
 When Alice try to exchange 100 ONE asset to TWO asset. She will need to put 100 ONE asset to an escrow account. This is also called "topup". Once sent to escrow account, the 100 ONE asset is controlled by TEA Swap code. However, Alice is issued 100 wrapped ONE asset in the TEA Swap. Alice can exchange the 100 wrapper ONE asset to the cooresponding amount of wrapped TWO asset. Assuming the ONE:TWO exchange rate is 1:2. Once the exchange completed, Alice will find the 200 cooresponding wrapped TWO assets in her exchange account. She can withdraw it partially or in full at any time. After withdraw, the 200 wrapped TWO asset is burned immediately as well as the same amount (200 TWO asset, not wrapped) will be transferred from TWO asset escrow account to Alice.
 
-The previous example assumes there is no cost to simpilify the explanation. In the real use case, there will be a small cost to pay to the [[liquidity_pool_provider]] and [[gas_fee]].
+The previous example assumes there is no cost to simpilify the explanation. In the real use case, there will be a small cost to pay to the *liquidity_pool_provider* and *gas_fee*.
 
 It is very important that the escrow accounts can only be controlled by the TEA Swap code. No one, including the CBDC admin can control the fund stored in the escrow account.
-

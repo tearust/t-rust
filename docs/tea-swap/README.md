@@ -1,5 +1,3 @@
-
-
 TEA swap is a trusted network composed by specially designed hardware that runs fintech application such as automatic market maker (AMM) exchange or cross border settlement at low cost and high speed.
 
 # Features
@@ -48,23 +46,25 @@ All code and data runs inside the enclave makes there is no way to peek the cont
 ### Flexibility
 
 This infrastructure is designed for general purpose computing not only for AMM exchange app. In the future, there should be all kinds of fintech applications available.
+
 # Infrastructure layers
 
-- Application layer:  Exchange_protocol
-- Consensus layer: State_machine
-- Network layer: Remote_attestation_network
-- Hardware layer: Trusted_enclave_hardware
+* Application layer:  Exchange_protocol
+* Consensus layer: State_machine
+* Network layer: Remote_attestation_network
+* Hardware layer: Trusted_enclave_hardware
 
 Every layer rely on the underneath layer. 
-
 
 ## Application: The DeX using DAMM
 
 A Bancor like application provides decentralized asset exchange. By using DAMM
-- No need of order book or market maker.  Instant seattlement
-- Low or zero impermenant loss
+
+* No need of order book or market maker.  Instant seattlement
+* Low or zero impermenant loss
 
 ## Consensus: Time based consensus
+
 Use secure signed timestamp from GPS or Atomic clock as roof of trust, all state machines all over the world can reach consensus without buring energy. 
 
 This is a distributed state machine. Every state maintainers sort the incoming transaction based on verifiable timestamp. Once all nodes reach the consensus with the same sequence of transaction, they can then process the transaction independently while keep the state sync with others.
@@ -76,7 +76,6 @@ All nodes only connect with other node after successfully remote attestation. Th
 ## Trusted enclave hardware
 
 All software code runs inside hardware enclave. No information can be peeked from outside of enclave. 
-
 
 # Setup the network
 
@@ -143,9 +142,10 @@ Try to modify the software in any of the nodes, see if the remote attestation ca
 Try to modify the hardware in any of the nodes, see if the remote attestation can kick the compromised node out of the network with a penalty.
 
 ## Step8: Stress test
+
 User computer to generate a large quantity of transactions, see how the nodes process all the transanctions. Furthermore, try to simulate DDOS attack, test how the system is resilence for those kind of attack.
 
-#  Business concepts
+# Business concepts
 
 ## What is lock account
 
@@ -155,7 +155,7 @@ Lock accounts are also called **Escrow** account. Before any CBDC fund can be us
 
 After the TEA Swap system first start, there isn't any lock account for any CBDC, nor any Liquidity Pool for any trading pair. Before anyone can use the system, the first liquidity provider who generate a new liquidity pool will trigger the system to initialize lock account for any new CBDC. 
 
-For any CBDC currency, only one lock account need to be initialized. For example, if Alice generates EUR <> SGD liquidity pool, the system will automatically generate lock accounts for EUR and SGD. Later on Bob generates EUR <> JPY liquidity pool, only JPY lock account will be genereated this time, because EUR has been created already.
+For any CBDC currency, only one lock account need to be initialized. For example, if Alice generates EUR \<\> SGD liquidity pool, the system will automatically generate lock accounts for EUR and SGD. Later on Bob generates EUR \<\> JPY liquidity pool, only JPY lock account will be genereated this time, because EUR has been created already.
 
 ## Initializing lock account
 
@@ -165,7 +165,7 @@ If any CBDC doesn't support Schnorr mulsig,  Shamir algorithm (https://en.wikipe
 
 Once the lock account is created, the public key (address) is disclosed to public. Whoever want to topup (deposit) fund to TEA Swap just need to transfer fund to this address. 
 
-## Topup, Withdraw, Wrapped CBDC <> Real CBCD
+## Topup, Withdraw, Wrapped CBDC \<\> Real CBCD
 
 TEA Swap cannot directly transfer fund from any CBDC account in real time. The user need to topup (deposit) fund to the lock account first. When system confirmed the lock account received deposit fund, it will mint wrapped CBDC token inside TEA Swap. This new minted wrapped token is only used inside TEA Swap, and will be burnt when user withdraw from the lock account.
 
@@ -204,6 +204,3 @@ There are many popular AMM algorithms in the Defi world. This is one of the most
 ### DDoS attack
 
 ## Overall safty boundary
-
-
-
