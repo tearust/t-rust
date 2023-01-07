@@ -221,9 +221,13 @@ Normally, there will be much more nodes running to get much higher resillience.
 
 ## Privacy design without Admin
 
-All code and data run inside hardware enclave. Then nodes communicate with other nodes, the data will be encrypted by the hardware end to end. No one else can sniff any meaning information. 
+All code and data run inside hardware enclave. Then nodes communicate with other nodes, the data will be encrypted by the hardware end to end. No network middle man can sniff any meaningful information. 
 
 Admin is the main source of human involved vulunabilities happened recently. In TEA infrastructure there is no such a role called Admin. The hardware nodes manage the network on their own without human involved. As a owner of a node, there are only two thing to do: power on/off, and connect/disconnect to network. There is no back door accesible to any human including the admin.
+
+## KYC, AML and compliancy
+
+Because all data is open to the code running inside the enclave. If required by the compliancy, the code can open API to authority. As long as the code is open source, everyone can audit and make sure this code not introduce additional back door more than enough.
 
 ## Attack prevention
 
