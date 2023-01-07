@@ -48,6 +48,7 @@ All code and data runs inside the enclave makes there is no way to peek the cont
 ### Flexibility
 
 This infrastructure is designed for general purpose computing not only for AMM exchange app. In the future, there should be all kinds of fintech applications available.
+
 # Infrastructure layers
 
 - Application layer:  Exchange_protocol
@@ -55,16 +56,16 @@ This infrastructure is designed for general purpose computing not only for AMM e
 - Network layer: Remote_attestation_network
 - Hardware layer: Trusted_enclave_hardware
 
-Every layer rely on the underneath layer. 
+Every layer rely on the underneath layer for security proof. 
 
 
-## Application: The DeX using DAMM
+## Application layer: The DeX using DAMM
 
 A Bancor like application provides decentralized asset exchange. By using DAMM
 - No need of order book or market maker.  Instant seattlement
 - Low or zero impermenant loss
 
-## Consensus: Time based consensus
+## Consensus layer: Time based consensus
 Use secure signed timestamp from GPS or Atomic clock as roof of trust, all state machines all over the world can reach consensus without buring energy. 
 
 This is a distributed state machine. Every state maintainers sort the incoming transaction based on verifiable timestamp. Once all nodes reach the consensus with the same sequence of transaction, they can then process the transaction independently while keep the state sync with others.
@@ -78,7 +79,7 @@ All nodes only connect with other node after successfully remote attestation. Th
 All software code runs inside hardware enclave. No information can be peeked from outside of enclave. 
 
 
-# Setup the network
+# Hardware and network
 
 Any BIS member can setup a TEA node ( the special designed computer) and join the network as validator. There is financial incentive of running validator. Technically any one can setup a node and join as long as policy permits. 
 
@@ -90,7 +91,7 @@ As long as those hardware install the software and connect to the internet, it w
 
 We will need at least 4 validators and 2 gateways to start the network. There is no upper limit of quantity of validators or gateways. In future production, the more nodes, the faster it runs. 
 
-# API to existing CBDC
+# Integration (API) to existing CBDC
 
 TEA Swap require the CBDC support multisignature ideally. This can make the TEA swap to reach highest security level. However, TEA swap can also support single signature at a relatively lower security protection. 
 
@@ -145,13 +146,11 @@ Try to modify the hardware in any of the nodes, see if the remote attestation ca
 ## Step8: Stress test
 User computer to generate a large quantity of transactions, see how the nodes process all the transanctions. Furthermore, try to simulate DDOS attack, test how the system is resilence for those kind of attack.
 
-#  Business concepts
+# Business concepts
 
 ## What is lock account
 
 Lock accounts are also called **Escrow** account. Before any CBDC fund can be used by the TEA Swap, it has to be locked in a TEA Swap controlled account. Only TEA Swap can use multisig to transfer the fund from this account.
-
-### Lock account for every CBDC
 
 After the TEA Swap system first start, there isn't any lock account for any CBDC, nor any Liquidity Pool for any trading pair. Before anyone can use the system, the first liquidity provider who generate a new liquidity pool will trigger the system to initialize lock account for any new CBDC. 
 
@@ -189,21 +188,60 @@ There are many popular AMM algorithms in the Defi world. This is one of the most
 
 ## Time based consensus on distributed state machine (distributed ledger)
 
+No matter PoW or PoS, the reason for consensus in blockchain is nothing but to get the global agreement on the sequence of transactions. As long as every node agree on such sequence, they can execute the transaction one by one to reach exact the same ledger (we call it state machine). TEA uses a different approach to reach such consensus on the sequence of transactions. 
+
+Every node in our trusted network is verified trustable remotely, and every node has integrated GPS receiver that receive acurate time signal from GPS satellites. No matter where the node located on the earth, they will have the same "real" and "correct" timestamp. The trusted hardware makes those node cannot "lie" on the timestamp. All the transaction from those nodes have a verifiable timestamp and signature. When the state maintainer (state machine) receive those transactions, no matter they receive early or late due to network lagency, the timestamps on the transaction has no change. Note: The timestamp indicates when the transaction was generated, not when it is received. 
+
+For every state machine node, when receive a transaction. it will not execute immediately. Instead, the transaction is queued into a "conveyor" for a grace period (say  3 seconds). This is good for network latency because there might be some other transactions happen earlier but receive late due to network latency. After the grace period, we assume all transactions have been received or totally lost (we will drop even receive later). The transaction will be processed one by one. Because all state machine nodes also follow the GPS time, they sync with all other nodes without additional network sync. They will process the same transactions at the same sequence, so state machine (distributed ledger) will be the same all the time.
+
+This is the magic of Proof of Time consensus. Atomic clock can replace GPS in the production.
+
 ## Validator (state maintainer) and Gateway (hosts)
+
+Validators are nodes that run consensus and maintain the distributed ledger of state machines. We encourage only BIS members can maintain validator nodes, and every BIS member should maintain at least one node to keep the whole network secure. 
+
+The validator doesn't have to be located inside the terrirory, they can be located on other country or rent from cloud service provider. The only requirement is the hardware enclave to pass the remote attestation.
+
+Gateways are access nodes. Not only accessible to BIS members, but also the commercial banks or even individuals. This is how they use the apps to trade / exchange CBDC.
+
+Gateways nodes are not regular web serviers, they also need to be specially designed hardware for remote attestation. It will need to generate timstamped transaction that also verifiable. 
+
+There is no limit on the number of gateways. We encourage commercial banks to run their own gateways. It is a profitable business to run a gateway nodes. 
 
 ## WebAssembly runtime
 
+The TEA Swap is a WebAssembly application. So it cannot run directly on bare metal hardware. It require a WebAssembly runtime. Due to the security nature of WebAssembly technology, the TEA Swap app or any other future FinTech applications can run highly secured. 
+
+WebAssembly is not a regular virtual machine or docker. It has ultra high security design by default. Many commonly known software vunlerabilities (such as buffer overflow) are hardly exist in WebAssembly. Besides the hardware enclave, the WebAssebly runtime provide the second lever protection.
+
 ## Resilience design
+
+TEA infrastructure are designed fully decentralized. There is no single poitn of failure. Any validator node or gateway node can join or leave at any time as long as the minimal number alive. The minimal requirement is 3 validators and1 gateway. In real life, we should have at least one hot backup for validator and gateway. So the minimal requirement turns to 3+1 validator and 1+1 gateways. In this case, if any validator or gateway failed, the hot backup will take over smoothly.
+
+Normally, there will be much more nodes running to get much higher resillience.
+
+## Privacy design without Admin
+
+All code and data run inside hardware enclave. Then nodes communicate with other nodes, the data will be encrypted by the hardware end to end. No one else can sniff any meaning information. 
+
+Admin is the main source of human involved vulunabilities happened recently. In TEA infrastructure there is no such a role called Admin. The hardware nodes manage the network on their own without human involved. As a owner of a node, there are only two thing to do: power on/off, and connect/disconnect to network. There is no back door accesible to any human including the admin.
 
 ## Attack prevention
 
+There is no 100% security in any system. Our design to prevent most of known threat models with a security boundary.
+
 ### Zero day attack
+
+There is no way to prevent zero day attack, but as long as we have a solution to reduce the affected nodes rate lower than 1/3, our consensus won't cause any damage. In the final production, we have "birth control" to limit any hardware software versions combination registration to no more than 1/3 of total nodes. The assumption is any zero day attack can only affect a few nodes based on the diverity of hardware and software combination.
 
 ### Side channel attack
 
+There is no way to prevent side channel attack. TEA infrastructure uses random select node to prevent the attackers to target profitable nodes. Hardware security in enclave technology makes side channel attack much harder. Unless the hacker can preestimate the profit of a successful attack, the profit/cost ratio is probably too low compare to other targets.
+
 ### DDoS attack
+
+The resillience design can effectively mitigate the DDoS attack. As long as the survival nodes more than the minimal requirement, the system can run without problem
 
 ## Overall safty boundary
 
-
-
+At any time, the good health nodes should be more than  2/3 of registered nodes. This is the max torlerance of attack.
