@@ -1,0 +1,4 @@
+root: ./docs/_gitbook-dev-docs
+
+structure:
+  readme: README.md
