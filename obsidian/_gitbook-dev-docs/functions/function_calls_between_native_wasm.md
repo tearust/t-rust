@@ -19,7 +19,7 @@ When a caller calls/posts another function, the calling activity is measured as 
 | Native call Native  | Free of charge.  |
 | Native call Wasm  | Forbidden.  |
 | Native post Native  | Free of charge.  |
-| Native post Wasm  |   Native runs gas estimate function to estimate gas cost it must budget for. This gas budget is then reduced from gas limit at time of call. |
+| Native post Wasm  | Native runs gas estimate function to estimate gas cost it must budget for. This gas budget is then reduced from gas limit at time of call. |
 
 A Native call or post to Native is free because Native can't run the estimate function. Even if it could estimate the gas cost, it wouldn't being able to alter the gas limit of the Native function calling it.
 
