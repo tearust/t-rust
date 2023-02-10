@@ -1,10 +1,11 @@
 Dev portal is a system level TApp, made by TEA Core Team. Developers are the target users. 
 
 Developers can use this Dev Portal:
-- Create a TApp
-- Deploy a TApp to testnet or mainnet
-- Upgrade TApp 
-- Review billing log
+
+* Create a TApp
+* Deploy a TApp to testnet or mainnet
+* Upgrade TApp 
+* Review billing log
 
 # Users are Devs
 
@@ -22,28 +23,32 @@ The same as any other TApps, users need to set "expense limit" before using Dev 
 
 User click "Add TApp" button.
 Input the following information:
-- App name (System need to deduplicate from existing names)
-- Description
-- Owner address (Disabled and fixed to this user H160 address)
-- Front end CID (Empty and disabled now)
-- Back end actor CID (Empty and disabled now)
-- State actor CID (Empty and disabled now)
-- Status (disabled, default is Pending)
+
+* App name (System need to deduplicate from existing names)
+* Description
+* Owner address (Disabled and fixed to this user H160 address)
+* Front end CID (Empty and disabled now)
+* Back end actor CID (Empty and disabled now)
+* State actor CID (Empty and disabled now)
+* Status (disabled, default is Pending)
 
 ## System action
+
 Create this TApp entry in the TAppStore database.
 
-The initial [[TApp_status]] is "pending", Because the developer has not uploaded and deploy any code yet.
+The initial [TApp_status](TApp_status.md) is "pending", Because the developer has not uploaded and deploy any code yet.
 
 We do not allow two TApp has the same name. So when create new TApp, a deduplication is needed. Return error when name is used by others.
 
 # Deploy a TApp
+
 Deploy is a completed workflow. It contains the following steps:
-- Build, compile code
-- Upload code with a version stamp to Dev Portal
-- Push newly uploaded files to hosting nodes and state machines
-- Wait and confirm all requested hosts and state machines have the files loaded
-- Start the App
+
+* Build, compile code
+* Upload code with a version stamp to Dev Portal
+* Push newly uploaded files to hosting nodes and state machines
+* Wait and confirm all requested hosts and state machines have the files loaded
+* Start the App
 
 ## Build, compile code
 
@@ -55,13 +60,13 @@ The back end code is complled into WebAseembly (wasm file). In most cases, it is
 
 The state codeis compiled into WebAssembly (wasm file). It has to be a single wasm file. 
 
-> FAQ: Where are they supposed to be run?
-> Front end code runs inside end user browser. 
-> Back end code runs inside the enclave of Hosting node (Miners own)
-> State code runs inside the enclave of all State Machine (Statemachine maintainers own)
+ > 
+ > FAQ: Where are they supposed to be run?
+ > Front end code runs inside end user browser. 
+ > Back end code runs inside the enclave of Hosting node (Miners own)
+ > State code runs inside the enclave of all State Machine (Statemachine maintainers own)
 
-
-## Upload code 
+## Upload code
 
 ### User actions
 
@@ -79,6 +84,7 @@ When upload completed, the CID show on the UI.
 Query and list on the UI. Including the TApps have existing code uploaded before.
 
 #### Upload file and assign CID
+
 After file uploaded to the current connected hosting node. It actually uploaded to IPFS. The CID is added to the SQL database. Also response to UI shown on the browser. The user need to write it down.
 
 ## Push the code across the network
@@ -96,6 +102,7 @@ The selected nodes need to show an indicator that the file has been pushed succe
 ### System actions
 
 #### Query hosting node if actor file loaded or not
+
 UI needs an indicator to show if this actor file has been uploaded and registered by a hosting node.
 
 #### Trigger the sync IPFS CID on hosting node
@@ -132,10 +139,10 @@ The owner decided to remove the tApp.
 
 Delete the App. Deregister actor.
 
-
-## Adjust billing /pricing 
+## Adjust billing /pricing
 
 Adjust billing related properties.
 
 # Review billing log
+
 TODO
