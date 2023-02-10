@@ -1,5 +1,10 @@
 # Native vs Wasm Functions
 
+TEA Project function calls can be either Wasm functions or native functions.
+
+-   Wasm actors can be written by developers to run in both the hosting CML nodes and the state machine nodes. Developers will need to write two actors: one for the CML hosting nodes to handle the end-user requests and another for the state machine to handle the txn requests coming from the hosting nodes. The billing costs to run Wasm actors can be calculated exactly which means CML hosts will be paid precisely according to the resources that the function uses.
+-   An app can call native actors to communicate with the underlying TEA system. Native actors can run in either CML or state maintainer nodes and pay out to either entity accordingly.
+
 ## Native functions
 
 - System-level functions.
@@ -15,14 +20,9 @@
 - Compiled to WebAssembly (Wasm) code, executed inside Wasm runtime.
 - Capable of real-time gas measurement. Will break and return if gas limit runs out.
 
-## TEA Billing  — Wasm vs Native Actors
-
-TEA Project function calls can be either Wasm functions or native functions, also known as Wasm actors and native actors.
-
--   Wasm actors can be written by developers to run in both the hosting CML nodes and the state machine nodes. Developers will need to write two actors: one for the CML hosting nodes to handle the end-user requests and another for the state machine to handle the txn requests coming from the hosting nodes. The billing costs to run Wasm actors can be calculated exactly which means CML hosts will be paid precisely according to the resources that the function uses.
--   An app can call native actors to communicate with the underlying TEA system. Native actors can run in either CML or state maintainer nodes and pay out to either entity accordingly.
-
 Devs can only write Wasm functions, and that’s ultimately the extent of what endusers can interact with. Although the apps they write can call native functions, developers can’t write native functions (system functions) because of the security risks.
+
+## Billing for Functions
 
 We can measure how much computation is being done by WASM actor, and the WASM Actor cost can be deducted from the gas limit in real time. The gas limit encompasses the entire call stack, i.e. the entire chain of functions called. Once the gas limit runs out, the WASM actor will immediately return with an error code “run-out-of-gas-limit”.
 
