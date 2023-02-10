@@ -4,7 +4,7 @@ It should be noted at the outset that the TEA Project’s billing and settlement
 
 Let’s first focus on how payments are routed for the gas fee. In graphical form:
 
-![](https://miro.medium.com/max/1120/1*yXHndKuHARJr1ECyE2h7DA.png)
+![Gas Fee (in depth)](https://user-images.githubusercontent.com/86096370/218186875-93b7aaa8-3194-4a43-8f1b-8572e77dec04.png)
 
 1.  The end-user’s gas payment to miners actually goes to an accrued account.
 2.  (Optional) A system expense that some CML pay to receive faster state updates is the **state subscription fee.** If the miner has a state subscription, then the system will pull from the accrued balance whenever this fee is due. If there’s no funds in the accrued balance when the fee is due, then some of the CML’s bonding curve tokens will be liquidated to pay for the charge.

@@ -4,7 +4,7 @@ The [tapp-billing](tapp-billing.md) shows the revenue side for the state maintai
 
 The following graphic describes the state maintainer revenue and expenses and their destinations:
 
-![](https://miro.medium.com/max/1120/1*V_4aSr_hKVLXfnNgFnCGGg.png)
+![1](https://user-images.githubusercontent.com/86096370/218186861-63a9d980-dafa-45cf-96f5-6a015d942353.png)
 
 1. The state maintainers pay a **Harberger Tax** on their self-assessed value to a **temp treasury fund**.
 1. The temp treasury fund sweeps these funds at regular intervals to the public service rewards due to the CML nodes for performing public services like remote attestation.

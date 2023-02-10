@@ -7,7 +7,7 @@ The calculus for a TApp that must pay for the txn fee and memory tax is a bit di
 
 Visually the revenue and expenses for the TApp portion of the end-user’s payment looks like this:
 
-![](https://miro.medium.com/max/1120/1*04E73Q5cB63OJ0BCRLnr_w.png)
+![2](https://user-images.githubusercontent.com/86096370/218186872-384f76cf-4695-4b0f-b9b4-7c5c484f162c.png)
 
 1. The TApp charges a usage fee taken from the end-user’s payment that goes into the accrued balance account.
 1. The txn fee and memory tax owed by the TApp draws from the accrued balance into the **collection pool**.
