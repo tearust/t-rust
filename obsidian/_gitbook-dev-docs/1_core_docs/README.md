@@ -1,13 +1,13 @@
 # Getting Started
 
-# TApps are designed for Web3
+## TApps are designed for Web3
 As is the case with all TApps, the TEA Party showcases the special features that are beyond the capabilities of other cloud based internet (web 2.0) applications. Instead of centralized server(s) hosting the app, the individual miners of the TEA network host TApps based solely on their own [[hosting_profitability]]. The inherent decentralization that all TApps including the TEA Party share gives these apps even more unique features:
 
 - They cannot be turned off by any centralized power. As long as there are a minimal number of miners hosting any particular application, it will continue to run forever.
 
 - No one, including the host miner, can control or censor the content. The content is owned and protected by its creator's private key. A miner can choose to stop hosting the TApp, but it cannot selectively choose what content to show or hide.
 
-- There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, see [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/Where_the_message_is_stored]].
+- There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](Where_the_message_is_stored.md).
 
 In order to get the features above, the underlying technical layer is very different from the existing cloud computing and blockchain tech stacks. It's a new tech stack that's based on recent technologies.  However, the developers do not need to understand the complicated low level distributed system, they can build application **as if** it is still a centralized cloud computing architecture. This is the **charm of the TEA Project**.
 
@@ -37,6 +37,7 @@ The basic workflow would look like this:
 
 ## Storage
 There are three types of storage options for different use cases.
+
 - [[OrbitDb]]: Based on IPFS / used for large blob storage. It's running on the [[hosting_CML]].
 - [[state|State]]: Usually used to store account balance. It runs inside the [[State_Machine]].
 - [[GlueSQL]]: Distributed SQL server instances. It's located inside the [[State_Machine]].
@@ -56,13 +57,13 @@ There are three types of storage options for different use cases.
 | Clicks the app to start | Start a web app | N/A | Go to a domain name, usually https://yourapp.com | Click the app name in your TEA wallet, you'll receive a list of hosting CMLs. Click any of them | Cloud webapp has a centralized http/https domain name, but TEA doesn't have such a centralized control. Every hosting miner are seperate from each other |
 | Show the UI in the browser | Load front-end code in the browser | N/A | Download the [[front_end]] code (js/html/css) from a webserver | Download the front end from IPFS or any decentralized storage | TEA doesn't have a traditional web server. The front-end code and all static resources are stored in IPFS or some other decentralized storage. User will use the CID (hash) as a key to load the front-end code directly in the browser |
 | Show dynamic content, such as list of all messages | Query database | Any client to query the block state | Browser sends request to the back-end server, back-end server then queries database for data. Send data all the way back to the browser to show on the UI | Browser request to hosting CML. The [[back_end_actor]] handles the request and then sends a P2P request to [[State_Machine_Replica]]. [[state_machine_actor]] queries the [[State_Machine]] then sends the data all the way back to the [[front_end]] | Depends on what type of content the UI queries. Some content can be directly queried from a hosting CML's local OrbitDB instance. Accounting information needs go to the state machine. The TEA project also provides a Glue SQL database if the data is stored in an SQL database. |
-|  Create or update dynamic content, such as post new messages or extend existing messages | Send command to modify state | Send transaction to any ETH miner and wait for a new block |The same as above | [[front_end]] sends command to the [[back_end_actor]]. [[back_end_actor]] generates a transaction (or calls a command) and sends it to a [[State_Machine_Replica]] via P2P. The statemachine replica puts this transaction into the [[conveyor]] and then waits a grace period until the sequence of transactions reaches a consensus between more than 50% of replicas. Then load this transaction to the [[back_end_actor]] to execute the transaction which will update the state | There are many state machine replicas that keep a consistent state among them. So the Proof of Time is required to sync between replicas. |
+| Create or update dynamic content, such as post new messages or extend existing messages | Send command to modify state | Send transaction to any ETH miner and wait for a new block |The same as above | [[front_end]] sends command to the [[back_end_actor]]. [[back_end_actor]] generates a transaction (or calls a command) and sends it to a [[State_Machine_Replica]] via P2P. The statemachine replica puts this transaction into the [[conveyor]] and then waits a grace period until the sequence of transactions reaches a consensus between more than 50% of replicas. Then load this transaction to the [[back_end_actor]] to execute the transaction which will update the state | There are many state machine replicas that keep a consistent state among them. So the Proof of Time is required to sync between replicas. |
 
 
 ## The requirements for building TApps
 In this section, we'll list the knowledge and tools you'll need to build TApps.
 
-## Tools
+### Tools
 To build and run the demo locally, you'll need:
 
 - A Mac or Linux machine. 
@@ -72,7 +73,7 @@ To build and run the demo locally, you'll need:
 
 After building your own TApp, you can try hosting it by launching your own mining node. A mining node is any type of TEA node with a CML planted in it. If you don't own a physical TEA machine, you can rent an Amazon Nitro VM which is TEA-compatible.
 
-## Programming languages
+### Programming languages
 
 The demo TEA Party app is written in the following languages:
 
@@ -81,15 +82,15 @@ The demo TEA Party app is written in the following languages:
 
 The TEA Project doesn't require the developer to use the Rust programming language. You can use any programming language that compiles to WebAssembly. But at this moment, in order to understand our existing demo code, you'll need to use the Rust langauge. 
 
-## Architecture knowledge
+### Architecture knowledge
 
-## Layer2 without Rollups
+#### Layer2 without Rollups
 The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's [[The_future_and_innovation_of_layer2#We Trust the Result by Verifying the Environment|no need to verify the computing results]]. This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
 
-## Layer2 decoupled with layer1
+#### Layer2 decoupled with layer1
 TEA Project runs [[The_future_and_innovation_of_layer2#Layer1 Agnostic|on top of different kinds of blockchains]] interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
 
-## Hardware
+#### Hardware
 The TEA Project is very different from many other blockchain projects. TEA relies on two types of hardware in order to reach a special type of consensus: 
 
 - [[TPM]]
@@ -103,6 +104,6 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code_walkthrough](teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](teaparty.md).
 
 

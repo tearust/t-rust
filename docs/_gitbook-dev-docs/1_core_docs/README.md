@@ -1,6 +1,6 @@
 # Getting Started
 
-# TApps are designed for Web3
+## TApps are designed for Web3
 
 As is the case with all TApps, the TEA Party showcases the special features that are beyond the capabilities of other cloud based internet (web 2.0) applications. Instead of centralized server(s) hosting the app, the individual miners of the TEA network host TApps based solely on their own [hosting_profitability](hosting_profitability.md). The inherent decentralization that all TApps including the TEA Party share gives these apps even more unique features:
 
@@ -8,7 +8,7 @@ As is the case with all TApps, the TEA Party showcases the special features that
 
 * No one, including the host miner, can control or censor the content. The content is owned and protected by its creator's private key. A miner can choose to stop hosting the TApp, but it cannot selectively choose what content to show or hide.
 
-* There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, see [Where_the_message_is_stored?](t-rust/obsidian/_gitbook-dev-docs/1_core_docs/Where_the_message_is_stored.md).
+* There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](Where_the_message_is_stored.md).
 
 In order to get the features above, the underlying technical layer is very different from the existing cloud computing and blockchain tech stacks. It's a new tech stack that's based on recent technologies.  However, the developers do not need to understand the complicated low level distributed system, they can build application **as if** it is still a centralized cloud computing architecture. This is the **charm of the TEA Project**.
 
@@ -70,7 +70,7 @@ There are three types of storage options for different use cases.
 
 In this section, we'll list the knowledge and tools you'll need to build TApps.
 
-## Tools
+### Tools
 
 To build and run the demo locally, you'll need:
 
@@ -81,7 +81,7 @@ To build and run the demo locally, you'll need:
 
 After building your own TApp, you can try hosting it by launching your own mining node. A mining node is any type of TEA node with a CML planted in it. If you don't own a physical TEA machine, you can rent an Amazon Nitro VM which is TEA-compatible.
 
-## Programming languages
+### Programming languages
 
 The demo TEA Party app is written in the following languages:
 
@@ -90,17 +90,17 @@ The demo TEA Party app is written in the following languages:
 
 The TEA Project doesn't require the developer to use the Rust programming language. You can use any programming language that compiles to WebAssembly. But at this moment, in order to understand our existing demo code, you'll need to use the Rust langauge. 
 
-## Architecture knowledge
+### Architecture knowledge
 
-## Layer2 without Rollups
+#### Layer2 without Rollups
 
 The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's [no need to verify the computing results](The_future_and_innovation_of_layer2.md#we-trust-the-result-by-verifying-the-environment). This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
 
-## Layer2 decoupled with layer1
+#### Layer2 decoupled with layer1
 
 TEA Project runs [on top of different kinds of blockchains](The_future_and_innovation_of_layer2.md#layer1-agnostic) interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
 
-## Hardware
+#### Hardware
 
 The TEA Project is very different from many other blockchain projects. TEA relies on two types of hardware in order to reach a special type of consensus: 
 
@@ -115,4 +115,4 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code_walkthrough](teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](teaparty.md).
