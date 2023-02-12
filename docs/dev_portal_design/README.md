@@ -77,6 +77,8 @@ Three upload fields: Front end, Back end, State actor. Every file need to assign
 
 When upload completed, the CID show on the UI.
 
+Also consider the [hybrid_storage_solution](hybrid_storage_solution.md) to reduce the dependency of IPFS.
+
 ### System actions
 
 #### Query all TApps registered by this owner
@@ -86,6 +88,8 @@ Query and list on the UI. Including the TApps have existing code uploaded before
 #### Upload file and assign CID
 
 After file uploaded to the current connected hosting node. It actually uploaded to IPFS. The CID is added to the SQL database. Also response to UI shown on the browser. The user need to write it down.
+
+Also consider the [hybrid_storage_solution](hybrid_storage_solution.md) to reduce the dependency of IPFS.
 
 ## Push the code across the network
 
@@ -101,19 +105,47 @@ The selected nodes need to show an indicator that the file has been pushed succe
 
 ### System actions
 
+#### Trigger the sync IPFS CID on hosting node
+
+When user push, the host node will use IPFS to "pin" this CID. Once done, register actor. If success, the host node update the list of registered actors locally. this will be used when query.
+
+This is a hosting node handler. It is async. It will not return download completed immediately. The result of uploading status need a separated query.
+
 #### Query hosting node if actor file loaded or not
 
 UI needs an indicator to show if this actor file has been uploaded and registered by a hosting node.
 
-#### Trigger the sync IPFS CID on hosting node
-
-When user push, the host node will use IPFS to "pin" this CID. Once done, register actor. If success, update the SQL db mark "registered".
-
-#### Query state machine node if actor file loaded or not
+A hosting node has internal register actor list in memory. 
 
 #### Trigger the state machine node to load and register actor file
 
 This is a Txn sent from the connected hosting node. The txn request all the state machine nodes to load actor and register. If not cached in local IPFS, will find and "pin".
+
+This is a regular txn called "Register_Actor". All state machine nodes will execute this txn at the same time.
+
+A state machine node will start the download and register flow, but this txn is async. It will not return the download result immediately. But return an acknowledgement. The progress of result will be queried in later txn. So this txn execution will always be consensus between all nodes.
+
+#### Query state machine node the status of register an actor
+
+The user can trigger a query txn from front end. Or this query can be down automatically from the front end.
+
+This is a standard txn that hosting node send to state machine nodes.
+
+All state machine nodes will execute the same txn. During execution, it check local registered actor list, if successfully downloaded and registered, it will generate a result. This result will be send to a "preselected" state machine node.
+
+This preselected node is the same logic as Signing a ETH transation at withdraw.
+
+So this selected node will gather the results from all other state machine nodes. it aggregate the result and get back to the caller (the hosting node).
+
+The hosting node receive the result then return to front end.
+
+The result should look like "6 of 10 state machines have successfully registered" at the front end.
+
+When all state machine have successful, the "start tapp" will be available to the next step.
+
+Question: What if a few state machine cannot successfully download and registered eventually?
+
+Solution: Run a kick out process to remove the failed state machine nodes after a long-enought grace period.
 
 #### Start tapp
 
