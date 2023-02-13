@@ -1,3 +1,4 @@
+# Conveyor
 The conveyor is an algorithm to make sure all state machine nodes have the same order of transactions. This is necessary as there will occassionally be conflicts due to network latency and the redundancy of transactions sent to multiple replicas. The conveyor algorithm is designed to shuffle the transaction order, which includes merging duplicate transactions and re-ordering transactions according to their timestamps.
 
 * Any particular hosting CML node shouldn't change the state of the state machine directly.
@@ -53,6 +54,6 @@ The successfully confirmed transactions have updated the current state of the ap
 * If the transaction is unsuccessful, then issue an error message and don't modify the state.
 
 3. A notification on the result of the previous process, either a **success** message or an **error** message, is then sent back to the original application.
-3. If the application wants to update its UI to reflect the updated state for transactions that successfully updated the state, then the app must use issue [queries](../../Sep2022_tokenomics/queries.md) to get the updated state.
+3. If the application wants to update its UI to reflect the updated state for transactions that successfully updated the state, then the app must use issue [queries](queries.md) to get the updated state.
 
 ![4](https://user-images.githubusercontent.com/86096370/159138361-4a7a5769-5d62-4602-9216-4453b27a39ae.png)

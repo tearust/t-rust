@@ -1,3 +1,5 @@
+# CML Auctions
+
 Miners who wish to deploy a node on the TEA Project ecosystem will need to plant a Camellia (CML) NFT into their mining machines. These act as mining licenses for the mining nodes and record important metadata about the node's hardware, the Camellia's age, its credit history, and the machine's capabilities. Most miners will be interested in purchasing a hosting CML which will allow them to host TApps on the network.
 
 ## Every CML must be replaced
@@ -6,7 +8,7 @@ Every Camellia NFT has a life cycle: it’s born from a seed, grows into a tree,
 
 ## Determinants of CML supply
 
-There will be a cap of 10,000 CML during the first two years of the ecosystem. Any limits beyond that will be determined by a DAO governance vote. 
+There will be a cap of 10,000 hosting CML during the first two years of the ecosystem. Any limits beyond that will be determined by a DAO governance vote. 
 
 The supply of tokens released to be sold on the marketplace through auction is determined algorithmically by the DAO. If there are many idle miners on the network, then demand is relatively low and no new seeds will be released to the marketplace. Conversely, if there's no slack in the system and network miners are near their hosting capacity, then more CML seeds will be released for auction in an effort to bring more hosting nodes online to host TApps.
 

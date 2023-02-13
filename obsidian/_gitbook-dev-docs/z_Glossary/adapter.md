@@ -1,3 +1,4 @@
+# Adapter
 The **adapter** is a module within the [hosting_CML](hosting_CML.md) that lives outside the enclave. Its goal is to accept http calls from outside world (eg. browser, other nodes). In our TEA Party example, only http adapter messages are handled and passed through to `handle_adapter_http_request`.
 
 See the following code sample:

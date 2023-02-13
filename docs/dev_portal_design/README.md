@@ -1,6 +1,10 @@
+Linksto other articles.
+
+[Developer_requirement](Developer_requirement.md)
+
 Dev portal is a system level TApp, made by TEA Core Team. Developers are the target users. 
 
-Developers can use this Dev Portal:
+Developers can use this Dev Portal
 
 * Create a TApp
 * Deploy a TApp to testnet or mainnet

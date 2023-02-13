@@ -1,3 +1,5 @@
+# Capability
+
 **Capability** is a property when building a TApp actor. The developer needs to sign the actor executable with a list of capabilities. Each capability is a passkey to call a specific provider when it's loaded into the [mini-runtime](mini-runtime.md).
 
 The list of capabilities of any actor is public information. If can be verified by all TEA DAO members. 

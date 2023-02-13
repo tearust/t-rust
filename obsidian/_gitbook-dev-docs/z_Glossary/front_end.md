@@ -1,3 +1,4 @@
+# Front-end
 The TEA Project isn't a front-end framework. Developers can use whatever front-end tech stack they're most comfortable with.
 
 For every TApp, the front-end code could be comprised of JS/HTML/CSS code that's stored in IPFS (or another type of decentralized storage). The CID (Content ID, actually the hash of the content) is the key to retrieving the content.

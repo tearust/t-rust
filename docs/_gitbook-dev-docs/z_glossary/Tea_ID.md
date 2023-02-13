@@ -2,4 +2,4 @@ Every TPM ships with a unique asymmetric key, called the *Endorsement Key* (EK),
 
 This ID cannot be modified or updated once the chip was built. The TEA machine manufacturor can register this TPM ID to our layer-1 blockchain. The registration process requires the TPM manufacturor's EKCert. Anyone can verify any TPM EKPub using such a EKCert.
 
-For more detail go to [tpm_key_attestation ](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)
+For more detail please see [Microsoft's explanation of TPM key attestation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation).

@@ -10,13 +10,13 @@ Because the onboard TPM chips of mining nodes allow attestation to be run on the
 
 In the TEA Project:
 
-* Transactions are processed with the resulting state change stored in the RAM memory residing in the enclaves of the state machine mining nodes.
-* Only state machine nodes run the strong consistency state machine (including the SQL database instance).
-* Every state machine node will have the same copy of the state in its memory.
+- Transactions are processed with the resulting state change stored in the RAM memory residing in the enclaves of the state machine mining nodes.
+- Only state machine nodes run the strong consistency state machine (including the SQL database instance).
+- Every state machine node will have the same copy of the state in its memory.
 
-All new transactions are already ordered through our use of GPS satellites (Proof of Time). Time can be proven accurate as the TPM chip onboard our layer-2 mining nodes helps ensure that the GPS module’s timing hasn’t been altered. Most importantly, our strong consistency state machine that runs through state machine mining nodes doesn’t need any consensus as there are no new blocks to wait for. Instead of blocks, new transactions land on a [conveyor](t-rust/obsidian/_gitbook-dev-docs/1_core_docs/conveyor.md) belt, and eventually everyone ends up with the same state. The TEA Project’s state machine functions just like a decentralized database that developers can use.
+All new transactions are already ordered through our use of GPS satellites (Proof of Time). Time can be proven accurate as the TPM chip onboard our layer-2 mining nodes helps ensure that the GPS module’s timing hasn’t been altered. Most importantly, our strong consistency state machine that runs through state machine mining nodes doesn’t need any consensus as there are no new blocks to wait for. Instead of blocks, new transactions land on a [conveyor](conveyor.md) belt, and eventually everyone ends up with the same state. The TEA Project’s state machine functions just like a decentralized database that developers can use.
 
 There are major benefits to TEA’s state machine and how it uses time as a root of trust.
 
 1. The TEA state machine updates continuously because there’s no block. There’s no need to wait every few seconds to get the consensus of all other nodes. All nodes have agreed on the time source from the atomic clock of GPS satellites.
-1. A new node joining the network doesn’t need to sync up from the very beginning of the genesis block. It just loads the current state from any nearby trusted state machine. The trust comes from the hardware and blockchain (layer-1) certification, not from self-verification from the block history, which means that syncing takes almost no time.
+2. A new node joining the network doesn’t need to sync up from the very beginning of the genesis block. It just loads the current state from any nearby trusted state machine. The trust comes from the hardware and blockchain (layer-1) certification, not from self-verification from the block history, which means that syncing takes almost no time.

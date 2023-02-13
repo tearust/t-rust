@@ -14,7 +14,7 @@ In the TEA Project:
 * Only state machine nodes run the strong consistency state machine (including the SQL database instance).
 * Every state machine node will have the same copy of the state in its memory.
 
-All new transactions are already ordered through our use of GPS satellites (Proof of Time). Time can be proven accurate as the TPM chip onboard our layer-2 mining nodes helps ensure that the GPS module’s timing hasn’t been altered. Most importantly, our strong consistency state machine that runs through state machine mining nodes doesn’t need any consensus as there are no new blocks to wait for. Instead of blocks, new transactions land on a [conveyor](t-rust/obsidian/_gitbook-dev-docs/1_core_docs/conveyor.md) belt, and eventually everyone ends up with the same state. The TEA Project’s state machine functions just like a decentralized database that developers can use.
+All new transactions are already ordered through our use of GPS satellites (Proof of Time). Time can be proven accurate as the TPM chip onboard our layer-2 mining nodes helps ensure that the GPS module’s timing hasn’t been altered. Most importantly, our strong consistency state machine that runs through state machine mining nodes doesn’t need any consensus as there are no new blocks to wait for. Instead of blocks, new transactions land on a [conveyor](conveyor.md) belt, and eventually everyone ends up with the same state. The TEA Project’s state machine functions just like a decentralized database that developers can use.
 
 There are major benefits to TEA’s state machine and how it uses time as a root of trust.
 

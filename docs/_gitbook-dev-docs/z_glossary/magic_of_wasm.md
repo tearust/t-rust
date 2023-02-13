@@ -1,3 +1,5 @@
+# Magic of WASM
+
 [WebAssembly](https://webassembly.org/) is getting more and more popular in the blockchain world. This might be unexpected since it was originally designed to run inside the browser. But Javascript was originally designed to run inside the browser as well, and it's now common to find Javascript anywhere that code can run.
 
 There are many reasons why the TEA Project uses WebAssembly as the execution format. To name a few:
@@ -18,7 +20,7 @@ Of course, there's a reason for that. Substrate wants to create a much safer env
 
 In programming, there's always a tradeoff between security and functionaility. The consequence of remaining secure is that you cannot do too much within a smart contract.  Again, a smart contract is not a fully-featured application; it's just a "turing complete" state machine that mostly deals with accounting. Most of the functionality of modern internet applicationd are simply not possible in a no_std environment.
 
-# TEA Project is not a smart contract, it's Web3
+## TEA Project is not a smart contract, it's Web3
 
 The goal of the TEA Project is to run standard Web3 applications decentralized. Running a smart contract is not the goal. So TEA has to support std which may potentially cause some security issues which Substrate didn't have to deal with. Of course, we cannot sacrifice security in the TEA Project, so we designed the following complicated model to minimize the risk.
 

@@ -1,3 +1,5 @@
+# Party-fe
+
 The code is located at https://github.com/tearust/tapp-sample-teaparty/tree/demo-code/party-fe. You can clone the code to a local repo to make it easier to go through.
 
 This is a standard Vue application. We assume that readers are familar with VUE and front-end web technologies. Below we'll only focus on the TEA related parts.
@@ -85,9 +87,9 @@ You probably have noiticed that the most improtant line related to TEA is the li
 for querying mesages, and this line \`await txn.txn_request('postMessage', opts);
 for posting message.
 
-You might have noticed that this line `await _axios.post('/tapp/postFreeMessage',` also looks like it's sending a command, but why is it not using `txn.txn_request()`? Well, posting a message does look like a command, but the free message doesn't cost anything. Therefore there is no state change (no money transfer). It can be comfortably handled by the [hosting_CML](hosting_CML.md) alone without notifying the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md). No matter if it's [queries](../../Sep2022_tokenomics/queries.md) or [commands](commands.md), they are concepts related to the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md) and not your application. 
+You might have noticed that this line `await _axios.post('/tapp/postFreeMessage',` also looks like it's sending a command, but why is it not using `txn.txn_request()`? Well, posting a message does look like a command, but the free message doesn't cost anything. Therefore there is no state change (no money transfer). It can be comfortably handled by the [hosting_CML](hosting_CML.md) alone without notifying the [state machine](State_Machine.md). No matter if it's [queries](queries.md) or [commands](commands.md), they are concepts related to the state machine and not your application. 
 
-# txn.txn_request
+## txn_request
 
 the `_axios.post` is a standard http call which doesn't need to be explained. We can focus on the txn.txn_request utility function.
 

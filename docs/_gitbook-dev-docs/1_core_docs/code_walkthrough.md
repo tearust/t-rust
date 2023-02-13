@@ -1,3 +1,5 @@
+# TEA Party Code Walkthrough
+
 In this section, we'll walk through the TEA Party application's sample code. 
 
 The steps are:

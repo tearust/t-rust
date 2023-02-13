@@ -1,4 +1,5 @@
-[State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md) is the database tier that contains multiple replications. Every replication is a **State Machine Replica**.
+# State Machine Replica
+[The state machine](State_Machine.md) is the database tier that contains multiple replications. Every replication is a **State Machine Replica**.
 
 Every replica is a standalone state machine CML node. It syncs with the other state machine CML nodes. 
 

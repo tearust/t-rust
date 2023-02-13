@@ -1,11 +1,6 @@
 # How to Use TEA Party
 Users can consult the [TEA Party user guide](https://teaproject.medium.com/tea-party-tapp-epoch-9-users-guide-2bd8ddd87daa) published during Epoch 9, (March, 2022). 
 
-Youtube video tutorial:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yl7DUnyE_0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 ## Why is TEA Party a typical Web3 application?
 Before we get into this question, please read [[What_makes_a_Web3_application]]? first.
 

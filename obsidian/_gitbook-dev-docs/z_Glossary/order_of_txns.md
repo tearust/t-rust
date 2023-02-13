@@ -1,3 +1,4 @@
+# Order of Txns
 The most important thing that consensus is trying to solve, whether it's blockchain or any kind of distributed system, is to get a sequence of transactions (or events) that all nodes agree on.
 
 There are many types of consensus used, such as PoW (Proof of Work) and PoS (Proof of Stake). All of them are slow and costly. 

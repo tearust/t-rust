@@ -1,3 +1,5 @@
+# Conveyor: Mutable vs Immutable
+
 ## Conveyor belt: mutable vs inmutable areas
 
 Every followup message gets converted to a tsid which references a txn. The tsid and not the txn itself is what actually is sent to the conveyor as the tsid is easier to sort. 

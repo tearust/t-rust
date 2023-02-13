@@ -1,4 +1,6 @@
-In contrast to [queries](../../Sep2022_tokenomics/queries.md), commands can change the state in the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md). 
+# Commands
+
+In contrast to [queries](queries.md), commands can change the state in the [state machine](State_Machine.md). 
 
 In order to keep the consistency of the state machine, we cannot allow the hosting node to ask one state machine node to change its state directly. We have to put the change request - actually a command - to a [conveyor](conveyor.md). The conveyor algorithm will make sure all state machine nodes get the same sequence of all comands, and eventually update all of their states to the same new state.
 

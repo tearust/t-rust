@@ -1,8 +1,9 @@
+# Actor
 An actor in the TEA project is an executable module. It works as a dynamic link library. It can be written in any programming language but needs to compiled into the WebAssembly format. At runtime, it's loaded into the [mini-runtime](mini-runtime.md). The mini-runtime waits for the incoming request, parses the request, finds the corresponding actor, and dispatches the request to the coresponding actor's handler function. The handler function handles the request and then generates a response back to the mini-runtime. The mini-runtime then sends back the response.
 
 In this case, the actor works as a Function-as-a-Service Lambda.
 
-# Some Notes
+## Some Notes
 
 There are many limitations for actors. For example:
 

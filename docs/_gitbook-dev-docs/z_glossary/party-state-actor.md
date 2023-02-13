@@ -1,10 +1,12 @@
+# Party-state-actor
+
 This actor is loaded into the [State_Machine_Replica](State_Machine_Replica.md)'s [mini-runtime](mini-runtime.md). It is the same concept as stored procedure in traditional cloud computing webapp. There are many pure functions that handle incoming txns and modify the state (including [state](state.md) and [GlueSQL](GlueSQL.md) data).
 
-As you already know, every [State_Machine_Replica](State_Machine_Replica.md) runs an instance of this actor. All of them run the same txn at the same sequence and modify the same state to finally get the same new state. This is guaranteed by the [ proof of time](consensus.md#proof-of-time) consensus. As an application developer, you don't need to care too much about how it works. You can simply assume there's only one instance of your function running that updates a single state. 
+As you already know, every [State_Machine_Replica](State_Machine_Replica.md) runs an instance of this actor. All of them run the same txn at the same sequence and modify the same state to finally get the same new state. This is guaranteed by the [proof of time](consensus.md#proof-of-time) consensus. As an application developer, you don't need to care too much about how it works. You can simply assume there's only one instance of your function running that updates a single state. 
 
-There are two types of requests: [queries](../../Sep2022_tokenomics/queries.md) and [commands](commands.md). Please click the links to get to know more about them. At least you should know that queries execute immediately, but commands need to wait a period of time prior to execution. 
+There are two types of requests: [queries](queries.md) and [commands](commands.md). Please click the links to get to know more about them. At least you should know that queries execute immediately, but commands need to wait a period of time prior to execution. 
 
-# Handling txns
+## Handling txns
 
 Please go to [lib.rs](https://github.com/tearust/tapp-sample-teaparty/blob/demo-code/party-state-actor/src/lib.rs) and find the function  
 fn txn_exec_inner(tsid: Tsid, txn_bytes: &\[u8\]) -> HandlerResult\<()>. This is where most of the logic lives.
@@ -45,7 +47,7 @@ There are a few concepts we'll need to explain here.
 
 There are other txns this function handles. They are very straightforward from just reading the txn name and code.
 
-# Commit state changes
+## Commit state changes
 
 After the txn has been handled, all changes are not commited yet. they are just saved to [Context](Context.md). So you can see the code after all the txns ahave been handled. This code is used to commit the changes.
 
@@ -68,9 +70,8 @@ if context_bytes.is_empty() {
 fn health(_req: codec::core::HealthRequest) -> HandlerResult<()> {
 	info!("health call from party-state actor");
 	Ok(())
-	```
+````
+
 The hidden balance is used to verify if the txn made any mistake that caused the state to be unbalanced after the update. If all the code is correct, there shouldn't be any unbalanced state. 
 
-After the commit, the state is finally changed. Before the commit, any error causing the function to return early will not affect the state. The state remains as it was before. See [[Context]] for more details about atomic transaction concepts.
-
-````
+After the commit, the state is finally changed. Before the commit, any error causing the function to return early will not affect the state. The state remains as it was before. See [Context](Context.md) for more details about atomic transaction concepts.

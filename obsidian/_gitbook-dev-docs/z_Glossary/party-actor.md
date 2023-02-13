@@ -1,4 +1,5 @@
-# handle_adapter_http_request
+# Party-actor
+## handle_adapter_http_request
 
 In the lib.rs file, you'll find the `handle_adapter_http_request` function. All of these branches are messages that this actor can handle.
 
@@ -55,15 +56,15 @@ We use the **http** request function to handle user events because in the curren
 
 Similar to `handle_adapter_http_request`, we still have `handle_adapter_request` which is an upper level handler. That's because all http requests are actually captured by the [adapter](adapter.md) first. Adapter is the sole component that a hosting CML can contact the outside world. 
 
-# libp2p_back_message
+## libp2p_back_message
 
 Tea project uses a modified version of rust-based lib P2P protocol between nodes communication.
 
 The [hosting_CML](hosting_CML.md) use `libp2p_back_message` to handle libP2P messages. In our Tea party sample code, the only usage of this function is to receive response message to its own memory cache `help::set_mem_cache(&body.uuid, content)?;`.
 
-The memory cache is used to temporarily store the response/error message from the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md).  When the [front_end](../../Sep2022_tokenomics/front_end.md) sends a query for the result of any command, the hosting CML's back end actor will check this temporary store to get recently received results and get back to the [front_end](../../Sep2022_tokenomics/front_end.md).
+The memory cache is used to temporarily store the response/error message from the [state machine](State_Machine.md).  When the [front_end](front_end.md) sends a query for the result of any command, the hosting CML's back end actor will check this temporary store to get recently received results and get back to the [front_end](front_end.md).
 
-# Interaction with OrbitDB
+## Interaction with OrbitDB
 
 Query OrbitDb example: load_message_list
 
@@ -102,15 +103,15 @@ The main function call is the provider call. `tea_codec::ORBITDB_CAPABILITY_ID` 
 
 These lines are the typical way to call a provider. You can find such patterns everywhere in the TEA Project.
 
-The rest of the code is easy to understand. The data response from the OrbitDB provider goes to the message_item list. This list is returned to the [front_end](../../Sep2022_tokenomics/front_end.md) caller. Finally, it shows in the UI in the browser.
+The rest of the code is easy to understand. The data response from the OrbitDB provider goes to the message_item list. This list is returned to the [front_end](front_end.md) caller. Finally, it shows in the UI in the browser.
 
 # Interaction with State Machine
 
-Usually there are two kinds of requests that need to be sent to the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md) to handle. They're either [queries](../../Sep2022_tokenomics/queries.md) or [commands](commands.md).
+Usually there are two kinds of requests that need to be sent to the [state machine](State_Machine.md) to handle. They're either [queries](queries.md) or [commands](commands.md).
 
 ## Command example:  post_message
 
-The function `post_message` sends a txn (we sometimes call it sending [Commands](commands.md)) to the [State_Machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/State_Machine.md)).  The following code sends the txn:
+The function `post_message` sends a txn (we sometimes call it sending [Commands](commands.md)) to the [state machine](State_Machine.md).  The following code sends the txn:
 
 ````
 	send_txn(
@@ -158,8 +159,8 @@ The remaining logic would be described as follows:
 * Check the layer one, find the currently active state machine replicas, and their p2p addresses
 * Randomly select 2 (or more if you think necessary) [State_Machine_Replica](State_Machine_Replica.md)s. Send the txn in P2P message to them.
 * After the first txn P2P messages are sent out, record the time from the GPS atomic clock. 
-* Use this time stamp in the [Followup](Followup.md) message in the Ts field. Note, we only need the first txn's sent time, ignore the 2nd txn sent time.
-* Send out the [Followup](Followup.md) message to those two [State_Machine_Replica](State_Machine_Replica.md)s (function `pub fn send_followup_via_p2p(fu: Followup, uuid: String)`).
+* Use this time stamp in the [followup](Followup.md) message in the Ts field. Note, we only need the first txn's sent time, ignore the 2nd txn sent time.
+* Send out the [followup](Followup.md) message to those two [State_Machine_Replica](State_Machine_Replica.md)s (function `pub fn send_followup_via_p2p(fu: Followup, uuid: String)`).
 
 ## Query example: query_balance
 
@@ -276,7 +277,7 @@ The `a_nodes` is the internal name for [State_Machine_Replica](State_Machine_Rep
 
 ## Query response after request
 
-You may have noticed that no matter if it's [Commands](commands.md) or [queries](../../Sep2022_tokenomics/queries.md), the caller will not get the response immediately (even for [Queries](../../Sep2022_tokenomics/queries.md) that are not supposed to have to wait in the [Conveyor](conveyor.md). That's because all communication between nodes are asyncronous. However, you can always query the result using the `uuid` when you generate the request.
+You may have noticed that no matter if it's [Commands](commands.md) or [queries](queries.md), the caller will not get the response immediately (even for [Queries](queries.md) that are not supposed to have to wait in the [Conveyor](conveyor.md). That's because all communication between nodes are asyncronous. However, you can always query the result using the `uuid` when you generate the request.
 
 The front-end can use http `query_result` to get the result.
 
@@ -290,4 +291,4 @@ The front-end can use http `query_result` to get the result.
 
 ````
 
-Please note, the front-end has no way to know when the result will be ready. It's common that the front-end needs to query several times to get the result. You can find the sample of how to query the result in the [front_end](../../Sep2022_tokenomics/front_end.md) code. In `bbs.js`, the function is `const sync_request = async (method, param, message_cb, sp_method='query_result', sp_uuid=null)`.
+Please note, the front-end has no way to know when the result will be ready. It's common that the front-end needs to query several times to get the result. You can find the sample of how to query the result in the [front_end](front_end.md) code. In `bbs.js`, the function is `const sync_request = async (method, param, message_cb, sp_method='query_result', sp_uuid=null)`.
