@@ -1,11 +1,12 @@
-TEA Party user guide (epoch 9, March, 2022): https://teaproject.medium.com/tea-party-tapp-epoch-9-users-guide-2bd8ddd87daa
-
+# How to Use TEA Party
+Users can consult the [TEA Party user guide](https://teaproject.medium.com/tea-party-tapp-epoch-9-users-guide-2bd8ddd87daa) published during Epoch 9, (March, 2022). 
 
 Youtube video tutorial:
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yl7DUnyE_0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-# Why is TEA Party a typical Web3 application?
+## Why is TEA Party a typical Web3 application?
 Before we get into this question, please read [[What_makes_a_Web3_application]]? first.
 
 Web3 applications are different than web 2.0 applications in multiple ways:
@@ -32,7 +33,7 @@ The code and data are running inside a hardware protected [enclave](../z_glossar
 Not only is the hosting of TApps fully decentralized, the database is also fully decentralized as well. The database layer is probably not something you can see from the front end. But if you read the full developer documentation, you'll understand how the [state machine](../z_glossary/State_Machine.md) and [OrbitDb](../z_glossary/OrbitDb.md)  work together to store the application data.
 
 ## Tokenomics driven
-In web 2.0, end users sell their privacy to the tech giants in return for "free" application services. In Web3, because there's no centralized "operator" to steal your privacy for profit, there won't be any free lunch provided by the applications.  Someone has to pay for the service as the miners and developers need to make a living. Some coming from the web 2.0 world might think this is bad, but this is actually how things should work.  Because all the API call to the [public service](../z_glossary/public_service) need to be paid, all storage will need either RAM or hard drive space. These computing costs are eventually paid by end users. In a TApp like the TEA Party, users can see the price of posting message or sending private notifications. 
+In web 2.0, end users sell their privacy to the tech giants in return for "free" application services. In Web3, because there's no centralized "operator" to steal your privacy for profit, there won't be any free lunch provided by the applications.  Someone has to pay for the service as the miners and developers need to make a living. Some coming from the web 2.0 world might think this is bad, but this is actually how things should work.  Because all the API call to the [public service](../z_glossary/public_service.md) need to be paid, all storage will need either RAM or hard drive space. These computing costs are eventually paid by end users. In a TApp like the TEA Party, users can see the price of posting message or sending private notifications. 
 
 <img width="691" alt="Screen Shot 2022-03-27 at 10 00 05 PM" src="https://user-images.githubusercontent.com/86096370/160329742-1f51d1a3-588a-4c45-874b-783ed2867f05.png">
 
