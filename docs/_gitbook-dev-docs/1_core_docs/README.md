@@ -104,8 +104,8 @@ TEA Project runs [on top of different kinds of blockchains](The_future_and_innov
 
 The TEA Project is very different from many other blockchain projects. TEA relies on two types of hardware in order to reach a special type of consensus: 
 
-* [TPM](TPM.md)
-* [GPS](GPS.md)
+* *t-rust/obsidian/_gitbook-dev-docs/z_Glossary/TPM*
+* *t-rust/obsidian/_gitbook-dev-docs/z_Glossary/GPS*
 
 Please click the above links to learn more about how and why the TEA Project uses these technologies.
 
