@@ -29,3 +29,6 @@ We can measure how much computation is being done by WASM function, and the WASM
 We can’t currently measure the billing costs of the native function calls that a TApp makes in real-time so we must estimate them. Stated differently, TEA can’t measure itself .. but it can measure what’s running on top of it. So we estimate what each call costs based on what our “best guess” of what it costs because we can’t get real-time costs for the native functions. Because we cannot measure the real-time cost of native actors, a gas limit isn’t applicable in this case.
 
 ![](https://cdn-images-1.medium.com/max/1200/1*PdBoSDmyFaGHpR_0lE6ixA.png)
+
+## Functions vs Actors
+Actors are a compiled document of related functions. For more information, please visit our [FAQ](actors-vs-functions.md).

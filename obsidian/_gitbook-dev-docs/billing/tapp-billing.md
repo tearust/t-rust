@@ -16,3 +16,5 @@ Visually the revenue and expenses for the TApp portion of the end-user’s payme
 This latter scenario is exactly the reverse of what happens when TApp usage generates a profit. Instead of new TApp tokens being generated and sent to existing TApp token holders as a dividend, TApp tokens are taken from the existing token holders and liquidated for their TEA value to pay the necessary state machine expense. This would eventually lead to the bonding curve token being liquidated.
 
 These actions — dividend payouts for profits and token dissolution for expenses — occur at regular settlement intervals. Because the bonding curve can remove tokens from among its holders, TApp token investors should perform due diligence on the TApp to ensure expenses are covered by the TApp usage fee. A TApp token is just like any other investment that has risks, and dividend payouts along with token subtractions are part of the nature of the bonding curve.
+
+More information is available in our [billing-faq](billing-faq.md).

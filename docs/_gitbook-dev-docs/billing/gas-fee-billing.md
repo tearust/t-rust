@@ -9,3 +9,5 @@ Let’s first focus on how payments are routed for the gas fee. In graphical for
 1. The end-user’s gas payment to miners actually goes to an accrued account.
 1. (Optional) A system expense that some CML pay to receive faster state updates is the **state subscription fee.** If the miner has a state subscription, then the system will pull from the accrued balance whenever this fee is due. If there’s no funds in the accrued balance when the fee is due, then some of the CML’s bonding curve tokens will be liquidated to pay for the charge.
 1. If there’s funds in the accrued balance, then at regular intervals (currently anywhere between 5–20 minutes) they will be swept and paid out as dividends to CML bonding curve token holders.
+
+More information is available in our [billing-faq](billing-faq.md).

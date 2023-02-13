@@ -1,6 +1,7 @@
 Linksto other articles.
 
 [Developer_requirement](Developer_requirement.md)
+[Hosting_actor_handlers](Hosting_actor_handlers.md)
 
 Dev portal is a system level TApp, made by TEA Core Team. Developers are the target users. 
 
