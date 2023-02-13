@@ -1,3 +1,3 @@
 We need GPS but we don't use this for navigation. Our TEA nodes are stationary and don't move on the street. Instead of location, we use the acurate timestamps from GPS satellites. Every GPS satellite has an atomic clock, and it constantly sends time signals to any terrestrial GPS receiver. We use this as the source of the timestamps for all events.
 
-To learn more about how we use the timestamps, click [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/conveyor]] and [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/State_Machine]].
+To learn more about how we use the timestamps, click [conveyor](../1_core_docs/conveyor.md) and [state machine](../1_core_docs/State_Machine.md).

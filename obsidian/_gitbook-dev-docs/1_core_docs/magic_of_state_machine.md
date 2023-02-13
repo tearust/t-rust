@@ -8,4 +8,4 @@ To achieve this, the most important thing is the sequence of all transactions (s
 
 The sequence of the transactions are guaranteed by the [[conveyor]]. The algorithm is also called **proof of time**.
 
-This unique way of thinking makes TEA Project a unique platform. Of course, this is based on the trust from layer1 and [[Remote_Attestation]]. Otherwise, any [[hosting_CML]] nodes can cheat the [[State_Machine_Replica]] with wrong [[t-rust/obsidian/_gitbook-dev-docs/z_Glossary/GPS]] timestamps and cauase the whole system to stop working. 
+This unique way of thinking makes TEA Project a unique platform. Of course, this is based on the trust from layer1 and [[Remote_Attestation]]. Otherwise, any [[hosting_CML]] nodes can cheat the [[State_Machine_Replica]] with wrong [GPS](../z_glossary/GPS.md) timestamps and cauase the whole system to stop working. 

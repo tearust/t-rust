@@ -4,6 +4,6 @@ TPM is the main component of the Trusted Computing technology. Here's a good sim
 
 For a quick overview of Trusted Computing please go to this [Stanford page](https://cs.stanford.edu/people/eroberts/cs201/projects/trusted-computing/what.html) or for more detail visit [the trusted computing group](https://trustedcomputinggroup.org/).
 
-For the reasons why we need TPM, you can read [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/consensus#Proof of Trusted Computing]].
+For the reasons why we need TPM, you can read [about our consensus](../1_core_docs/consensus.md#Proof of Trusted Computing).
 
-Every node's [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/enclave]] is protected by a TPM chip, and the [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/mini-runtime]] runs inside the [[t-rust/obsidian/_gitbook-dev-docs/1_core_docs/enclave]].
+Every node's [enclave](../1_core_docs/enclave.md) is protected by a TPM chip, and the [mini-runtime](../1_core_docs/mini-runtime) runs inside the [enclave](../1_core_docs/enclave.md).

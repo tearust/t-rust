@@ -93,8 +93,8 @@ TEA Project runs [[The_future_and_innovation_of_layer2#Layer1 Agnostic|on top of
 #### Hardware
 The TEA Project is very different from many other blockchain projects. TEA relies on two types of hardware in order to reach a special type of consensus: 
 
-- [[t-rust/obsidian/_gitbook-dev-docs/z_Glossary/TPM]]
-- [[t-rust/obsidian/_gitbook-dev-docs/z_Glossary/GPS]]
+- [TPM](../z_glossary/TPM.md).
+- [GPS](../z_glossary/GPS.md).
 
 Please click the above links to learn more about how and why the TEA Project uses these technologies.
 
