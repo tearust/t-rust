@@ -1,10 +1,8 @@
-
+# What Makes a Web3 App?
 Web3 apps mark a significant departure from the cloud-based internet apps that modern users are used to. Modern internet apps give users relative convenience in exchange for the utility they provide. The typical traits that internet apps share include the following:
 
 1. They're hosted on central servers. Even if the server architecture is distributed it's still owned by centralized companies.
-
 2. These internet apps are often free to use and if not totally free, have a generous free tier.
-
 3. The service provider has control of any user data that's given up to use the service. 
 
 In contrast, a Web3 app runs decentralized on a distributed architecture that nobody owns. An implication of this design is that a dApp can't be turned off by any centralized power. This means that a hosting miner can't censor any content in the dApp, they can only choose to stop hosting the entire dApp. And because no user data is given up to use a dApp, app usage is paid directly by the consumer in the world of Web3.

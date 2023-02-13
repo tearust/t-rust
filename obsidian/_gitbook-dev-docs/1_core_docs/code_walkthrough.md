@@ -2,33 +2,33 @@ In this section, we'll walk through the TEA Party application's sample code.
 
 The steps are:
 
-- Clone the code to local.
-- Install the build tools.
-- Understand the folder structure.
-- Understand the compile workflow.
-- Run it.
+* Clone the code to local.
+* Install the build tools.
+* Understand the folder structure.
+* Understand the compile workflow.
+* Run it.
 
-# Code location and structure
+## Code location and structure
 
 Start by cloneing the following GitHub repo to your local machine:
 https://github.com/tearust/tapp-sample-teaparty
 
 There are 4 folders (click the following links for more details):
 
-- [[party-fe]]: This is the [[front_end]].
-- [[party-actor]]: This is the [[back_end_actor]].
-- party-share: This is the common data structure or library that shared by both the [[back_end_actor]] and the [[state_machine_actor]].
-- [[party-state-actor]]: This is the [[state_machine_actor]].
+* [party-fe](../z_glossary/party-fe.md): This is the [front_end](../z_glossary/front_end.md).
+* [party-actor](../z_glossary/party-actor.md): This is the [back_end_actor](../z_glossary/back_end_actor.md).
+* party-share: This is the common data structure or library that shared by both the [back_end_actor](../z_glossary/back_end_actor.md) and the [state_machine_actor](../z_glossary/state_machine_actor.md).
+* [party-state-actor](../z_glossary/party-state-actor.md): This is the [state_machine_actor](../z_glossary/state_machine_actor.md).
 
+## Workflow
 
-# Workflow
+### Load the UI
 
-## Load the UI 
-
-Any user can launch a TApp by clicking on one of the [[hosting_CML]]s urls (there's no domain used when launching TApps). Picking any of the urls will work exactly the same so you can choose the one with least network latency. The URL is nothing but an IPFS CID.
+Any user can launch a TApp by clicking on one of the [hosting_CML](../z_glossary/hosting_CML.md)s urls (there's no domain used when launching TApps). Picking any of the urls will work exactly the same so you can choose the one with least network latency. The URL is nothing but an IPFS CID.
 
 Note: This is a brief diagram. The real communication is more complicated than this.
-```mermaid
+
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -44,16 +44,17 @@ sequenceDiagram
 	B->>-A: response html/css/js front end code
 	A->>A: render the browser. show the UI
 	
-```
+````
 
-## Query the state
+### Query the state
 
 Accounting information is stored in the state (e.g. when querying the balance of a user's TApp account.)
 
-Querying the state can return the result without having to wait in conveyor queue. But the communication is still async, so additional queries for more results are still needed which is not shown in the diagram. You can see the details on additional queries at [[party-fe#Workflow]].
+Querying the state can return the result without having to wait in conveyor queue. But the communication is still async, so additional queries for more results are still needed which is not shown in the diagram. You can see the details on additional queries at [party-fe > Workflow](../z_glossary/party-fe.md).
 
 Note: This is a brief diagram. The real communication is more complicated than this.
-```mermaid
+
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -73,14 +74,15 @@ sequenceDiagram
 	B->>A: send back the account balance response
 	A->>A: render the browser. show the account balance on the UI
 	
-```
-## Send a command that changes the state
+````
 
-Commands are more complicated in that certain precautions must be taken before they're allowed to change the state. Like any other distributed state machine, we have to make sure the state in all the [[State_Machine_Replica]]s are consistent. We use the [[conveyor]] algorithm to sort the commands by their timestamp and are executed in identical order across all replicas.
+### Send a command that changes the state
 
-The following diagram demonstrates the workflow of how a simple transfer txn command is handled. Note that this diagram is a simplifed verison. The full version can be found here: [[party-fe#Workflow]]
+Commands are more complicated in that certain precautions must be taken before they're allowed to change the state. Like any other distributed state machine, we have to make sure the state in all the [State_Machine_Replica](../z_glossary/State_Machine_Replica.md)s are consistent. We use the [conveyor](../z_glossary/conveyor.md) algorithm to sort the commands by their timestamp and are executed in identical order across all replicas.
 
-```mermaid
+The following diagram demonstrates the workflow of how a simple transfer txn command is handled. Note that this diagram is a simplifed verison. The full version can be found here: [party-fe > Workflow](../z_glossary/party-fe.md).
+
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -102,13 +104,13 @@ sequenceDiagram
 	D->>B: response ok
 	B->>A: response ok
 	
-```
+````
 
-## Running SQL queries
+### Running SQL queries
 
 Running SQL queries is almost the same as running a query against the state. The only difference is that we replace the state with the GlueSQL instance. Note: SQL queries are not allowed to change the state. Only `Select` statements are allowed in SQL queries.
 
-```mermaid
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -130,13 +132,13 @@ sequenceDiagram
 	B->>A: send back the query result
 	A->>A: render the browser. show the result on UI
 	
-```
+````
 
-## Send SQL scripts to change SQL database
+### Send SQL scripts to change SQL database
 
 Rather than `select`, many SQL statements will change the database. They are all considered **commands**. The workflow is almost the same as the state command, with the state being replaced by the GlueSQL instance.
 
-```mermaid
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -158,15 +160,15 @@ sequenceDiagram
 	D->>B: response ok
 	B->>A: response ok
 	
-```
+````
 
-## Load / save NoSQL data with OrbitDB
+### Load / save NoSQL data with OrbitDB
 
 Because the state and GlueSQL are memory based distributed databases, they're very expensive when used to store large amounts of data. TApps needing to store large amounts of data should use either OrbitDB (structured data) or IPFS (blob data/ files).
 
-OrbitDB and IPFS live inside the [[hosting_CML]], so the [[State_Machine_Replica]]s are not involved in this workflow. 
+OrbitDB and IPFS live inside the [hosting_CML](../z_glossary/hosting_CML.md), so the [State_Machine_Replica](../z_glossary/State_Machine_Replica.md)s are not involved in this workflow. 
 
-```mermaid
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -181,12 +183,13 @@ sequenceDiagram
 	C->>B: respones the list of messages body
 	B->>A: messages body list![[bob-digest 1.json]]
 	A->>A: show the message content on the UI
-```
+````
 
-## Combination of SQL and NoSQL
+### Combination of SQL and NoSQL
+
 The diagram above shows a common use case that loads all messages. But in many cases, the ids (index) of the OrbitDB is stored in GlueSQL, so it's very common to first have to query GlueSQL to get the IDs. After successfully querying GlueSqL for the IDs, then we can query OrbitDB using the IDs to retrieve the actual data.
 
-```mermaid
+````mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -208,16 +211,17 @@ sequenceDiagram
 	C->>B: respones the list of messages body that I starred
 	B->>A: messages body list that I starred
 	A->>A: show the message content on the UI. all of them are messages that I starred
-```
+````
 
 The above diagram shows the combination of SQL and NoSQL. 
 
-# Read ruther details on each of the three parts
+## More details on each of the three parts
 
 Click on any of the following links for more details:
-- Code walkthrough for [[party-fe]]. 
-- Code walkthrough for [[party-actor]]. 
-- Code walkthrough for [[party-state-actor]]. 
+
+* Code walkthrough for [party-fe](../z_glossary/party-fe.md). 
+* Code walkthrough for [party-actor](../z_glossary/party-actor.md). 
+* Code walkthrough for [party-state-actor](../z_glossary/party-state-actor.md). 
 
 # Run it
 
