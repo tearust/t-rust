@@ -15,4 +15,4 @@ Because only TEA Party hosting nodes have the [App_AES_Key](../z_glossary/App_AE
 
 ## Cost
 
-OrbitDB /IPFS is very cheap compared to using the *t-rust/obsidian/_gitbook-dev-docs/z_glossary/State_Machine* which exclusively uses RAM to store the state. For more details, please read [OrbitDb > Cost](../z_glossary/OrbitDb.md#cost).
+OrbitDB /IPFS is very cheap compared to using the [state machine](../z_glossary/State_Machine.md) which exclusively uses RAM to store the state. For more details, please see [OrbitDb](../z_glossary/OrbitDb.md).

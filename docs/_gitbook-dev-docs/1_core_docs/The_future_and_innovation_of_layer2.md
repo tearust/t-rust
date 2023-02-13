@@ -1,4 +1,6 @@
-# Existing Blockchains Use Layer2s for Scalability
+# The Future of Layer-2s
+
+## Existing Blockchains Use Layer-2s for Scalability
 
 Ever since Blockchain was invented, many projects have tried improving the technology to make blockchain run faster and cheaper. To make blockchains more scalable, there are two primary innovation paths:
 
@@ -19,7 +21,7 @@ The main problems with layer2 are that:
 * Each layer2 has to be tightly bundled with a specific layer1.
 * Verification is not cheap (e.g., ZKP). Possible resolver could be created either through inventing a new algorithm (unlikely) or hardware acceleration (ASIC).
 
-# A New Type of Layer2
+## A New Type of Layer2
 
 Although layer2s seem like a promising start towards scaling blockchain, there is still room for improvement. Let's imagine a new, improved layer2 that is:
 
@@ -29,7 +31,7 @@ Although layer2s seem like a promising start towards scaling blockchain, there i
 
 ![\_blockchain_graph](https://user-images.githubusercontent.com/86096370/170151342-49421471-ba29-4843-85a9-1af33d955a81.png)
 
-# We Trust the Result by Verifying the Environment
+## We Trust the Result by Verifying the Environment
 
 One aspect of improving the layer2 experience is being able to verify the result of layer2 transactions while minimizing the involvement of layer1 during these verifications. It turns out that we can verify the result of layer2 transactions simply by verifying the environment in which the programming logic is run. For example, if I asked you to verify the correctness of 82986.862 x 916019.1128 = 76017551703.3, how would you go about doing it? Probably very few people would use pencil and paper to verify the result. 
 
@@ -59,27 +61,27 @@ Now you can see, instead of verifying the result by recalculate, we just trust t
 * The input code and data are correct (i.e. hash of the data and code are verified).
 * Multiple, randomly selected nodes (uncolludable) get the same result separately.
 
-# Benefits of Switching to Verifying the Environment
+## Benefits of Switching to Verifying the Environment
 
-## Verifying the Environment is Cost Effective
+### Verifying the Environment is Cost Effective
 
 As we just showed, verifying a brand of a calculator is much easier than recalculating manually using pencil and paper. Even adding on the cost of multiple brands of calculators to run the same formula, it's still much cheaper than recalculating manually. 
 
 Now let's extend this "verify result by verifying the environment" methodology to our potential layer2 solution. Instead of verifying the rollup results from layer2, we just verify the integrity of the layer2 nodes and "blind" trust the result before putting it on the blockchain. This change will significantly reduce the cost and complexity of layer1 verifications.
 
-## Layer1 Agnostic
+### Layer1 Agnostic
 
 Let's take things one step further. If the verification of the integrity of layer2 nodes can be done agnostically relative to any type of layer1, then this layer2 could possibly run on any kind of layer1. For example, we can have the same layer2 solution running on top of Ethereum, Polkadot, Cosmos, BSC... as long as the layer1 supports basic Turing-complete smart contracts. This can make the layer2 solution blockchain agnostic, running above and across all major blockchains.
 
-## General-purpose Computing
+### General-purpose Computing
 
 Let's add one more major feature to this killer layer2 that we're building. Since this new layer2 is agnostic towards the underlying layer1, there's no limit on what kind of txns it can process. In our implementation, general-purpose computing would be available in this new layer2. In this case, we don't really care if the layer1 blockchain is Solidity-based EVM or Rust, Wasm, ink etc. That's totally irrelavent as our layer2 can run general-purpose functions which might be totally unrelated to the layer1 underneath. For example, you could run a Tensorflow task on layer2 without any problems, although we would never expect a Solidity smart contract to run Tensorflow. 
 
-## Cloud Computing as an Oracle
+### Cloud Computing as an Oracle
 
 Since we can run general-purpose computing, running a cloud computing oracle in layer2 won't be hard. As long as the environment can be trusted, we can have a distributed cloud-based SQL database running on the layer2. That means using SQL to write a smart contract is no longer a dream!
 
-# How Do We Do This? Using (Controversial) Hardware Integrity
+## How Do We Do This? Using (Controversial) Hardware Integrity
 
 Hardware integrity remote attestation has always been controversial. There will always be arguments between the pure cryptographic algorithm believers vs those who favor hardware trusted execution environments. The truth is there are always pros and cons with either approach. In my opinion, before we can find a perfect math solution, using hardware integrity remote attestation is always a cost-effective compromise solution. 
 
@@ -87,6 +89,6 @@ Long before blockchain, hardware integrity remote attestation has been in the IT
 
 Besides trusted computing technology, TEE is also presently widely used in many companies: Intel SGX, ARM Trust zone. The only cons of TEE is that it's tightly bound to the CPU manufacturer which causes new kind of centralization. For example, Intel recently discontinued processors with SGX for the consumer market. If you were a project relying on Intel SGX, then Intel's decision meant that your CPU options for miners going forward just got much more expensive.
 
-# Conclusion and Future of Layer2
+## Conclusion and Future of Layer2
 
 I believe that the future of layer2 will be as a standalone general-purpose cloud computing oracle that runs on top of multiple blockchains. This would also mean that the majority of computing tasks could be better performed at a lower cost by moving them from layer1 to layer2. Because our new layer2 does not need any expensive ZKP when sending the result back to layer1, the overall cost is much lower. Since layer2 is verified trusted by layer1, there's no blockchain type of consensus needed, and the performance can match that of traditioanl cloud computing. In TEA Project, we benefit from the many advantages of hardware trust. We use the timestamp as directly received from GPS satelites to run a  "Proof of Time" distributed state machine in our trusted layer2 nodes. This is similar to Google's Spanner database, but ours is fully decentralized. Therefore, TEA Project is a decentralized cloud computing platform that runs so-called TApps. TApps run like typical web apps or mobile apps, but there's no centralized application server or database server needed, as well as no domain name or Verisign certificates. They are unstoppable, unbreakable, and censorship free. 

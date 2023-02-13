@@ -1,13 +1,13 @@
 # Getting Started
 
 ## TApps are designed for Web3
-As is the case with all TApps, the TEA Party showcases the special features that are beyond the capabilities of other cloud based internet (web 2.0) applications. Instead of centralized server(s) hosting the app, the individual miners of the TEA network host TApps based solely on their own [[hosting_profitability]]. The inherent decentralization that all TApps including the TEA Party share gives these apps even more unique features:
+As is the case with all TApps, the TEA Party showcases the special features that are beyond the capabilities of other cloud based internet (web 2.0) applications. Instead of centralized server(s) hosting the app, the individual miners of the TEA network host TApps based solely on their own [hosting profitability](../z_glossary/hosting_profitability.md). The inherent decentralization that all TApps including the TEA Party share gives these apps even more unique features:
 
 - They cannot be turned off by any centralized power. As long as there are a minimal number of miners hosting any particular application, it will continue to run forever.
 
 - No one, including the host miner, can control or censor the content. The content is owned and protected by its creator's private key. A miner can choose to stop hosting the TApp, but it cannot selectively choose what content to show or hide.
 
-- There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](Where_the_message_is_stored.md).
+- There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](../z_glossary/Where_the_message_is_stored.md).
 
 In order to get the features above, the underlying technical layer is very different from the existing cloud computing and blockchain tech stacks. It's a new tech stack that's based on recent technologies.  However, the developers do not need to understand the complicated low level distributed system, they can build application **as if** it is still a centralized cloud computing architecture. This is the **charm of the TEA Project**.
 
@@ -16,13 +16,13 @@ The following sections will explain the cutting edge technologies used in the TE
 ## Three Major Parts
 The full architecture of the TEA Project is complicated but there are only three majors parts where an application developer will be working. These three major parts all run in different locations just like the traditional 3-tier-architecture of cloud computing web apps. 
 
-### [[front_end]]
+### [Front-end](../z_glossary/front_end.md)
 The front-end is typically a JS application (for webapps) or a mobile application (for mobile apps). But the front-end isn't dictated by TEA, and the developer can use whatever front-end they're comfortable with.
 
-### [[back_end_actor]]
+### [Back-end](../z_glossary/back_end_actor.md)
 This WebAssembly code is running inside of a hosting node. The hosting node is a miner's computer which has a CML planted. It's similar to the server logic running in back-end servers or application servers in the traditional cloud computing architecture.
 
-### [[state_machine_actor]]
+### [State Machine Actor](../z_glossary/state_machine_actor.md)
 This WebAssembly code is running inside the state machine's [[mini-runtime]]. It's equivalent to the stored procedure (SQL for example code) in the traditional 3-tier architecture's database.
 
 ## Three-tier architecture basic workflow
