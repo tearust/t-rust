@@ -1,4 +1,4 @@
-From a 10k foot view, all blockchains are nothing but different types of [[State_Machine]]s.  This machine accepts a user tx as input, and then executes some kind of logic (for example, a smart contract) to update the [[state]]. Every block is a new update of the state. Any node can rebuild the latest state by recalculating from the genesis block. This recalculation is also part of the validation process.
+From a 10k foot view, all blockchains are nothing but different types of [[t-rust/obsidian/_gitbook-dev-docs/z_glossary/State_Machine]]s.  This machine accepts a user tx as input, and then executes some kind of logic (for example, a smart contract) to update the [[state]]. Every block is a new update of the state. Any node can rebuild the latest state by recalculating from the genesis block. This recalculation is also part of the validation process.
 
 TEA Proejct is also a state machine, but a very different type of state machine. There's no block, there's no TPS, no smart contracts, nand no validators. It's actually more likely a distributed database. 
 
