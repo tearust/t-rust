@@ -15,7 +15,7 @@ Typically there are three types of requests coming from the end users.
 ## Send query
 Query will not modify the state, it will just get the current state of the state.
 
-In some cases, the hosting nodes have a local cache of state, so it will just return the result directly. This is a sync call. In other cases, the hosting nodes don't have a local cache of the state, so it cannot get back the result immediately. It has to send another request to the [[obsidian/_gitbook-dev-docs/z_Glossary/state_machine_actor]] for the latest state. In this case, the hosting node will response a UUID as query-stub for future result lookup. This call is considered an async call. The future looking up for result is "Get results" request.
+In some cases, the hosting nodes have a local cache of state, so it will just return the result directly. This is a sync call. In other cases, the hosting nodes don't have a local cache of the state, so it cannot get back the result immediately. It has to send another request to the [state machine actore](state_machine_actor.md) for the latest state. In this case, the hosting node will response a UUID as query-stub for future result lookup. This call is considered an async call. The future looking up for result is "get results" request.
 
 ## Send transaction
 
