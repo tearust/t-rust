@@ -1,16 +1,16 @@
 # Pending
 App is not usable. This is the initial status.
-When App is running upgrading and temporarily stop service, it is also Pending status
+When App is running the upgrade process and temporarily stops service, it's also in Pending status.
 
 # Active
-App is actively running, providing services
+App is actively running, providing services.
 
 # Upgrade
 
-The app is current running Upgrade process. Not accept new request for a moment.
+The app is current running the Upgrade process. Does not accept any new requests at least for the moment.
 
 # Suspend
-The App is forced to offline due to bankrupcy. It is waiting for liquidition.
+The App is forced offline due to bankrupcy. It's waiting for liquidition.
 
 # Error
-Something wrong in the system, and the TEA system know the error code.
+Something's wrong in the system, and the TEA system knows the error code.

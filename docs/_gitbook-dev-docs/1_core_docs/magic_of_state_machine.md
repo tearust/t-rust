@@ -1,4 +1,4 @@
-# Magid of the State Machine
+# Magic of the State Machine
 
 From a 10k foot view, all blockchains are nothing but different types of [state machines](../z_glossary/State_Machine.md).  This machine accepts a user tx as input, and then executes some kind of logic (for example, a smart contract) to update the [state](../z_glossary/state.md). Every block is a new update of the state. Any node can rebuild the latest state by recalculating from the genesis block. This recalculation is also part of the validation process.
 

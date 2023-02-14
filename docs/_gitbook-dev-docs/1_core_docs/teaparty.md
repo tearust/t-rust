@@ -82,5 +82,5 @@ Keep reading about the [magic_of_state_machine](magic_of_state_machine.md).
 
 ## Understand WebAssembly Runtime
 
-In this section, we'll go through how the WebAssembly code runs inside the [mini-runtime](../z_Glossary/mini-runtime.md). 
-Keep reading about the [magic_of_wasm](../z_Glossary/magic_of_wasm.md).
+In this section, we'll go through how the WebAssembly code runs inside the [mini-runtime](../z_glossary/mini-runtime.md). 
+Keep reading about the [magic_of_wasm](../z_glossary/magic_of_wasm.md).
