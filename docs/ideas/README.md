@@ -17,3 +17,4 @@
 * [epoch12_rules](epoch12_rules.md)
 * 中文文章给水滴创投[chinese_waterdrip](chinese_waterdrip.md)
 * 中文文章web3不是什么[what_web_3_is_not](what_web_3_is_not.md)？
+* [state_machine_node_billing_rules](state_machine_node_billing_rules.md)
