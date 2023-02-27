@@ -13,8 +13,8 @@ The following table summarizes what happens when these two levels, gas limit and
 
 | Exit Stage  | Exit Status  | Payment Responsibility  |
 |---|---|---|
-| **Fuse** is tripped.  | Actor is terminated by the mini runtime, and memory is not released.  | Dev deposit is slashed completely when fuse is tripped.  |
-| Exceeded **gas limit** but not yet reached the **fuse** level.  | Actor exits normally, memory is released.   | Developer pays for any gas amount above the gas limit.  |
 | Up to & including the **gas limit**.  | Actor exits normally, memory is released.  | End-user pays for any gas amount up to the gas limit.  |
- 
+| Exceeded **gas limit** but not yet reached the **fuse** level.  | Actor exits normally, memory is released.   | Developer pays for any gas amount above the gas limit.  |
+| **Fuse** is tripped.  | Actor is terminated by the mini runtime, and memory is not released.  | Dev deposit is slashed completely when fuse is tripped.  | 
+
 The developer can run their code in a [test environment](local-debug-environment.md) to get an idea of each actor’s memory usage as well as test for edge cases which cause high utilization.
