@@ -17,6 +17,12 @@ There's another limit known as the **spending limit** which is set by the end-us
 
 In addition to the gas limit, the TEA Project has a **fuse** which acts as an emergency break point for any of the actors. For example, an infinite loop that continues to rack up gas charges without ever completing will have to eventually break when it hits the fuse. More about the gas limit and fuses is covered in a [separate document](gas-fee-billing.md).
 
+## Why Can't Memory Be Garbage Collected When Fuse is Tripped?
+
+If an actor exits without tripping the fuse, then we consider this a normal exit and garbage collection proceeds as normal to free up the used memory. If however the fuse is tripped, then garbage collection can't be run on the actor. This means that no end-user can use this actor on this particular hosting node until the miner either upgrades or restarts their mining node. 
+
+This garbage collection limitation is something that's inherited from Wasmer. Each TEA actor runs as a Wasmer thread and can't be garbage collected after it's forced to quit. Wasmer processes, on the other hand, can be garbage collected after they're forced to quit. Whether it makes sense to move TEA actors from threads to processes will remain to be seen if there's enough stuck memory in practice to warrant the development time to switch to a process-based model.
+
 ## Why do TApps need to pay a memory tax?
 
 The state machine's memory is a scarce resource. It's a resource that's shared by all TApps and as one group of TApps uses more of it, that means there's less of it available for the other TApps. In order to encourage conservative usage, a memory tax is billed to the TApp based on how much memory it uses and how long it occupies space in the state machine.
