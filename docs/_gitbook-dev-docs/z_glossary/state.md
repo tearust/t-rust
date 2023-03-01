@@ -1,3 +1,5 @@
+# State
+
 [Wikipedia](https://en.wikipedia.org/wiki/State_(computer_science)) defines state as the following: 
 
  > 
@@ -5,6 +7,6 @@
 
 In a traditional cloud computing architecture, the database is most likely used as state storage. In the blockchain world, the whole blockchain is a giant distributed state machine. For example, Ethereum itself is a state machine. Everytime clients send transactions to update the state, every new block means a new updated state is released. 
 
-In the TEA Project, we don't store the application state in the blockchain. Instead, the state is stored in a group of [State_Machine_Replica](State_Machine_Replica.md)s. We use a new [Proof of Time](consensus.md#proof-of-time) hardware consensus to achieve super fast speed (relative to traditional blockchain) and processing power without sacrificing security or scalability.
+In the TEA Project, we don't store the application state in the blockchain. Instead, the state is stored in a group of [state_machine_replica](state_machine_replica.md)s. We use a new [Proof of Time](consensus.md#proof-of-time) hardware consensus to achieve super fast speed (relative to traditional blockchain) and processing power without sacrificing security or scalability.
 
-Please keep reading the [state machine](State_Machine.md) and [consensus](consensus.md) for more details.
+Please keep reading the [state machine](state_machine.md) and [consensus](consensus.md) for more details.

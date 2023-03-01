@@ -11,17 +11,9 @@
 
 There's a default gas limit in place on TApp operations as a safeguard against code execution running up an exorbitant fee and bankrupting the enduser.
 
-The default gas limit can be adjusted by the user and the end-user can be prompted to do so by the TApp developer should the app be resource intensive. The gas limit acts as sensible protection against edge cases. The gas limit is a soft limit and is the max that the end-user will pay to the miner in order to run that particular TApp's actor. Note that gas fees are paid by the end-user and go to the CML miners. 
+The gas limit is set at a default value by the TEA Project and technically applies to each actor of the currently running TApp. The gas limit acts as sensible protection against edge cases where actors begin using a large amount of memory. The gas limit is a soft limit and is the max that the end-user will pay to the miner in order to run that particular TApp's actor. Note that gas fees are paid by the end-user and go to the CML miners up to the point of the gas limit. Once past the gas limit, the responsibility for paying the miners falls on the TApp developer who has a security deposit for such cases. 
 
-There's another limit known as the **spending limit** which is set by the end-user. This governs in-app purchases that are paid to the TApp. Both options are on the same page in the TApp Store UI.
-
-In addition to the gas limit, the TEA Project has a **fuse** which acts as an emergency break point for any of the actors. For example, an infinite loop that continues to rack up gas charges without ever completing will have to eventually break when it hits the fuse. More about the gas limit and fuses is covered in a [separate document](gas-fee-billing.md).
-
-## Why Can't Memory Be Garbage Collected When Fuse is Tripped?
-
-If an actor exits without tripping the fuse, then we consider this a normal exit and garbage collection proceeds as normal to free up the used memory. If however the fuse is tripped, then garbage collection can't be run on the actor. This means that no end-user can use this actor on this particular hosting node until the miner either upgrades or restarts their mining node. 
-
-This garbage collection limitation is something that's inherited from Wasmer. Each TEA actor runs as a Wasmer thread and can't be garbage collected after it's forced to quit. Wasmer processes, on the other hand, can be garbage collected after they're forced to quit. Whether it makes sense to move TEA actors from threads to processes will remain to be seen if there's enough stuck memory in practice to warrant the development time to switch to a process-based model.
+In addition to the gas limit, the TEA Project has a **fuse** which acts as an emergency break point for any of the actors. This further protection beyond the gas limit is necessary in some cases of recursion. For example, an infinite loop that continues to rack up gas charges without ever completing will have to eventually break when it hits the fuse. More about the gas limit and fuses is covered in a [separate document](gas-fee-billing.md).
 
 ## Why do TApps need to pay a memory tax?
 

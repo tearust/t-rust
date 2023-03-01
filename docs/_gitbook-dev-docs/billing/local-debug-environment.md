@@ -3,7 +3,7 @@
 TEA App developers can launch their own local debug environment through Docker. This local development environment has the following features:
 
 * The debug environment comes as a self-contained Docker image that’s deployed to local machine.
-* Single A node, single B node. Because these are only single nodes, there's no consensus for txns and no security. The developer also doesn't need to pay the memory tax or pay to use the hosting node.
+* Single state machine node, single hosting node. Because these are only single nodes, there's no consensus for txns and no security. The developer also doesn't need to pay the memory tax or pay to use the hosting node.
 * Full billing system support.
 * Uses manifest to load actors.
 

@@ -4,11 +4,11 @@ Unlike other blockchain projects that waste lots of computing power in consensus
 
 Public services include:
 
-* [Remote attestation](Remote_Attestation.md) (this is similar to jury duty in real life).
+* [Remote attestation](remote_attestation.md) (this is similar to jury duty in real life).
 * State machine maintenance (similar to goverment expenses).
 * DAO governance (similar to elections / voting in real life).
 * Other tasks that are necessary and benefit the public.
 
 The DAO will pay these public services from TEA token inflation. There are a fixed number of TEA tokens minted in every block, which are paid to the miners who executed the public services in the block. The actual block reward number may change over time but will be predictable.
 
-The block reward inflation will be hedged by TEA burning as a consequence of [CML_auctions](CML_auction.md).
+The block reward inflation will be hedged by TEA burning as a consequence of [CML_auctions](cml_auction.md).

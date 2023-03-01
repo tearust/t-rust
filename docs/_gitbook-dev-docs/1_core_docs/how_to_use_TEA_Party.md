@@ -19,7 +19,7 @@ When you start the TEA party, you'll probably notice that it's different than a 
 
 ![urls](https://user-images.githubusercontent.com/1761809/160294873-a61c21b8-e8ee-4cbf-bc41-05ae097a47bb.png)
 
-You'll notice that the IP addresses are different, but the rest of the URLs are identical. The part that's the same correlates to the IPFS CID of the current version of the TEA Party [front end](../z_glossary/front_end.md). The IP addresses are the IPs of the [hosting CML](../z_glossary/hosting_CML.md). In the screenshot above, you'll notice how there are three TEA mining machined (with [hosting CML](../z_glossary/hosting_CML.md) planted) currently hosting this TEA Party application. 
+You'll notice that the IP addresses are different, but the rest of the URLs are identical. The part that's the same correlates to the IPFS CID of the current version of the TEA Party [front end](../z_glossary/front_end.md). The IP addresses are the IPs of the [hosting CML](hosting_cml.md). In the screenshot above, you'll notice how there are three TEA mining machined (with [hosting CML](hosting_cml.md) planted) currently hosting this TEA Party application. 
 
 There's no **"domain name" or "server"** involved with TApps.  As you can see, anyone (including yourself) can become a host and earn the TApp hosting fee. There's no centralized server involved with deploying a TApp. On the other word, if some super power does not like this application, there's no way for them to take this application offline. TApps say bye bye to cloud server hosting and instead utilize the TEA Project's decentralized hosting node architecture.
 
@@ -29,7 +29,7 @@ The code and data are running inside a hardware protected [enclave](../z_glossar
 
 ## No centralized database
 
-Not only is the hosting of TApps fully decentralized, the database is also fully decentralized as well. The database layer is probably not something you can see from the front end. But if you read the full developer documentation, you'll understand how the [state machine](../z_glossary/State_Machine.md) and [OrbitDb](../z_glossary/OrbitDb.md)  work together to store the application data.
+Not only is the hosting of TApps fully decentralized, the database is also fully decentralized as well. The database layer is probably not something you can see from the front end. But if you read the full developer documentation, you'll understand how the [state machine](state_machine.md) and [orbitdb](orbitdb.md)  work together to store the application data.
 
 ## Tokenomics driven
 

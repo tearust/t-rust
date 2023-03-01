@@ -5,4 +5,4 @@ For every TApp, the front-end code could be comprised of JS/HTML/CSS code that's
 
 When the end user loads a TApp, it actually loads the static resources refereced by the CID from one of the IPFS nodes.
 
-The front-end must be a **static** resource. All dymanic content will be queried from the [hosting_CML](hosting_CML.md). 
+The front-end must be a **static** resource. All dymanic content will be queried from the [hosting_cml](hosting_cml.md). 

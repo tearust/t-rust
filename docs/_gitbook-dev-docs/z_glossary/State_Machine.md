@@ -1,4 +1,4 @@
-# TEA Project’s State Machine
+# State Machine
 
 ## How TEA Handles State Changes
 

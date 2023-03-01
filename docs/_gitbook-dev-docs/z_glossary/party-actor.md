@@ -61,9 +61,9 @@ Similar to `handle_adapter_http_request`, we still have `handle_adapter_request`
 
 Tea project uses a modified version of rust-based lib P2P protocol between nodes communication.
 
-The [hosting_CML](hosting_CML.md) use `libp2p_back_message` to handle libP2P messages. In our Tea party sample code, the only usage of this function is to receive response message to its own memory cache `help::set_mem_cache(&body.uuid, content)?;`.
+The [hosting_cml](hosting_cml.md) use `libp2p_back_message` to handle libP2P messages. In our Tea party sample code, the only usage of this function is to receive response message to its own memory cache `help::set_mem_cache(&body.uuid, content)?;`.
 
-The memory cache is used to temporarily store the response/error message from the [state machine](State_Machine.md).  When the [front_end](front_end.md) sends a query for the result of any command, the hosting CML's back end actor will check this temporary store to get recently received results and get back to the [front_end](front_end.md).
+The memory cache is used to temporarily store the response/error message from the [state machine](state_machine.md).  When the [front_end](front_end.md) sends a query for the result of any command, the hosting CML's back end actor will check this temporary store to get recently received results and get back to the [front_end](front_end.md).
 
 ## Interaction with OrbitDB
 
@@ -108,11 +108,11 @@ The rest of the code is easy to understand. The data response from the OrbitDB p
 
 # Interaction with State Machine
 
-Usually there are two kinds of requests that need to be sent to the [state machine](State_Machine.md) to handle. They're either [queries](queries.md) or [commands](commands.md).
+Usually there are two kinds of requests that need to be sent to the [state machine](state_machine.md) to handle. They're either [queries](queries.md) or [commands](commands.md).
 
 ## Command example:  post_message
 
-The function `post_message` sends a txn (we sometimes call it sending [Commands](commands.md)) to the [state machine](State_Machine.md).  The following code sends the txn:
+The function `post_message` sends a txn (we sometimes call it sending [Commands](commands.md)) to the [state machine](state_machine.md).  The following code sends the txn:
 
 ````
 	send_txn(
@@ -158,10 +158,10 @@ If we keep following the call stack we'll eventually find more interesting detai
 The remaining logic would be described as follows:
 
 * Check the layer one, find the currently active state machine replicas, and their p2p addresses
-* Randomly select 2 (or more if you think necessary) [State_Machine_Replica](State_Machine_Replica.md)s. Send the txn in P2P message to them.
+* Randomly select 2 (or more if you think necessary) [state_machine_replica](state_machine_replica.md)s. Send the txn in P2P message to them.
 * After the first txn P2P messages are sent out, record the time from the GPS atomic clock. 
-* Use this time stamp in the [followup](Followup.md) message in the Ts field. Note, we only need the first txn's sent time, ignore the 2nd txn sent time.
-* Send out the [followup](Followup.md) message to those two [State_Machine_Replica](State_Machine_Replica.md)s (function `pub fn send_followup_via_p2p(fu: Followup, uuid: String)`).
+* Use this time stamp in the [followup](followup.md) message in the Ts field. Note, we only need the first txn's sent time, ignore the 2nd txn sent time.
+* Send out the [followup](followup.md) message to those two [state_machine_replica](state_machine_replica.md)s (function `pub fn send_followup_via_p2p(fu: Followup, uuid: String)`).
 
 ## Query example: query_balance
 
@@ -226,7 +226,7 @@ pub fn p2p_send_query(
 }
 ````
 
-You can follow how the [hosting_CML](hosting_CML.md) finds the [State_Machine_Replica](State_Machine_Replica.md) nodes and sends out using the p2p_send_to_receive_actor function:
+You can follow how the [hosting_cml](hosting_cml.md) finds the [state_machine_replica](state_machine_replica.md) nodes and sends out using the p2p_send_to_receive_actor function:
 
 ````
 fn p2p_send_to_receive_actor(msg: Vec<u8>) -> anyhow::Result<()> {
@@ -274,7 +274,7 @@ fn p2p_send_to_receive_actor(msg: Vec<u8>) -> anyhow::Result<()> {
 }
 ````
 
-The `a_nodes` is the internal name for [State_Machine_Replica](State_Machine_Replica.md).  `target_conn_id` is the address that libp2p can use to find the destination nodes. 
+The `a_nodes` is the internal name for [state_machine_replica](state_machine_replica.md).  `target_conn_id` is the address that libp2p can use to find the destination nodes. 
 
 ## Query response after request
 

@@ -22,7 +22,7 @@ Inside of an enclave, a special stripped version of NixOS (a distribution of the
 
 ## Communication between enclave and parent instance
 
-Since there's no file system or network inside the enclave, an actor's only channel to contact the outside world would be through the [VMH](VMH.md) (Virtual Messaging Hub). The VMH API is wrapped inside providers. If an actor has a [capability](capability.md), the code in this actor can call the provider's API to send messages to the VMH. The outside components will receive such messages asynchronously.
+Since there's no file system or network inside the enclave, an actor's only channel to contact the outside world would be through the [vmh](vmh.md) (Virtual Messaging Hub). The VMH API is wrapped inside providers. If an actor has a [capability](capability.md), the code in this actor can call the provider's API to send messages to the VMH. The outside components will receive such messages asynchronously.
 
 ## Remote Attestation
 
@@ -34,4 +34,4 @@ The content of the PCR hash includes all hardware and software fingerprints in t
 
 # Only verified enclaves can join the TEA network
 
-Every enclave will have a [Tea_ID](Tea_ID.md). This TEAID has an entry in our layer one that stores the verification status. When an enclave wants to contact another enclave, they'll first check their TEAID verification status. If the status is not "verified", the connection will not be estabilished.
+Every enclave will have a [tea_id](tea_id.md). This TEAID has an entry in our layer one that stores the verification status. When an enclave wants to contact another enclave, they'll first check their TEAID verification status. If the status is not "verified", the connection will not be estabilished.

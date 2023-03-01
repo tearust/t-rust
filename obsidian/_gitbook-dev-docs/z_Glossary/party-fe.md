@@ -86,7 +86,7 @@ You probably have noiticed that the most improtant line related to TEA is the li
 for querying mesages, and this line \`await txn.txn_request('postMessage', opts);
 for posting message.
 
-You might have noticed that this line `await _axios.post('/tapp/postFreeMessage',` also looks like it's sending a command, but why is it not using `txn.txn_request()`? Well, posting a message does look like a command, but the free message doesn't cost anything. Therefore there is no state change (no money transfer). It can be comfortably handled by the [hosting_CML](hosting_CML.md) alone without notifying the [state machine](State_Machine.md). No matter if it's [queries](queries.md) or [commands](commands.md), they are concepts related to the state machine and not your application. 
+You might have noticed that this line `await _axios.post('/tapp/postFreeMessage',` also looks like it's sending a command, but why is it not using `txn.txn_request()`? Well, posting a message does look like a command, but the free message doesn't cost anything. Therefore there is no state change (no money transfer). It can be comfortably handled by the [hosting_cml](hosting_cml.md) alone without notifying the [state machine](state_machine.md). No matter if it's [queries](queries.md) or [commands](commands.md), they are concepts related to the state machine and not your application. 
 
 ## txn_request
 
@@ -263,7 +263,7 @@ This is a big function, so let's dig into it step by step.
 
 Before the first step, we generate a UUID. This is used for a future results query (ecause all txns are async calls). You're not supposed to get a response immediately. You have to query after a period of time, and then from time to time until you get the result: either success or fail. UUID is the handle for such queries.
 
-Once the UUID is confirmed, it uses an http call to the [hosting_CML](hosting_CML.md) like this:
+Once the UUID is confirmed, it uses an http call to the [hosting_cml](hosting_cml.md) like this:
 
 ````
 const step1_rs = await _axios.post('/tapp/'+method, {
@@ -272,7 +272,7 @@ const step1_rs = await _axios.post('/tapp/'+method, {
       });
 ````
 
-The [hosting_CML](hosting_CML.md) will handle this txn and run the back-end logic accordingly. If you are interested in that part, go to [back_end_actor](back_end_actor.md).
+The [hosting_cml](hosting_cml.md) will handle this txn and run the back-end logic accordingly. If you are interested in that part, go to [back_end_actor](back_end_actor.md).
 
 # txn_hash
 

@@ -1,3 +1,5 @@
+# TPM
+
 The TPM is a popular security chip that exists in almost every computer and most phones. We rely on each node's TPM to generate Proof of Trust data that can undergo remote attestation by a verifier.
 
 TPM is the main component of the Trusted Computing technology. Here's a good simulator to get some hands on experience with TPM: https://google.github.io/tpm-js/. 

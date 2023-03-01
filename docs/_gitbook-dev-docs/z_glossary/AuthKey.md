@@ -1,3 +1,5 @@
+# AuthKey
+
 AuthKey is similiar to a session in web 2.0. It's used to identify users and their authority of operation in TApps.
 
 ## Why not use username/password?
@@ -15,7 +17,7 @@ Because of these issues, we would like to use the end user's blockchain signatur
 
 The AuthKey includes the allowed operations list. User will get promoted in the UI before signing the authkey on what operations are allowed (allowance to spend by this TApp (max expense), Allowance to transfer, Withdraw etc.)
 
-Tihis operation list is a JSON string that's signed using the user's blockchain private key. [hosting_CML](hosting_CML.md) will not verify this signature, but the [provider](provider.md) inside the [state machine](State_Machine.md) will. Even if the [state_machine_actor](state_machine_actor.md) was coded by the developer to allow transfering user's funds, the [provider](provider.md) of the [state](state.md) will double check to confirm if this operation is still allowed by the user. In this case, even if the developer is a bad actor that's trying to steal user's money, it will be blocked by the [state machine](State_Machine.md) eventually. 
+Tihis operation list is a JSON string that's signed using the user's blockchain private key. [hosting_cml](hosting_cml.md) will not verify this signature, but the [provider](provider.md) inside the [state machine](state_machine.md) will. Even if the [state_machine_actor](state_machine_actor.md) was coded by the developer to allow transfering user's funds, the [provider](provider.md) of the [state](state.md) will double check to confirm if this operation is still allowed by the user. In this case, even if the developer is a bad actor that's trying to steal user's money, it will be blocked by the [state machine](state_machine.md) eventually. 
 
 In other words, the design of TEA Project allows for the worst-case assumption that a developer's trying to steal users' money but the AuthKey logic inside the [provider](provider.md) of [state](state.md) prevents this from happening.
 
@@ -25,9 +27,9 @@ The TApp developer will set an AuthKey profile string (in JSON format) based wha
 
 When a user logs in to a TApp, this AuthKey profile string will be part of the to-be-signed string and shown in the wallet UI. The end users should review these allowed operations before signing. 
 
-The signing process is the same as using Metamask to sign an Ethereum transaction. The only difference is this signed string will not be sent to the blockchain, but to the [hosting_CML](hosting_CML.md) instead.
+The signing process is the same as using Metamask to sign an Ethereum transaction. The only difference is this signed string will not be sent to the blockchain, but to the [hosting_cml](hosting_cml.md) instead.
 
-Once signed, the user agrees that this TApp can do what's been allowed in this string. The signed string is sent to the [state machine](State_Machine.md) and stored there temporarily with a nonce handle. This nonce handle is called **AuthKey**. This AuthKey is returned to the [hosting_CML](hosting_CML.md) and the user's browser. Every time this user wants to run any [queries](queries.md) or [commands](commands.md) that require authorization, this AuthKey will be sent to the [hosting_CML](hosting_CML.md) and eventually to the [state_machine_actor](state_machine_actor.md). When the [state_machine_actor](state_machine_actor.md) actually calls the [provider](provider.md) of [state](state.md), the AuthKey will be checked before it can actually be allowed to run. If there is any violation, an error will be thrown.
+Once signed, the user agrees that this TApp can do what's been allowed in this string. The signed string is sent to the [state machine](state_machine.md) and stored there temporarily with a nonce handle. This nonce handle is called **AuthKey**. This AuthKey is returned to the [hosting_cml](hosting_cml.md) and the user's browser. Every time this user wants to run any [queries](queries.md) or [commands](commands.md) that require authorization, this AuthKey will be sent to the [hosting_cml](hosting_cml.md) and eventually to the [state_machine_actor](state_machine_actor.md). When the [state_machine_actor](state_machine_actor.md) actually calls the [provider](provider.md) of [state](state.md), the AuthKey will be checked before it can actually be allowed to run. If there is any violation, an error will be thrown.
 
 # AuthKey expiration
 
@@ -35,4 +37,4 @@ Like regular sessions in web 2.0, an AuthKey has an expiration time. If the user
 
 # AuthKey security
 
-If a sniffer get this AuthKey, he can impersonate the user and cheat the system. So the security of AuthKey is very important. In [hosting_CML](hosting_CML.md) and [state machine](State_Machine.md), the AuthKey always stays inside the hardware [enclave](enclave.md). During transportation between [enclaves](enclave.md), TLS security is always applied. Between browser and the [hosting_CML](hosting_CML.md), a special end-to-end encryption is applied to keep the AuthKey secure. 
+If a sniffer get this AuthKey, he can impersonate the user and cheat the system. So the security of AuthKey is very important. In [hosting_cml](hosting_cml.md) and [state machine](state_machine.md), the AuthKey always stays inside the hardware [enclave](enclave.md). During transportation between [enclaves](enclave.md), TLS security is always applied. Between browser and the [hosting_cml](hosting_cml.md), a special end-to-end encryption is applied to keep the AuthKey secure. 

@@ -3,13 +3,13 @@
 Miners deploy their mining machines on the TEA network to earn profit. To start earning on the network, miners will need the following:
 
 * A hosted or local machine. Mining hardware is designed to be affordable for miners as they'll just require a Raspberry Pi with GPS and TPM chips. The TEA Project also runs on AWS Nitro which is therefore an option for miners who don't want to run local hardware.
-* A CML NFT. Camellia (CML) NFTs are needed as a mining license to activate mining nodes. Hosting CML are purchased through [CML auctions](CML_auction.md), an open process where winning bids are taken in TEA (which is burned) in exchange for CML.
+* A CML NFT. Camellia (CML) NFTs are needed as a mining license to activate mining nodes. Hosting CML are purchased through [CML auctions](cml_auction.md), an open process where winning bids are taken in TEA (which is burned) in exchange for CML.
 
 # How miners determine the potential revenue?
 
 There are three types of mining available:
 
-* A CML state machine validator mining. A CML nodes have the important task of maintaining the TEA Project's state machine. Because of its importance, very few if any ordinary users will be able to run an A CML node for at least the first 2 years post mainnet launch. A CML earn TEA rewards at the rate shown in the following document: [state machine](State_Machine.md).
+* A CML state machine validator mining. A CML nodes have the important task of maintaining the TEA Project's state machine. Because of its importance, very few if any ordinary users will be able to run an A CML node for at least the first 2 years post mainnet launch. A CML earn TEA rewards at the rate shown in the following document: [state machine](state_machine.md).
 * CML hosting mining. When a user says they want to mine on the TEA Project, they will probably be running a hosting CML node. In addition to TEA public service rewards, hosting will earn a gas fee (from end-users) for providing the hosting infrastructure as well as the Harberger Tax payouts (from the state maintainer nodes).
 * Private CML availability attestation mining. Private CML mining is earned through making sure hosting CML nodes are online. Since there's only a modest reward for performing this public service, we won't discuss private CML mining as a viable form of profitable mining in this document.
 

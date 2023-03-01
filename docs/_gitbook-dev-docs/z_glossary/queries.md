@@ -1,3 +1,5 @@
+# Queries
+
 Query is a "read-only" inquiry to read a state value from the state machine.
 
 Because TEA state machine nodes are consistent with each other (i.e. they have **strong consistency**), the hosting node can access any other state machine node to query information. The result would be the same.
@@ -8,10 +10,10 @@ There's no wait time associated with queries. The state machine can always check
 
 # Tsid in the response
 
-Although the [state machine](State_Machine.md) exhibits **strong consistency**, there might be a slight delay across [State_Machine_Replica](State_Machine_Replica.md)s. Because of this possible delay, when you query a particular replica, you may get the state that's differs from the **most recent state**. 
+Although the [state machine](state_machine.md) exhibits **strong consistency**, there might be a slight delay across [state_machine_replica](state_machine_replica.md)s. Because of this possible delay, when you query a particular replica, you may get the state that's differs from the **most recent state**. 
 
-For example, when you query the TEA Party token price **now** to two different [state machine replicas](State_Machine_Replica.md), the replica A just completed a txn marked (tsid as) at 1000. It will respond to you with the TEA party token price at the time of 1000. But replica B may be a little laggy, that it only processed the txn marked (tsid is) at 999. So it will respond to you with the price at the time of 999 instead of 1000. If there is a change between timestamp 999 and 1000, you may get two different prices.
+For example, when you query the TEA Party token price **now** to two different [state machine replicas](state_machine_replica.md), the replica A just completed a txn marked (tsid as) at 1000. It will respond to you with the TEA party token price at the time of 1000. But replica B may be a little laggy, that it only processed the txn marked (tsid is) at 999. So it will respond to you with the price at the time of 999 instead of 1000. If there is a change between timestamp 999 and 1000, you may get two different prices.
 
 To indicate this specifically, every time the state machine responds with a value, it will attach a timestamp, meaning that the vlaue is valid as of that timestamp.
 
-The caller ([hosting_CML](hosting_CML.md)) can determine is the tsid is too old or not. It can then decide to query again or accept it as is.
+The caller ([hosting_cml](hosting_cml.md)) can determine is the tsid is too old or not. It can then decide to query again or accept it as is.

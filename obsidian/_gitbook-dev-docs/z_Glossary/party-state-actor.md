@@ -1,7 +1,7 @@
 # Party-state-actor
-This actor is loaded into the [State_Machine_Replica](State_Machine_Replica.md)'s [mini-runtime](mini-runtime.md). It is the same concept as stored procedure in traditional cloud computing webapp. There are many pure functions that handle incoming txns and modify the state (including [state](state.md) and [GlueSQL](GlueSQL.md) data).
+This actor is loaded into the [state_machine_replica](state_machine_replica.md)'s [mini-runtime](mini-runtime.md). It is the same concept as stored procedure in traditional cloud computing webapp. There are many pure functions that handle incoming txns and modify the state (including [state](state.md) and [gluesql](gluesql.md) data).
 
-As you already know, every [State_Machine_Replica](State_Machine_Replica.md) runs an instance of this actor. All of them run the same txn at the same sequence and modify the same state to finally get the same new state. This is guaranteed by the [proof of time](consensus.md#proof-of-time) consensus. As an application developer, you don't need to care too much about how it works. You can simply assume there's only one instance of your function running that updates a single state. 
+As you already know, every [state_machine_replica](state_machine_replica.md) runs an instance of this actor. All of them run the same txn at the same sequence and modify the same state to finally get the same new state. This is guaranteed by the [proof of time](consensus.md#proof-of-time) consensus. As an application developer, you don't need to care too much about how it works. You can simply assume there's only one instance of your function running that updates a single state. 
 
 There are two types of requests: [queries](queries.md) and [commands](commands.md). Please click the links to get to know more about them. At least you should know that queries execute immediately, but commands need to wait a period of time prior to execution. 
 
@@ -37,18 +37,18 @@ The code above shows how you handle the PostMessage txn.
 
 This txn (sometimes we call it a command) is generated in the [party-actor](party-actor.md) when user click post message button in [party-fe](party-fe.md). 
 
-The message has been stored to the [OrbitDb](OrbitDb.md) by  [back_end_actor](back_end_actor.md), the only thing this actor is supposed to do in the state level is to transfer the gas fee. Gas fee is what the end users supposed to pay for this kind of service, in this case, posting a message.
+The message has been stored to the [orbitdb](orbitdb.md) by  [back_end_actor](back_end_actor.md), the only thing this actor is supposed to do in the state level is to transfer the gas fee. Gas fee is what the end users supposed to pay for this kind of service, in this case, posting a message.
 
 In this function, the logic determines how much (amt) the user need to pay based on the TTL (time to live), and who should pay (the message sender). Finally, call the `actor_statemachine::consume_from_account` function. 
 
 There are a few concepts we'll need to explain here.
-[AuthKey](AuthKey.md) and [Context](Context.md). Please click the links for further explanation.
+[authKey](authKey.md) and [context](context.md). Please click the links for further explanation.
 
 There are other txns this function handles. They are very straightforward from just reading the txn name and code.
 
 ## Commit state changes
 
-After the txn has been handled, all changes are not commited yet. they are just saved to [Context](Context.md). So you can see the code after all the txns ahave been handled. This code is used to commit the changes.
+After the txn has been handled, all changes are not commited yet. they are just saved to [context](context.md). So you can see the code after all the txns ahave been handled. This code is used to commit the changes.
 
 ````
 if context_bytes.is_empty() {
@@ -73,4 +73,4 @@ fn health(_req: codec::core::HealthRequest) -> HandlerResult<()> {
 
 The hidden balance is used to verify if the txn made any mistake that caused the state to be unbalanced after the update. If all the code is correct, there shouldn't be any unbalanced state. 
 
-After the commit, the state is finally changed. Before the commit, any error causing the function to return early will not affect the state. The state remains as it was before. See [Context](Context.md) for more details about atomic transaction concepts.
+After the commit, the state is finally changed. Before the commit, any error causing the function to return early will not affect the state. The state remains as it was before. See [context](context.md) for more details about atomic transaction concepts.
