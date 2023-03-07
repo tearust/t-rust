@@ -238,3 +238,210 @@ token_id is the H160 address that the TApp own. Before deployment, the developer
 
 access is the list of all other modules this actor will communicate with. This is a disclamer to the public. Please make sure you only claim the modules that this actor is absolutely need to communicate with, otherwise it may cause security concerns from users. For example, if an actor claims to communicate a billing related module but not supposed to, the end user or reviewers would mark a security concern to this actor in the community. On the other hand, if this actor attempt to communicate with another module that not listed in the `access` list, it will be rejected at runtime by the TEA security logic. 
 
+In src folder, there are three files:
+
+```
+ls -l
+total 24
+-rw-r--r--@ 1 kevinzhang  staff   483 Mar  6 17:51 error.rs
+-rw-r--r--  1 kevinzhang  staff  1727 Mar  6 20:25 lib.rs
+-rw-r--r--  1 kevinzhang  staff   926 Mar  6 20:38 tests.rs
+
+```
+
+- error.rs defines Error types
+- lib.rs is the main entrance of the code logic
+- tests.rs contains all unit tests.
+
+Error.rs 
+```
+cat error.rs
+use sample_actor_codec::error::SampleActor;
+use tea_sdk::define_scope;
+use thiserror::Error;
+
+define_scope! {
+    Impl: SampleActor {
+        HttpActionNotSupported => @SampleActor::HttpActionNotSupported;
+        HttpActionNotSupported => @SampleActor::GreetingNameEmpty;
+    }
+}
+
+#[derive(Debug, Error)]
+#[error("Http method {0} is not supported")]
+pub struct HttpActionNotSupported(pub String);
+
+#[derive(Debug, Error)]
+#[error("Greeting name is empty")]
+pub struct GreetingNameEmpty;
+```
+
+Remember we have defined `HttpActionNotSupported` and `HttpActionNotSupported` IDs in the codec project. Here we will put them into `SampleActor` to connect those IDs to the actually structures defined right below. 
+
+Let's use the HttpActionNotSupported as an example:
+
+```
+#[derive(Debug, Error)]
+#[error("Http method {0} is not supported")]
+pub struct HttpActionNotSupported(pub String);
+```
+
+This error has a parameter string. When throw this error, the name of the not supposed method can be assigned as the parameter, so that the user can get an more meaningful error detail. The error string will be looked like "Http method POST is not supported" in case of "post".
+
+Lib.rs has all the main logic that handle requests.
+```
+cat lib.rs
+#![feature(min_specialization)]
+#![allow(incomplete_features)]
+#![feature(async_fn_in_trait)]
+
+use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest};
+use tea_sdk::{
+    actors::adapter::HttpRequest,
+    actorx::runtime::{actor, println, Activate},
+    serde::handle::{Handle, Handles},
+    Handle,
+};
+
+use error::{HttpActionNotSupported, Result};
+
+use crate::error::GreetingNameEmpty;
+
+pub mod error;
+#[cfg(test)]
+mod tests;
+
+actor!(Actor);
+
+#[derive(Default, Clone)]
+pub struct Actor;
+
+impl Handles<()> for Actor {
+    type List = Handle![Activate, HttpRequest, GreetingsRequest, AddRequest];
+}
+
+impl Handle<(), Activate> for Actor {
+    async fn handle(self, _: Activate, _: ()) -> Result<()> {
+        #[cfg(not(test))]
+        {
+            use tea_sdk::utils::wasm_actor::actors::adapter::register_adapter_http_dispatcher;
+            register_adapter_http_dispatcher(vec!["say-hello".to_string()]).await?;
+        }
+        Ok(())
+    }
+}
+
+impl Handle<(), HttpRequest> for Actor {
+    async fn handle(self, HttpRequest { action, .. }: HttpRequest, _: ()) -> Result<Vec<u8>> {
+        match action.as_str() {
+            "say-hello" => Ok(b"Hello world!".to_vec()),
+            _ => Err(HttpActionNotSupported(action).into()),
+        }
+    }
+}
+
+impl Handle<(), GreetingsRequest> for Actor {
+    async fn handle(self, GreetingsRequest(name): GreetingsRequest, _: ()) -> Result<()> {
+        if name.is_empty() {
+            return Err(GreetingNameEmpty.into());
+        }
+
+        println!("Hello, {name}!");
+        Ok(())
+    }
+}
+
+impl Handle<(), AddRequest> for Actor {
+    async fn handle(self, AddRequest(lhs, rhs): AddRequest, _: ()) -> Result<AddResponse> {
+        Ok(AddResponse(lhs + rhs))
+    }
+}
+
+```
+
+You can leave those macro untouched in your project. Those macros are designed to simplify the code. 
+
+First we defined the actor struct 
+
+```
+#[derive(Default, Clone)]
+pub struct Actor;
+```
+then we list all Types that should be handled using 
+```
+impl Handles<()> for Actor {
+    type List = Handle![Activate, HttpRequest, GreetingsRequest, AddRequest];
+}
+```
+After this we implement those traits Handles by writing `impl Handles... for Actor` and fill in the code logic for each impl.
+
+In our sample actor example, we only handle three developer defined business logic and one system request which is called `Activate`. 
+
+Activate is called when the actor first time loaded into runtime and start running. The default behavior is in the following code:
+
+```
+impl Handle<(), Activate> for Actor {
+    async fn handle(self, _: Activate, _: ()) -> Result<()> {
+        #[cfg(not(test))]
+        {
+            use tea_sdk::utils::wasm_actor::actors::adapter::register_adapter_http_dispatcher;
+            register_adapter_http_dispatcher(vec!["say-hello".to_string()]).await?;
+        }
+        Ok(())
+    }
+}
+```
+
+These code register this actor to the http adapter because this actor will need to receive http request from outside world. Once registered, the http adapter (another service running outside of the enclave) will know where to dispatch the http request. 
+
+In our case, we add a `say-hello` string vec as the **action name**. This action name will be used when handle http request later. Beause our sample actor is so simple that do not have any complex logic. We simply  put a "say-hello" whenever we receive a http request regardless what the request content is.  We will see more complicated example in our future steps of our tutorial.
+
+Handle the HttpRequest
+```
+impl Handle<(), HttpRequest> for Actor {
+    async fn handle(self, HttpRequest { action, .. }: HttpRequest, _: ()) -> Result<Vec<u8>> {
+        match action.as_str() {
+            "say-hello" => Ok(b"Hello world!".to_vec()),
+            _ => Err(HttpActionNotSupported(action).into()),
+        }
+    }
+}
+```
+
+Because we registered http request to "say-hello" action name. It should always get a 'Hello world!' vec. 
+
+To demonstrate a more complex case, the request contains a parameter (the developers name). We have the GreetingsRequest:
+
+```
+impl Handle<(), GreetingsRequest> for Actor {
+    async fn handle(self, GreetingsRequest(name): GreetingsRequest, _: ()) -> Result<()> {
+        if name.is_empty() {
+            return Err(GreetingNameEmpty.into());
+        }
+
+        println!("Hello, {name}!");
+        Ok(())
+    }
+}
+```
+
+In this example handler, the `name` is the parameter of the request. The handler check if it is empty then return a GreetingNameEmpty error. If it is not empty, then print the "Hello, THE_INPUT_NAME !" to the console. That is why you can see it when you run the unit test.
+
+We have have multiple parameters in one request. We have the AddRequest handler to demonstrate this:
+
+```
+impl Handle<(), AddRequest> for Actor {
+    async fn handle(self, AddRequest(lhs, rhs): AddRequest, _: ()) -> Result<AddResponse> {
+        Ok(AddResponse(lhs + rhs))
+    }
+}
+
+```
+
+This handler simly add up two input numbers and return the sum. 
+
+Note, the GreetingRequest and AddRequest do not have http registered, so you cannot call them directly from the browser by sending http request. They are only available for unit test in our current step. We will add more http requests handler in our future steps in this tutorial.
+
+You can find how those requests are handled and what the expected results are from the test.rs source code.
+
+Writing unit tests is very important for TEA development. 
