@@ -4,11 +4,11 @@
 
 https://github.com/tearust/sample-actor is the `hello world` boilerplate for TApp development. Instead of building your own app from ground up, you can clone this boilerplate and build your own logic upon. In our tutorial, we'll start with this boilerplate and build our own TApp. In this lesson, you'll learn:
 
-- how to clone the boilerplate repo.
-- [[#Build wasm actor|how to build the wasm actor]].
-- [[#Run unit test|how to run the unit test]].
-- the standard code structure of TApps.
-- [[#Sample actor code walkthrough|detailed code walkthrough]].
+- [[#Clone and Rename Project|How to clone the boilerplate repo]].
+- [[#Build wasm actor|How to build the wasm actor]].
+- [[#Run unit test|How to run the unit test]].
+- The standard code structure of TApps.
+- [[#Sample actor code walkthrough|Detailed code walkthrough]].
 
 First we'll build a sample wasm actor that serves as a web service. It can respond to GET http requests and return a "hello world" string. It also has an AddRequest to add two input numbers, but this request is not hooked up with any http requests so you cannot try it from your browser. You can still see it work from the unit test though.
 
@@ -230,13 +230,13 @@ tokio = { workspace = true, features = ["full"] }
 ```
 
 Note the line 
-`sample-actor-codec = { path = "../codec" }`,
+`sample-actor-codec = { path = "../codec" }`
 we'll need to use the data types defined in the codec folder.
 
-During development, we'll use Mock for unit testing. So you can see the line
+During development, we'll use **mock** for unit testing. So you can see the line
 `tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm actor and run the unit test functions in your dev machine without deploying to the testnet.
 
-**key.pem** is a private key file that the developer of this actor knows. It's used to verify by the TEA-runtime if the final built wasm binary is correctly signed by the original developer when loading. As a developer, please make sure you keep the **key.pem** file securely stored. Whoever has such pem file can impersonate you to sign a malicious wasm file under your name.
+**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the TEA-runtime to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can imperonate you to sign a malicious wasm file under your name.
 
 The `manifest.yaml` file:
 
@@ -249,7 +249,7 @@ access:
   - tea:adapter
 ```
 
-Manifest is an important definition file for this actor. It's part of the binary wasm that's signed during the build. 
+The **manifest** is an important definition file for this actor. It's part of the binary wasm that's signed during the build. 
 
 The **actor_id** is a unique id for every actor. An example of a typical actor name is "com.tea_core_team.sample_for_tutorial". We will release a naming convention later.
 
