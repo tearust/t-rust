@@ -97,8 +97,11 @@ fi
 
 if ! command -v tas &> /dev/null
 then
-    cargo install tea-actorx-signer --version 0.2.0-dev.1
+    cargo install tea-actorx-signer --version 0.2.0-dev.2
 fi
+
+tas ../target/wasm32-unknown-unknown/release/sample_actor.wasm
+
 ```
 
 ### codec folder
@@ -469,3 +472,142 @@ Note, the GreetingRequest and AddRequest don't have http registered, so you cann
 You can find how those requests are handled and what the expected results are from the `test.rs` source code.
 
 Writing unit tests is very important for TEA development. 
+
+Here's an example unit test file, `test.rs`:
+
+```
+
+use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest};
+
+use tea_sdk::actorx::{
+
+runtime::{call, ActorHost, MockedActorName, RegisterMocked},
+
+RegId,
+
+};
+
+use crate::{error::Result, Actor};
+
+#[tea_sdk::test(init)]
+
+async fn greeting_test() -> Result<()> {
+
+call(
+
+RegId::from(Actor::NAME).inst(0),
+
+GreetingsRequest("Alice".to_string()),
+
+)
+
+.await?;
+
+Ok(())
+
+}
+
+#[tea_sdk::test(init)]
+
+async fn greeting_empty_string_should_err() -> Result<()> {
+
+let result: Result<_> = call(
+
+RegId::from(Actor::NAME).inst(0),
+
+GreetingsRequest("".to_string()),
+
+)
+
+.await;
+
+assert!(result.is_err());
+
+Ok(())
+
+}
+
+#[tea_sdk::test(init)]
+
+async fn add_test() -> Result<()> {
+
+let AddResponse(result) = call(RegId::from(Actor::NAME).inst(0), AddRequest(1, 2)).await?;
+
+assert_eq!(result, 3);
+
+Ok(())
+
+}
+
+async fn init() -> Result<ActorHost> {
+
+let host = ActorHost::new();
+
+host.register_mocked(Actor)?;
+
+Ok(host)
+
+}
+
+impl MockedActorName for Actor {
+
+const NAME: &'static [u8] = b"someone.sample";
+
+}
+
+```
+
+
+You can run `cargo test` to run all the unit tests. You should see the test results as follows:
+
+```
+
+cargo test
+
+Compiling sample-actor v0.1.0 (/Users/kevinzhang/github/tearust/sample-actor/impl)
+
+Finished test [unoptimized + debuginfo] target(s) in 0.94s
+
+Running unittests src/lib.rs (/Users/kevinzhang/github/tearust/sample-actor/target/debug/deps/sample_actor-1495a49ca0ae2c13)
+
+running 3 tests
+
+Hello, Alice!
+
+test tests::add_test ... ok
+
+test tests::greeting_empty_string_should_err ... ok
+
+test tests::greeting_test ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+```
+
+
+When you want to test a request handler and expect to return an error, see the following example:
+
+```
+
+async fn greeting_empty_string_should_err() -> Result<()> {
+
+let result: Result<_> = call(
+
+RegId::from(Actor::NAME).inst(0),
+
+GreetingsRequest("".to_string()),
+
+)
+
+.await;
+
+assert!(result.is_err());
+
+Ok(())
+
+}
+
+```
+
+
+Note. the `call` function is how you send requests to the actor and return the response. Inst(0) is the first instance of the actor. Please only use 0 in our tutorial. You can find other similar tests in the `test.rs` file.
