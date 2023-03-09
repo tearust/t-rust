@@ -38,10 +38,9 @@ npx hardhat --network localdocker run scripts/deploy_alpha.js
 ## Running the tests
 
 ### Prepare your custom actors
-If you have any custom wasm actors needed to be loaded, please place them in the directory `local`.
+If you have any custom wasm actors needed to be loaded, please place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`, please cp this file to the `local` folder as the dev-runner will load all wasm actors inside the `local` folder. If the sample_actor.wasm not exists, you may forgot to build it. Run `./build.sh` to build it first.
 
-### (Option 1) Run with server (non-interactive) mode
-Server mode will run the tests without interactions. You won't be able use CLI in this case. 
+### Start the docker container servers
 
 You can run with server mode by doing the following:
 
@@ -52,32 +51,26 @@ docker compose up
 
 (If you installed `docker-compose` please replace the `docker compose up` command with `docker-compose up`)
 
-### (Option 2) Run the interactive mode
-First run the whole docker compose:
+Please wait for all contianers start and the log showing no errors.
 
+### Use CURL to send json http post request
+
+While the server running, open another new terminal, run 
 ```
-cd single-cli
-docker compose up
-```
-
-(If you installed `docker-compose` please replace the `docker compose up` command with `docker-compose up`)
-
-Then enter into the client docker service using the following command:
-
-```
-docker exec -it parent-instance-client /bin/bash
+curl -H "Content-Type: application/json" -d '{"actor": "someone.sample", "address": "0x0000000000000000000000000000000000000000"}' http://localhost:8000/say-hello
 ```
 
-Then use the following command to start the client manually:
-
+You should see the output 
 ```
-./app
-```
-
-After all actors have initialized successfully, you can type commands to interact with the runtime:
-
-```
-libp2p id
+"Hello world!"
 ```
 
-For example, the above command will give you the current node's connection id.
+Now you know the server is running and the sample actor response as expected.
+
+You can also use Postman or any testing tools to simulate a front end sending request to the server. Just to make sure:
+- localhost:8000/say-hello
+- json request
+- http post
+- the request json as descripted above
+
+In our next session we will create a sample-front-end project. It will run such request in the browser to make future tutorial easier.
