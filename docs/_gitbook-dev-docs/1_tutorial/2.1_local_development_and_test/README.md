@@ -2,7 +2,7 @@
 
 TEA Project provides a local development environment to simulate the distributed running environment locally.
 
-The local development environment (LDE) i s a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There 's' no hardware protection, so all Remote Attestation and consensus are simulated.
+The local development environment (LDE) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 
 ## Pre-requisites
 
@@ -36,11 +36,9 @@ npx hardhat --network localdocker run scripts/deploy_alpha.js
 
 ### Prepare your custom actors
 
-If you have any custom wasm actors needed to be loaded, please place them in the directory `local`.
+If you have any custom wasm actors needed to be loaded, please place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`, please cp this file to the `local` folder as the dev-runner will load all wasm actors inside the `local` folder. If the sample_actor.wasm not exists, you may forgot to build it. Run `./build.sh` to build it first.
 
-### (Option 1) Run with server (non-interactive) mode
-
-Server mode will run the tests without interactions. You won't be able use CLI in this case. 
+### Start the docker container servers
 
 You can run with server mode by doing the following:
 
@@ -51,33 +49,29 @@ docker compose up
 
 (If you installed `docker-compose` please replace the `docker compose up` command with `docker-compose up`)
 
-### (Option 2) Run the interactive mode
+Please wait for all contianers start and the log showing no errors.
 
-First run the whole docker compose:
+### Use CURL to send json http post request
 
-````
-cd single-cli
-docker compose up
-````
-
-(If you installed `docker-compose` please replace the `docker compose up` command with `docker-compose up`)
-
-Then enter into the client docker service using the following command:
+While the server running, open another new terminal, run 
 
 ````
-docker exec -it parent-instance-client /bin/bash
+curl -H "Content-Type: application/json" -d '{"actor": "someone.sample", "address": "0x0000000000000000000000000000000000000000"}' http://localhost:8000/say-hello
 ````
 
-Then use the following command to start the client manually:
+You should see the output 
 
 ````
-./app
+"Hello world!"
 ````
 
-After all actors have initialized successfully, you can type commands to interact with the runtime:
+Now you know the server is running and the sample actor responds as expected.
 
-````
-libp2p id
-````
+You can also use Postman or any testing tools to simulate a front end sending requests to the server. Just make sure:
 
-For example, the above command will give you the current node's connection id.
+* Use the following address: `localhost:8000/say-hello`
+* json request
+* http post
+* the json request as described above
+
+In our next session we'll create a sample-front-end project. It will run such requests in the browser to make future tutorials easier.

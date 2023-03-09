@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-TEA Project provides a local development environment to simulate the distributed running environment locally. 
-
-The local deveopment environment (short for LDE) i s a docker configuration. It simulates one hosting node, one statemachine nodes. It is running in your local computer under docker. There is no hardware protection, so all Remote Attesation and concensus are mocked. 
-
 # Local Dev & Test Environment
 TEA Project provides a local development environment to simulate the distributed running environment locally.
 
-The local development environment (LDE) i s a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There 's' no hardware protection, so all Remote Attestation and consensus are simulated.
+The local development environment (LDE) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 
 ## Pre-requisites
 - Git
@@ -65,12 +60,13 @@ You should see the output
 "Hello world!"
 ```
 
-Now you know the server is running and the sample actor response as expected.
+Now you know the server is running and the sample actor responds as expected.
 
-You can also use Postman or any testing tools to simulate a front end sending request to the server. Just to make sure:
-- localhost:8000/say-hello
+You can also use Postman or any testing tools to simulate a front end sending requests to the server. Just make sure:
+
+- Use the following address: `localhost:8000/say-hello`
 - json request
 - http post
-- the request json as descripted above
+- the json request as described above
 
-In our next session we will create a sample-front-end project. It will run such request in the browser to make future tutorial easier.
+In our next session we'll create a sample-front-end project. It will run such requests in the browser to make future tutorials easier.
