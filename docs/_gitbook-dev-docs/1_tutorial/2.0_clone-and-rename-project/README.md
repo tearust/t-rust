@@ -14,7 +14,7 @@ First we'll build a sample wasm actor that serves as a web service. It can respo
 
 ## Clone and Rename Project
 
-Run `git clone https://github.com/tearust/tutorial-v1.git --branch login --single-branch` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
+Run `git clone https://github.com/tearust/tutorial-v1.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
 
 ## Build wasm actor
 
@@ -23,7 +23,7 @@ First `cd sample-actor` and run `./build.sh` to build the wasm actor. If you hav
 * `rustup target add wasm32-unknown-unknown`
 * `rustup install nightly`
 
-You might also be prompted that `protoc` could not be found. You can [follow the instructions to install it](https://grpc.io/docs/protoc-installation/#install-using-a-package-manager):
+You might also be prompted that `protoc` couldn't be found. You can [follow the instructions to install it](https://grpc.io/docs/protoc-installation/#install-using-a-package-manager):
 
 * **On a Mac**: `brew install protobuf`
 * **On Ubuntu**: `apt install -y protobuf-compiler`
