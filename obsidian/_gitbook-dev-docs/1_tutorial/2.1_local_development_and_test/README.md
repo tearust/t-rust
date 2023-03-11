@@ -6,29 +6,7 @@ The local development environment (LDE) is a docker configuration. It simulates 
 ## Pre-requisites
 - Git
 - Docker: install docker and "docker compose"
-- Node.js & hardhat: please following the hardhat install tutorial [here](https://hardhat.org/tutorial)
-
-## Prepare dummy layer1
-
-We should prepare the simulated (local) Ethereum layer before running the tests.
-
-First clone our layer1 contract repository:
-
-```
-git clone https://github.com/tearust/eth_layer1
-```
-
-Then `cd contracts` and run the following to start the simulated layer1:
-
-```
-npx hardhat node --hostname 0.0.0.0
-```
-
-Finally, in another terminal (and the same directory) run the following to init contracts:
-
-```
-npx hardhat --network localdocker run scripts/deploy_alpha.js
-```
+- Node.js
 
 ## Running the tests
 

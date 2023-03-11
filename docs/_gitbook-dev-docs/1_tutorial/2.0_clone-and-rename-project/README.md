@@ -14,11 +14,11 @@ First we'll build a sample wasm actor that serves as a web service. It can respo
 
 ## Clone and Rename Project
 
-Run `git clone https://github.com/tearust/sample-actor.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
+Run `git clone https://github.com/tearust/tutorial-v1.git --branch login --single-branch` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
 
 ## Build wasm actor
 
-Run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
+First `cd sample-actor` and run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
 
 * `rustup target add wasm32-unknown-unknown`
 * `rustup install nightly`

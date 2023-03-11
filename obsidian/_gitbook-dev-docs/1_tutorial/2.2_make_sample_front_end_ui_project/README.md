@@ -5,11 +5,7 @@ In this step, you'll learn:
 - [[#Run the front end|Run the front end.]]
 - Send a "say-hello" request and check the response.
 
-[https://github.com/tearust/sample-front-end](https://github.com/tearust/sample-front-end) is the front end boilerplate we'll use in our tutorial. It has no real function other than a button that's clicked to send a "say-hello" json response to the sample-actor. When a response is received, it shows an alert in the UI. 
-
-## Clone the front end boilerplate
-
-Run `git clone git@github.com:tearust/sample-front-end.git` to your local folder.
+The `sample-front-end` folder contains the front end boilerplate we'll use in our tutorial. It has no real function other than a button that's clicked to send a "say-hello" json response to the sample-actor. When a response is received, it shows an alert in the UI. 
 
 ## Setup your environment
 
@@ -26,6 +22,7 @@ VUE_APP_LAYER2_URL=http://127.0.0.1:8000
 This address will be your backend service address. 
 
 ## Run the front end
+Make sure you're in the `sample-front-end` folder.
 
 Run `npm start`
 

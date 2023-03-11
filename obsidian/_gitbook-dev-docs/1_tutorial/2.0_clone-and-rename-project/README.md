@@ -13,12 +13,11 @@ https://github.com/tearust/sample-actor is the `hello world` boilerplate for TAp
 First we'll build a sample wasm actor that serves as a web service. It can respond to GET http requests and return a "hello world" string. It also has an AddRequest to add two input numbers, but this request is not hooked up with any http requests so you cannot try it from your browser. You can still see it work from the unit test though.
 
 ## Clone and Rename Project
-
-Run `git clone https://github.com/tearust/sample-actor.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [[#Sample actor code walkthrough]] to replace the project name in the two`Cargo.toml` files.
+Run `git clone https://github.com/tearust/tutorial-v1.git --branch login --single-branch` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [[#Sample actor code walkthrough]] to replace the project name in the two`Cargo.toml` files.
 
 ## Build wasm actor
 
-Run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
+First `cd sample-actor` and run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
 
 - `rustup target add wasm32-unknown-unknown`
 - `rustup install nightly`
