@@ -14,11 +14,19 @@ First we'll build a sample wasm actor that serves as a web service. It can respo
 
 ## Clone and Rename Project
 
-Run `git clone git@github.com:tearust/sample-actor.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [[#Sample actor code walkthrough]] to replace the project name in the two`Cargo.toml` files.
+Run `git clone https://github.com/tearust/sample-actor.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [[#Sample actor code walkthrough]] to replace the project name in the two`Cargo.toml` files.
 
 ## Build wasm actor
 
-Run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install it. Just follow the command line instructions.
+Run `./build.sh` to build the wasm actor. If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
+
+- `rustup target add wasm32-unknown-unknown`
+- `rustup install nightly`
+
+You might also be prompted that `protoc` could not be found. You can [follow the instructions to install it](https://grpc.io/docs/protoc-installation/#install-using-a-package-manager):
+
+- **On a Mac**: `brew install protobuf`
+- **On Ubuntu**: `apt install -y protobuf-compiler`
 
 Once built successfully, you can find the wasm file `sample_actor.wasm` in the `sample-actor/target/wasm32-unknown-unknown/release` folder. Note that in this step of the tutorial, we won't deploy to the TEA Project testnet, nor run in local single node development environment. We'll get into them in later steps. In this initial step, we'll only run the unit test.
 
