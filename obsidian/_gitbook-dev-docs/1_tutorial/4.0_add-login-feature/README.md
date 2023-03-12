@@ -25,7 +25,7 @@ total 9224
 
 If the sample_actor.wasm is not recent, check if your build failed.
 
-Run the dev-runner. `docker compose up`
+Run the dev-runner. `docker compose up`.  **Make sure you wait** about 2 minutes untill all actors are successfully activited. 
 
 Now start the front end `npm start`
 
@@ -48,4 +48,31 @@ After connecting Metamask to this URL, you can see your account and a login butt
 
 Please pay attension on the Message you are going to sign. In this case it is "sig". It is a placeholder for such a sample login. In other cases, this message has some real meaning, such as the authorization you give to the TApp. We will get more detail into this in the future steps. 
 
-TODO://
+After login, the UI jumps to the account profile page and showing your balance.
+![[Pasted image 20230312100636.png]]
+
+You can see your have zero balance in your account. That is because everytime you start the dev-runner, the state will be reset to the init state. 
+
+You can click the Faucet button to get 1000 *FREE* test token in your account. 
+
+These are all the features we added to the `login` branch.
+
+## What happened under the hood?
+
+After we build the sample-actor, a new sample-actor.wasm is copied to the dev-runner local/b-node folder. When we launch the dev-runner, the actor will be loaded into he TEA runtime and activated. You should see this in the log.
+`client-bob     | [enclave] INFO host_main{enabled_clients=["adapter", "libp2p", "third-api", "http"] app_id=0 tea_id="0000000000000000000000000000000000000000000000000000000000000000" conn_id="12D3KooWPLns5y2qhcLFb6WCYhTiT7gXnx9ubfUhcgNV8rdjCfee"}:  INFO activate sample actor successfully`
+
+This means the sample-actor is loaded and active. It is waiting for request from client.
+
+Then we started the front end. Click the login button on the web page. The front end generate a login message asking you sign using Metamask. The signed message and login request is sent to the backend sample-actor to complete the login process. Once loggedin, the front end will receive a auth_key similar to session key in web2. It is the proof of login user and will be attached for almost every future request. Once login is complete, front end jump to the account profit page. 
+
+In account profile page sends a query request to sample-actor for the account balance. After a few seconds, the response attached the balance information is received by front end, and show in the UI. Yes, you can see 0 in the balance because it is a new test state. 
+
+When you click the "Faucet" button, a transfer request is sent to the backend. In the local dev-runner mode, a special logic allow anyone can transfer 1000 TEA from the DAO_RESERVE account for testing purpose. That is why you can get 1000 FREE TEA. Note, this won't happen in non local dev-runner configuration. So you won't have such free gift in Testnet or Producction for sure.
+
+Once the Faucet transfer completed, you can see the new balance 1000 TEA after a follow up query to balance. 
+
+These steps are what happened just now. 
+
+In next article, we will walkthrough the source code, you can clearly see how the logic works in the code. Stay tune.
+
