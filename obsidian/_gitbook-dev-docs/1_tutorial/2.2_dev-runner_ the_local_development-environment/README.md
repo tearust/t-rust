@@ -8,7 +8,7 @@ TApp development needs 4 basic steps.
 
 In last step, we have walked through the unit test. In this step, we will walkthrough the Local Development Environment, called "Dev Runner". 
 
-The local development environment (LDE) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
+The local development environment (dev-runner) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 
 # Installation
 
