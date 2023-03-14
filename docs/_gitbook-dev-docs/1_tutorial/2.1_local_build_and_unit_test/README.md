@@ -1,13 +1,12 @@
-
 ## Build sample-actor
 
 The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the TEA-runtime which we'll talk about more in future steps. Now let's focus on how to build it.
 
 Assuming you have cloned the code and installed all dependencies as instructed in previous step. If not, please do so now. Make sure the following items have been installed correctly:
 
-- rust nightly
-- wasm32-unknown-unknown target
-- protobuf
+* rust nightly
+* wasm32-unknown-unknown target
+* protobuf
 
 Now `cd sample-actor` and run `./build.sh` to build the actor. 
 
@@ -23,7 +22,7 @@ In this step, we won't run the sample-actor in your local development environmen
 
 You can run `cargo test` to run all the unit tests. You should see the test results as follows:
 
-```
+````
 
 cargo test
 
@@ -45,12 +44,11 @@ test tests::greeting_test ... ok
 
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-```
-
+````
 
 When you want to test a request handler and expect it to return an error, see the following example:
 
-```
+````
 
 async fn greeting_empty_string_should_err() -> Result<()> {
 
@@ -70,8 +68,7 @@ Ok(())
 
 }
 
-```
-
+````
 
 You should see that the tests have passed. 
 
@@ -83,27 +80,26 @@ First  from the code root `cd sample-front-end`, then run `npm install` to insta
 
 If your backend has different IP or port number other than the default localhost:8000, please edit the `.env.test` file to edit in your customized values:
 
-```
+````
 VUE_APP_LAYER2_URL=http://127.0.0.1:8000
-```
+````
 
 This address will be your backend service address. 
 Start the frontend local web server by running `npm start`
 
 If you can see the following:
 
-```
+````
   App running at:
   - Local:   http://localhost:3200/
   - Network: http://192.168.1.10:3200/
 
   Note that the development build is not optimized.
   To create a production build, run npm run build.
-```
+````
 
 then your front end is up running. 
 
 At this moment, you cannot send request to backend and get "hello world" yet. We'll get into the local development environment in the next step.
 
 You can Ctrl + C to stop the frontend now.
-
