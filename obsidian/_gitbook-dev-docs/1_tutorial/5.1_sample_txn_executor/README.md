@@ -111,3 +111,81 @@ Note: In TEA Project future version, a local state cache will be provided to the
 
 ## Impl
 
+### manifest.yaml added new access
+
+Compare with previous steps, you will notice there are a lot of new access items added:
+```
+access:
+  - tea:adapter
+  - tea:statereceiver
+  - tea:tokenstate
+  - tea:replica
+  - tea:crypto
+  - tea:nitro
+  - tea:env
+  - tea:keyvalue
+  - com.tea.keyvalue-actor.manager
+  - com.tea.tappstore-actor
+  - com.tea.ra-actor
+
+```
+
+You can go to the developer document for the usage for each provider actor. Because the `sql` branch has added a lot of system features such as transfer fund, sql access, storage etc, it is requred to claim the list in the manifest. Otherwise, the access will be banned by the tea-runtime.
+
+### tables.sql is a standard sql script
+
+This is the first time you find a non rs file in the src folder. This is a standard SQL file. It is nothing but a script to create table. 
+
+```
+CREATE TABLE Tasks
+(
+  subject						TEXT UNIQUE,
+  creator						TEXT,
+  worker						TEXT NULL,
+  status						TEXT,
+	price 						TEXT,
+	required_deposit	TEXT
+);
+```
+
+To simplify our tutorial, we did not use any 3rd party MVC tools to build sql scripts for us. We use pure SQL for easily understood by developer. When you are building your own TApp, feel free to use whatever existing Web2 tools you are familiar with. They should all work well with TEA Project
+
+You may be wondering where are other SQL scripts? We should use Create, Read, Update, Delete scripts. Well they are inside the rs code as string. You will see them soon.
+
+
+### Add new errors into error.rs
+
+Beause we are now handling the txn, there would be errors during txn execution. We need to define them inside error.rs:
+
+```
+#[derive(Debug, Error)]
+pub enum TxnErrors {
+    #[error("Account {0:?} is not allowed to operate task")]
+    InvalidAccount(Account),
+
+    #[error("Task {0} already token by {1:?}")]
+    TaskInprogress(String, Account),
+}
+
+```
+
+Note, do not forget to add to the define_scope macro too:
+```
+define_scope! {
+    Impl: SampleActor {
+        HttpActionNotSupported => @SampleActor::HttpActionNotSupported;
+        TxnErrors => @SampleActor::TxnErrors;
+    }
+}
+```
+
+### Execute transactions in txn.rs
+
+Most the logics are here inside txn.rs function `txn_exec`.
+
+You can see all txn defined in the codec has been handled in a `match` branch, then return a commit_ctx. The commit_ctx is a Context type which records all changes during the txn execution. However, before the commit_ctx is finally commited at the last of the `txn_exec` function, no actually changes happened in the state. That means, at any time, if the execution failed for whatever reason, the state will **NOT** be changed. 
+
+
+
+
+TODO://
