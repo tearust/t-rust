@@ -2,6 +2,7 @@
 In this tutorial, we will learn how to write SQL scripts in TApp development.
 
 The goal of this step would be:
+- User can get free test token using Faucet
 - User can create a task then stored in database
 - User can edit a task then save changes
 - User can delete a task
@@ -10,6 +11,8 @@ The goal of this step would be:
 Using SQL is a major difference from most other web3 platform. TEA Project is not a blockchain, it has distributed SQL instances in every state machine node. The `Proof-of-time` consensus can make sure all nodes reach the same state (strong consensus) after a time buffer. 
 
 For the developers, it is as simple as what they did in traditional web2 development as if there is a SQL database under the hood. The only difference would be you have to understand the changes will be taking effect after a time buffer. This time buffer is set to  3 seconds during TEA Project beta. After this time buffer, the state change will be shown in your next query. 
+
+Although get free test token should be put into the next tutorial step (the state machine transfer), we leave the code in the `sql` branch simple the user need some token to pay gas. 
 
 ## Understand the sample-txn-executor actor
 
@@ -51,7 +54,7 @@ You may see the new added "Task" page. Most of our features would be in that pag
 Say-hello still works:
 ![[Pasted image 20230315093943.png]]
 
-Now login as you did in previous step. Use "faucet" to add 1000T to your account. Now your account should look like this:
+Now login as you did in previous step. Use "faucet" to add 1000T to your account. This test token will be enough for testing purpose. Now your account should look like this:
 ![[Pasted image 20230315094045.png]]
 
 Great, you previous steps are still running as expected. Now move to the new features by click "Task".
