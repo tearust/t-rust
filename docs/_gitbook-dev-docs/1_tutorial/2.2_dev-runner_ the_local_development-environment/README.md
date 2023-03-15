@@ -13,7 +13,7 @@ The local development environment (dev-runner) is a docker configuration. It sim
 
 # Installation
 
-## Pre-requisites
+## Prerequisites
 
 * Git
 * Docker: install docker and "docker compose"
@@ -30,13 +30,12 @@ If you have any custom wasm actors needed to be loaded, please place them in the
 You can run with server mode by doing the following:
 
 ````
-cd single-node
 docker compose up
 ````
 
 (If you installed `docker-compose` please replace the `docker compose up` command with `docker-compose up`)
 
-Please wait for all the contianers to start and confirm that the log isn't showing any errors.
+Please wait for all the containers to start and confirm that the log isn't showing any errors.
 
 ### Use CURL to send json http post request without front end
 
