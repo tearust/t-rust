@@ -33,3 +33,35 @@ The common request -> response work flow would be:
 
 In this step, we will use SQL as an example to demo how this work flow works. All other type of reqeust will work the same way.
 
+## Build and test
+
+It is the same way of building but you will need to build two wasm files that located in `sample-actor` and `sample-txn-executor` folder. Also need to copy the target wasm file to the dev-runner/local/a-node folder. Note: unlike sample_actor.wasm goes to the b-node, this sample_txn_executor.wasm goes to the **a-node**. This is because it runs in state machine. 
+
+Start the dev-runner by running `docker compose up`.
+
+Start the front end by running `npm i` and `npm start` from the sample-front-end folder.
+
+Go to http://localhost:3200, you should see:
+
+![[Pasted image 20230315094127.png]]
+[[Pasted image 20230315093816.png]]
+
+You may see the new added "Task" page. Most of our features would be in that page. But before we try the latest features, let's test the existing features from previous "master " and "login" steps, make sure they are still running without any breaking changes.
+
+Say-hello still works:
+![[Pasted image 20230315093943.png]]
+
+Now login as you did in previous step. Use "faucet" to add 1000T to your account. Now your account should look like this:
+![[Pasted image 20230315094045.png]]
+
+Great, you previous steps are still running as expected. Now move to the new features by click "Task".
+
+The UI is very simple, just add new tasks. You should see them in the list.
+
+![[Pasted image 20230315094303.png]]
+
+You can try to remove it as well. It should work as expected.
+
+You can logout and login again to verify your previous stored task is still there. So your work has been stored into the SQL database in our state machine. 
+
+Great!, now let's move on to the code walkthrough and figure out how it works.
