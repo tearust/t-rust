@@ -185,7 +185,86 @@ Most the logics are here inside txn.rs function `txn_exec`.
 
 You can see all txn defined in the codec has been handled in a `match` branch, then return a commit_ctx. The commit_ctx is a Context type which records all changes during the txn execution. However, before the commit_ctx is finally commited at the last of the `txn_exec` function, no actually changes happened in the state. That means, at any time, if the execution failed for whatever reason, the state will **NOT** be changed. 
 
+Let's use CreateTask as an example:
+```
+        Txns::CreateTask { task, auth_b64 } => {
+            // check_account(auth_b64, task.creator).await?;
+            let glue_ctx = new_gluedb_context().await?;
+            create_task(tsid, task).await?;
+            CommitContext::new(
+                ctx,
+                glue_ctx,
+                None,
+                None,
+                decode_auth_key(auth_b64)?,
+                txn.to_string(),
+            )
+        }
+```
+
+This txn only run a SQL scripts, it is very simple. First `new_gluedb_context()` will generate a new glue_ctx. It also starts a SQL Transaction. If anything failed before commit, no change will be written to the SQL database. 
+
+The SQL scripts is inside the `create_task` function. 
+
+```
+pub(crate) async fn create_task(tsid: Tsid, task: &Task) -> Result<()> {
+    exec_sql(
+        tsid,
+        format!(
+            "INSERT INTO Tasks VALUES ('{}','{:?}',NULL,'{}','{}','{}');",
+            task.subject,
+            task.creator,
+            Status::New,
+            task.price,
+            task.required_deposit
+        ),
+    )
+    .await
+}
+```
+
+the function `exec_sql` will run the SQL scripts.
+
+In TEA Project, the SQL engine is GlueSQL. Github https://github.com/gluesql/gluesql. This is not a full featured SQL engine, so please review GlueSQL for more detail. In our tutorial, we only used very basic SQL features. For example, we did not use auto increase ID but the subject as ID. This is not idea but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
+
+Please make sure `sql_init` is called at `Txns::Init`. 
+
+```
+       Txns::Init {} => {
+            // TODO: check account is tapp owner later
+            sql_init(tsid).await?;
+            CommitContext::new(
+                ctx,
+                None,
+                None,
+                None,
+                // decode_auth_key(auth_b64)?,
+                10001_u128,
+                txn.to_string(),
+            )
+        }
+```
+
+TODO:// explain 1001_u128.
 
 
+## lib.rs
 
-TODO://
+Lib.rs is the entry point of the whole sample-txn-executor. It has the same structure as the sample-actor. 
+
+First, we should also list all Txns that we can handle:
+```
+impl Handles<()> for Actor {
+    type List = Handle![
+        Activate,
+        PreInvoke,
+        HttpRequest,
+        TaskQueryRequest,
+        ExecTxnCast,
+        ActorTxnCheckMessage
+    ];
+}
+```
+
+
+HttpRequest is a special request that we created for the local dev-runner only. In the real production this will not be existing. The purpose of adding http request to the sample-txn-executor is for easy CURL / Postmand test. In the real production, all txns are sent from the Hosting nodes (B-actor). You have to have a B node to test the Txns, that cause additional complexities. Using this "mock" http request, you can write your own local test code. Especially when dealling with SQL. It is hard to write SQL in unit test.
