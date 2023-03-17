@@ -36,7 +36,7 @@ The common request -> response work flow would be:
 
 In this step, we will use SQL as an example to demo how this work flow works. All other type of reqeust will work the same way.
 
-## Build and test
+## Build
 
 It is the same way of building but you will need to build two wasm files that located in `sample-actor` and `sample-txn-executor` folder. Also need to copy the target wasm file to the dev-runner/local/a-node folder. Note: unlike sample_actor.wasm goes to the b-node, this sample_txn_executor.wasm goes to the **a-node**. This is because it runs in state machine. 
 
@@ -44,12 +44,30 @@ Start the dev-runner by running `docker compose up`.
 
 Start the front end by running `npm i` and `npm start` from the sample-front-end folder.
 
-Go to http://localhost:3200, you should see:
+## Admin page and initialization
 
-![[Pasted image 20230315094127.png]]
+Go to http://localhost:3200, you should see:
+![[Pasted image 20230317093125.png]]
+
+
+
 [[Pasted image 20230315093816.png]]
 
-You may see the new added "Task" page. Most of our features would be in that page. But before we try the latest features, let's test the existing features from previous "master " and "login" steps, make sure they are still running without any breaking changes.
+You may see the new added "Task"and "Admin" page. Most of our features would be in the Task page. But what is the "Admin" page? 
+
+Actually there should not be a Admin page in any real product. We have this Admin page simply because we are running a local development environment called Dev-Runner. We want to use the two buttons "Init AppToken" and "Init TApp db" to simulate the Deploy and Init TApp steps in the real Developer Portal. The Dev-Runner is a simplified version of TEA-Runtime, there is no Developer Portal built-in, but we will still need to initialize the TApp token and TApp database before your TApp can be used. 
+
+So please always click those two buttons in the Admin page when
+- The first time you run this TApp in Dev-Runner. Or,
+- Everytime after you deleted the `.tokenstate` local state persistent storage.
+
+You will need to delete the `.tokenstate` everytime if you modify your code related to any state or  SQL database. Consider it is a "purge" operation. After such a purge, your whole state and SQL would be **brand new**. That is why you will need to initialize it before using your TApp. In the real production, there won't be such a "refresh". It will only be initialized once at the Grand Opening.
+
+You will only need to run those two initialization tasks once. If you click it the second time, you will be prompt an error but no damage at all. So if you are not sure if you have initialized or not, feel free to click them again, expect to have some error as warning.
+
+## Run the "sql" branch
+
+But before we try the latest features, let's test the existing features from previous "master " and "login" steps, make sure they are still running without any breaking changes.
 
 Say-hello still works:
 ![[Pasted image 20230315093943.png]]
