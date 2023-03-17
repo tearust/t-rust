@@ -1,7 +1,7 @@
 
 In this tutorial, we will learn how to write SQL scripts in TApp development.
 
-The goal of this step would be:
+The business goal of this step would be:
 - User can get free test token using Faucet
 - User can create a task then stored in database
 - User can edit a task then save changes
