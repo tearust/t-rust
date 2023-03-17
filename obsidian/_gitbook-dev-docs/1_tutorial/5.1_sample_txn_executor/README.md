@@ -165,7 +165,20 @@ pub enum TxnErrors {
 
     #[error("Task {0} already token by {1:?}")]
     TaskInprogress(String, Account),
+
+    #[error("Task can only be deleted when status is new or done")]
+    DeleteTaskFailed,
+
+    #[error("Task can only be verified when status is wait for verification")]
+    VerifyTaskFailed,
+
+    #[error("Task can only be taken when status is new")]
+    TakeTaskFailed,
+
+    #[error("Task can only be finished when status is in process")]
+    CompleteTaskFailed,
 }
+
 
 ```
 
@@ -231,21 +244,19 @@ Please make sure `sql_init` is called at `Txns::Init`.
 
 ```
        Txns::Init {} => {
-            // TODO: check account is tapp owner later
             sql_init(tsid).await?;
             CommitContext::new(
                 ctx,
                 None,
                 None,
                 None,
-                // decode_auth_key(auth_b64)?,
-                10001_u128,
+                GOD_MODE_AUTH_KEY,
                 txn.to_string(),
             )
         }
 ```
 
-TODO:// explain 1001_u128.
+TODO:// GOD_MODE_AUTH_KEY will be replaced later
 
 
 ## lib.rs

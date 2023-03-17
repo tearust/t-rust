@@ -13,6 +13,8 @@ pub fn name_list() -> Vec<&'static str> {
 		"verify_task",
 		"take_task",
 		"complete_task",
+		"init_db",
+		"init_token",
 	]
 }
 
@@ -26,6 +28,8 @@ pub async fn map_handler(action: &str, arg: Vec<u8>, from_actor: String) -> Resu
 		"verify_task" => api::verify_task(arg, from_actor).await?,
 		"take_task" => api::take_task(arg, from_actor).await?,
 		"complete_task" => api::complete_task(arg, from_actor).await?,
+		"init_db" => api::init_db(arg, from_actor).await?,
+		"init_token" => api::init_token(arg, from_actor).await?,
 
 		_ => vec![],
 	};
@@ -117,6 +121,10 @@ pub async fn txn_faucet(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>>
 The main logic is wrapped into the `TappstoreTxn::TransferTea` function. 
 
 TAppStore is the most important system actor that handles most system calls. You can get more from the developer document. In this step, we can see it requests transferring 1000 T from DAO_RESERVE to the current login user. The token_id is TAppStore not this TApp's id. This is very important, because all TEA token in the layer2 will be stored under the token_id == TAppStore. If the token_id == my_new_build_tapp, the currency is not TEA, but your own layer2  token (e.g. my_sample_task_coin). 
+
+There are two functions we are not going to explain here, they are `init_db` and `init_token`. They are not a part of the real production. We need them purely because we need a mock to initliaze the TApp state and database in local development environment. These tasks will be done by the Developer portal in the real environment. 
+
+
 
 
 
