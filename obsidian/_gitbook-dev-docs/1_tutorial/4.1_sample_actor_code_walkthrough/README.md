@@ -1,6 +1,6 @@
-In the `login` branch, majorify of logic is in the front end. There are only few code changes in the backend to handle login and faucet logic. Let's walkthrough.
+In the `login` branch, the majorify of the logic is in the frontend. There are only a few code changes in the backend to handle the login and faucet logic. Let's walkthrough it all.
 
-A new file called `dfn.rs` in creased. Inside we moved the function to handle "say-hello" from the lib.rs here. A new handler "faucet" is added. This is used to send faucet txn when user click the "faucet" button in the front end.
+A new file called `dfn.rs` is created, and we moved the function to handle "say-hello" from lib.rs to here. A new handler "faucet" is added. This is used to send faucet txn when the user clicks the "faucet" button in the frontend.
 
 ```
 use crate::error::Result;
@@ -22,7 +22,7 @@ pub async fn map_handler(action: &str, arg: Vec<u8>, from_actor: String) -> Resu
 }
 ```
 
-When adding new handler, make sure also add the name to the `name_list`, because we will need to let dfn::map_handler to dispatch the request to coresponding handler. 
+When adding a new handler, make sure to also add the name to the `name_list`, because we'll need to let dfn::map_handler dispatch the request to the coresponding handler. 
 
 In the future, almost all request handlers will be put here to easy organzing. 
 
@@ -42,19 +42,20 @@ impl Handle<(), HttpRequest> for Actor {
 }
 ```
 
-This is the most important function. The `base_res` is used to handle **default** behaviors that can be handled by the `tea_sdk::utils`. In this case, it is the login request. 
+This is the most important function. The `base_res` is used to handle **default** behaviors that can be handled by the `tea_sdk::utils`. In this case, it's the login request. 
 
-So if the default handler is used and the `crate::dfn::map_handler` does not handle (cur_res is empty), then the base_res is returned to the client. 
+So if the default handler is used and the `crate::dfn::map_handler` does not handle it (cur_res is empty), then the base_res is returned to the client. 
 
-If you want to override the default handler, you can define the handler function inside the dfn.rs, so that the cur_res is no longer empty, and it will be returned to the client. 
+If you want to override the default handler, you can define the handler function inside of dfn.rs, so that the cur_res is no longer empty and it will be returned to the client. 
 
-In this case, we did not handle the login request, instead the default login handler inside the `tea_sdk::utils` is used. That is why we can write almost zero code to get login feature.
+In this case, we didn't handle the login request, instead the default login handler inside the `tea_sdk::utils` is used. That's why we can write almost zero code to get the login feature.
 
-In our TEA SDK, there are many default handler like login. For more detail about the `tea_sdk::utils` please go to [[tea_sdk_utils]]
+In our TEA SDK, there are many default handlers like login. For more detail about the `tea_sdk::utils` please go to [[tea_sdk_utils]]
 
-You may also noticed the AddRequest handler is removed given it is no longer used in this and future steps.
+You may also notice that the AddRequest handler is removed given it's no longer used in this and future steps.
 
-A new api.rs is added, in this step it is mainly for the txn_faucet function. 
+A new api.rs is added, and in this step it's mainly for the txn_faucet function. 
+
 ```
 pub async fn txn_faucet(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>> {
 	let req: FaucetRequest = serde_json::from_slice(&payload)?;
@@ -81,15 +82,17 @@ pub async fn txn_faucet(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>>
 	help::result_ok()
 }
 ```
+
 When the "faucet" request is received by the actor, `crate::dfn::map_handler` will dispatch the function call to txn_faucet. Inside this function, we first generate the req:
+
 ```
 	let req: FaucetRequest = serde_json::from_slice(&payload)?;
   check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
   
 ```
 
-then use `TappstoreTxn::TransferTea` to convert it to a txn. `request::send_tappstore_txn` is used to send such txn. This txn is send to the state machine. It will be executed async.
+then use `TappstoreTxn::TransferTea` to convert it to a txn. `request::send_tappstore_txn` is used to send such a txn. This txn is sent to the state machine and executed async.
 
-Note, we do not expect to get the execution result at this moment, because all state machine will handle async.
+Note, we don't expect to get the execution result at this moment because all state machine nodes will handle async.
 
-Please read the code carefully, understand each parameter. 
+Please read the code carefully and understand each parameter. 

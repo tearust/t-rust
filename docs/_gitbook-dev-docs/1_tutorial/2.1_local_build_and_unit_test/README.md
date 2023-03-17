@@ -1,3 +1,5 @@
+# Build sample-actor and Run Unit Test
+
 ## Build sample-actor
 
 The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the TEA-runtime which we'll talk about more in future steps. Now let's focus on how to build it.
@@ -12,9 +14,9 @@ Now `cd sample-actor` and run `./build.sh` to build the actor.
 
 Once built successfully, you can find the wasm file `sample_actor.wasm` in the `sample-actor/target/wasm32-unknown-unknown/release` folder. Note that in this step of the tutorial, we won't deploy to the TEA Project testnet, nor run in local single node development environment. We'll describe them more in later steps. In this initial step, we'll only run the unit test.
 
-The build.sh will also try to copy the sample-actor.wasm file to the ../../dev-runner/local/b-node folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environement" tutorial.
+The build.sh script will also try to copy the sample-actor.wasm file to the ../../dev-runner/local/b-node folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environement" tutorial.
 
-If you get another error message, it's most likely  due to some missing pieces of your development environment. Please go back to the previous step anc check for missing steps.
+If you get another error message, it's most likely due to some missing pieces of your development environment. Please go back to the previous step and check for missing steps.
 
 ## Run sample-actor unit test
 
@@ -23,7 +25,6 @@ In this step, we won't run the sample-actor in your local development environmen
 You can run `cargo test` to run all the unit tests. You should see the test results as follows:
 
 ````
-
 cargo test
 
 Compiling sample-actor v0.1.0 (/Users/kevinzhang/github/tearust/sample-actor/impl)
@@ -46,7 +47,7 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ````
 
-When you want to test a request handler and expect it to return an error, see the following example:
+When you want to test a request handler and expect it to return an error, you can use the following example:
 
 ````
 
@@ -100,6 +101,6 @@ If you can see the following:
 
 then your front end is up running. 
 
-At this moment, you cannot send request to backend and get "hello world" yet. We'll get into the local development environment in the next step.
+At this moment, you cannot send request to the backend and get "hello world" yet. We'll get into the local development environment in the next step.
 
 You can Ctrl + C to stop the frontend now.

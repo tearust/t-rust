@@ -1,6 +1,6 @@
-The sample-front-end has major code change from the `master` branch. Trust me, this should be the only major change for the rest of all steps. The reason we have such major change is because we have put all common used utility into this branch. In the future steps, major changes will be hapenning in the sample-actor backend. 
+The sample-front-end has some major code changes from the `master` branch. Don't worry, this should be the only major change for the rest of the steps. The reason we have introduced these major changes is because we have put all common used utilities into this branch. In the future steps, major changes will be hapenning in the sample-actor backend. 
 
-This `login` branch is probably the best boilerplate that you can build your own TApp from, because it has all major commonly used utiility features, such as login, fund transfer etc.
+This `login` branch is probably the best boilerplate that you can build your own TApp from because it has all major commonly used utiility features, such as login, fund transfer etc.
 
 ## Code structure
 
@@ -67,7 +67,8 @@ The js code to handle use login is in `src/layer2/user.js`
 
 ```
 
-We first check if the chain name is available from Metamask SDK. If not exists, we display error asking the user to install Metamask.
+We first check if the chain name is available from the Metamask SDK. If it doesn't exist, we display an error and ask the user to install Metamask.
+
 ```
 const chain = await self.wf.layer1.getChain();
     if(chain.name === 'Offline'){
@@ -75,7 +76,8 @@ const chain = await self.wf.layer1.getChain();
     }
 ```
 
-Then we generate a sig of the msg `permission_str` from Metamask
+Then we generate a sig of the msg `permission_str` from Metamask.
+
 ```
 const layer1_instance = self.wf.getLayer1Instance();
       let [sig, pk, msg_bytes, msg] = await layer1_instance.signMessage(data);
@@ -84,9 +86,10 @@ const layer1_instance = self.wf.getLayer1Instance();
       sig = sig.replace(/^0x/, '');
 ```
 
-This is how the Metamask show up ask you to sign.
+This is how the Metamask asks you to sign.
 
-Once the sig is received from Metamask, the next step would be sending a "login" request to the back end. The code looks like
+Once the sign is received from Metamask, the next step would be sending a "login" request to the backend. The code looks like this:
+
 ```
      let rs = await txn.txn_request('login', {
         tappIdB64: base.getTappId(),
@@ -97,7 +100,8 @@ Once the sig is received from Metamask, the next step would be sending a "login"
       });
 ```
 
-`txn.txn_request` is widely used all over the front end code whenever we want to send request to the backend.  Note the backend handle is always **async**. So you do not expect to get the response immediately. You will always need to query the result using `await txn.query_request` as the code below:
+`txn.txn_request` is widely used all over the frontend code whenever we want to send requests to the backend.  Note the backend handle is always **async**. So you shouldn't expect to get a response immediately. You'll always need to query the result using `await txn.query_request` as in the code below:
+
 ```
      rs = await txn.query_request('query_session_key', {
         tappIdB64: base.getTappId(),
@@ -105,10 +109,11 @@ Once the sig is received from Metamask, the next step would be sending a "login"
       });
 ```
 
-Once the response is received, the `auth_key` will be saved to local cache. This auth_key is very important, we will need to attach this key everytime in future request to the backend, so that the backend will know the user has been logged in. If the auth_key either missing or expired, the user will be requested to login again. This is usually called "session time out" in web2 world.
+Once the response is received, the `auth_key` will be saved to the local cache. This auth_key is very important, we'll need to attach this key everytime to future requests to the backend, so that the backend will know the user has been logged in. If the auth_key is either missing or expired, the user will be requested to login again. This is usually called "session time out" in the web2 world.
 
 ## Query account balance
-Query account balance code located in `src/layer2/user.js`
+Query account balance code is located in `src/layer2/user.js`
+
 ```
 async query_balance(self, target = null, target_tapp = null,) {
     const session_key = F.checkLogin(self);
@@ -140,14 +145,15 @@ async query_balance(self, target = null, target_tapp = null,) {
   
 ```
 
-First we will need to get the login session key (the `auth_key` in the login session). `const session_key = F.checkLogin(self);` This session_key will need to be attached to the request. 
+First we'll need to get the login session key (the `auth_key` in the login session). `const session_key = F.checkLogin(self);` This session_key will need to be attached to the request. 
 
-`opt` is the query_balance request parameter. We will need to tell the backend the following query parameters:
-- Which app am I querying. Every app has different account system
-- Which address (account) am I querying
-- Session_key. Use to verify this user has logged in and has the right to query
+`opt` is the query_balance request parameter. We we'll need to tell the backend the following query parameters:
 
-Then call query_request to query 
+- Which app am I querying. Every app has a different account system.
+- Which address (account) am I querying.
+- Session_key. Used to verify that this user has logged in and has the right to query.
+
+Then call query_request to query.
 
 `const rs = await txn.query_request('query_balance', opts);
 

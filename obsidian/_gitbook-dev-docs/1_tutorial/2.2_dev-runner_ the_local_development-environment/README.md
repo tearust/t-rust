@@ -1,4 +1,4 @@
-## Unit test ->Dev runner ->Test net ->Production
+## Unit test ->Dev runner ->Test net -> Production
 
 TApp development needs 4 basic steps. 
 
@@ -7,7 +7,7 @@ TApp development needs 4 basic steps.
 - Testnet: This is **almost** the same as the final production environment but all the assets are faked. You don't need to worry about any mistakes causing real funding losses. 
 - Production: This is the last step. It runs code in the real production environment. Please be noted, this is not a drill, any mistake in your code may cause **real** funding losses. And there is **no way** to get them back. 
 
-In previous step, we walked through the unit test. In this step, we'll walkthrough the Local Development Environment, called "Dev Runner". 
+In the previous step, we walked through the unit test. In this step, we'll walkthrough the Local Development Environment, called "Dev Runner". 
 
 The local development environment (dev-runner) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 

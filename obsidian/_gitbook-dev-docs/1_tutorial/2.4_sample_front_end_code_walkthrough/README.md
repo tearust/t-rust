@@ -1,10 +1,11 @@
-The `master` branch of tutorial is the simple "hello world". There is not much front end logic to explain. However, the `login` branch will be a **typical** TApp boilderplate. We will deep into detail when we get there in our next step.
+The `master` branch of the tutorial is the simple "hello world" example. There's not much front-end logic to explain. In contrast, the `login` branch is a  **typical** TApp boilerplate. We'll dig into more detail when we get there in our next step.
 
-For the current `master` branch, you can see the typical VUE front end Single Page Application. 
+For the current `master` branch, you can see a typical VUE front-end Single Page Application. 
 
 The only hello world related code is in `Home.vue`
 
-The code 
+This is the code:
+
 ```
 export default {
   data(){
@@ -29,7 +30,8 @@ export default {
 };
 ```
 
-It simply send a axios post to `/say-hello` with the JSON content
+It simply send a axios post to `/say-hello` with the following JSON content:
+
 ```
 {
     actor: 'someone.sample',
@@ -37,9 +39,10 @@ It simply send a axios post to `/say-hello` with the JSON content
 }
 ```
 
-This is example how we test the sample-actor using CURL or Postman.
+This is an example of how we test the sample-actor using CURL or Postman.
 
-Another thing we need to mention is the LAYER2_URL env var. This is the address to the backend actor. It is defined in the `.env.test` file 
+Another thing we need to mention is the LAYER2_URL env var. This is the address to the backend actor. It's defined in the `.env.test` file.
+
 ```
 NODE_ENV = dev
 VUE_APP_LAYER2_URL=http://127.0.0.1:8000
@@ -47,5 +50,5 @@ VUE_APP_LAYER2_URL=http://127.0.0.1:8000
 
 ```
 
-If you have a special environment settings that the backend is no running on 127.0.0.1:8000, please make sure you change this value. 
+If you have a special environment settings that the backend is not running on 127.0.0.1:8000, please make sure you change this value. 
 
