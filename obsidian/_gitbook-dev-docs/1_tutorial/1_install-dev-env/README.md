@@ -29,7 +29,7 @@ If you either change your local software environment or update your local repos,
 - Press CTRL-C to stop the TEA runtime server.
 - From the root of the dev-runner directory, issue the following command: `docker-compose down`
 -  Use `docker images` to see the currently running docker images. 
-- Use `docker rmi the_images_of_the_two_:dev_image` to fully remove the existing older images  (look for the two images with "dev" tag running under the tearust repo:
-	docker rmi tearust/parent-instance-client:dev
-	docker rmi tearust/runtime:dev
+- Use `docker pull the_images_of_the_two_:dev_image` to update the existing older images  if there's an updated image available:
+	docker pull tearust/parent-instance-client:dev
+	docker pull tearust/runtime:dev
 - After you've built the tutorials using your latest updates you'd run `docker-compose up` from the `dev-runner` directory.
