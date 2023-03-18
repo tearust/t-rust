@@ -77,7 +77,7 @@ The account profile page sends a query request to sample-actor for the account b
 
 When you click the "Faucet" button, a transfer request is sent to the backend. In the local dev-runner mode, a special logic allow anyone can transfer 1000 TEA from the DAO_RESERVE account for testing purpose. That is why you can get 1000 FREE TEA. Note, this won't happen in non local dev-runner configuration. So you won't have such free gift in Testnet or Producction for sure.
 
-Once the Faucet transfer hascompleted, you'll see your new 1000 TEA balance after the follow up balance query completes. 
+Once the Faucet transfer has completed, you'll see your new 1000 TEA balance after the follow up balance query completes. 
 
 So that's a recap of the steps that just happened. 
 

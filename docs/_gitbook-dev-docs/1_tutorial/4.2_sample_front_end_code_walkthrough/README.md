@@ -1,4 +1,4 @@
-The sample-front-end has some major code changes from the `master` branch. Don't worry, this should be the only major change for the rest of the steps. The reason we have introduced these major changes is because we have put all common used utilities into this branch. In the future steps, major changes will be hapenning in the sample-actor backend. 
+The sample-front-end has some major code changes from the `master` branch. Don't worry, this should be the only major change for the rest of the steps. The reason we've introduced these major changes is because we have put all commonly used utilities into this branch. In the future steps, major changes will be hapenning in the sample-actor backend. 
 
 This `login` branch is probably the best boilerplate that you can build your own TApp from because it has all major commonly used utiility features, such as login, fund transfer etc.
 
@@ -85,9 +85,9 @@ const layer1_instance = self.wf.getLayer1Instance();
       sig = sig.replace(/^0x/, '');
 ````
 
-This is how the Metamask asks you to sign.
+This is how Metamask asks you to sign.
 
-Once the sign is received from Metamask, the next step would be sending a "login" request to the backend. The code looks like this:
+Once the signed data is received from Metamask, the next step would be sending a "login" request to the backend. The code looks like this:
 
 ````
      let rs = await txn.txn_request('login', {
@@ -99,7 +99,7 @@ Once the sign is received from Metamask, the next step would be sending a "login
       });
 ````
 
-`txn.txn_request` is widely used all over the frontend code whenever we want to send requests to the backend.  Note the backend handle is always **async**. So you shouldn't expect to get a response immediately. You'll always need to query the result using `await txn.query_request` as in the code below:
+`txn.txn_request` is widely used all over the frontend code whenever we want to send requests to the backend.  Note the backend handle is always **async** so you shouldn't expect to get a response immediately. You'll always need to query the result using `await txn.query_request` as in the code below:
 
 ````
      rs = await txn.query_request('query_session_key', {
@@ -108,7 +108,7 @@ Once the sign is received from Metamask, the next step would be sending a "login
       });
 ````
 
-Once the response is received, the `auth_key` will be saved to the local cache. This auth_key is very important, we'll need to attach this key everytime to future requests to the backend, so that the backend will know the user has been logged in. If the auth_key is either missing or expired, the user will be requested to login again. This is usually called "session time out" in the web2 world.
+Once the response is received, the `auth_key` will be saved to the local cache. This auth_key is very important, we'll need to attach this key everytime to future requests to the backend so that the backend will know the user has been logged in. If the auth_key is either missing or expired, the user will be requested to login again. This is usually called "session time out" in the web2 world.
 
 ## Query account balance
 

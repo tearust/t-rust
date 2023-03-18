@@ -1,22 +1,21 @@
-
 The newly added file and major changes in this step are in the `account.rs` file.
 
 In account.rs, we handled the following txns:
 
-- deposit_for_task: Pay deposit when taking a task.
-- rollback_deposit:  Move the price back to the owner in case of "reject" operation.
-- reward_owner: The successful worker takes the reward. 
+* deposit_for_task: Pay deposit when taking a task.
+* rollback_deposit:  Move the price back to the owner in case of "reject" operation.
+* reward_owner: The successful worker takes the reward. 
 
 All the function code is straightforward and follows the same pattern:
 
-- Input a `mut ctx`. 
-- Get the amount as well as payer and payee addresses.
-- Call `move` or `cross_move` function to transfer funds.
-- The ctx is mutable, so it contains all the change on the state. The caller will handle the ctx.
+* Input a `mut ctx`. 
+* Get the amount as well as payer and payee addresses.
+* Call `move` or `cross_move` function to transfer funds.
+* The ctx is mutable, so it contains all the change on the state. The caller will handle the ctx.
 
 Let's move to the caller, the txn.rs. We use the TakeTask as an example, but all others txns follow the same pattern:
 
-```
+````
 Txns::TakeTask {
             subject,
             worker,
@@ -50,7 +49,7 @@ Txns::TakeTask {
                 ..Default::default()
             }
         }
-```
+````
 
 First, get the task. If the task status is not "new" then throw an error. That's because only new tasks can be taken.
 
@@ -60,11 +59,11 @@ If the task has a worker, throw an error because the task has someone working on
 
 `let glue_ctx = new_gluedb_context().await?;` starts an SQL transaction. We should have such a line everytime we run any SQL transactions while processing txn.
 
-```
+````
 let (tappstore_ctx, ctx) =
                 account::deposit_for_task(tsid, base, *worker, task.required_deposit, ctx).await?;
-```
-            
+````
+
 This function `deposit_for_task` has a `ctx` input, also outputs  `tappstore_ctx` and `ctx`. This is very important. Ctx is the object that records all the changes the code logic "should" apply to the state. But until commited, the changes are only stored in the Ctx without actually modifying the state. If anything is wrong during the ctx execution, the code can simply throw an error and return, no changes will be applied to the state and the state will remain unchanged. 
 
 In order to keep all changes in the Ctx and commit at once at a later time, ALL functions will have ctx input and return to the caller. 
@@ -73,7 +72,7 @@ In this function, the output has another tappstore_ctx rather than the sole inpu
 
 `take_task` is a function to execute sql scripts. The code is in sql.rs:
 
-```
+````
 pub(crate) async fn take_task(
     tsid: Tsid,
     subject: &str,
@@ -96,13 +95,13 @@ pub(crate) async fn take_task(
     )
     .await
 }
-```
+````
 
 It's nothing new, but to change the table to make this work has taken this task.
 
 Last, at the end of this txn, return the CommitContextList:
 
-```
+````
             CommitContextList {
                 ctx_list: vec![
                     CommitContext::new(
@@ -117,8 +116,7 @@ Last, at the end of this txn, return the CommitContextList:
                 ],
                 ..Default::default()
             }
-```
-
+````
 
 All matching branches in the txn executor will need to return such CommitContextList. This list includes all the changes during the execution. Eventually, these changes will be applied using a Commit function so that the state and SQL database can be permanently changed. 
 
@@ -129,7 +127,3 @@ For the details of CommitContextList, please refer to the Developer Documents.
 We can skip the table.sql because these are all standard SQL scripts, for indexing, table creating etc. SQL is not in the scope of our tutorial.
 
 In error.rs, you can find a few newly added errors. They're very straightfoward.
-
-
-
-

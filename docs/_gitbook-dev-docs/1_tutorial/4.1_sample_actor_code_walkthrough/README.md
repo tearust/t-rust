@@ -1,6 +1,6 @@
-In the `login` branch, the majorify of the logic is in the frontend. There are only a few code changes in the backend to handle the login and faucet logic. Let's walkthrough it all.
+In the `login` branch, the majorify of the logic is in the frontend. There are only a few code changes in the backend to handle the login and faucet logic. Let's walk through it all.
 
-A new file called `dfn.rs` is created, and we moved the function to handle "say-hello" from lib.rs to here. A new handler "faucet" is added. This is used to send faucet txn when the user clicks the "faucet" button in the frontend.
+We moved the function to handle "say-hello" from lib.rs to a new file called `dfn.rs`. A new handler "faucet" has also been added. This is used to send faucet txn when the user clicks the "faucet" button in the frontend.
 
 ````
 use crate::error::Result;
@@ -24,9 +24,9 @@ pub async fn map_handler(action: &str, arg: Vec<u8>, from_actor: String) -> Resu
 
 When adding a new handler, make sure to also add the name to the `name_list`, because we'll need to let dfn::map_handler dispatch the request to the coresponding handler. 
 
-In the future, almost all request handlers will be put here to easy organzing. 
+In the future, almost all request handlers will be put here for easy organzing. 
 
-Let's take a look at where these functions are called. Go to lib.rs
+Let's take a look at where these functions are called, for example in `lib.rs`:
 
 ````
 impl Handle<(), HttpRequest> for Actor {

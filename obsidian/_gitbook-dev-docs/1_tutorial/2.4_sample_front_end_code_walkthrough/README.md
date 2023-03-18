@@ -30,7 +30,7 @@ export default {
 };
 ```
 
-It simply send a axios post to `/say-hello` with the following JSON content:
+It simply send an axios post to `/say-hello` with the following JSON content:
 
 ```
 {

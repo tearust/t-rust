@@ -1,20 +1,20 @@
-Let's focus on the sample-txn-executor folder in this article. This is a brand new folder and it will build the wasm file that will be loaded into the state machine.
+Let's focus on the sample-txn-executor folder in this article. This is a brand new folder and it'll build the wasm file that will be loaded into the state machine.
 
 ## Folder structure
 
 All actors have the same folder structure:
 
-* codec contains all the type definitions
-* impl contains all logic
+* codec contains all the type definitions.
+* impl contains all logic.
 
-One thing to be mentioned and likely overlooked is the last line in the build.sh.
+One thing to be mentioned and likely overlooked is the last line in the build.sh file:
 `cp -r target/wasm32-unknown-unknown/release/sample_txn_executor.wasm ../../dev-runner/local/a-node/`
 
-You may already noticed that the destination folder is **a-node** instead of **b-node** of sample-actor. 
+You may have already noticed that the destination folder is **a-node** instead of **b-node** of sample-actor. 
 
 ## Codec
 
-In the txn.rs file, we have Task, Status, And Txns definition.
+In the txn.rs file, we have Task, Status, And Txns definitions.
 
 ````#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Task {
@@ -27,18 +27,18 @@ pub struct Task {
 }
 ````
 
-Task is the model if you are familar of MVC concept. This object will be mapped to the SQL database for CRUD.
+Task is the model if you're familar with the MVC concept. This object will be mapped to the SQL database for CRUD.
 
-Please note the types "Account, Balance". Those are predefined TEA Project types. You will use them a lot.
+Please note the types "Account, Balance". Those are predefined TEA Project types. You'll use them a lot.
 
 Every task will need to have a:
 
-* creator: who create this task. he is also the owner. It is an Account type.
+* creator: who create this task, who is also the owner. It's an Account type.
 * subject: the title of this task. Such as "Buy me a beer!"
-* price: The work who has done this task successfully will receive reward at this price from the owner/creator
-* required_deposit: The worker who take a task will need to pay the deposit. If he failed to complete the task, the deposit will be slashed to the price. The final successful worker will take all of them.
-* status: See below
-* worker: None if no one take this task, or the worker who is current working on or complete this task.
+* price: The worker who has done this task successfully will receive the reward price from the owner/creator.
+* required_deposit: The worker who takes a task will need to pay the deposit. If they fail to complete the task, the deposit will be slashed and rolled into the price. The final successful worker will take the augmented price.
+* status: See below.
+* worker: None if no one takes a particular task, or the worker who is currently working on or completes a particular task.
 
 The status is:
 
@@ -54,7 +54,7 @@ pub enum Status {
 }
 ````
 
-Their name explained the meaning.
+Their name explains the meaning.
 
 The most important concept is Txn:
 
@@ -88,11 +88,11 @@ pub enum Txns {
 
 ````
 
-Those Txn types are the Transaction object that the hosting node (where b-actor is running) send to the state machine (A-actor) to handle. It is similar to the stored procedure inside the database in Web2 era.
+Those Txn types are the Transaction objects that the hosting nodes (where b-actor is running) send to the state machine (A-actor) to handle. It's similar to the stored procedure inside the databases of the web2 era.
 
 Every txn will have the parameters, and the execution logic of these txn will be inside the `impl` folder. 
 
-In the lib.rs file, we have defined Request and Response as we did in our last step:
+In the lib.rs file, we have defined Requests and Responses as we did in our last step:
 
 A new struct TaskQueryRequests:
 
@@ -106,17 +106,17 @@ pub struct TaskQueryRequest {
 }
 ````
 
-and a response that returens a Vec of tasks. The Task has a type `txn::Task`.
+and a response that returns a Vec of tasks. The Task has a type `txn::Task`.
 
-They are used in Queries from the hosting nodes. When B-actor wants to query a list of Tasks they can use these conditions. 
+They're used in Queries from the hosting nodes. When B-actor wants to query a list of Tasks they can use these conditions. 
 
-Note: In TEA Project future version, a local state cache will be provided to the hosting nodes. So in most cases, there is no need for the hosting node to query list of Tasks from the state machine to reduce the cost.
+Note: In TEA Project future versions, a local state cache will be provided to the hosting nodes. So in most cases, there's no need for the hosting node to query the list of Tasks from the state machine, which will ultimately reduce the cost.
 
 ## Impl
 
 ### manifest.yaml added new access
 
-Compare with previous steps, you will notice there are a lot of new access items added:
+Compared with the previous steps, you'll notice there are lots of new access items added:
 
 ````
 access:
@@ -134,11 +134,11 @@ access:
 
 ````
 
-You can go to the developer document for the usage for each provider actor. Because the `sql` branch has added a lot of system features such as transfer fund, sql access, storage etc, it is requred to claim the list in the manifest. Otherwise, the access will be banned by the tea-runtime.
+You can go to the developer documentation for the usage for each provider actor. Because the `sql` branch has added a lot of system features such as fund transfer, sql access, storage etc, it's requred to claim the list in the manifest. Otherwise, the access will be banned by the tea-runtime.
 
 ### tables.sql is a standard sql script
 
-This is the first time you find a non rs file in the src folder. This is a standard SQL file. It is nothing but a script to create table. 
+This is the first time you'll find a non rs file in the src folder. This is a standard SQL file. It's nothing but a script to create table. 
 
 ````
 CREATE TABLE Tasks
@@ -152,13 +152,13 @@ CREATE TABLE Tasks
 );
 ````
 
-To simplify our tutorial, we did not use any 3rd party MVC tools to build sql scripts for us. We use pure SQL for easily understood by developer. When you are building your own TApp, feel free to use whatever existing Web2 tools you are familiar with. They should all work well with TEA Project
+To simplify our tutorial, we didn't use any 3rd party MVC tools to build sql scripts for us. We use pure SQL which is easily understood by developers. When you're building your own TApp, feel free to use whatever existing web2 tools you're familiar with. They should all work well with the TEA Project.
 
-You may be wondering where are other SQL scripts? We should use Create, Read, Update, Delete scripts. Well they are inside the rs code as string. You will see them soon.
+You may be wondering where are other SQL scripts? We should use Create, Read, Update, Delete scripts. Well, they're inside the rs code as string and you'll see them soon.
 
 ### Add new errors into error.rs
 
-Beause we are now handling the txn, there would be errors during txn execution. We need to define them inside error.rs:
+Because we're now handling the txn, there will be errors during txn execution. We need to define them inside of `error.rs`:
 
 ````
 #[derive(Debug, Error)]
@@ -168,11 +168,24 @@ pub enum TxnErrors {
 
     #[error("Task {0} already token by {1:?}")]
     TaskInprogress(String, Account),
+
+    #[error("Task can only be deleted when status is new or done")]
+    DeleteTaskFailed,
+
+    #[error("Task can only be verified when status is wait for verification")]
+    VerifyTaskFailed,
+
+    #[error("Task can only be taken when status is new")]
+    TakeTaskFailed,
+
+    #[error("Task can only be finished when status is in process")]
+    CompleteTaskFailed,
 }
+
 
 ````
 
-Note, do not forget to add to the define_scope macro too:
+Note, don't forget to add to the define_scope macro too:
 
 ````
 define_scope! {
@@ -185,7 +198,7 @@ define_scope! {
 
 ### Execute transactions in txn.rs
 
-Most the logics are here inside txn.rs function `txn_exec`.
+Most of the logic are here inside the txn.rs function `txn_exec`.
 
 You can see all txn defined in the codec has been handled in a `match` branch, then return a commit_ctx. The commit_ctx is a Context type which records all changes during the txn execution. However, before the commit_ctx is finally commited at the last of the `txn_exec` function, no actually changes happened in the state. That means, at any time, if the execution failed for whatever reason, the state will **NOT** be changed. 
 
@@ -207,7 +220,7 @@ Let's use CreateTask as an example:
         }
 ````
 
-This txn only run a SQL scripts, it is very simple. First `new_gluedb_context()` will generate a new glue_ctx. It also starts a SQL Transaction. If anything failed before commit, no change will be written to the SQL database. 
+This txn only run a SQL scripts, it's very simple. First `new_gluedb_context()` will generate a new glue_ctx. It also starts an SQL Transaction. If anything failed before the commit, no change will be written to the SQL database. 
 
 The SQL scripts is inside the `create_task` function. 
 
@@ -228,29 +241,27 @@ pub(crate) async fn create_task(tsid: Tsid, task: &Task) -> Result<()> {
 }
 ````
 
-the function `exec_sql` will run the SQL scripts.
+The function `exec_sql` will run the SQL scripts.
 
-In TEA Project, the SQL engine is GlueSQL. Github https://github.com/gluesql/gluesql. This is not a full featured SQL engine, so please review GlueSQL for more detail. In our tutorial, we only used very basic SQL features. For example, we did not use auto increase ID but the subject as ID. This is not idea but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
+In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql). This is not a fully featured SQL engine, so please review GlueSQL for more detail. In our tutorial, we only use very basic SQL features. For example, we didn't use auto increase ID but the subject as ID. This is not ideal but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
 
 Please make sure `sql_init` is called at `Txns::Init`. 
 
 ````
        Txns::Init {} => {
-            // TODO: check account is tapp owner later
             sql_init(tsid).await?;
             CommitContext::new(
                 ctx,
                 None,
                 None,
                 None,
-                // decode_auth_key(auth_b64)?,
-                10001_u128,
+                GOD_MODE_AUTH_KEY,
                 txn.to_string(),
             )
         }
 ````
 
-TODO:// explain 1001_u128.
+TODO:// GOD_MODE_AUTH_KEY will be replaced later
 
 ## lib.rs
 
@@ -271,4 +282,4 @@ impl Handles<()> for Actor {
 }
 ````
 
-HttpRequest is a special request that we created for the local dev-runner only. In the real production this will not be existing. The purpose of adding http request to the sample-txn-executor is for easy CURL / Postmand test. In the real production, all txns are sent from the Hosting nodes (B-actor). You have to have a B node to test the Txns, that cause additional complexities. Using this "mock" http request, you can write your own local test code. Especially when dealling with SQL. It is hard to write SQL in unit test.
+**HttpRequest** is a special request that we created for the local dev-runner only. In the real production this will not exist. The purpose of adding http request to the sample-txn-executor is for easy CURL / Postman testing. In the real production environment, all txns are sent from the hosting nodes (B-actor). You have to have a B node to test the Txns, which causes additional complexities. Using this "mock" http request, you can write your own local test code. Especially when dealling with SQL, it's hard to write SQL in unit tests.
