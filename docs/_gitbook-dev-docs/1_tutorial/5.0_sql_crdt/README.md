@@ -16,7 +16,7 @@ Although the step to get free test tokens should technically be in the next tuto
 
 ## Understand the sample-txn-executor actor
 
-You'll need to `git checkout sql` to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This actor is usally called "A-actor" internally. The previous `sample-actor` is usually called "B-actor". Although the official names for A-actor should be state machine actor and B-actor should be called hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
+You'll need to `git checkout sql` to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This *t-rust/docs/_gitbook-dev-docs/z_glossary/actor* is usally called "A-actor" internally. The previous `sample-actor` is usually called "B-actor". Although the official names for A-actor should be state machine actor and B-actor should be called hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
 
 Similar to 3-tier architecture in traditional web2 development, the hosting actor is the lambda function running inside the Web Server, while the state machine actor is running inside the state machine similar to a database stored procedure.
 

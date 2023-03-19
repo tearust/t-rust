@@ -1,7 +1,7 @@
 # Build sample-actor and Run Unit Test
 ## Build sample-actor
 
-The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the TEA-runtime which we'll talk about more in future steps. Now let's focus on how to build it.
+The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the [[t-rust/docs/_gitbook-dev-docs/z_glossary/mini-runtime|TEA-runtime]] which we'll talk about more in future steps. Now let's focus on how to build it.
 
 Assuming you have cloned the code and installed all dependencies as instructed in previous step. If not, please do so now. Make sure the following items have been installed correctly:
 
@@ -13,9 +13,9 @@ Now `cd sample-actor` and run `./build.sh` to build the actor.
 
 Once built successfully, you can find the wasm file `sample_actor.wasm` in the `sample-actor/target/wasm32-unknown-unknown/release` folder. Note that in this step of the tutorial, we won't deploy to the TEA Project testnet, nor run in local single node development environment. We'll describe them more in later steps. In this initial step, we'll only run the unit test.
 
-The build.sh script will also try to copy the sample-actor.wasm file to the ../../dev-runner/local/b-node folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environement" tutorial.
+The build.sh script will also try to copy the sample-actor.wasm file to the ../../dev-runner/local/b-node folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environment" tutorial.
 
-If you get another error message, it's most likely due to some missing pieces of your development environment. Please go back to the previous step and check for missing steps.
+If you get another error message, it's most likely due to some missing pieces in your development environment. Please go back and check for missing steps.
 
 ## Run sample-actor unit test
 
@@ -102,7 +102,7 @@ If you can see the following:
 
 then your front end is up running. 
 
-At this moment, you cannot send request to the backend and get "hello world" yet. We'll get into the local development environment in the next step.
+At this moment, you cannot send requests to the backend and get "hello world" message yet. We'll get into the local development environment in the next step.
 
-You can Ctrl + C to stop the frontend now.
+You can send `Ctrl + C` to stop the frontend now.
 

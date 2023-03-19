@@ -14,9 +14,9 @@ We'll learn in this walkthrough how to transfer funds between users based on bus
 
 ## Build
 
-As we've done several times in previous steps, we `git checkout reward` to the reward branch. Next build the sample-actor and sample-txn-executor two wasm file. They'll be copied to the dev-runner local/a-node and local/b-node folders. 
+As we've done several times in previous steps, we `git checkout reward` to the reward branch. Next build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the dev-runner local/a-node and local/b-node folders. 
 
-In order to clean up the state data from previous steps, make sure you delete the `.tokenstate` file first. This will make dev-runner start with a fresh state.
+In order to clean up the *t-rust/docs/_gitbook-dev-docs/z_glossary/state* data from previous steps, make sure you delete the `.tokenstate` file first. This will make dev-runner start with a fresh state.
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 

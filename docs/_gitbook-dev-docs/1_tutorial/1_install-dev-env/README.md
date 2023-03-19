@@ -21,7 +21,7 @@ One of the build scripts that are used in the following tutorials might prompt t
 
 ## Install local development environment: Dev-Runner
 
-The purpose of the `dev-runner` repo is to allow any user to recreate the TEA runtime on their local machine. The TEA Project is a decentralized system that needs multiple nodes for both its hosting infrastructure and state machine where a remote attestation process ensures that all nodes are trustable. In the simplified local runtime, there's only one hosting node ("B-node") and one state machine node ("A-node"). And there's no remote attestation since this is a simulated environment with single nodes on each level.
+The purpose of the `dev-runner` repo is to allow any user to recreate the TEA runtime on their local machine. The TEA Project is a decentralized system that needs multiple nodes for both its hosting infrastructure and *t-rust/docs/_gitbook-dev-docs/z_glossary/state_machine* where a *t-rust/docs/_gitbook-dev-docs/z_glossary/remote_attestation* process ensures that all nodes are trustable. In the simplified local runtime, there's only one *hosting node* ("B-node") and one state machine node ("A-node"). And there's no remote attestation since this is a simulated environment with single nodes on each level.
 
 After you have dowloaded the `dev-runner` to your local computer, note that other repos will possibly interact with your local **dev-runner** environment to the sibling folder. For example, `tutorial-v1` will write a wasm file to `dev-runner` during the build process for that tutorial. 
 

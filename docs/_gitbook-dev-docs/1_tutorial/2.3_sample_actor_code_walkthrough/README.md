@@ -1,4 +1,4 @@
-Assumming you have successfully built and run the unit test. let's get into the  code structure details of this sample actor.
+Assumming you have successfully built and run the unit test, let's get into the code structure details of this sample *t-rust/docs/_gitbook-dev-docs/z_glossary/actor*.
 
 ### Folder structure overview
 
@@ -18,8 +18,8 @@ Folders and their usage:
 
 * `Cargo.lock` is a temp file generated during building. We can ignore it unless you want to check the dependency versions.
 * `Cargo.toml` is the root cargo config of this project. It contains only two other workspaces: `codec` and `impl`.
-* `build.sh` is the script that builds the wasm actor.
-* `codec` is one of the two main workspaces. It is related to the definitions of the data structures that will be used by other modules. Consider it an "interface" definition.
+* `build.sh` is the script that builds the wasm *t-rust/docs/_gitbook-dev-docs/z_glossary/actor*.
+* `codec` is one of the two main workspaces. It's related to the definitions of the data structures that will be used by other modules. Consider it an "interface" definition.
 * `impl` is another of the two main workspaces. It's related to the implementation of the code logic.
 * `rust-toolchain.toml` defines the build environment, versions. etc
 * `target` is generated during build process. It stores the compiled wasm actor and temp files.
@@ -77,7 +77,7 @@ tas ../target/wasm32-unknown-unknown/release/sample_actor.wasm
 
 ### codec folder
 
-List the files in `codec` folder:
+List the files in the `codec` folder:
 
 ````
 ls -l
@@ -101,12 +101,12 @@ serde = { workspace = true }
 
 In the package section, you can modify your project name, version etc.
 
-There are two dependencies, 
+There are two dependencies:
 
 * tea-sdk is the main sdk entry to all other TEA sdk modules. 
 * serde is https://crates.io/crates/serde
 
-In our tutorial, while adding more logic into the project, we'll have more and more dependencies added into this Cargo.
+In our tutorial, while adding more logic to the project, we'll have more and more dependencies added into this Cargo file.
 
 Files in the src folder:
 
@@ -133,7 +133,7 @@ define_scope! {
 
 Rust is a strong typed language. It's very important to define all error types in detail. In the code above we defined two error types that are used in our sample-actor.
 
-* **HttpActionNotSupported**: In this version, only http GET is handled, other types may throw this error.
+* **HttpActionNotSupported**: In this version, only http GET is handled while other types may throw this error.
 * **GreetingNameEmpty**: When receiving a Greeting request from the client, the logic requires a name field inside the request. This name will be used in the response string such as "Hello your-name". But if the name field is empty, the handler will throw this error.
 
 When new errors need to be created, simply add new Error names under the `define_scrope!` macro. We'll see more examples like this in the later steps of this tutorial.
@@ -160,7 +160,7 @@ pub struct AddRequest(pub i32, pub i32);
 pub struct AddResponse(pub i32);
 ````
 
-In this file we defined three struct types:
+In this file we defined three structure types:
 
 * **GreetingRequest**: This request needs a parameter String. It could be a developer's name like Alice.
 * **AddRequest**: This is another example handler that adds two i32 numbers from the input.
@@ -202,13 +202,13 @@ tokio = { workspace = true, features = ["full"] }
 ````
 
 Note the line 
-`sample-actor-codec = { path = "../codec" }`
-we'll need to use the data types defined in the codec folder.
+`sample-actor-codec = { path = "../codec" }`.
+We'll need to use the data types defined in the codec folder.
 
 During development, we'll use **mock** for unit testing. So you can see the line
-`tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm actor and run the unit test functions in your dev machine without deploying to the testnet.
+`tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm *t-rust/docs/_gitbook-dev-docs/z_glossary/actor* and run the unit test functions in your dev machine without deploying to the testnet.
 
-**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the TEA-runtime to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can imperonate you to sign a malicious wasm file under your name.
+**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the *TEA-runtime* to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
 
 The `manifest.yaml` file:
 
@@ -227,7 +227,7 @@ The **actor_id** is a unique id for every actor. An example of a typical actor n
 
 The **owner_id** is the developer's ETH address (H160). Make sure you input it correctly as it's used for payment.
 
-The **token_id** is the H160 ETH address that the TApp owns. Before deployment, the developer needs to create such a TApp in the TEA develolper portal first to obtain a token_id for this TApp. All actors that work for this TApp will need to use this token_id for billing purposes. It's important to match the owner of the TApp, the owner_id, to your ETH address as the developer. The Developer Portal will reject your request if there's a mismatch during deployment or upgrade.
+The **token_id** is the H160 ETH address that the TApp owns. Before deployment, the developer needs to create such a TApp in the TEA developer portal first to obtain a token_id for this TApp. All actors that work for this TApp will need to use this token_id for billing purposes. It's important to match the owner of the TApp, the owner_id, to your ETH address as the developer. The Developer Portal will reject your request if there's a mismatch during deployment or upgrade.
 
 The `access` is the list of all other modules this actor will communicate with. This is a disclamer to the public. Please make sure you only claim the modules that this actor absolutely needs to communicate with, otherwise it may cause security concerns from users. For example, if an actor claims to communicate a billing related module that it's not permitted to access, the end user or reviewers would mark this as a security concern for this actor in the community. On the other hand, if this actor attempts to communicate with another module that's not listed in the `access` list, it will be rejected at runtime by the TEA security logic. 
 
@@ -270,7 +270,7 @@ pub struct HttpActionNotSupported(pub String);
 pub struct GreetingNameEmpty;
 ````
 
-Remember we have defined `HttpActionNotSupported` and `HttpActionNotSupported` IDs in the codec project. Here we will put them into `SampleActor` to connect those IDs to the actually structures defined right below. 
+Remember we have defined `HttpActionNotSupported` and `HttpActionNotSupported` IDs in the codec project. Here we'll put them into `SampleActor` to connect those IDs to the actually structures defined right below. 
 
 Let's use the `HttpActionNotSupported` as an example:
 
@@ -282,7 +282,7 @@ pub struct HttpActionNotSupported(pub String);
 
 This error has a parameter string. When it throws this error, the name of the unsupported method can be assigned as the parameter, so that the user can get a more meaningful error detail. The error string will look like "Http method POST is not supported" in case of "post".
 
-The `lib.rs` file has all the main logic that handle requests:
+The `lib.rs` file has all the main logic that handles requests:
 
 ````
 cat lib.rs
