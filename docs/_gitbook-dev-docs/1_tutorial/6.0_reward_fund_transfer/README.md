@@ -3,7 +3,7 @@ In this tutorial, we we'll learn how to transfer funds.
 The business workflow of this step would be:
 
 * After owner creates a task, another person called "absent-minded" will try to work on this task. "Absent-minded" takes this task and clicks "complete" when done.
-* The owner verifies that the task failed. So the owner "rejects" the task. 
+* The owner verifies that the worker hasn't completed the task to specification. So the owner "rejects" the task. 
 * "Absent-minded" loses their deposit.
 * The third user called "hard-worker" takes the same task and clicks "complete" when done.
 * The owner verifies hard-worker's work is successfully done and clicks the "Confirm" button.
@@ -16,7 +16,7 @@ We'll learn in this walkthrough how to transfer funds between users based on bus
 
 As we've done several times in previous steps, we `git checkout reward` to the reward branch. Next build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the dev-runner local/a-node and local/b-node folders. 
 
-In order to clean up the *t-rust/docs/_gitbook-dev-docs/z_glossary/state* data from previous steps, make sure you delete the `.tokenstate` file first. This will make dev-runner start with a fresh state.
+In order to clean up the [state](../z_glossary/state.md)  data from previous steps, make sure you delete the `.tokenstate` file first. This will make dev-runner start with a fresh state.
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
@@ -28,9 +28,9 @@ Because this is a brand new state, please make sure you click the Init TApp toke
 
 Let's follow the designed business logic.
 
-User A as owner creates a task. Next you'll want to log out of that owner account and switch to the second user (we call them "absent-minded") in your Metamask. If you haven't connected to this URL, please do so now. Then login as absent-minded. 
+**User A** as the owner creates a task. Next you'll want to log out of that owner account and switch to the second user (we call them "absent-minded") in your Metamask. If you haven't connected to this URL, please do so now. Then login as absent-minded. 
 
-Because absent-minded is a new user, they have zero balance now. In order to continue, use "Faucet" add 1000 TEA to his account.
+Because absent-minded is a new user, they have zero balance now. In order to continue, use "Faucet" add 1000 TEA to their account.
 
 Then switch to the Task page where you'll find the UI has a "take" button as shown below:
 
@@ -38,7 +38,7 @@ Then switch to the Task page where you'll find the UI has a "take" button as sho
 
 This task is created by the owner, so as a worker, "absent-minded" can take this task.
 
-After clicking "take", absent-minded is now the worker for this task. We'll simlulate this worker has done some work, then click "Complete".
+After clicking "take", absent-minded is now the worker for this task. We'll simulate that this worker has done some work, then click "Complete".
 
 ![Pasted image 20230317091258.png](../../../Pasted%20image%2020230317091258.png)
 
@@ -46,7 +46,7 @@ At this time, user absent-minded's balance changes from 1000 to 995.
 
 ![Pasted image 20230317091328.png](../../../Pasted%20image%2020230317091328.png)
 
-That's because by taking this task, the user will need to pay 5 T as a deposit. In the next step, if their work was accepted by the owner, they would take the 5T deposit back as well as the 10T price reward. Well, let's see if they are lucky enough.
+That's because by taking this task, the user will need to pay 5 T as a deposit. In the next step, if their work was accepted by the owner, they would take the 5T deposit back as well as the 10T price reward. 
 
 Now let's log out as absent-minded, and re-login with the Owner account.
 

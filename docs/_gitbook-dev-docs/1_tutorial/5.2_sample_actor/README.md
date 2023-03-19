@@ -1,4 +1,4 @@
-Because most of the newly added logic stays in the newly added sample-txn-executor, the sample-actor only adds a new request handler. Those handlers do nothing but receive and relay to the state machine because all of them are supposed to be handled in the state machine SQL instances.
+Because most of the newly added logic stays in the newly added sample-txn-executor, the sample-actor only adds a new request handler. Those handlers do nothing but receive and relay to the [state machine](../z_glossary/state_machine.md)  because all of them are supposed to be handled in the state machine SQL instances.
 
 ## dfn.rs
 
@@ -71,7 +71,7 @@ pub async fn delete_task(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>
 
 We first created a DeleteTask txn, then use `send_custom_txn` utility to send it to the state machine.
 
-When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to *query* *t-rust/docs/_gitbook-dev-docs/z_glossary/txn* execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in sample-txn-executor/impl/manifest.yaml. This is how the TEA Project locates and identifies every actor.
+When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../z_glossary/queries.md) the [txn](../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in sample-txn-executor/impl/manifest.yaml. This is how the TEA Project locates and identifies every [actor](../z_glossary/actor.md).
 
 ## check_auth
 
@@ -79,7 +79,7 @@ You may have noticed the `check_auth` in function `create_task`, but you didn't 
 
 Auth control is a large topic and in our tutorial we only explain how to use it. For a detailed discussion please go to the developer documentation.
 
-`  check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?`
+`check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?`
 
 This function will verify that req.auth_b64 matches the req.address from the recorded user log in data. If it fails, an error would be thrown. Basically, the auth_b64 is a session key. The TAppStore actor stores session information using this auth_b64 as a key. The client needs to keep the auth_b64 safely. Any malicious hacker, as long as they don't have this session key, it will be hard for them to impersonate a real user. Note that all the communication between browser and any TEA nodes are encrypted to prevent middle man and replay attacks.
 

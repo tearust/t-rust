@@ -1,4 +1,4 @@
-Let's focus on the sample-txn-executor folder in this article. This is a brand new folder and it'll build the wasm file that will be loaded into the state machine.
+Let's focus on the sample-txn-executor folder in this article. This is a brand new folder and it'll build the wasm file that will be loaded into the [state machine](../z_glossary/state_machine.md) .
 
 ## Folder structure
 
@@ -56,7 +56,7 @@ pub enum Status {
 
 Their name explains the meaning.
 
-The most important concept is Txn:
+The most important concept is [txn](../z_glossary/txn.md):
 
 ````
 #[derive(Debug, Clone, Serialize, Deserialize, AsRefStr, Display)]
@@ -134,7 +134,7 @@ access:
 
 ````
 
-You can go to the developer documentation for the usage for each provider actor. Because the `sql` branch has added a lot of system features such as fund transfer, sql access, storage etc, it's requred to claim the list in the manifest. Otherwise, the access will be banned by the tea-runtime.
+You can go to the developer documentation for the usage for each provider actor. Because the `sql` branch has added many system features such as fund transfer, sql access, storage etc, it's required to claim the list in the manifest. Otherwise, the access will be banned by the tea-runtime.
 
 ### tables.sql is a standard sql script
 
@@ -243,7 +243,7 @@ pub(crate) async fn create_task(tsid: Tsid, task: &Task) -> Result<()> {
 
 The function `exec_sql` will run the SQL scripts.
 
-In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql). This is not a fully featured SQL engine, so please review GlueSQL for more detail. In our tutorial, we only use very basic SQL features. For example, we didn't use auto increase ID but the subject as ID. This is not ideal but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
+In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql). This is not a fully featured SQL engine, so please review our documentation entry for [GlueSQL](../z_glossary/gluesql.md) ) for more detail. In our tutorial, we only use very basic SQL features. For example, we didn't use auto increase ID but instead used the subject as ID. This is not ideal but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
 
 Please make sure `sql_init` is called at `Txns::Init`. 
 
@@ -267,7 +267,7 @@ TODO:// GOD_MODE_AUTH_KEY will be replaced later
 
 Lib.rs is the entry point of the whole sample-txn-executor. It has the same structure as the sample-actor. 
 
-First, we should also list all Txns that we can handle:
+First, we should also list all [txns](../z_glossary/txn.md) that we can handle:
 
 ````
 impl Handles<()> for Actor {

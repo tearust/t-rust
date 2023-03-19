@@ -20,5 +20,5 @@ There are two folders in the root of the **tutorial-v1** code repo:
 - sample-actor: This is the back end lambda function that's similar to the backend web services in the web2 world.
 - sample-front-end: This is the front end code that's similar to the frontend SPA in the web2 world.
 
-In the future steps (branches) you'll see a new folder called sample-txn-executor. That's the transaction handler function that runs inside the [[t-rust/obsidian/_gitbook-dev-docs/z_glossary/state_machine]]. It's similar to the stored procedures of databases in the web2 world.
+In the future steps (branches) you'll see a new folder called sample-txn-executor. That's the transaction handler function that runs inside the [state machine](../z_glossary/state_machine.md). It's similar to the stored procedures of databases in the web2 world.
 

@@ -108,7 +108,7 @@ async createNewTask(self, param={}, succ_cb){
 
 First we get the session_key. This is used as Auth_b64 that we explained before, and will be reference as `authB64: session_key` later.
 
-A modal window will then open up to show a form where the user can input the content. Once commited, it will call the `cb` callback function. This callback function gathers all input task parameters, then send back via `txn.txn_request`. After that, close the modal and clear the Loading backdrop. 
+A modal window will then open up to show a form where the user can input the content. Once commited, it will call the `cb` callback function. This callback function gathers all input task parameters, then sends them back via `txn.txn_request`. After that, we close the modal and clear the Loading backdrop. 
 
 ## Other operation: delete, task, complete
 

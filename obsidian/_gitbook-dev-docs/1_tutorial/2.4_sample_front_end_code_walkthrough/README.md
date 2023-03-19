@@ -41,7 +41,7 @@ It simply send an axios post to `/say-hello` with the following JSON content:
 
 This is an example of how we test the sample-actor using CURL or Postman.
 
-Another thing we need to mention is the LAYER2_URL env var. This is the address to the backend actor. It's defined in the `.env.test` file.
+Another thing we need to mention is the LAYER2_URL env var. This is the address to the [backend actor](../z_glossary/back_end_actor.md). It's defined in the `.env.test` file.
 
 ```
 NODE_ENV = dev

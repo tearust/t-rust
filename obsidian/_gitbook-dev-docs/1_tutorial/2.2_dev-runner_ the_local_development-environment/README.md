@@ -22,7 +22,7 @@ The local development environment (dev-runner) is a docker configuration. It sim
 
 ### Prepare your custom actors
 
-If you have any custom wasm [[t-rust/docs/_gitbook-dev-docs/z_glossary/actor|actors]] needed to be loaded, please place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`, please cp this file to the `local/b-node` folder as the dev-runner will load all wasm actors inside the `local` folder. If the sample_actor.wasm file doesn't exist, you might've forgotten to build it. Run `./build.sh` to build it first. The build.sh should copy the wasm file to the `local/b-node` at the last step. 
+If you have any custom wasm [actors](../z_glossary/actor.md) needed to be loaded, please place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`, please cp this file to the `local/b-node` folder as the dev-runner will load all wasm actors inside the `local` folder. If the sample_actor.wasm file doesn't exist, you might've forgotten to build it. Run `./build.sh` to build it first. The build.sh should copy the wasm file to the `local/b-node` at the last step. 
 
 ### Start the docker container servers
 
@@ -85,7 +85,7 @@ In the next step, you'll learn how to deploy it to the testnet.
 
 Dev-runner is a docker simulator to real TEA-runtime. It is different in the following aspects:
 
-- There's no [[t-rust/docs/_gitbook-dev-docs/z_glossary/enclave|hardware security]]. 
+- There's no hardware security. 
 - There's only one host node and one state machine node.
 - No consensus is required since there's only one state machine node.
 - There's no real remote attestation. All nodes are "good " nodes.

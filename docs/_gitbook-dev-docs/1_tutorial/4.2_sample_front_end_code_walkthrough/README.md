@@ -157,4 +157,4 @@ Then call query_request to query.
 
 \`const rs = await txn.query_request('query_balance', opts);
 
-The function ` utils.layer1.balanceToAmount(rs.balance)` is used to convert the number to human readable text.
+The function `utils.layer1.balanceToAmount(rs.balance)` is used to convert the number to human readable text.

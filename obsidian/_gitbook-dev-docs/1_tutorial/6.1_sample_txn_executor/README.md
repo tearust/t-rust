@@ -67,7 +67,7 @@ let (tappstore_ctx, ctx) =
             
 This function `deposit_for_task` has a `ctx` input, also outputs  `tappstore_ctx` and `ctx`. This is very important. Ctx is the object that records all the changes the code logic "should" apply to the state. But until commited, the changes are only stored in the Ctx without actually modifying the state. If anything is wrong during the ctx execution, the code can simply throw an error and return, no changes will be applied to the state and the state will remain unchanged. 
 
-In order to keep all changes in `ctx` and commit at once to modify `ctx` at a later time, ALL functions will have ctx as an input as well as return `ctx` to the caller. 
+In order to keep all changes in `ctx` and commit at once to modify `ctx` at a later time, ALL functions will have ctx as an input as well as returning `ctx` to the caller. 
 
 In this function, the output has another tappstore_ctx rather than the sole input ctx. That's because the tappstore's state will be changed during the execution. We'll need to commit both ctx for this TApp AND the context of TAppStore. Why will we change the state of the TAppStore? It's because the deposit and TEA account balance are stored in the TAppStore state. This is designed for easier TApp development. In most cases, the TApp doesn't need to maintain a TEA token state in their own state. Nor does the user need to topup TEA tokens to all the TApps they're using. 
 
@@ -98,9 +98,9 @@ pub(crate) async fn take_task(
 }
 ```
 
-It's nothing new, but to change the table to make this work has taken this task.
+It's to change the table to mark that a worker has taken this task.
 
-Last, at the end of this txn, return the CommitContextList:
+Lastly, at the end of this [txn](../z_glossary/txn.md), return the CommitContextList:
 
 ```
             CommitContextList {

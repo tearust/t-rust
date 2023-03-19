@@ -1,6 +1,4 @@
-The tea sdk utills warpped a bunch of utilities that the developer will need to use to interact with the TEA system. The source code is at 
-
-[https://github.com/tearust/sdk/blob/master/utils/wasm-actor-utils/src/client/types.rs](https://github.com/tearust/sdk/blob/master/utils/wasm-actor-utils/src/client/types.rs)
+The tea sdk utills wraps a bunch of utilities that the developer will need to use to interact with the TEA system. The source code is at [https://github.com/tearust/sdk/blob/master/utils/wasm-actor-utils/src/client/types.rs](https://github.com/tearust/sdk/blob/master/utils/wasm-actor-utils/src/client/types.rs)
 
 Here's the list of functions:
 
