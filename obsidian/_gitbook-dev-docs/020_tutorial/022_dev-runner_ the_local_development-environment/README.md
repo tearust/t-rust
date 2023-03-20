@@ -12,9 +12,7 @@ In the previous step, we walked through the unit test. In this step, we'll walkt
 
 The local development environment (dev-runner) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 
-# Installation
-
-## Prerequisites
+## Prerequisites for Installation
 - Git
 - Docker: install docker and "docker compose"
 - Node.js
