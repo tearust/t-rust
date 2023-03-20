@@ -1,7 +1,7 @@
 Links to other articles.
 
-[Developer_requirement](Developer_requirement.md) -> published at *t-rust/docs/_gitbook-dev-docs/1_tutorial/Developer_requirements*
-*t-rust/obsidian/dev_portal_design/Hosting_actor_handlers*
+[Developer_requirement](Developer_requirement.md) 
+[Hosting_actor_handlers](Hosting_actor_handlers.md)
 [State_actor_handlers](State_actor_handlers.md)
 
 Dev portal is a system level TApp, made by TEA Core Team. Developers are the target users. 

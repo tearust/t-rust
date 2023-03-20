@@ -8,7 +8,7 @@ As is the case with all TApps, the TEA Party showcases the special features that
 
 * No one, including the host miner, can control or censor the content. The content is owned and protected by its creator's private key. A miner can choose to stop hosting the TApp, but it cannot selectively choose what content to show or hide.
 
-* There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](where_the_message_is_stored.md).
+* There's no free lunch. Every action that costs any computing resources needs to be paid by someone. In TEA Party's particular case, every message sent needs to be paid for. Additional charges also apply to store the message or to notify the recipient. For further information, read more about [where the messages are stored](../z_glossary/where_the_message_is_stored.md).
 
 In order to get the features above, the underlying technical layer is very different from the existing cloud computing and blockchain tech stacks. It's a new tech stack that's based on recent technologies.  However, the developers do not need to understand the complicated low level distributed system, they can build application **as if** it is still a centralized cloud computing architecture. This is the **charm of the TEA Project**.
 
@@ -45,9 +45,9 @@ The basic workflow would look like this:
 
 There are three types of storage options for different use cases.
 
-* [orbitdb](orbitdb.md): Based on IPFS / used for large blob storage. It's running on the [hosting CML](hosting_cml.md).
-* [State](../z_glossary/state.md): Usually used to store account balance. It runs inside the [state machine](state_machine.md).
-* [gluesql](gluesql.md): Distributed SQL server instances. It's located inside the [state machine](state_machine.md).
+* [orbitdb](../z_glossary/orbitdb.md): Based on IPFS / used for large blob storage. It's running on the [hosting CML](../z_glossary/hosting_cml.md).
+* [State](../z_glossary/state.md): Usually used to store account balance. It runs inside the [state machine](../z_glossary/state_machine.md).
+* [gluesql](gluesql.md): Distributed SQL server instances. It's located inside the [state machine](../z_glossary/state_machine.md).
 
 ## Comparison between the three storage options
 
@@ -94,18 +94,18 @@ The TEA Project doesn't require the developer to use the Rust programming langua
 
 #### Layer2 without Rollups
 
-The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's *no need to verify the computing results*. This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
+The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's \[no need to verify the computing results\](The_future_and_innovation_of_layer2.md#We Trust the Result by Verifying the Environment). This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
 
 #### Layer2 decoupled with layer1
 
-TEA Project runs *on top of different kinds of blockchains* interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
+TEA Project runs \[on top of different kinds of blockchains\](The_future_and_innovation_of_layer2.md#Layer1 Agnostic) interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
 
 #### Hardware
 
 The TEA Project is very different from many other blockchain projects. TEA relies on two types of hardware in order to reach a special type of consensus: 
 
-* [tpm](tpm.md).
-* [gps](gps.md).
+* [tpm](../z_glossary/tpm.md).
+* [gps](../z_glossary/gps.md).
 
 Please click the above links to learn more about how and why the TEA Project uses these technologies.
 
@@ -115,4 +115,4 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](t-rust/obsidian/_gitbook-dev-docs/010_core_docs/teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](teaparty.md).

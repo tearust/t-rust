@@ -1,7 +1,7 @@
 Links to other articles.
 
-[[Developer_requirement]] -> published at [[t-rust/docs/_gitbook-dev-docs/1_tutorial/Developer_requirements]]
-[[t-rust/obsidian/dev_portal_design/Hosting_actor_handlers]]
+[[Developer_requirement]] 
+[[Hosting_actor_handlers]]
 [[State_actor_handlers]]
 
 
