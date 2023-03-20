@@ -1,6 +1,7 @@
-Although there are a lot of UI changes, but the changes are minimal. And most of them are just pure web front end code, we do not need to explain those. So let's focus on the logic related code in `views/TaskMain.vue`.
+Although there are a lot of UI changes here, the under the hood changes are minimal. And most of them are just pure web front end code so we don't need to explain those. So let's focus on the logic related code in `views/TaskMain.vue`.
 
 ## Query tasks
+
 ```
     async refreshList(){
       this.$root.loading(true);
@@ -25,12 +26,11 @@ Follow the queryTaskList to the task.js
   }
 ```
 
-The function txn.query_request is the utility that did the most heavy lifting. We have explained this utility and others before. 
-
+The function txn.query_request is the utility that does most of the heavy lifting. We have explained this utility and others like it before. 
 
 ## Create New Task
-
 In TaskMain.vue
+
 ```
     async createNewTask(){
       try{
@@ -45,6 +45,7 @@ In TaskMain.vue
 ```
 
 Similiarly, we dive into task.js
+
 ```
 async createNewTask(self, param={}, succ_cb){
     const session_key = user.checkLogin(self);
@@ -104,16 +105,16 @@ async createNewTask(self, param={}, succ_cb){
   },
 ```
 
-First we get the session_key. This is used as Auth_b64 that we explained before. See `authB64: session_key` later.
+First we get the session_key. This is used as Auth_b64 that we explained before, and will be reference as `authB64: session_key` later.
 
-Then model open to show a form, user can input the content, once commit, it will call the `cb` callback function. This callback function gather all input task parameters, then `txn.txn_request`. After that, close the model then clear the Loading backdrop. 
+A modal window will then open up to show a form where the user can input the content. Once commited, it will call the `cb` callback function. This callback function gathers all input task parameters, then sends them back via `txn.txn_request`. After that, we close the modal and clear the Loading backdrop. 
 
-## Other operation: delete, task, complate
+## Other operation: delete, task, complete
 
 Those operations follow the same pattern but simpler.
 
 ## Summary
 
-So you may noticed the pattern we used in the front end.
+So you may have noticed the pattern we used in the front end.
 
-It will be either a query_request or a txn_request. This is exactly the same as we have done for more than a decade on the traditional web2 development. So the TEA Project is a smooth ramp from web2 to web3.
+It will be either a query_request or a txn_request. This is exactly the same as we 've done for more than a decade in traditional web2 development. So the TEA Project is a smooth ramp from web2 to web3.

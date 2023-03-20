@@ -2,13 +2,13 @@ In this tutorial, we we'll learn how to transfer funds.
 
 The business workflow of this step would be:
 
-- After owner creates a task, another person called "absent-minded" will try to work on this task. "Absent-minded" takes this task and clicks "complete" when done.
-- The owner verifies that the worker hasn't completed the task to specification. So the owner "rejects" the task. 
-- "Absent-minded" loses their deposit.
-- The third user called "hard-worker" takes the same task and clicks "complete" when done.
-- The owner verifies hard-worker's work is successfully done and clicks the "Confirm" button.
-- The winner takes the price and the absent-minded's deposit.
-- The task is done.
+* After owner creates a task, another person called "absent-minded" will try to work on this task. "Absent-minded" takes this task and clicks "complete" when done.
+* The owner verifies that the worker hasn't completed the task to specification. So the owner "rejects" the task. 
+* "Absent-minded" loses their deposit.
+* The third user called "hard-worker" takes the same task and clicks "complete" when done.
+* The owner verifies hard-worker's work is successfully done and clicks the "Confirm" button.
+* The winner takes the price and the absent-minded's deposit.
+* The task is done.
 
 We'll learn in this walkthrough how to transfer funds between users based on business logic. 
 
@@ -34,17 +34,17 @@ Because absent-minded is a new user, they have zero balance now. In order to con
 
 Then switch to the Task page where you'll find the UI has a "take" button as shown below:
 
-![[Pasted image 20230317091008.png]]
+![Pasted image 20230317091008.png](../../../Pasted%20image%2020230317091008.png)
 
 This task is created by the owner, so as a worker, "absent-minded" can take this task.
 
 After clicking "take", absent-minded is now the worker for this task. We'll simulate that this worker has done some work, then click "Complete".
 
-![[Pasted image 20230317091258.png]]
+![Pasted image 20230317091258.png](../../../Pasted%20image%2020230317091258.png)
 
 At this time, user absent-minded's balance changes from 1000 to 995. 
 
-![[Pasted image 20230317091328.png]]
+![Pasted image 20230317091328.png](../../../Pasted%20image%2020230317091328.png)
 
 That's because by taking this task, the user will need to pay 5 T as a deposit. In the next step, if their work was accepted by the owner, they would take the 5T deposit back as well as the 10T price reward. 
 
@@ -52,7 +52,7 @@ Now let's log out as absent-minded, and re-login with the Owner account.
 
 We can see the task has two buttons: "Confirm" and "Reject".
 
-![[Pasted image 20230317091629.png]]
+![Pasted image 20230317091629.png](../../../Pasted%20image%2020230317091629.png)
 
 In our demo, we assume that user "absent-minded" somehow mismanaged the task and that the owner isn't satisfied, so the owner clicks "Reject". Note, as a demo, we assume everyone is honest. We may get into a Secured Oracle Feature to make such decision out of human's control. But that would be in our future version and potentially in tutorial-v2.
 
@@ -64,7 +64,7 @@ This time, the owner is satisfied with the work of hard-worker. The owner thus w
 
 This task is "Done". To verify if the user "hard-worker" ahs received the 15T reward, you can logout of the owner account and log back in to hard-worker's account to check their balance. You should find 1015 T in their account balance.
 
-![[Pasted image 20230317092248.png]]
+![Pasted image 20230317092248.png](../../../Pasted%20image%2020230317092248.png)
 
 So the workflow matches our expectation.
 
@@ -73,4 +73,3 @@ So the workflow matches our expectation.
 From the `sql` step to `reward` step, there are no major changes for the sample-actor project. So we'll skip the sample-actor.
 
 There are a few updates on the sample-front-end project, but all of them are standard javascripts front end code changes with not too much relationship to our funding transfer feature. We'll skip the detailed explanation, please go to the source code at `src/layer2/task.js` to read the code yourself.
-
