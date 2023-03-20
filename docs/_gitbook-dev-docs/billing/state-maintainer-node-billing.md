@@ -1,6 +1,6 @@
 # State Maintainer Billing
 
-The [tapp-billing](tapp-billing.md) shows the revenue side for the state maintainer nodes, namely the txn fees and memory tax. To show a complete picture of the profitably of being a state maintainer we should also describe the associated expenses of running a state maintainer node.
+The [tapp-billing](t-rust/docs/_gitbook-dev-docs/billing/tapp-billing.md) shows the revenue side for the state maintainer nodes, namely the txn fees and memory tax. To show a complete picture of the profitably of being a state maintainer we should also describe the associated expenses of running a state maintainer node.
 
 The following graphic describes the state maintainer revenue and expenses and their destinations:
 

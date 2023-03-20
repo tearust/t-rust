@@ -4,17 +4,17 @@
 
 https://github.com/tearust/sample-actor is the `hello world` boilerplate for TApp development. Instead of building your own app from ground up, you can clone this boilerplate and build your own logic upon. In our tutorial, we'll start with this boilerplate and build our own TApp. In this lesson, you'll learn:
 
-* [How to clone the boilerplate repo](README.md#clone-and-rename-project).
-* [How to build the wasm actor](README.md#build-wasm-actor).
-* [How to run the unit test](README.md#run-unit-test).
+* [How to clone the boilerplate repo](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.0_clone-and-rename-project/README.md#clone-and-rename-project).
+* [How to build the wasm actor](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.0_clone-and-rename-project/README.md#build-wasm-actor).
+* [How to run the unit test](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.0_clone-and-rename-project/README.md#run-unit-test).
 * The standard code structure of TApps.
-* [Detailed code walkthrough](README.md#sample-actor-code-walkthrough).
+* [Detailed code walkthrough](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.0_clone-and-rename-project/README.md#sample-actor-code-walkthrough).
 
 First we'll build a sample wasm actor that serves as a web service. It can respond to GET http requests and return a "hello world" string. It also has an AddRequest to add two input numbers, but this request is not hooked up with any http requests so you cannot try it from your browser. You can still see it work from the unit test though.
 
 ## Clone and Rename Project
 
-Run `git clone https://github.com/tearust/tutorial-v1.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
+Run `git clone https://github.com/tearust/tutorial-v1.git` to clone the boilerplate to local. You can also rename the project to your own project name so that you can publish it to your own repo in the future. Please read the [Sample actor code walkthrough](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.0_clone-and-rename-project/README.md#sample-actor-code-walkthrough) to replace the project name in the two`Cargo.toml` files.
 
 ## Build wasm actor
 

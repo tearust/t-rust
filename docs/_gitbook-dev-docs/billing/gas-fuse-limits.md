@@ -19,4 +19,4 @@ The following table summarizes what happens when these two levels, gas limit and
 |Exceeded **gas limit** but not yet reached the **fuse** level. |Actor exits normally, memory is released.  |Developer pays for any gas amount above the gas limit, which is paid to the hosting miner. |
 |**Fuse** is tripped. |Actor is terminated by the mini runtime, and memory is set to be garbage collected. |Dev deposit is slashed completely when fuse is tripped and is paid to the hosting miner.|
 
-The developer can run their code in a [test environment](local-debug-environment.md) to get an idea of each actor’s memory usage as well as test for edge cases which cause high utilization.
+The developer can run their code in a [test environment](t-rust/docs/_gitbook-dev-docs/billing/local-debug-environment.md) to get an idea of each actor’s memory usage as well as test for edge cases which cause high utilization.

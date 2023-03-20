@@ -1,8 +1,8 @@
 In this step, you'll learn:
 
-* [Clone the sample-front-end as the boilerplate for the front end.](README.md#clone-the-front-end-boilerplate)
-* [Setup the environment.](README.md#setup-environment)
-* [Run the front end.](README.md#run-the-front-end)
+* [Clone the sample-front-end as the boilerplate for the front end.](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.2_make_sample_front_end_ui_project/README.md#clone-the-front-end-boilerplate)
+* [Setup the environment.](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.2_make_sample_front_end_ui_project/README.md#setup-environment)
+* [Run the front end.](t-rust/docs/_gitbook-dev-docs/1_tutorial/2.2_make_sample_front_end_ui_project/README.md#run-the-front-end)
 * Send a "say-hello" request and check the response.
 
 The `sample-front-end` folder contains the front end boilerplate we'll use in our tutorial. It has no real function other than a button that's clicked to send a "say-hello" json response to the sample-actor. When a response is received, it shows an alert in the UI. 

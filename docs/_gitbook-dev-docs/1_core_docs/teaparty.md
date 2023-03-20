@@ -4,13 +4,13 @@
 
 We built the TEA Party TApp to show: 
 
-* What a typical [Web3.0](What_makes_a_Web3_application.md) App (We call them TApps) looks like.
+* What a typical [Web3.0](t-rust/docs/_gitbook-dev-docs/1_core_docs/What_makes_a_Web3_application.md) App (We call them TApps) looks like.
 
 * The building blocks of a typical TApp.
 
 * How to use Tea Party as a boilerplate to build your own TApps.
 
-The TEA Party TApp is a useful social media application. Users can post messages to a public board as well as send private messages with notifications. See [how_to_use_TEA_Party](how_to_use_TEA_Party.md) for more information.
+The TEA Party TApp is a useful social media application. Users can post messages to a public board as well as send private messages with notifications. See [how_to_use_TEA_Party](t-rust/docs/_gitbook-dev-docs/1_core_docs/how_to_use_TEA_Party.md) for more information.
 
 ## Basic workflow
 
@@ -78,7 +78,7 @@ sequenceDiagram
 ## The magical Proof of Time state machine
 
 In this section, we'll explain how the distributed state machine works, including how it handles consensus among different replicas.
-Keep reading about the [magic_of_state_machine](magic_of_state_machine.md).
+Keep reading about the [magic_of_state_machine](t-rust/docs/_gitbook-dev-docs/1_core_docs/magic_of_state_machine.md).
 
 ## Understand WebAssembly Runtime
 

@@ -18,4 +18,4 @@ This latter scenario is exactly the reverse of what happens when TApp usage gene
 
 These actions — dividend payouts for profits and token dissolution for expenses — occur at regular settlement intervals. Because the bonding curve can remove tokens from among its holders, TApp token investors should perform due diligence on the TApp to ensure expenses are covered by the TApp usage fee. A TApp token is just like any other investment that has risks, and dividend payouts along with token subtractions are part of the nature of the bonding curve.
 
-More information is available in our [billing-faq](billing-faq.md).
+More information is available in our [billing-faq](t-rust/docs/_gitbook-dev-docs/billing/billing-faq.md).

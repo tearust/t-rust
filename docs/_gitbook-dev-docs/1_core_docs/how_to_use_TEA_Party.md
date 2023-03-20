@@ -4,7 +4,7 @@ Users can consult the [TEA Party user guide](https://teaproject.medium.com/tea-p
 
 ## Why is TEA Party a typical Web3 application?
 
-Before we get into this question, please read [What_makes_a_Web3_application](What_makes_a_Web3_application.md)? first.
+Before we get into this question, please read [What_makes_a_Web3_application](t-rust/docs/_gitbook-dev-docs/1_core_docs/What_makes_a_Web3_application.md)? first.
 
 Web3 applications are different than web 2.0 applications in multiple ways:
 

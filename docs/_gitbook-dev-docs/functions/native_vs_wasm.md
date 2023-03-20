@@ -32,4 +32,4 @@ We can’t currently measure the billing costs of the native function calls that
 
 ## Functions vs Actors
 
-Actors are a compiled document of related functions. For more information, please visit our [FAQ](actors-vs-functions.md).
+Actors are a compiled document of related functions. For more information, please visit our [FAQ](t-rust/docs/_gitbook-dev-docs/functions/actors-vs-functions.md).

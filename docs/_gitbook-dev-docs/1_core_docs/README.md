@@ -94,11 +94,11 @@ The TEA Project doesn't require the developer to use the Rust programming langua
 
 #### Layer2 without Rollups
 
-The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's [no need to verify the computing results](The_future_and_innovation_of_layer2.md#we-trust-the-result-by-verifying-the-environment). This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
+The TEA Project is considered a layer2 solution, but it has been designed with completely different mindset in comparison with existing roll-up solutions. We focus on providing a trustable computing infrastructure, hence why there's [no need to verify the computing results](t-rust/docs/_gitbook-dev-docs/1_core_docs/The_future_and_innovation_of_layer2.md#we-trust-the-result-by-verifying-the-environment). This allows the dApps running on our infrastructure to run at full speed, similar to cloud computing.
 
 #### Layer2 decoupled with layer1
 
-TEA Project runs [on top of different kinds of blockchains](The_future_and_innovation_of_layer2.md#layer1-agnostic) interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
+TEA Project runs [on top of different kinds of blockchains](t-rust/docs/_gitbook-dev-docs/1_core_docs/The_future_and_innovation_of_layer2.md#layer1-agnostic) interchangeably due to there being no rollup required. The layer 1 blockchain provides one of the three Roots of Trust, with the other two roots of trust coming from hardware. 
 
 #### Hardware
 
@@ -115,4 +115,4 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](t-rust/docs/_gitbook-dev-docs/1_core_docs/teaparty.md).

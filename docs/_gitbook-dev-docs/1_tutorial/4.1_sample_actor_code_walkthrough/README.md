@@ -50,7 +50,7 @@ If you want to override the default handler, you can define the handler function
 
 In this case, we didn't handle the login request, instead the default login handler inside the `tea_sdk::utils` is used. That's why we can write almost zero code to get the login feature.
 
-In our TEA SDK, there are many default handlers like login. For more detail about the `tea_sdk::utils` please go to [tea_sdk_utils](tea_sdk_utils.md)
+In our TEA SDK, there are many default handlers like login. For more detail about the `tea_sdk::utils` please go to [tea_sdk_utils](t-rust/docs/_gitbook-dev-docs/1_tutorial/4.1_sample_actor_code_walkthrough/tea_sdk_utils.md)
 
 You may also notice that the AddRequest handler is removed given it's no longer used in this and future steps.
 
