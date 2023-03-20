@@ -19,12 +19,8 @@ After following the full tutorial, you should be able to create your own TApps b
 
 ## Try before build
 
-TODO://
-George, please add a paragraph here, telling the reader how to run the tutor-v1 on our testnet. 
-Use the screenshots and user workflow. You can take screenshot from the nitro deployment at http://43.201.23.47:8080/ipfs/QmberYsF6kSVbrxzp1DZuMtcZTfvCWG13ZePLi4PVcHyY8/#/discover
+This tutorial will culminate in building a decentralized gig task app similar to Fiverr.com. Before actually taking all the steps to build the app, users can run the app on our AWS Nitro deployment at http://43.201.23.47:8080/ipfs/QmberYsF6kSVbrxzp1DZuMtcZTfvCWG13ZePLi4PVcHyY8/#/discover
 
-but we will have tutor-v1 deployed to the wallet.teaproject.org too. but not tonight.
+Just login with your Ethereum account using Metamask and click on **tutorial-v1** to start the app.
 
-Tell step by step how to use this tutor-v1 app. 
-
-The full work flow has been explained in the 6.0 reward. Please use the same workflow. 
+Instructions to use this app are explained [elsewhere in the tutorial](020_tutorial/060_reward_fund_transfer/README.md).
