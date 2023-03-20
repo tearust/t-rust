@@ -1,3 +1,4 @@
+# SQL
 In this tutorial, we'll learn how to write SQL scripts in TApp development.
 
 The business goal of this step would be:

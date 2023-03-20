@@ -1,4 +1,4 @@
-
+# Summary
 ## Three parts of a typical TApp
 
 We have gong through the entire process of building a TApp. The development contains three major projects.

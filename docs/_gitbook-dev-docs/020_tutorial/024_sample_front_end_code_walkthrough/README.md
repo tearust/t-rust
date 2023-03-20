@@ -1,3 +1,5 @@
+# Sample Front-end Code Walkthrough
+
 The `master` branch of the tutorial is the simple "hello world" example. There's not much front-end logic to explain. In contrast, the `login` branch is a  **typical** TApp boilerplate. We'll dig into more detail when we get there in our next step.
 
 For the current `master` branch, you can see a typical VUE front-end Single Page Application. 

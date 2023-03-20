@@ -1,3 +1,5 @@
+# Sample-actor Code Walkthrough - Login Branch
+
 In the `login` branch, the majorify of the logic is in the frontend. There are only a few code changes in the backend to handle the login and faucet logic. Let's walk through it all.
 
 We moved the function to handle "say-hello" from lib.rs to a new file called `dfn.rs`. A new handler "faucet" has also been added. This is used to send faucet [txn](../../z_glossary/txn.md) when the user clicks the "faucet" button in the frontend.

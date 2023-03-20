@@ -1,3 +1,5 @@
+# Sample Txn Executor
+
 Let's focus on the sample-txn-executor folder in this article. This is a brand new folder and it'll build the wasm file that will be loaded into the [state machine](../../z_glossary/state_machine.md) .
 
 ## Folder structure

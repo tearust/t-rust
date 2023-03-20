@@ -1,4 +1,4 @@
-
+# Sample Actor
 Because most of the newly added logic stays in the newly added sample-txn-executor, the sample-actor only adds a new request handler. Those handlers do nothing but receive and relay to the [state machine](../../z_glossary/state_machine.md)  because all of them are supposed to be handled in the state machine SQL instances.
 
 ## dfn.rs

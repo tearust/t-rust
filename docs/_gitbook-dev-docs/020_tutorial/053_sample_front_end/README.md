@@ -1,3 +1,5 @@
+# Sample Front-end
+
 Although there are a lot of UI changes here, the under the hood changes are minimal. And most of them are just pure web front end code so we don't need to explain those. So let's focus on the logic related code in `views/TaskMain.vue`.
 
 ## Query tasks

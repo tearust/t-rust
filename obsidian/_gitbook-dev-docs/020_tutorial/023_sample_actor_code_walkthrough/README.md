@@ -1,4 +1,5 @@
-Assumming you have successfully built and run the unit test, let's get into the code structure details of this sample [actor](../../z_glossary/actor.md).
+# Sample Actor Code Walkthrough
+Assuming you have successfully built and run the unit test, let's get into the code structure details of this sample [actor](../../z_glossary/actor.md).
 
 ### Folder structure overview
 ```

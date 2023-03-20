@@ -1,3 +1,5 @@
+# Sample Front-end Walkthrough - Login Branch
+
 The sample-front-end has some major code changes from the `master` branch. Don't worry, this should be the only major change for the rest of the steps. The reason we've introduced these major changes is because we have put all commonly used utilities into this branch. In the future steps, major changes will be hapenning in the sample-actor backend. 
 
 This `login` branch is probably the best boilerplate that you can build your own TApp from because it has all major commonly used utiility features, such as login, fund transfer etc.
