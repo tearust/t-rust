@@ -30,7 +30,9 @@ The txn executor actor runs inside every state machine nodes.
 
 ## Local development and local test
 
-TODO://
+You are not supposed to run a prototype in the production environment because you are risk on real money. Deployment testnet won't need real money, but it takes some time and longer feedback loop. So the best way to test your business logic would be run it locally. 
+
+Like Hardhat for Ethereum development, we have Dev-Runner for local simulator. There are still a few differences between the production and local Dev-Runner. For example, you may have an additional admin page to trigger initiliazation step. This step is part of the Developer Portal in the production. Also, you can use **faucet** to get free test token, this is not possible in the production.
 
 ## Deployment 
 
@@ -42,4 +44,8 @@ TODO://
 
 ## What's the next
 
-TODO://
+There are many simplification or placeholders in our tutorial-v1, such as:
+- The task title is unique value. If someone created "Buy me a beer", no one else can create a task with the same title later.
+- The creator need to be honest when verify the worker's work. We need a "secured oracle" to determine if the task is completed successfully without rely on creator's honesty.
+- There is no time limit. The worker can take a task and never complete
+
