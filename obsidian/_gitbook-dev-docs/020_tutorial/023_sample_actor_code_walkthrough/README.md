@@ -1,4 +1,4 @@
-Assumming you have successfully built and run the unit test, let's get into the code structure details of this sample [actor](../z_glossary/actor.md).
+Assumming you have successfully built and run the unit test, let's get into the code structure details of this sample [actor](../../z_glossary/actor.md).
 
 ### Folder structure overview
 ```
@@ -17,7 +17,7 @@ Folders and their usage:
 
 - `Cargo.lock` is a temp file generated during building. We can ignore it unless you want to check the dependency versions.
 - `Cargo.toml` is the root cargo config of this project. It contains only two other workspaces: `codec` and `impl`.
-- `build.sh` is the script that builds the wasm [actor](../z_glossary/actor.md).
+- `build.sh` is the script that builds the wasm [actor](../../z_glossary/actor.md).
 - `codec` is one of the two main workspaces. It's related to the definitions of the data structures that will be used by other modules. Consider it an "interface" definition.
 - `impl` is another of the two main workspaces. It's related to the implementation of the code logic.
 - `rust-toolchain.toml` defines the build environment, versions. etc
@@ -205,9 +205,9 @@ Note the line
 We'll need to use the data types defined in the codec folder.
 
 During development, we'll use **mock** for unit testing. So you can see the line
-`tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm [actor](../z_glossary/actor.md)  and run the unit test functions in your dev machine without deploying to the testnet.
+`tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm [actor](../../z_glossary/actor.md)  and run the unit test functions in your dev machine without deploying to the testnet.
 
-**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the [TEA-runtime](../z_glossary/mini-runtime.md)] to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
+**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the [TEA-runtime](../../z_glossary/mini-runtime.md)] to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
 
 The `manifest.yaml` file:
 

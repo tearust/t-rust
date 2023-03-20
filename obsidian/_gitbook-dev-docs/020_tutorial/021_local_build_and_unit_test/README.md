@@ -1,7 +1,7 @@
 # Build sample-actor and Run Unit Test
 ## Build sample-actor
 
-The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the [TEA-runtime](../z_glossary/mini-runtime.md) which we'll talk about more in future steps. Now let's focus on how to build it.
+The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the [TEA-runtime](../../z_glossary/mini-runtime.md) which we'll talk about more in future steps. Now let's focus on how to build it.
 
 Assuming you have cloned the code and installed all dependencies as instructed in previous step. If not, please do so now. Make sure the following items have been installed correctly:
 
@@ -46,7 +46,6 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ```
 
-
 When you want to test a request handler and expect it to return an error, you can use the following example:
 
 ```
@@ -70,7 +69,6 @@ Ok(())
 }
 
 ```
-
 
 You should see that the tests have passed. 
 

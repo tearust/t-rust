@@ -99,7 +99,7 @@ pub(crate) async fn take_task(
 
 It's to change the table to mark that a worker has taken this task.
 
-Lastly, at the end of this [txn](../z_glossary/txn.md), return the CommitContextList:
+Lastly, at the end of this [txn](../../z_glossary/txn.md), return the CommitContextList:
 
 ````
             CommitContextList {

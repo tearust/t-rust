@@ -1,4 +1,4 @@
-Because most of the newly added logic stays in the newly added sample-txn-executor, the sample-actor only adds a new request handler. Those handlers do nothing but receive and relay to the [state machine](../z_glossary/state_machine.md)  because all of them are supposed to be handled in the state machine SQL instances.
+Because most of the newly added logic stays in the newly added sample-txn-executor, the sample-actor only adds a new request handler. Those handlers do nothing but receive and relay to the [state machine](../../z_glossary/state_machine.md)  because all of them are supposed to be handled in the state machine SQL instances.
 
 ## dfn.rs
 
@@ -71,7 +71,7 @@ pub async fn delete_task(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>
 
 We first created a DeleteTask txn, then use `send_custom_txn` utility to send it to the state machine.
 
-When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../z_glossary/queries.md) the [txn](../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in sample-txn-executor/impl/manifest.yaml. This is how the TEA Project locates and identifies every [actor](../z_glossary/actor.md).
+When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../../z_glossary/queries.md) the [txn](../../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in sample-txn-executor/impl/manifest.yaml. This is how the TEA Project locates and identifies every [actor](../../z_glossary/actor.md).
 
 ## check_auth
 

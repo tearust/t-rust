@@ -8,7 +8,7 @@ The business goal of this step would be:
 * User can delete a task.
 * User can list all tasks. 
 
-Being able to use SQL is a major advantage that TEA Project has over other web3 platforms. TEA Project is not a blockchain; it has distributed SQL instances in every state machine node. The **Proof-of-time** consensus can make sure all [nodes](../z_glossary/hosting_cml.md) reach the same [state](../z_glossary/state.md) (strong [consensus](../z_glossary/consensus.md)) after a time buffer elapses. 
+Being able to use SQL is a major advantage that TEA Project has over other web3 platforms. TEA Project is not a blockchain; it has distributed SQL instances in every state machine node. The **Proof-of-time** consensus can make sure all [nodes](../../z_glossary/hosting_cml.md) reach the same [state](../../z_glossary/state.md) (strong [consensus](../../z_glossary/consensus.md)) after a time buffer elapses. 
 
 For developers, it's as simple as what they did in traditional web2 development as if there's an SQL database under the hood. The only difference would be that the changes will be taking effect after a time buffer. This time buffer is set to 3 seconds during the TEA Project beta. After this time buffer, the state change will be shown in your next query. 
 
@@ -16,9 +16,9 @@ Although the step to get free test tokens should technically be in the next tuto
 
 ## Understand the sample-txn-executor actor
 
-You'll need to `git checkout sql` to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This [actor](../z_glossary/actor.md) is usally called "A-actor" internally. The previous `sample-actor` is usually called "B-actor". Although the official names for A-actor should be state machine actor and B-actor should be called hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
+You'll need to `git checkout sql` to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This [actor](../../z_glossary/actor.md) is usally called "A-actor" internally. The previous `sample-actor` is usually called "B-actor". Although the official names for A-actor should be state machine actor and B-actor should be called hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
 
-Similar to 3-tier architecture in traditional web2 development, the hosting actor is the lambda function running inside the Web Server, while the state machine actor is running inside the [state machine](../z_glossary/state_machine.md)  similar to a database stored procedure.
+Similar to 3-tier architecture in traditional web2 development, the hosting actor is the lambda function running inside the Web Server, while the state machine actor is running inside the [state machine](../../z_glossary/state_machine.md)  similar to a database stored procedure.
 
 ## Client \<-> Hosting actor \<-> State machine actor workflow
 
@@ -29,7 +29,7 @@ The common request -> response work flow would be as follows:
 * If the hosting actor sample-actor can't respond immediately, it will respond directly back to the client. The request -> response loop ends.
 * If the hosting actor cannot respond immediately, it usually sends another txn to the state machine node. At the same time a UUID response is sent back to the browser (client). The client will know it has to query the result at a later time using the UUID.
 * The state machine node receives the txn from the hosting node. The txn is queued in the Proof of Time conveyor, sorted and eventually executed in turn by the sample-txn-executor actor.
-* The sample-txn-executor may change the state in the state machine in case of a [command](../z_glossary/commands.md), or not change the state at all in the case of a [query](../z_glossary/query.md). The state machine will update the hosting node with the result, either success or an error.
+* The sample-txn-executor may change the state in the state machine in case of a [command](../../z_glossary/commands.md), or not change the state at all in the case of a [query](../../z_glossary/query.md). The state machine will update the hosting node with the result, either success or an error.
 * The client will periodically query the hosting node for the result of the previous request using the UUID.
 * The hosting node will eventually get the update from the state machine node along with the result associated with the UUID. After the hosting node has the result, the next client query will receive the response back of the UUID and the result.
 * The browser (client) will get a notification that the txn has been executed along with the execution status, either successful or an error.
