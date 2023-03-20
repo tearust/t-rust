@@ -40,11 +40,12 @@ TODO://
 
 ## Gas fee
 
-TODO://
+TODO://![[Pasted image 20230320085836.png]]
 
 ## What's the next
 
 There are many simplification or placeholders in our tutorial-v1, such as:
+- The developer has not get paid yet.
 - The task title is unique value. If someone created "Buy me a beer", no one else can create a task with the same title later.
 - The creator need to be honest when verify the worker's work. We need a "secured oracle" to determine if the task is completed successfully without rely on creator's honesty.
 - There is no time limit. The worker can take a task and never complete
