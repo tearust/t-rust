@@ -7,12 +7,12 @@ Let's focus on the sample-txn-executor folder in this article. This is a brand n
 All actors have the same folder structure:
 
 * codec contains all the type definitions.
-* impl contains all logic.
+* impl contains all the logic.
 
 One thing to be mentioned and likely overlooked is the last line in the build.sh file:
 `cp -r target/wasm32-unknown-unknown/release/sample_txn_executor.wasm ../../dev-runner/local/a-node/`
 
-You may have already noticed that the destination folder is **a-node** instead of **b-node** of sample-actor. 
+You may have already noticed that the destination folder is an **a-node** instead of a **b-node** of the sample-actor. 
 
 ## Codec
 
@@ -90,13 +90,13 @@ pub enum Txns {
 
 ````
 
-Those Txn types are the Transaction objects that the hosting nodes (where b-actor is running) send to the state machine (A-actor) to handle. It's similar to the stored procedure inside the databases of the web2 era.
+Those Txn types are the Transaction objects that the hosting nodes (where the b-actor is running) send to the state machine (A-actor) to handle. It's similar to the stored procedures inside of databases of the web2 era.
 
 Every txn will have the parameters, and the execution logic of these txn will be inside the `impl` folder. 
 
 In the lib.rs file, we have defined Requests and Responses as we did in our last step:
 
-A new struct TaskQueryRequests:
+There's a new struct TaskQueryRequests:
 
 ````
 #[derive(Debug, Clone, Serialize, Deserialize, TypeId)]
@@ -112,7 +112,7 @@ and a response that returns a Vec of tasks. The Task has a type `txn::Task`.
 
 They're used in Queries from the hosting nodes. When B-actor wants to query a list of Tasks they can use these conditions. 
 
-Note: In TEA Project future versions, a local state cache will be provided to the hosting nodes. So in most cases, there's no need for the hosting node to query the list of Tasks from the state machine, which will ultimately reduce the cost.
+Note: In TEA Project future versions, a local state cache will be provided to the hosting nodes. So in most cases, there's no need for the hosting node to query the list of Tasks from the state machine, which will ultimately reduces the cost.
 
 ## Impl
 
@@ -200,9 +200,9 @@ define_scope! {
 
 ### Execute transactions in txn.rs
 
-Most of the logic are here inside the txn.rs function `txn_exec`.
+Most of the logic is here inside the txn.rs function `txn_exec`.
 
-You can see all txn defined in the codec has been handled in a `match` branch, then return a commit_ctx. The commit_ctx is a Context type which records all changes during the txn execution. However, before the commit_ctx is finally commited at the last of the `txn_exec` function, no actually changes happened in the state. That means, at any time, if the execution failed for whatever reason, the state will **NOT** be changed. 
+You can see all txns defined in the codec have been handled in a `match` branch, then return a commit_ctx. The commit_ctx is a Context type which records all changes during the txn execution. However, before the commit_ctx is finally commited at the last of the `txn_exec` function, no actual changes happened in the state. That means, at any time, if the execution failed for whatever reason, the state will **NOT** be changed. 
 
 Let's use CreateTask as an example:
 
@@ -245,7 +245,7 @@ pub(crate) async fn create_task(tsid: Tsid, task: &Task) -> Result<()> {
 
 The function `exec_sql` will run the SQL scripts.
 
-In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql). This is not a fully featured SQL engine, so please review our documentation entry for [GlueSQL](../../z_glossary/gluesql.md) ) for more detail. In our tutorial, we only use very basic SQL features. For example, we didn't use auto increase ID but instead used the subject as ID. This is not ideal but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
+In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql). This is not a fully featured SQL engine, so please review our documentation entry for [GlueSQL](../../z_glossary/gluesql.md) ) for more details. In our tutorial, we only use very basic SQL features. For example, we didn't use auto increase ID but instead used the subject as ID. This is not ideal but good enough to demonstrate the logic. Teaching SQL is not the purpose of this tutorial.
 
 Please make sure `sql_init` is called at `Txns::Init`. 
 

@@ -71,7 +71,7 @@ pub async fn delete_task(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>
 
 We first created a DeleteTask txn, then use `send_custom_txn` utility to send it to the state machine.
 
-When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../../z_glossary/queries.md) the [txn](../../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in sample-txn-executor/impl/manifest.yaml. This is how the TEA Project locates and identifies every [actor](../../z_glossary/actor.md).
+When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../../z_glossary/queries.md) the [txn](../../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in `sample-txn-executor/impl/manifest.yaml`. This is how the TEA Project locates and identifies every [actor](../../z_glossary/actor.md).
 
 ## check_auth
 
@@ -81,11 +81,11 @@ Auth control is a large topic and in our tutorial we only explain how to use it.
 
 `check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?`
 
-This function will verify that req.auth_b64 matches the req.address from the recorded user log in data. If it fails, an error would be thrown. Basically, the auth_b64 is a session key. The TAppStore actor stores session information using this auth_b64 as a key. The client needs to keep the auth_b64 safely. Any malicious hacker, as long as they don't have this session key, it will be hard for them to impersonate a real user. Note that all the communication between browser and any TEA nodes are encrypted to prevent middle man and replay attacks.
+This function will verify that req.auth_b64 matches the req.address from the recorded user's login data. If it fails, an error would be thrown. Basically, the auth_b64 is a session key. The TAppStore actor stores session information using this auth_b64 as a key. The client needs to keep the auth_b64 in safe storage. It'll be hard for a malicious hacker, as long as they don't have this session key, to impersonate a real user. Note that all the communication between browser and any TEA nodes are encrypted to prevent middle man and replay attacks.
 
-## faucet
+## Faucet
 
-Faucet is a special feature that only lives in the local dev-runner. The developer needs some test tokens even during local testing. So we make a faucet button function to get 1000 free test token from DAO_RESERVE. Of course this will not be the case in the testnet or production.
+Faucet is a special feature that only lives in the local dev-runner. The developer needs some test tokens even during local testing. So we make a faucet button function to dispense 1000 free test token from DAO_RESERVE. Of course this will not be the case in the testnet or production.
 
 Faucet request is handled by `"faucet" => api::txn_faucet(arg, from_actor).await?,`.
 
@@ -122,7 +122,7 @@ The main logic is wrapped into the `TappstoreTxn::TransferTea` function.
 
 TAppStore is the most important system actor that handles most system calls. You can get more information about it from the developer documents. In this step, we can see it requests transferring 1000 T from DAO_RESERVE to the current login user. The token_id is TAppStore not this TApp's id. This is very important because all TEA token in the layer2 will be stored under the token_id == TAppStore. If the token_id == my_new_build_tapp, the currency is not TEA, but your own layer2 token (e.g. my_sample_task_coin). 
 
-There are two functions we're not going to explain here: they are `init_db` and `init_token`. They're not a part of the real production environment. We need them purely because we need a mock to initialize the TApp state and database in the local development environment. These tasks will be done by the Developer portal in the real environment. 
+There are two functions we're not going to explain here: they are `init_db` and `init_token`. They're not a part of the real production environment. We need them purely because we need to simulate initializing the TApp state and database in the local development environment. These tasks will be done by the Developer portal in the real environment. 
 
 
 

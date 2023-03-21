@@ -22,7 +22,7 @@ In order to clean up the [state](../../z_glossary/state.md)  data from previous 
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
-Go to sample-front-end and `npm start`. Go to http://localhost:3200.
+Go to sample-front-end and run `npm start`. Then in your browser, navigate to http://localhost:3200.
 
 Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons before anything else which we've explained the reason why previously.
 

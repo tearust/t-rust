@@ -27,10 +27,10 @@ Follow the queryTaskList to the task.js
   }
 ```
 
-The function txn.query_request is the utility that does most of the heavy lifting. We have explained this utility and others like it before. 
+The function txn.query_request is the utility that does most of the heavy lifting. We've explained this utility and others like it before. 
 
 ## Create New Task
-In TaskMain.vue
+In TaskMain.vue:
 
 ```
     async createNewTask(){
@@ -45,7 +45,7 @@ In TaskMain.vue
     },
 ```
 
-Similiarly, we dive into task.js
+Similiarly, we dive into task.js:
 
 ```
 async createNewTask(self, param={}, succ_cb){
@@ -118,4 +118,4 @@ Those operations follow the same pattern but simpler.
 
 So you may have noticed the pattern we used in the front end.
 
-It will be either a query_request or a txn_request. This is exactly the same as we 've done for more than a decade in traditional web2 development. So the TEA Project is a smooth ramp from web2 to web3.
+It will be either a query_request or a txn_request. This is exactly the same as we 've done for more than a decade in traditional web2 development. So the TEA Project is a smooth onramp from web2 to web3.

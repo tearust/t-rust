@@ -39,7 +39,7 @@ In this step, we'll use SQL as an example to demo how this workflow works. All o
 
 ## Build
 
-You'll need to build two wasm files that are located in the `sample-actor` and `sample-txn-executor` folders. You'll also need to copy the target wasm file to the `dev-runner/local/a-node` folder. Note: unlike sample_actor.wasm goes to the **b-node**, this sample_txn_executor.wasm goes to the **a-node**. This is because it runs in the state machine. 
+In your local `tutorial-v1` repo, you'll need to build two wasm files that are located in the `sample-actor` and `sample-txn-executor` folders. The target wasm files will be copied to the `dev-runner` repo: specifically to `/local/b-node` and to `dev-runner/local/a-node` respectively. Note: unlike the `sample_actor.wasm` file that goes to the **b-node**, this `sample_txn_executor.wasm` goes to the **a-node**. This is because it runs in the state machine. 
 
 Start the dev-runner by running `docker compose up`.
 
@@ -53,24 +53,24 @@ Visiting http://localhost:3200, you should see:
 
 [[Pasted image 20230315093816.png]]
 
-You may see the newly added "Task"and "Admin" page. Most of our features would be in the Task page. But what is the "Admin" page? 
+You may see the newly added "Task"and "Admin" page. Most of our features would be in the Task page, but what's the "Admin" page? 
 
-Actually there shouldn't be an Admin page in any real product. We have this Admin page simply because we're running a local development environment called Dev-Runner. We want to use the two buttons "Init AppToken" and "Init TApp db" to simulate the Deploy and Init TApp steps in the real Developer Portal. The Dev-Runner is a simplified version of the TEA-Runtime. There's no Developer Portal built-in, but we still need to initialize the TApp token and TApp database before your TApp can be used. 
+Actually there shouldn't be this type of Admin page in a real TApp We have this Admin page simply because we're running a local development environment called Dev-Runner. We want to use the two buttons "Init AppToken" and "Init TApp db" to simulate the Deploy and Init TApp steps in the real Developer Portal. The Dev-Runner is a simplified version of the TEA-Runtime. There's no Developer Portal built-in, but we still need to initialize the TApp token and TApp database before a TApp can be used. 
 
-So please always click those two buttons in the Admin page when:
+So please always click those two buttons in the Admin page whenever:
 
-- The first time you run this TApp in Dev-Runner. Or,
+- It's the first time you're running this TApp in Dev-Runner. Or,
 - Everytime after you've deleted the `.tokenstate` local state persistent storage.
 
-You'll need to delete the `.tokenstate` everytime if you modify your code related to any state or SQL database. Consider it as a "purge" operation. After such a purge, your whole state and SQL would be **brand new**. That's why you'll need to initialize it before using your TApp. In the real production environment, there won't be such a "refresh". It'll only be initialized once at the Grand Opening.
+You'll need to delete the `.tokenstate` everytime you modify your code that's related to any state or SQL database. Consider it a "purge" operation. After such a purge, your whole state and SQL databse would be **brand new**. That's why you'll need to initialize it before using your TApp. In the real production environment, there won't be such a "refresh". It'll only be initialized once at your TApp initial deploy.
 
-You'll only need to run those two initialization tasks once. If you click it the second time, you'll be prompted with an error but it won't cause any damage at all. So if you're not sure if you've initialized it or not, feel free to click them again, and expect to have some error as a warning.
+You'll only need to run those two initialization tasks once. If you click it the second time, you'll be prompted with an error but it won't cause any damage at all. So if you're not sure if you've initialized it or not, feel free to click them again, and take any generated errors as a harmless sign you've already completed these steps.
 
 ## Run the "sql" branch
 
 But before we try the latest features, let's test the existing features from the previous "master " and "login" steps, making sure they're still running without any breaking changes.
 
-Say-hello still works:
+"Hello world" still works:
 
 ![[Pasted image 20230315093943.png]]
 
@@ -84,8 +84,8 @@ The UI is very simple, just add new tasks. You should see them in the list.
 
 ![[Pasted image 20230315094303.png]]
 
-You can try to remove it as well, and it should work as expected.
+You can try to remove tasks as well, and it should work as expected.
 
-You can logout and login again to verify your previous stored task is still there. So your work has been stored into the SQL database in our state machine. 
+You can logout and login again to verify your previous stored tasks are still there. So your work has been stored into the SQL database in our state machine. 
 
-Great!, now let's move on to the code walkthrough and figure out how it works.
+Great! Now let's move on to the code walkthrough and figure out how it works.

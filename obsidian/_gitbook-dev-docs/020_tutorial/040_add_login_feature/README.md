@@ -27,9 +27,9 @@ total 9224
 
 If the sample_actor.wasm isn't recent, check if your build failed.
 
-Run the dev-runner. `docker compose up`.  **Make sure you wait** about 2 minutes untill all actors are successfully activated. 
+From the **dev-runner** repo root directory, run `docker compose up`.  **Make sure you wait** about 2 minutes untill all actors are successfully activated. 
 
-Now start the frontend using `npm start`
+In a different terminal window, go to the `tutorial-v1` repo and `cd sample-front-end`. From here you can start the frontend by using `npm start`
 
 Then start your browser go to http://localhost:3200/
 
