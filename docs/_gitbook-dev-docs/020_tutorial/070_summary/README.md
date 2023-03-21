@@ -20,7 +20,7 @@ The Hosting actor runs inside the hosting node.
 * It's compiled to a wasm file and loaded into a hosting node.
 * All logic in the wasm code are Lambda functions. It takes requests and returns responses.
 * It sends queries or transactions to the Txn executor actor in the state machine whenever there's a query or request to change the state, respectively. In our future version, a local state cache will be added to speed up the local query.
-* Because all functions are Lambda, they don't store the state, unless to call the TEA Project native provider. Always assume the local state is vulnerable. The hosting node may be done or restart at any time.
+* Because all functions are Lambda, they don't store the state (unless only to call the TEA Project native provider). Always assume the local state is vulnerable to be wiped as the hosting node may finish or restart at any time.
 * All function execution needs gas as fuel. The miner who runs the hosting node gets paid by the paid gas fuel. More details on the gas fee can be found in the Tokenomics section of our white paper.
 
 The txn executor actor runs inside of every state machine node.
@@ -45,12 +45,13 @@ TODO://
 
 ## Gas fee
 
-TODO://
+TODO://![Pasted image 20230320085836.png](../../../Pasted%20image%2020230320085836.png)
 
 ## What's next
 
 There are many simplification or placeholders in our tutorial-v1, such as:
 
+* The developer has not get paid yet.
 * The task title is a unique value. If someone created "Buy me a beer", no one else can create a task with the same title later.
 * The creator needs to be honest when verifying the worker's work. We would need a "secure oracle" to determine if the task is completed successfully without relying on creator's honesty.
 * There's no time limit. The worker can take a task and never complete it.
