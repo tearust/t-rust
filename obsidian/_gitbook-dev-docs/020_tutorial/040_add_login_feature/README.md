@@ -50,8 +50,17 @@ Please connect Metamask to this local address:
 ### Q: Why do I need to connect Metamask?
 > **Answer**: In Web3, there's no centralized account management system. That means you're the only person to control your account. No one else can disable, remove, or alter your account. Metamask is an Ethereum browser wallet.  When you login, the Metamask is used to sign a txn (short for transaction) using your own private key. This signed txn will be verified by the backend then the code will know it's you who's logging in. As long as you do not leak your private key, there is no way for anyone else impersonating you to login. In the future steps, all layer1 (blockchain) related [txn](../../z_glossary/txn.md) will need Metamask to sign. 
 
-After connecting Metamask to this URL, you can see your account and a login button showing at the right top corner.  Click the login button will bring up the Metamask again. This time, Metamask is used to sign the login txn. 
-![[Pasted image 20230311141944.png]]
+After connecting Metamask to this URL, you can see your account and a login button showing at the right top corner.  Click the login button will bring up the Login box:
+
+![[telegram-cloud-photo-size-1-4956649829228981200-y.jpg]]
+
+ This is the login authorize box. It lists all rights that the TApp want you to authorize. 
+ TODO:// George, please add the explanation of each items.
+
+Click the login again, you will see the Metamask again. Please double check the Message in the box and make sure it is what you selected authorities in the login box. In our case, it is sig_consume.
+
+
+![[Pasted image 20230320203601.png]]
 
 Please pay attension on the Message you are going to sign. In this case it is "sig". It's a placeholder for such a sample login. In other cases, this message has some real meaning, such as the authorization you give to the TApp. We'll get into more details in future steps. 
 
