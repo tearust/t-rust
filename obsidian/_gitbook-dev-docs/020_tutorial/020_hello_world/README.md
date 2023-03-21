@@ -1,4 +1,4 @@
-# Hello World Tutorial
+# Hello World
 
 [https://github.com/tearust/tutorial-v1](https://github.com/tearust/tutorial-v1) is the github repo of our tutorial. It can also be used as the boilerplate if you want to build a new TApp but don't want to start from scratch.
 
