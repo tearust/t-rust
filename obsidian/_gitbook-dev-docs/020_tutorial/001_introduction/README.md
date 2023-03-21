@@ -22,4 +22,4 @@ This tutorial will culminate in building a decentralized gig task app similar to
 
 Just login with your Ethereum account using Metamask and click on **tutorial-v1** to start the app.
 
-Instructions to use this app are explained [elsewhere in the tutorial](020_tutorial/060_reward_fund_transfer/README.md).
+Instructions to use this app are explained [elsewhere in the tutorial](../060_reward_fund_transfer/README.md).
