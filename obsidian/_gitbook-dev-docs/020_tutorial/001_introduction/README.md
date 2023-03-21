@@ -1,30 +1,25 @@
-Developing a TApp is very similar to developing a typical web2 application. You do not need to learn smart contract, or understand the concept of distributed system. But there are still many differences. This tutorial is here to help you overcome those challenges. 
+# Introduction
+Developing a TApp is very similar to developing a typical web2 application. You don't need to learn smart contracts, or understand the concept of distributed systems. But there are still many differences. This tutorial is here to help you overcome these challenges. 
 
-During this tutorial, we will step by step build a simple TApplication. It is called **Tutor-v1"**. It looks a typical "todo list" example we have seen so many times in various web framework tutotiral. But we have a little improvement. The worker who complete  task will get paid by the owner who created such a task. 
+During this tutorial, we'll build a simple TApplication step by step. It's called **Tutor-v1"**. It looks like a typical "todo list" example we have seen so many times in various web framework tutorials but we have a bit of an improvement. The worker who completes a task will get paid by the owner who created the task. 
 
 ![[Pasted image 20230319210108.png]]
 
-During our tutorial, we will 
+During our tutorial, we will:
+
 - Setup the development environment. 
 - Clone from the boilerplate. 
-- Test locally using dev-runner.
-- Deploy to the testnet
-- Gradually add features to the app
-- Summary
+- Test locally using `dev-runner`.
+- Deploy to the testnet.
+- Gradually add features to the app.
+- Summarize what we've accomplished.
 
-After following the full tutorial, you should be able to create your own TApps by adding your own business logic to the boilerplace. But you may need more detail explanation, you will need to read our development document.
+After following the full tutorial, you should be able to create your own TApps by adding your own business logic to the boilerplate. But you may need a more detailed explanation, in which case you should read our development documentation.
 
 ## Try before build
 
-TODO://
-George, please add a paragraph here, telling the reader how to run the tutor-v1 on our testnet. 
-Use the screenshots and user workflow. You can take screenshot from the nitro deployment at http://43.201.23.47:8080/ipfs/QmberYsF6kSVbrxzp1DZuMtcZTfvCWG13ZePLi4PVcHyY8/#/discover
+This tutorial will culminate in building a decentralized gig task app similar to Fiverr.com. Before actually taking all the steps to build the app, users can run the app on our AWS Nitro deployment at http://43.201.23.47:8080/ipfs/QmberYsF6kSVbrxzp1DZuMtcZTfvCWG13ZePLi4PVcHyY8/#/discover
 
-but we will have tutor-v1 deployed to the wallet.teaproject.org too. but not tonight.
+Just login with your Ethereum account using Metamask and click on **tutorial-v1** to start the app.
 
-Tell step by step how to use this tutor-v1 app. 
-
-The full work flow has been explained in the 6.0 reward. Please use the same workflow. 
-
-
-
+Instructions to use this app are explained [elsewhere in the tutorial](020_tutorial/060_reward_fund_transfer/README.md).
