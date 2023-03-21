@@ -1,14 +1,16 @@
 # Gas Fees
+
 Tokenomics (Token-Economics) is an important design consideration to incentivize desirable behavior in a decentralized ecosystem by rewarding participants who provide useful services. The TEA Project has a carefully designed tokenomics. The following tutorial will cover some basic concepts of the TEA Project's carefully designed tokenomics. For full details, please see the tokenomics section of our white paper.
 
 ## Gas fee
+
 When endusers want to use a TApp, that TApp is hosted by a decentralized "miner" in our TEA network. Because this miner is providing their hardware for the enduser's use, the miner should be paid for providing their machine and rewarded for their service. This is where  the **gas fee** comes into play, namely the enduser pays a gas fee to the miner for the computing hardware service they provide. The gas fee is calculated according to how much resources are used on the miner's host machine.
 
 In the TEA Project's wasm runtime, we have a billing system that measures the CPU instruction when the CPU is executing the wasm actor code. The result of this measurement is summed up every few minutes. We currently set an exchange rate of 10M CPU units to 1 TEA. This exchange rate may change in the future as directed by the TEA DAO. At this moment, we can assume that it's a constant value, and that **the TEA's value is anchored to the computing consumption**. 
 
 In this tutorial step, you'll see a new log page which includes the gas payment log. 
 
-![[Pasted image 20230321092915.png]]
+![Pasted image 20230321092915.png](../../../Pasted%20image%2020230321092915.png)
 
 As you can see from the screenshot, most regular operations will cost between 0.00001 to 0.001 TEA. For some complicated computations, it may be as large as 0.1 TEA but this would be very rare. As a developer, you should always run the local testing in dev-runner and monitor this log page to get an estimate on how much gas your code may consume. There are many ways to optimize your code to consume less gas. Most rules developers used for Solidity (Ethereum) would apply to the TEA Project as well.
 

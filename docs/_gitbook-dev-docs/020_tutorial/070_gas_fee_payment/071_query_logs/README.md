@@ -4,7 +4,7 @@ In this `gas` branch, there's only one major change and it's in the **sample-act
 
 We'll need to add a new query: get the list of logs. You can find this new function in the `dfn.rs` file:
 
-```
+````
 pub fn name_list() -> Vec<&'static str> {
 	vec![
 		"say-hello",
@@ -20,13 +20,13 @@ pub fn name_list() -> Vec<&'static str> {
 		"queryOpLogs",//this is the newly added function
 	]
 }
-```
+````
 
 It is called "queryOpLogs" at the last.
 
 In **api.rs** you can find the `async fn query_op_logs` function. The major logic is to call the `get_statements_async` function. 
 
-```
+````
 	get_statements_async(
 		acct,
 		date,
@@ -59,20 +59,17 @@ In **api.rs** you can find the `async fn query_op_logs` function. The major logi
 			})
 		},
 	)
-```
+````
 
 In our runtime, we store records in the log based on date. So we'll query the backend on which dates to query.
 
-```
+````
 	let date: Option<SimpleDate> = req
 		.year
 		.as_ref()
 		.map(|year| SimpleDate::new(*year, req.month.unwrap_or(1_u32), req.day.unwrap_or(1_u32)));
-```
+````
 
 Once we've received the json response, the calback function formats them to a UI-friendly format. After that, `help::cache_json_with_uuid(&uuid, x).await?;` caches it to local memory and waits for the front end to check this result at a later time.
 
 The code above shows a typical example of how to convert the data from the backend to the web UI friendly format. In this tutorial we cover it for TApp development but it's the same formatting that's commonly used everywhere.
-
-
-
