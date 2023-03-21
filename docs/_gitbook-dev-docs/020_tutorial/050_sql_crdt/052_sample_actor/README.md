@@ -73,7 +73,7 @@ pub async fn delete_task(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>
 
 We first created a DeleteTask txn, then use `send_custom_txn` utility to send it to the state machine.
 
-When using the send_customer_txn you'll need to specify yourself (the from_actor), txn name. The req.uuid is used for the client to [query](../../../z_glossary/queries.md) the [txn](../../../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in `sample-txn-executor/impl/manifest.yaml`. This is how the TEA Project locates and identifies every [actor](../../../z_glossary/actor.md).
+When using the send_customer_txn you'll need to specify the from_actor (which in this case is the **sample-actor**) and the txn name. The req.uuid is used for the client to [query](../../../z_glossary/queries.md) the [txn](../../../z_glossary/txn.md) execution result at a later time. The TARGET_ACTOR is the name of the receiving A actor, it's "someone.sample_txn_executor". If you're wondering where this name comes from, you can find it from the mainifest.yaml in `sample-txn-executor/impl/manifest.yaml`. This is how the TEA Project locates and identifies every [actor](../../../z_glossary/actor.md).
 
 ## check_auth
 
