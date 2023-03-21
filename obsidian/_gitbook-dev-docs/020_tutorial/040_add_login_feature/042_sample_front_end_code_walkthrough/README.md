@@ -8,6 +8,27 @@ This `login` branch is probably the best boilerplate that you can use to build y
 
 ## Handle user login
 
+When user click Login button, the UI shows the LoginModel box. The login box VUE code is in views/modals/LoginModal.vue. Please pay attention on the data:
+```
+data(){
+    return {
+      loading: true,
+      form: {
+        
+      },
+      
+      read: false,
+      withdraw: false,
+      consume: true,
+      move: false,
+      bonding_curve: false,
+    };
+  },
+```
+
+The `read, withdraw, consume, move, bonding_curve` are authorities that the user need to confirm. We explained in the previous article. If you want the end user to select any authority by default, you can set it to "true". Like the `consume` in our case.
+
+
 The js code to handle use login is in `src/layer2/user.js`
 
 ```
