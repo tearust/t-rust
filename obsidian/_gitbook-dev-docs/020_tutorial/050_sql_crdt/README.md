@@ -37,13 +37,22 @@ The common request -> response work flow would be as follows:
 
 In this step, we'll use SQL as an example to demo how this workflow works. All other types of reqeusts will work the same way.
 
-## Build
+## Build the "sql" branch
+First you'll need to switch to the `sql` branch of `tutorial=v1`:
+`git checkout sql`
 
-In your local `tutorial-v1` repo, you'll need to build two wasm files that are located in the `sample-actor` and `sample-txn-executor` folders. The target wasm files will be copied to the `dev-runner` repo: specifically to `/local/b-node` and to `dev-runner/local/a-node` respectively. Note: unlike the `sample_actor.wasm` file that goes to the **b-node**, this `sample_txn_executor.wasm` goes to the **a-node**. This is because it runs in the state machine. 
+If you get an error about `sample-actor/Cargo.lock` you can delete that file. Alternately you can also do `git checkout —force sql` if there are any uncommited changes preventing you from switching branches.
+
+In your local `tutorial-v1` repo, you'll need to build the two wasm files that are located in the `sample-actor` and `sample-txn-executor` folders. These build scripts are located at the following locations:
+
+- `sample-actor/build.sh`
+- `sample-txn-executor/build.sh`
+
+The target wasm files will be copied to the `dev-runner` repo: specifically to `/local/b-node` and to `dev-runner/local/a-node` respectively. Note: unlike the `sample_actor.wasm` file that goes to the **b-node**, this `sample_txn_executor.wasm` goes to the **a-node**. This is because it runs in the state machine. 
 
 Start the dev-runner by running `docker compose up`.
 
-Start the front end by running `npm i` and `npm start` from the sample-front-end folder.
+Back in your `tutorial-v1` local folder, start the front end by running `npm i` and `npm start` from the sample-front-end folder.
 
 ## Admin page and initialization
 
@@ -53,9 +62,9 @@ Visiting http://localhost:3200, you should see:
 
 [[Pasted image 20230315093816.png]]
 
-You may see the newly added "Task"and "Admin" page. Most of our features would be in the Task page, but what's the "Admin" page? 
+From the new **Admin** page, click the two buttons "Init AppToken" and "Init TApp db" to simulate deploying the TApp. 
 
-Actually there shouldn't be this type of Admin page in a real TApp We have this Admin page simply because we're running a local development environment called Dev-Runner. We want to use the two buttons "Init AppToken" and "Init TApp db" to simulate the Deploy and Init TApp steps in the real Developer Portal. The Dev-Runner is a simplified version of the TEA-Runtime. There's no Developer Portal built-in, but we still need to initialize the TApp token and TApp database before a TApp can be used. 
+There are two new pages in our app, a **Task** page and an **Admin** page. The new Admin page is required because we're running a local development environment called Dev-Runner. We want to use the two buttons "Init AppToken" and "Init TApp db" to simulate the Deploy and Init TApp steps in the real Developer Portal. The Dev-Runner is a simplified version of the TEA-Runtime. There's no Developer Portal built-in, but we still need to initialize the TApp token and TApp database before a TApp can be used. 
 
 So please always click those two buttons in the Admin page whenever:
 

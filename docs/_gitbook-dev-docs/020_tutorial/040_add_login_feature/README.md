@@ -14,11 +14,11 @@ These features are the most common features for almost every TApp (the faucet on
 
 Run `git checkout login` to switch to the login branch.
 
-Now you'll use what you've learned in previous steps to build and load the code to the "dev-runner", and see how it works.
+Now you'll use what you've learned in previous steps to build and run the code on top of "dev-runner" and see how it works.
 
 Build the [actor](../../z_glossary/actor.md) in sample-actor folder by running `./build.sh`.
 
-Go to `dev-runner` and check that the sample-actor.wasm file is the most recent version.
+Go to `dev-runner` and check that the `sample-actor.wasm` file is the most recent version.
 
 ````
 total 9224
@@ -26,11 +26,11 @@ total 9224
 -rwxr-xr-x@ 1 kevinzhang  staff  4118177 Mar 11 13:51 sample_actor.wasm
 ````
 
-If the sample_actor.wasm isn't recent, check if your build failed.
+If the `sample_actor.wasm` file isn't recent, check if your build failed.
 
 From the **dev-runner** repo root directory, run `docker compose up`.  **Make sure you wait** about 2 minutes untill all actors are successfully activated. 
 
-In a different terminal window, go to the `tutorial-v1` repo and `cd sample-front-end`. From here you can start the frontend by using `npm start`
+In a different terminal window, go to the `tutorial-v1` repo and `cd sample-front-end`. From this directory you can start the frontend by using `npm start`
 
 Then start your browser go to http://localhost:3200/
 

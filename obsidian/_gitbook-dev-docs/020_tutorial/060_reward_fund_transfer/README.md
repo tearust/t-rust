@@ -13,17 +13,22 @@ The business workflow of this step would be:
 
 We'll learn in this walkthrough how to transfer funds between users based on business logic. 
 
-## Build
+## Build the 'reward' branch
 
-As we've done several times in previous steps, we `git checkout reward` to the reward branch. Next build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the dev-runner local/a-node and local/b-node folders. 
+As we've done several times in previous steps, we switch branches by running `git checkout reward` to the reward branch. Next build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the dev-runner local/a-node and local/b-node folders. 
 
-In order to clean up the [state](../../z_glossary/state.md)  data from previous steps, make sure you delete the `.tokenstate` file first. This will make dev-runner start with a fresh state.
+The build scripts are in the following locations:
+
+- `sample-actor/build.sh`
+- `sample-txn-executor/build.sh`
+
+In order to clean up the [state](../../z_glossary/state.md)  data from previous steps, make sure you delete the `.tokenstate` directory in the `dev-runner` repo first. This will make dev-runner start with a fresh state.
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
-Go to sample-front-end and run `npm start`. Then in your browser, navigate to http://localhost:3200.
+Now from the `sample-front-end` directory of the `tutorial-v1` repo, run `npm start`. Then in your browser, navigate to http://localhost:3200.
 
-Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons before anything else which we've explained the reason why previously.
+Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons located in the **Admin** page before doing anything else which we've explained why previously.
 
 ## Test the business logic
 
