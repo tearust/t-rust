@@ -1,4 +1,4 @@
-# TEA Developer Prereqs
+# TEA Developer Prerequisites
 
 ## Prerequisites for Becoming a TApp Developer
 

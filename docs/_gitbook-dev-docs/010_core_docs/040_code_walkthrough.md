@@ -26,7 +26,7 @@ There are 4 folders (click the following links for more details):
 
 ### Load the UI
 
-Any user can launch a TApp by clicking on one of the [hosting_cml](hosting_cml.md)s urls (there's no domain used when launching TApps). Picking any of the urls will work exactly the same so you can choose the one with least network latency. The URL is nothing but an IPFS CID.
+Any user can launch a TApp by clicking on one of the [hosting_cml](../z_glossary/hosting_cml.md)s urls (there's no domain used when launching TApps). Picking any of the urls will work exactly the same so you can choose the one with least network latency. The URL is nothing but an IPFS CID.
 
 Note: This is a brief diagram. The real communication is more complicated than this.
 
@@ -80,7 +80,7 @@ sequenceDiagram
 
 ### Send a command that changes the state
 
-Commands are more complicated in that certain precautions must be taken before they're allowed to change the state. Like any other distributed state machine, we have to make sure the state in all the [state_machine_replica](state_machine_replica.md)s are consistent. We use the [conveyor](../z_glossary/conveyor.md) algorithm to sort the commands by their timestamp and are executed in identical order across all replicas.
+Commands are more complicated in that certain precautions must be taken before they're allowed to change the state. Like any other distributed state machine, we have to make sure the state in all the [state_machine_replica](../z_glossary/state_machine_replica.md)s are consistent. We use the [conveyor](../z_glossary/conveyor.md) algorithm to sort the commands by their timestamp and are executed in identical order across all replicas.
 
 The following diagram demonstrates the workflow of how a simple transfer txn command is handled. Note that this diagram is a simplifed verison. The full version can be found here: [party-fe > Workflow](../z_glossary/party-fe.md).
 
@@ -168,7 +168,7 @@ sequenceDiagram
 
 Because the state and GlueSQL are memory based distributed databases, they're very expensive when used to store large amounts of data. TApps needing to store large amounts of data should use either OrbitDB (structured data) or IPFS (blob data/ files).
 
-OrbitDB and IPFS live inside the [hosting_cml](hosting_cml.md), so the [state_machine_replica](state_machine_replica.md)s are not involved in this workflow. 
+OrbitDB and IPFS live inside the [hosting_cml](../z_glossary/hosting_cml.md), so the [state_machine_replica](../z_glossary/state_machine_replica.md)s are not involved in this workflow. 
 
 ````mermaid
 sequenceDiagram
@@ -225,6 +225,6 @@ Click on any of the following links for more details:
 * Code walkthrough for [party-actor](../z_glossary/party-actor.md). 
 * Code walkthrough for [party-state-actor](../z_glossary/party-state-actor.md). 
 
-# Run it
+## Run it
 
 TODO:

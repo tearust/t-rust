@@ -104,4 +104,4 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](020_teaparty.md).

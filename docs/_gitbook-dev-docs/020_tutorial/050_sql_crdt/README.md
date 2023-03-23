@@ -62,7 +62,7 @@ Visiting http://localhost:3200, you should see:
 
 ![Pasted image 20230317093125.png](../../../Pasted%20image%2020230317093125.png)
 
-[Pasted image 20230315093816.png](../../../Pasted%20image%2020230315093816.png)
+[!](../../../Pasted_image_20230315093816.png)
 
 From the new **Admin** page, click the two buttons "Init AppToken" and "Init TApp db" to simulate deploying the TApp. 
 
