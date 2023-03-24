@@ -45,5 +45,4 @@ If you either change your local software environment or update your local repos,
 docker pull tearust/parent-instance-client:dev
 docker pull tearust/runtime:dev
 ```
-- (Alternative to `git pull`):  You can also use `docker images` to show your existing images, and then `docker rmi ID` where **ID** is the image ID.
 - After you've built the tutorials using your latest updates you'd run `docker-compose up` from the `dev-runner` directory.

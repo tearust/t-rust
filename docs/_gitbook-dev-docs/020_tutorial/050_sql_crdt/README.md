@@ -1,6 +1,6 @@
 # SQL
 
-In this tutorial, we'll learn how to write SQL scripts in TApp development.
+In this tutorial, we'll learn how to write SQL scripts in TApp development. We'll be using a decentralized task TApp as our example app where a task owner creates a task and anyone else can claim the task to work on by paying a deposit. Once the work is submitted and the task owner confirms the task is completed, the worker is paid back their deposit as well as the award amount for the task.
 
 The business goal of this step would be:
 
