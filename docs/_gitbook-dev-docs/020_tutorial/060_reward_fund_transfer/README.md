@@ -35,19 +35,27 @@ Now from the `sample-front-end` directory of the `tutorial-v1` repo, run `npm st
 
 Now that the backend server is running, we'll need a few initialization steps before we can use the fund transfer function in our task TApp. The first step is to access the TApp in your browser by navigating to [http://localhost:3200](http://localhost:3200).
 
-1. Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons located in the **Admin** page before doing anything else.
+### 1. Init the TApp
 
-[Screenshot 2023-admin-init.png](../../../Screenshot%202023-admin-init.png)
+Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons located in the **Admin** page before doing anything else.
 
-2. Now you can login to the TApp by clicking the login button in the upper right of the browser to spawn the Metamask modal window to login to the app.
+![](https://user-images.githubusercontent.com/86096370/227608431-89da24e9-03d6-4e91-a28e-e14f63d02952.png)
 
-2. Your account has no TEA when beginning from a fresh state, so you'll need to use the **Faucet** button to load your account with some TEA. Note that this sends 1000 T to your layer2 account, and you don't need to be logged in with Metamask (layer1) to do this step.
+### 2.  Login to TApp
 
-[Screenshot 2023-faucet.png](../../../Screenshot%202023-faucet.png)
+Now you can login to the TApp by clicking the login button in the upper right of the browser to spawn the Metamask modal window to login to the app.
 
-4. Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp business logic can withdraw user funds only up to that amount.
+### 3. Use the faucet
 
-[Screenshot 2023-spend-limit.png](../../../Screenshot%202023-spend-limit.png)
+Your account has no TEA when beginning from a fresh state, so you'll need to use the **Faucet** button to load your account with some TEA. Note that this sends 1000 T to your layer2 account, and you don't need to be logged in with Metamask (layer1) to do this step.
+
+![](https://user-images.githubusercontent.com/86096370/227608440-e8c2de65-149a-4de1-8051-f19028f7551b.png)
+
+### 4. Set spending limit
+
+Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp business logic can withdraw user funds only up to that amount.
+
+![](https://user-images.githubusercontent.com/86096370/227608436-80601f38-e2a4-4211-b21c-677d8e782265.png)
 
 ## Test the business logic
 
