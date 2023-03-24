@@ -34,17 +34,17 @@ Now that the backend server is running, we'll need a few initialization steps be
 
 1. Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons located in the **Admin** page before doing anything else.
 
-<img alt="Screenshot 2023-03-24 at 10 59 43 AM" src="https://user-images.githubusercontent.com/86096370/227608431-89da24e9-03d6-4e91-a28e-e14f63d02952.png">
+[[Screenshot 2023-admin-init.png]]
 
 2. Now you can login to the TApp by clicking the login button in the upper right of the browser to spawn the Metamask modal window to login to the app.
 
 3. Your account has no TEA when beginning from a fresh state, so you'll need to use the **Faucet** button to load your account with some TEA. Note that this sends 1000 T to your layer2 account, and you don't need to be logged in with Metamask (layer1) to do this step.
 
-<img alt="Screenshot 2023-03-24 at 11 01 55 AM" src="https://user-images.githubusercontent.com/86096370/227608440-e8c2de65-149a-4de1-8051-f19028f7551b.png">
+[[Screenshot 2023-faucet.png]]
 
 4. Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp business logic can withdraw user funds only up to that amount.
 
-<img alt="Screenshot 2023-03-24 at 11 01 03 AM" src="https://user-images.githubusercontent.com/86096370/227608436-80601f38-e2a4-4211-b21c-677d8e782265.png">
+[[Screenshot 2023-spend-limit.png]]
 
 ## Test the business logic
 
