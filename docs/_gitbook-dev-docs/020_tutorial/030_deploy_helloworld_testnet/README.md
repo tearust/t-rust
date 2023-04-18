@@ -32,7 +32,7 @@ We'll switch to the following branch to access the IPFS scripts:
 
 <img width="1198" alt="Screenshot 2023-04-14 at 4 52 21 PM" src="https://user-images.githubusercontent.com/86096370/232627849-ca3a14cb-d3b5-4358-b022-ee86652d7187.png">
 
-We will add this token_id minus the leading `0x` to `jacky_test/sample-actor/impl/manifest.yaml` at line 3. You can also see the sample-actor name in this file which will be used later.
+We will add this token_id minus the leading `0x` to `jacky_test/sample-actor/impl/manifest.yaml` at line 3. You should also change the actor name from `sample-actor` to a unique name.
 
 ![image](https://user-images.githubusercontent.com/3214173/231840591-775730aa-1900-4c76-adb6-791f9dd2f467.png)
 
@@ -59,13 +59,32 @@ Enter in the information as instructed in the following image to update your TAp
 
 ![image](https://user-images.githubusercontent.com/3214173/231844198-11dceef7-c2d8-45a4-b636-9cc16b52d5c4.png)
 
+If you get a **spend_over_allowance** error:
+
+![Screenshot 2023-04-18 at 12 18 17 PM](https://user-images.githubusercontent.com/86096370/232887275-9d7cfb59-dd72-4537-a247-f0225c787b9b.png)
+
+Then you'll need to increase the spending limit for the **Developer Portal** in the [Nitro TAppStore](http://54.180.82.194:8080/ipfs/QmS5K9u8rfWpAxgonJeB4pX1qMyBqpz9A8Etb2GuTFFhts/):
+
+![Screenshot 2023-04-18 at 12 20 53 PM](https://user-images.githubusercontent.com/86096370/232887289-2a055984-dd9a-4ef5-a763-92d6d2966940.png)
+
+Here you can set the spending limit up to the amount you have in your TEA wallet:
+
+![Screenshot 2023-04-18 at 12 29 24 PM (2)](https://user-images.githubusercontent.com/86096370/232887293-16ba1b14-10b3-473c-b38c-f8170ee02630.png)
+
 ## Build and upload front-end
 
 Build the front-end code (jacky_test/sample-front-end/) and upload to IPFS using  `jacky_test/sample-front-end/ipfs.sh`.
 
-![image](https://user-images.githubusercontent.com/3214173/231847211-848c89f0-f0ec-4d2a-ae8e-0b908b8e34c3.png)
+If you have any errors during the build process, make sure you have nvm 14.14.0 installed and set as default:
 
-Save the CID of the front-end to use in the next section.
+````
+nvm install 14.14.0
+nvm use 14.14.0
+````
+
+Upon succesful completion you'll save the CID of the front-end to use in the next section.
+
+![image](https://user-images.githubusercontent.com/3214173/231847211-848c89f0-f0ec-4d2a-ae8e-0b908b8e34c3.png)
 
 ## Update the front-end CID in Devportal
 
