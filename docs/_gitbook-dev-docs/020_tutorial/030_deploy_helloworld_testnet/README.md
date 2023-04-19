@@ -8,6 +8,8 @@ Besides the prereqs stated earlier, this tutorial involves uploading to IPFS and
 
 `brew install ipfs`
 
+You'll also need some TEA funds in your wallet to use the Developer Portal. You can request funds by sending us a message in our [Telegram group](https://t.me/teaprojectorg).
+
 ## Clone the tutorial master branch
 
 Run `git clone https://github.com/tearust/tutorial-v1.git` to clone code to local. Recall that there are two folders in the root of the **tutorial-v1** code repo:
@@ -82,7 +84,7 @@ nvm install 14.14.0
 nvm use 14.14.0
 ````
 
-Upon succesful completion you'll save the CID of the front-end to use in the next section.
+Upon succesful completion you'll save the CID of the front-end to use in the next section (the CID is on the last line ending with `dist`).
 
 ![image](https://user-images.githubusercontent.com/3214173/231847211-848c89f0-f0ec-4d2a-ae8e-0b908b8e34c3.png)
 
