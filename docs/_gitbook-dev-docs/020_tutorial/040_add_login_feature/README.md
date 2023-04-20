@@ -18,7 +18,7 @@ Now you'll use what you've learned in previous steps to build and run the code o
 
 Build the [actor](../../z_glossary/actor.md) in sample-actor folder by running `./build.sh`.
 
-Go to `dev-runner` and check that the `sample-actor.wasm` file is the most recent version.
+Go to your local `dev-runner` folder and check that the `local/b-node/sample-actor.wasm` file is the most recent version.
 
 ````
 total 9224

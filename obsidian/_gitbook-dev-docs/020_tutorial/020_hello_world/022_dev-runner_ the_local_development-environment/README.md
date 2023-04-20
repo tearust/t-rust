@@ -5,12 +5,12 @@ TApp development needs 4 basic steps.
 
 - Unit test: Run `cargo test` after every code change. This is the fastest and cheapest way to test the logic.
 - Dev runner: The local development environment. It's a simulator of the TEA Project runtime but running locally. Like Hardhat for Ethereum, this is the simplest and fastest test to verify the front end and back end logic integration.
-- Testnet: This is **almost** the same as the final production environment but all the assets are faked. You don't need to worry about any mistakes causing real funding losses. 
-- Production: This is the last step. It runs code in the real production environment. Please be noted, this is not a drill, any mistake in your code may cause **real** funding losses. And there is **no way** to get them back. 
+- Testnet: This is **almost** the same as the final production environment but all the assets are faked. You don't need to worry about any mistakes causing real fund losses. 
+- Production: This is the last stepn where code is run in the real production environment. Please note that any mistake in your code may cause **real** fund losses. 
 
-In the previous step, we walked through the unit test. In this step, we'll walkthrough the Local Development Environment, called "Dev Runner". 
+In the previous step, we walked through the unit test. In this step, we'll walk through the Local Development Environment, called "Dev Runner". 
 
-The local development environment (dev-runner) is a docker configuration. It simulates one hosting node and one state machine node. It's running in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
+The local development environment (dev-runner) is a docker configuration. It simulates one hosting node and one state machine node that runs in your local computer under docker. There's no hardware protection, so all Remote Attestation and consensus are simulated.
 
 ## Prerequisites for Installation
 - Git
@@ -21,7 +21,7 @@ The local development environment (dev-runner) is a docker configuration. It sim
 
 ### Prepare your custom actors
 
-If you have any custom wasm [actors](../.../../z_glossary/actor.md) needed to be loaded, please place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`, please cp this file to the `local/b-node` folder as the dev-runner will load all wasm actors inside the `local` folder. If the sample_actor.wasm file doesn't exist, you might've forgotten to build it. Run `./build.sh` to build it first. The build.sh should copy the wasm file to the `local/b-node` at the last step. 
+If you have any custom wasm [actors](../.../../z_glossary/actor.md) that need to be loaded, you should place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`. Please cp this file to the `local/b-node` folder as the dev-runner will load all wasm actors inside the `local` folder. If the **sample_actor.wasm** file doesn't exist, you might've forgotten to build it. Run `./build.sh` to build it first. The **build.sh** should copy the wasm file to the `local/b-node` in the last step. 
 
 ### Start the docker container servers
 

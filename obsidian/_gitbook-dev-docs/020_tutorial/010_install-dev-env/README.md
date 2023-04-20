@@ -16,17 +16,17 @@ If you haven't installed wasm32-unknown-unknown target or the nightly version, y
 One of the build scripts that are used in the following tutorials might prompt that `protoc` couldn't be found. You can [follow the instructions to install it](https://grpc.io/docs/protoc-installation/#install-using-a-package-manager):
 
 - **On a Mac**: `brew install protobuf`
-- **On Ubuntu**: `apt install -y protobuf-compiler
+- **On Ubuntu**: `apt install -y protobuf-compiler`
 
 ## Install local development environment: Dev-Runner
 
-The purpose of the `dev-runner` repo is to allow any user to recreate the TEA runtime on their local machine. The TEA Project is a decentralized system that needs multiple nodes for both its hosting infrastructure and [state machine](../../z_glossary/state_machine.md) where a [remote attestation](../../z_glossary/remote_attestation.md) process ensures that all nodes are trustable. In the simplified local runtime, there's only one [hosting node](../../z_glossary/hosting_cml.md) ("B-node") and one state machine node ("A-node"). And there's no remote attestation since this is a simulated environment with single nodes on each level.
+The purpose of the `dev-runner` repo is to allow any user to recreate the TEA runtime on their local machine. The TEA Project is a decentralized system that needs multiple nodes for both its hosting infrastructure and [state machine](../../z_glossary/state_machine.md) where a [remote attestation](../../z_glossary/remote_attestation.md) process ensures that all nodes are trustable. In the simplified local runtime, there's only one [hosting node](../../z_glossary/hosting_cml.md) ("B-node") and one state machine node ("A-node"). And there's no remote attestation since this is a simulated environment with a single node on each level.
 
 To install `dev-runner` to your local environment, use the following command:
 
 `git clone https://github.com/tearust/dev-runner.git`
 
-After you've dowloaded the `dev-runner` to your local computer, note that other repos will possibly interact with your local **dev-runner** environment to the sibling folder. For example, `tutorial-v1` will write a wasm file to `dev-runner` during the build process for that tutorial. 
+After you've dowloaded the `dev-runner` to your local computer, note that other repos will possibly interact with your local **dev-runner** environment as a sibling folder. For example, `tutorial-v1` will write a wasm file to `dev-runner` during the build process for that tutorial. 
 
 ## Troubleshooting the Dev Environment
 

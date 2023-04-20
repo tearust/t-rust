@@ -14,7 +14,7 @@ Now `cd sample-actor` and run `./build.sh` to build the actor.
 
 Once built successfully, you can find the wasm file `sample_actor.wasm` in the `sample-actor/target/wasm32-unknown-unknown/release` folder. Note that in this step of the tutorial, we won't deploy to the TEA Project testnet, nor run in local single node development environment. We'll describe them more in later steps. In this initial step, we'll only run the unit test.
 
-The build.sh script will also try to copy the sample-actor.wasm file to the ../../dev-runner/local/b-node folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environment" tutorial.
+The **build.sh** script will also try to copy the **sample-actor.wasm** file to the `../../dev-runner/local/b-node` folder. You'll get an error because you don't have that folder yet, but you'll create that folder in the next step of "running local development environment" tutorial.
 
 If you get another error message, it's most likely due to some missing pieces in your development environment. Please go back and check for missing steps.
 
