@@ -1,22 +1,20 @@
 # TEA Party TApp Intro
 
 ## The goal of TEA Party
-
 We built the TEA Party TApp to show: 
 
-* What a typical [web3](070_What_makes_a_Web3_application.md) looks like (we call them **TApps**).
+- What a typical [web3](t-rust/obsidian/_gitbook-dev-docs/010_core_docs/070_What_makes_a_Web3_application.md) looks like (we call them **TApps**).
 
-* The building blocks of a typical TApp.
+- The building blocks of a typical TApp.
 
-* How to use Tea Party as a boilerplate to build your own TApps.
+- How to use Tea Party as a boilerplate to build your own TApps.
 
-The TEA Party TApp is a useful social media application. Users can post messages to a public board as well as send private messages with notifications. See [the TEA Party user guide](030_how_to_use_TEA_Party.md) for more information.
+The TEA Party TApp is a useful social media application. Users can post messages to a public board as well as send private messages with notifications. See [the TEA Party user guide](https://teaproject.medium.com/tea-party-tapp-epoch-9-users-guide-2bd8ddd87daa) for more information.
 
 ## Basic workflow
-
 In this section, we'll learn the basic workflow between all three tiers: how a user action get processed from the front-end to the state machine layer and back to the user.
 
-````mermaid
+```mermaid
 sequenceDiagram
 	participant A as Front end
 	participant B as Back end
@@ -73,13 +71,11 @@ sequenceDiagram
 	B->>-A: confirmed posting message completed
 	A->>A: render the UI and notify end user.
 	end
-````
+```
 
 ## The magical Proof of Time state machine
-
 In this section, we'll explain how the distributed state machine works, including how it handles consensus among different replicas.
-Keep reading about the [magic of the state machine](080_magic_of_state_machine.md).
+Keep reading about the [magic of the state machine](../010_core_docs/080_magic_of_state_machine.md).
 
 ## Understand WebAssembly Runtime
-
-You can learn more about how the WebAssembly code runs inside the [mini-runtime](../z_glossary/mini-runtime.md) by reading about the [magic_of_wasm](../z_glossary/magic_of_wasm.md).
+You can learn more about how the WebAssembly code runs inside the [[mini-runtime]] by reading about the [[magic_of_wasm]].

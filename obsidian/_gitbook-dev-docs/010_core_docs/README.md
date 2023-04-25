@@ -1,4 +1,4 @@
-# Getting Started
+# Basic Concepts
 
 ## TApps are designed for Web3
 As is the case with all TApps, the TEA Party showcases the special features that are beyond the capabilities of other cloud based internet (web 2.0) applications. Instead of centralized server(s) hosting the app, the individual miners of the TEA network host TApps based solely on their own [hosting profitability](../z_glossary/hosting_profitability.md). The inherent decentralization that all TApps including the TEA Party share gives these apps even more unique features:
@@ -104,4 +104,4 @@ If you want to host your application in a production environment, you'll need a 
 
 ## Code walk through
 
-**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](020_teaparty.md).
+**TEA Party** is a demo Web3 app running on the TEA Project. To explore a walk through of the TEA Party application's sample code,  please continue reading the [code walkthrough](t-rust/obsidian/_gitbook-dev-docs/045_advanced_tapps/020_teaparty.md).
