@@ -1,4 +1,4 @@
-# Start the Local Dev Environment
+# Step 2: Start the Local Dev Environment
 
 ## Unit test ->Dev runner ->Test net -> Production
 
@@ -66,13 +66,11 @@ In our next session we'll create a sample-front-end project. It will run such re
 
 ### Start the front end
 
-Make sure you're in the `sample-front-end` folder.
-
-Run `npm start` as you did in the previous step.
+Make sure you're in the `sample-front-end` folder of the `tutorial-v1` repo and run `npm start`.
 
 Open a browser and vlisit \[[http://127.0.0.1:3200](http://127.0.0.1:3200/)\].
 
-You should see a page with the text "Welcome to Sample Actor testing page" and a single button, "click here to send request".
+You should see a page with the text "Welcome to Sample Actor testing page" and a single button, "click here to send request". Clicking it should result in a "Hello world!" popup.
 
 Please make sure your dev-runner is up and running. If not, follow the instructions in the previous steps. If the backend is running correctly, you can click the button to send a request to the sample-actor. You should see the response in a browser alert: 
 
