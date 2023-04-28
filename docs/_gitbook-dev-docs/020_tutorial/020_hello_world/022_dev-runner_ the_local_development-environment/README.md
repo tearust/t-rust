@@ -70,7 +70,11 @@ Make sure you're in the `sample-front-end` folder of the `tutorial-v1` repo and 
 
 Open a browser and vlisit \[[http://127.0.0.1:3200](http://127.0.0.1:3200/)\].
 
-You should see a page with the text "Welcome to Sample Actor testing page" and a single button, "click here to send request". Clicking it should result in a "Hello world!" popup.
+You should see a page with the text "Welcome to Sample Actor testing page" and a single button, "click here to send request".
+
+<img width="515" alt="Screenshot 2023-04-28 at 2 27 33 PM" src="https://user-images.githubusercontent.com/86096370/235257641-28880e62-5542-4582-99da-a3705bec0647.png">
+
+Clicking on the button should result in a "Hello world!" popup.
 
 Please make sure your dev-runner is up and running. If not, follow the instructions in the previous steps. If the backend is running correctly, you can click the button to send a request to the sample-actor. You should see the response in a browser alert: 
 
