@@ -3,10 +3,10 @@
 
 TApp development needs 4 basic steps. 
 
-- Unit test: Run `cargo test` after every code change. This is the fastest and cheapest way to test the logic.
-- Dev runner: The local development environment. It's a simulator of the TEA Project runtime but running locally. Like Hardhat for Ethereum, this is the simplest and fastest test to verify the front end and back end logic integration.
-- Testnet: This is **almost** the same as the final production environment but all the assets are faked. You don't need to worry about any mistakes causing real fund losses. 
-- Production: This is the last stepn where code is run in the real production environment. Please note that any mistake in your code may cause **real** fund losses. 
+- Unit test: Run `cargo test` after every code change. This is the fastest way to test the logic.
+- Dev runner: The local development environment. It's a simulator of the TEA Project runtime but running locally. Like Hardhat for Ethereum, this is the quickest way to test and verify the front end and back end logic integration.
+- Testnet: This is **almost** the same as the final production environment but all the assets are not real so any mistakes won't cause real fund losses. 
+- Production: This is the last step where code is run in the real production environment. Please note that any mistake in your code may cause **real** fund losses. 
 
 In the previous step, we walked through the unit test. In this step, we'll walk through the Local Development Environment, called "Dev Runner". 
 
@@ -15,13 +15,15 @@ The local development environment (dev-runner) is a docker configuration. It sim
 ## Prerequisites for Installation
 - Git
 - Docker: install docker and "docker compose"
-- Node.js
+- Node.js. Again, make sure you're using node version 14.14.0.
 
 ## Running the tests
 
 ### Prepare your custom actors
 
-If you have any custom wasm [actors](../.../../z_glossary/actor.md) that need to be loaded, you should place them in the directory `local`. In our sample-actor case, you can find the file located at `/tearust/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`. Please cp this file to the `local/b-node` folder as the dev-runner will load all wasm actors inside the `local` folder. If the **sample_actor.wasm** file doesn't exist, you might've forgotten to build it. Run `./build.sh` to build it first. The **build.sh** should copy the wasm file to the `local/b-node` in the last step. 
+If you have any custom wasm [actors](../.../../z_glossary/actor.md) that need to be loaded, you should place them in the directory `local`. In our sample-actor case, you can find the file located in the `tutorial-v1` repo at `~/sample-actor/target/wasm32-unknown-unknown/release/sample_actor.wasm`. Note that this file will be copied to the `local/b-node` folder of the `dev-runner` repo as part of the build process, and the **dev-runner** will load all wasm actors inside the `local` folder.
+
+Let's build the **sample_actor.wasm** file and copy it into the `dev-runner` repo. From the `tutorial-v1` repo, run `./build.sh` in the `sample-actor` folder to build the wasm file. In the last step of the build file it will copy it to the `local/b-node` directory of `dev-runner`. 
 
 ### Start the docker container servers
 
