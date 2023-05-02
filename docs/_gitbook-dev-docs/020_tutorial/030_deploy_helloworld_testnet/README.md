@@ -1,5 +1,7 @@
 # Deploy Hello World on Testnet
 
+**NOTE: this section is currently under development. We'll remove this notice when it's ready to be deployed**
+
 In this section of the tutorial, we'll use the dev portal to deploy the **Hello World** boilerplate to the TEA testnet. The goal is to see the `Hello [developer's name]` TApp in the browser after launching such a TApp from the TAppStore.
 
 ## Prerequisites
@@ -19,11 +21,6 @@ Run `git clone https://github.com/tearust/tutorial-v1.git` to clone code to loca
 
 If you'd like to check in any of your modified code to your own git repo, please rename the project to avoid any conflicts.
 
-## Switch to testing branch
-
-We'll switch to the following branch to access the IPFS scripts:
-`git checkout jacky_test`
-
 ## Setup TApp
 
 * Login to the Devportal with Metamask: [http://54.180.82.194:8080/ipfs/QmQ7rStyKjfHjZfySo36wgNiBtciEjV4CYRWy6tYrNrjT2](http://54.180.82.194:8080/ipfs/QmQ7rStyKjfHjZfySo36wgNiBtciEjV4CYRWy6tYrNrjT2)
@@ -34,7 +31,7 @@ We'll switch to the following branch to access the IPFS scripts:
 
 <img width="1198" alt="Screenshot 2023-04-14 at 4 52 21 PM" src="https://user-images.githubusercontent.com/86096370/232627849-ca3a14cb-d3b5-4358-b022-ee86652d7187.png">
 
-We will add this token_id minus the leading `0x` to `jacky_test/sample-actor/impl/manifest.yaml` at line 3. You should also change the actor name from `sample-actor` to a unique name.
+We will add this token_id minus the leading `0x` to `~/sample-actor/impl/manifest.yaml` at line 3. You should also change the actor name from `sample-actor` to a unique name.
 
 ![image](https://user-images.githubusercontent.com/3214173/231840591-775730aa-1900-4c76-adb6-791f9dd2f467.png)
 
@@ -43,7 +40,7 @@ We will add this token_id minus the leading `0x` to `jacky_test/sample-actor/imp
 You can build your actor using the same commands we used in the previous step:
 `cd sample-actor` and run `./build.sh` to build the actor. 
 
-To upload the actor to IPFS, run `jacky_test/sample-actor/ipfs.sh` which executes the following script:
+To upload the actor to IPFS, run `./ipfs.sh` from the same directory which executes the following script:
 
 ![image](https://user-images.githubusercontent.com/3214173/231841142-35201bb1-a818-4dc0-b754-d9fca8e04b51.png)
 
@@ -75,14 +72,7 @@ Here you can set the spending limit up to the amount you have in your TEA wallet
 
 ## Build and upload front-end
 
-Build the front-end code (jacky_test/sample-front-end/) and upload to IPFS using  `jacky_test/sample-front-end/ipfs.sh`.
-
-If you have any errors during the build process, make sure you have nvm 14.14.0 installed and set as default:
-
-````
-nvm install 14.14.0
-nvm use 14.14.0
-````
+Build the front-end code (jacky_test/sample-front-end/) and upload to IPFS using  `~/sample-front-end/ipfs.sh`.
 
 Upon succesful completion you'll save the CID of the front-end to use in the next section (the CID is on the last line ending with `dist`).
 

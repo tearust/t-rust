@@ -27,7 +27,11 @@ In order to clean up the [state](../../z_glossary/state.md)  data from previous 
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
-Now from the `sample-front-end` directory of the `tutorial-v1` repo, run `npm start`. 
+Now from the `sample-front-end` directory of the `tutorial-v1` repo, run the following commands:
+```
+npm install
+npm start
+```
 
 ## Initialization steps in the browser
 Now that the backend server is running, we'll need a few initialization steps before we can use the fund transfer function in our task TApp. The first step is to access the TApp in your browser by navigating to [http://localhost:3200](http://localhost:3200).

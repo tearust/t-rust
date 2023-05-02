@@ -18,7 +18,7 @@ Although the step to get free test tokens should technically be in the next tuto
 
 ## Understand the sample-txn-executor actor
 
-You'll need to `git checkout sql` to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This [actor](../../z_glossary/actor.md) is usally called "A-actor" internally. The previous `sample-actor` is usually called "B-actor". Although the official names for A-actor should be state machine actor and B-actor should be called hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
+You'll need to `git checkout sql` to switch to the SQL branch. You'll notice that a new folder `sample-txn-executor` has been added. This [actor](../../z_glossary/actor.md) is called an "A-actor" internally. The previous `sample-actor` is called a "B-actor" internally. Although the official names for A-actor should be state machine actor and B-actor should be hosting actor. Just to be clear, some old documents will still use the old "A" and "B" node names.
 
 Similar to 3-tier architecture in traditional web2 development, the hosting actor is the lambda function running inside the Web Server, while the state machine actor is running inside the [state machine](../../z_glossary/state_machine.md)  similar to a database stored procedure.
 
@@ -40,7 +40,7 @@ In this step, we'll use SQL as an example to demo how this workflow works. All o
 
 ## Build the "sql" branch
 
-First you'll need to switch to the `sql` branch of `tutorial=v1`:
+First you'll need to switch to the `sql` branch of `tutorial-v1`:
 `git checkout sql`
 
 If you get an error about `sample-actor/Cargo.lock` you can delete that file. Alternately you can also do `git checkout —force sql` if there are any uncommited changes preventing you from switching branches.
@@ -50,11 +50,16 @@ In your local `tutorial-v1` repo, you'll need to build the two wasm files that a
 * `sample-actor/build.sh`
 * `sample-txn-executor/build.sh`
 
-The target wasm files will be copied to the `dev-runner` repo: specifically to `/local/b-node` and to `dev-runner/local/a-node` respectively. Note: unlike the `sample_actor.wasm` file that goes to the **b-node**, this `sample_txn_executor.wasm` goes to the **a-node**. This is because it runs in the state machine. 
+The target wasm files will be copied to the `dev-runner` repo, specifically to `/local/b-node` and to `dev-runner/local/a-node` respectively. Note: unlike the `sample_actor.wasm` file that goes to the **b-node**, this `sample_txn_executor.wasm` goes to the **a-node**. This is because it runs in the state machine. 
 
 Start the dev-runner by running `docker compose up`.
 
-Back in your `tutorial-v1` local folder, start the front end by running `npm i` and `npm start` from the sample-front-end folder.
+Back in your `tutorial-v1` local folder, start the front-end by running the following commands from the `sample-front-end` folder:
+
+````
+npm install
+npm start
+````
 
 ## Admin page and initialization
 
@@ -70,10 +75,10 @@ There are two new pages in our app, a **Task** page and an **Admin** page. The n
 
 So please always click those two buttons in the Admin page whenever:
 
-* It's the first time you're running this TApp in Dev-Runner. Or,
-* Everytime after you've deleted the `.tokenstate` local state persistent storage.
+* It's the first time you're running this TApp in Dev-Runner. 
+* Or everytime after you've deleted the `.tokenstate` local state persistent storage.
 
-You'll need to delete the `.tokenstate` everytime you modify your code that's related to any state or SQL database. Consider it a "purge" operation. After such a purge, your whole state and SQL databse would be **brand new**. That's why you'll need to initialize it before using your TApp. In the real production environment, there won't be such a "refresh". It'll only be initialized once at your TApp initial deploy.
+You'll need to delete the `.tokenstate` everytime you modify your code that's related to any state or SQL database. Consider it a "purge" operation that resets the whole state making the SQL databse **brand new**. That's why you'll need to initialize it before using your TApp. In the real production environment, there won't be such a "refresh". It'll only be initialized once at your TApp's initial deploy.
 
 You'll only need to run those two initialization tasks once. If you click it the second time, you'll be prompted with an error but it won't cause any damage at all. So if you're not sure if you've initialized it or not, feel free to click them again, and take any generated errors as a harmless sign you've already completed these steps.
 

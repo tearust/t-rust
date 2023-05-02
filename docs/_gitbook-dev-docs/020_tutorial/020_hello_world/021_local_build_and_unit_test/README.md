@@ -77,16 +77,18 @@ We highly recommend to write and run a unit test whenever you add / modify code.
 
 ## Run sample-front-end
 
-First  from the code root `cd sample-front-end`, then run `npm install` to install dependencies.
-
-If your backend has different IP or port number other than the default localhost:8000, please edit the `.env.test` file to edit in your customized values:
+First  from the root of the code repo, `cd sample-front-end`. If your backend has different IP or port number other than the default localhost:8000, please edit the `.env.test` file to edit in your customized values:
 
 ````
 VUE_APP_LAYER2_URL=http://127.0.0.1:8000
 ````
 
 This address will be your backend service address. 
-Start the frontend local web server by running `npm start`
+
+Run the following  to install dependencies:
+`npm install`
+Then start the frontend local web server by running:
+`npm start`
 
 If you can see the following:
 

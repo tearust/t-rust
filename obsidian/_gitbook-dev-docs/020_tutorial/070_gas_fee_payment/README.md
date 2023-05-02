@@ -22,7 +22,7 @@ In the `tutorial-v1` terminal window, switch to new gas branch by running the fo
 
 Run `./build.sh` specifically in the `sample-actor` and `sample-txn-executor` folders. Verify the two actor wasm files are newly built in `dev-runner/local/a-actor` and `dev-runner/local/b-actor`. 
 
-Now we can start the dev-runner by issuing `docker compose up`, then in `tutorial-v1/sample-front-end` run `npm install` and `npm start`. Go to the http://localhost:3200/ url in your browser.
+Now we can start the dev-runner by issuing `docker compose up`, then in `tutorial-v1/sample-front-end` run `npm install` and `npm start`. Nest go to the http://localhost:3200/ url in your browser.
 
 ## Test locally
 
@@ -36,4 +36,4 @@ You can run some test tasks as you did in last tutorial step. This is a helpful 
 
 Assuming you have done some operations such as creating a task or taking a task, you should be able to see a record of your actions in the Log page after a few minutes. The records will show your consumption and how much you paid for the gas fee.
 
-Note that in the log page, you'll see all banking transactions including gas fees as well as in-app purchases and fund transfers. 
+Note that in the log page, you'll see all TEA transactions including gas fees as well as in-app purchases and fund transfers. 

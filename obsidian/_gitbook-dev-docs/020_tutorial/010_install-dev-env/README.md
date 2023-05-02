@@ -8,8 +8,14 @@ To install the dev environment in your local machine, you'll need some prerequis
 - Node.js
 - Rust
 
-Note that you'll need to use node version 14.14.0 for this tutorial:
-`nvm use 14.14.0`
+Note that you'll need to use node version 14.14.0 for this tutorial. Make sure you have nvm 14.14.0 installed and set as default:
+
+```
+nvm install 14.14.0
+nvm use 14.14.0
+```
+
+You can check which version of node is active using `nvm current`.
 
 If you haven't installed wasm32-unknown-unknown target or the nightly version, you might be prompted to `rustup` and install them according to the instructions.
 

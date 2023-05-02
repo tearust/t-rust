@@ -16,7 +16,7 @@ Run `git checkout login` to switch to the login branch.
 
 Now you'll use what you've learned in previous steps to build and run the code on top of "dev-runner" and see how it works.
 
-Build the [actor](../../z_glossary/actor.md) in sample-actor folder by running `./build.sh`.
+Build the [actor](../../z_glossary/actor.md) in the `sample-actor` folder by running `./build.sh`.
 
 Go to your local `dev-runner` folder and check that the `local/b-node/sample-actor.wasm` file is the most recent version.
 
@@ -30,7 +30,12 @@ If the `sample_actor.wasm` file isn't recent, check if your build failed.
 
 From the **dev-runner** repo root directory, run `docker compose up`.  **Make sure you wait** about 2 minutes untill all actors are successfully activated. 
 
-In a different terminal window, go to the `tutorial-v1` repo and `cd sample-front-end`. From this directory you can start the frontend by using `npm start`
+In a different terminal window, go to the `tutorial-v1` repo and `cd sample-front-end`. From this directory you can start the frontend:
+
+````
+npm install
+npm start
+````
 
 Then start your browser go to http://localhost:3200/
 
@@ -38,15 +43,9 @@ You should see a page that looks like the following:
 
 ![Pasted image 20230311141039.png](../../../Pasted%20image%2020230311141039.png)
 
-Also you should notice the Metamask popup opens prompting you to connect:
+When you click the login button the Metamask popup opens prompting you to connect with Metamask:
 
 ![Pasted image 20230311141155.png](../../../Pasted%20image%2020230311141155.png)
-
-If you didn't see the Metamask popup, the most common reason is that you haven't installed Metamask. Install Metamask before continuing this walkthrough.
-
-Please connect Metamask to this local address:
-
-![Pasted image 20230311141251.png](../../../Pasted%20image%2020230311141251.png)
 
 ### Q: Why do I need to connect Metamask?
 
@@ -96,6 +95,4 @@ When you click the "Faucet" button, a transfer request is sent to the backend. I
 
 Once the Faucet transfer has completed, you'll see your new 1000 TEA balance after the follow up balance query completes. 
 
-So that's a recap of the steps that just happened. 
-
-In the next article, we'll walkthrough the source code, and you can clearly see how the logic works in the code. Stay tuned.
+That's a recap of the steps that just happened. For more detailed information please see the code walkthrough articles in the sidebar.

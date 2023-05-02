@@ -17,7 +17,8 @@ You may have already noticed that the destination folder is an **a-node** instea
 
 In the txn.rs file, we have Task, Status, And Txns definitions.
 
-```#[derive(Debug, Clone, Serialize, Deserialize)]
+```
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Task {
     pub creator: Account,
     pub subject: String,

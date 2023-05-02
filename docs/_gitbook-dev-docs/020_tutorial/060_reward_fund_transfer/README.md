@@ -29,7 +29,12 @@ In order to clean up the [state](../../z_glossary/state.md)  data from previous 
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
-Now from the `sample-front-end` directory of the `tutorial-v1` repo, run `npm start`. 
+Now from the `sample-front-end` directory of the `tutorial-v1` repo, run the following commands:
+
+````
+npm install
+npm start
+````
 
 ## Initialization steps in the browser
 

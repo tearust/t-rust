@@ -66,9 +66,13 @@ In our next session we'll create a sample-front-end project. It will run such re
 
 ### Start the front end
 
-Make sure you're in the `sample-front-end` folder of the `tutorial-v1` repo and run `npm start`.
+Make sure you're in the `sample-front-end` folder of the `tutorial-v1` repo and to start the front-end run the following commands:
 
-Open a browser and vlisit \[[http://127.0.0.1:3200](http://127.0.0.1:3200/)\].
+````
+npm start
+````
+
+Open a browser and visit \[[http://127.0.0.1:3200](http://127.0.0.1:3200/)\].
 
 You should see a page with the text "Welcome to Sample Actor testing page" and a single button, "click here to send request".
 
