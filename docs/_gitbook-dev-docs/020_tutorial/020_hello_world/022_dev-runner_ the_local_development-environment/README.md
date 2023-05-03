@@ -69,6 +69,7 @@ In our next session we'll create a sample-front-end project. It will run such re
 Make sure you're in the `sample-front-end` folder of the `tutorial-v1` repo and to start the front-end run the following commands:
 
 ````
+npm install
 npm start
 ````
 
