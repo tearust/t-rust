@@ -8,7 +8,7 @@ During this tutorial, we'll build a simple TApplication step by step by cloning 
 The tutorial is broken into multiple parts that build upon each other.
 
 - The [setup section](010_install-dev-env/README.md) goes over the software that needs to be installed in your development environment. 
--  From there you can get started on a simple ["hello world" app](020_hello_world/021_local_build_and_unit_test/README.md) and get the UI to [display "hello world"](020_hello_world/022_dev-runner_ the_local_development-environment/README.md).
+-  From there you can get started on a simple ["hello world" app](020_hello_world/021_local_build_and_unit_test/README.md) and get the UI to [display hello world](020_hello_world/022_dev-runner_the_local_development-environment/README.md).
 - Next up is the [deploy section](030_deploy_helloworld_testnet/README.md) that shows you how to register your TApp as a real app running on the TEA network and uploading it to IPFS.
 
 In the next section we actually start working on the actual todo list TApp.
