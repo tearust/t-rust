@@ -14,7 +14,7 @@ The local development environment (dev-runner) is a docker configuration. It sim
 
 ## Prerequisites for Installation
 - Git
-- Docker: install docker and "docker compose"
+- Docker: install docker (version  20.10.23 or above) and "docker compose"
 - Node.js. Again, make sure you're using node version 14.14.0.
 
 ## Running the tests

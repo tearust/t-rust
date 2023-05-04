@@ -3,15 +3,9 @@ Assuming you have successfully built and run the unit test, let's get into the c
 
 ### Folder structure overview
 ```
-ls -l
-total 216
--rw-r--r--  1 kevinzhang  staff  97113 Mar  6 20:25 Cargo.lock
--rw-r--r--  1 kevinzhang  staff    198 Mar  6 20:25 Cargo.toml
--rwxr-xr-x@ 1 kevinzhang  staff    293 Mar  6 17:51 build.sh
-drwxr-xr-x@ 4 kevinzhang  staff    128 Mar  6 17:51 codec
-drwxr-xr-x@ 6 kevinzhang  staff    192 Mar  6 17:51 impl
--rw-r--r--@ 1 kevinzhang  staff     78 Mar  6 17:51 rust-toolchain.toml
-drwxr-xr-x@ 7 kevinzhang  staff    224 Mar  6 17:52 target
+ls
+Cargo.lock          README.md           codec               rust-toolchain.toml
+Cargo.toml          build.sh            impl                target
 ```
 
 Folders and their usage:
@@ -35,8 +29,10 @@ members = ["codec", "impl"]
 resolver = "2"
 
 [workspace.dependencies]
-tea-sdk = "0.2.0-dev.1"
+tea-sdk = {git="https://github.com/tearust/sdk", branch="master"}
 serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0.94"
+log = "0.4.17"
 thiserror = "1.0.39"
 tokio = "1.26.0"
 ```
@@ -68,10 +64,13 @@ fi
 
 if ! command -v tas &> /dev/null
 then
-    cargo install tea-actorx-signer --version 0.2.0-dev.2
+    cargo install tea-actorx-signer --version 0.2.0-dev.5
 fi
 
 tas ../target/wasm32-unknown-unknown/release/sample_actor.wasm
+echo "copy to dev-runner"
+cd ..
+cp -r target/wasm32-u
 
 ```
 
@@ -80,10 +79,8 @@ tas ../target/wasm32-unknown-unknown/release/sample_actor.wasm
 List the files in the `codec` folder:
 
 ```
-ls -l
-total 8
--rw-r--r--@ 1 kevinzhang  staff  149 Mar  6 17:51 Cargo.toml
-drwxr-xr-x@ 4 kevinzhang  staff  128 Mar  6 17:51 src
+ls
+Cargo.toml src
 ```
 
 The `Cargo.toml` file inside the codec folder:
@@ -111,20 +108,18 @@ In our tutorial, while adding more logic to the project, we'll have more and mor
 Files in the src folder:
 
 ```
-ls -l
-total 16
--rw-r--r--@ 1 kevinzhang  staff  173 Mar  6 17:51 error.rs
--rw-r--r--@ 1 kevinzhang  staff  416 Mar  6 17:51 lib.rs
+ls
+error.rs lib.rs
 ```
 
 Let's take a look into `error.rs`:
 
 ```
 cat error.rs
-use tea_sdk::{actorx::runtime::error::Runtime, define_scope};
+use tea_sdk::{actorx::error::ActorX, define_scope};
 
 define_scope! {
-    SampleActor: Runtime {
+    SampleActor: ActorX {
         HttpActionNotSupported;
         GreetingNameEmpty;
     }
@@ -149,6 +144,8 @@ use tea_sdk::serde::TypeId;
 
 pub mod error;
 
+pub const NAME: &[u8] = b"someone.sample";
+
 #[derive(Debug, Clone, Serialize, Deserialize, TypeId)]
 #[response(())]
 pub struct GreetingsRequest(pub String);
@@ -166,17 +163,24 @@ In this file we defined three structure types:
 - **AddRequest**: This is another example handler that adds two i32 numbers from the input.
 - **AddResponse**: Send back the result of adding two input numbers.
 
-There is no **GreetingResponse** because we just print the "Hello Alice" to the console without any return to the client for demo purposes. There's another HTTP GET handler to deal with client request that returns "Hello World". We'll get into that when we walk through the `impl` workspace.
+There is no **GreetingResponse** because we just print the "Hello Alice" to the console without any return to the client for demo purposes. In order to make the compiler happy, you would need to have the `#[response(())]` line. This tells the compiler that this request does not attach a response type written by developer, but it does return a () as response.  If you do not have such a line, the compile will give you an error because it considers you missed a response.
+
+Request and Response are the most important concept in the actor design, it deserve a standalone chapter to explain. Please go to the "understand request and response" chapter in this tutorial step to learn more.  
+
+
+!!! GEORGE, please add the link to the understand request and response to the text above. !!!
+
+
+
+There's another HTTP GET handler to deal with client request that returns "Hello World". We'll get into that when we walk through the `impl` workspace.
+
+
 
 ### impl folder
 
 ```
-ls -l
-total 24
--rw-r--r--@ 1 kevinzhang  staff   364 Mar  6 17:51 Cargo.toml
--rw-r--r--@ 1 kevinzhang  staff  2459 Mar  6 17:51 key.pem
--rw-r--r--@ 1 kevinzhang  staff   110 Mar  6 17:51 manifest.yaml
-drwxr-xr-x@ 5 kevinzhang  staff   160 Mar  6 20:38 src
+ls
+Cargo.toml    key.pem       manifest.yaml src
 ```
 
 The `Cargo.toml` file:
@@ -208,7 +212,7 @@ We'll need to use the data types defined in the codec folder.
 During development, we'll use **mock** for unit testing. So you can see the line
 `tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm [actor](../../../z_glossary/actor.md)  and run the unit test functions in your dev machine without deploying to the testnet.
 
-**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the [TEA-runtime](../../../z_glossary/mini-runtime.md)] to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
+**key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the [TEA-runtime](../../../z_glossary/mini-runtime.md) to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
 
 The `manifest.yaml` file:
 
@@ -234,11 +238,8 @@ The `access` is the list of all other modules this actor will communicate with. 
 In the `src` folder there are three files:
 
 ```
-ls -l
-total 24
--rw-r--r--@ 1 kevinzhang  staff   483 Mar  6 17:51 error.rs
--rw-r--r--  1 kevinzhang  staff  1727 Mar  6 20:25 lib.rs
--rw-r--r--  1 kevinzhang  staff   926 Mar  6 20:38 tests.rs
+ls
+error.rs lib.rs   tests.rs
 
 ```
 
@@ -290,17 +291,20 @@ cat lib.rs
 #![allow(incomplete_features)]
 #![feature(async_fn_in_trait)]
 
-use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest};
+use crate::error::GreetingNameEmpty;
+use error::{HttpActionNotSupported, Result};
+use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest, NAME};
 use tea_sdk::{
     actors::adapter::HttpRequest,
-    actorx::runtime::{actor, println, Activate},
+    actorx::hooks::{Activate},
+    actorx::{actor, ActorId, HandlerActor},
     serde::handle::{Handle, Handles},
-    Handle,
+    utils::wasm_actor::logging::set_logging,
+    Handle, ResultExt,
 };
 
-use error::{HttpActionNotSupported, Result};
-
-use crate::error::GreetingNameEmpty;
+#[cfg(not(test))]
+use ::{log::info, tea_sdk::utils::wasm_actor::actors::adapter::register_adapter_http_dispatcher};
 
 pub mod error;
 #[cfg(test)]
@@ -311,32 +315,50 @@ actor!(Actor);
 #[derive(Default, Clone)]
 pub struct Actor;
 
-impl Handles<()> for Actor {
-    type List = Handle![Activate, HttpRequest, GreetingsRequest, AddRequest];
+impl Handles for Actor {
+    type List = Handle![
+        Activate,
+        HttpRequest,
+        GreetingsRequest,
+        AddRequest
+    ];
 }
 
-impl Handle<(), Activate> for Actor {
-    async fn handle(self, _: Activate, _: ()) -> Result<()> {
+impl HandlerActor for Actor {
+	fn id(&self) -> Option<ActorId> {
+		Some(NAME.into())
+	}
+
+	async fn pre_handle<'a>(&'a self, req: &'a [u8]) -> Result<std::borrow::Cow<'a, [u8]>> {
+		set_logging(false, false);
+		Ok(std::borrow::Cow::Borrowed(req))
+	}
+}
+
+impl Handle<Activate> for Actor {
+    async fn handle(&self, _: Activate) -> Result<()> {
         #[cfg(not(test))]
         {
-            use tea_sdk::utils::wasm_actor::actors::adapter::register_adapter_http_dispatcher;
             register_adapter_http_dispatcher(vec!["say-hello".to_string()]).await?;
+            info!("activate sample actor successfully");
         }
         Ok(())
     }
 }
 
-impl Handle<(), HttpRequest> for Actor {
-    async fn handle(self, HttpRequest { action, .. }: HttpRequest, _: ()) -> Result<Vec<u8>> {
+
+impl Handle<HttpRequest> for Actor {
+    async fn handle(&self, HttpRequest { action, .. }: HttpRequest) -> Result<Vec<u8>> {
+        log::info!("@@ aa => {:?}", action);
         match action.as_str() {
-            "say-hello" => Ok(b"Hello world!".to_vec()),
+            "say-hello" => serde_json::to_vec("Hello world!").err_into(),
             _ => Err(HttpActionNotSupported(action).into()),
         }
     }
 }
 
-impl Handle<(), GreetingsRequest> for Actor {
-    async fn handle(self, GreetingsRequest(name): GreetingsRequest, _: ()) -> Result<()> {
+impl Handle<GreetingsRequest> for Actor {
+    async fn handle(&self, GreetingsRequest(name): GreetingsRequest) -> Result<()> {
         if name.is_empty() {
             return Err(GreetingNameEmpty.into());
         }
@@ -346,8 +368,8 @@ impl Handle<(), GreetingsRequest> for Actor {
     }
 }
 
-impl Handle<(), AddRequest> for Actor {
-    async fn handle(self, AddRequest(lhs, rhs): AddRequest, _: ()) -> Result<AddResponse> {
+impl Handle<AddRequest> for Actor {
+    async fn handle(&self, AddRequest(lhs, rhs): AddRequest) -> Result<AddResponse> {
         Ok(AddResponse(lhs + rhs))
     }
 }
@@ -366,24 +388,29 @@ pub struct Actor;
 Then we list all Types that should be handled using:
 
 ```
-impl Handles<()> for Actor {
-    type List = Handle![Activate, HttpRequest, GreetingsRequest, AddRequest];
+impl Handles for Actor {
+    type List = Handle![
+        Activate,
+        HttpRequest,
+        GreetingsRequest,
+        AddRequest
+    ];
 }
 ```
 
-After this we implement those trait Handles by writing `impl Handles... for Actor` and fill in the code logic for each impl.
+After this we implement those trait Handles by writing `impl HandlerActor for Actor` and fill in the code logic for each impl.
 
 In our sample actor example, we only handle three developer-defined instances of business logic and one system request which is called `Activate`. 
 
 Activate is called when the actor is loaded into the runtime for the first time and starts running. The default behavior is in the following code:
 
 ```
-impl Handle<(), Activate> for Actor {
-    async fn handle(self, _: Activate, _: ()) -> Result<()> {
+impl Handle<Activate> for Actor {
+    async fn handle(&self, _: Activate) -> Result<()> {
         #[cfg(not(test))]
         {
-            use tea_sdk::utils::wasm_actor::actors::adapter::register_adapter_http_dispatcher;
             register_adapter_http_dispatcher(vec!["say-hello".to_string()]).await?;
+            info!("activate sample actor successfully");
         }
         Ok(())
     }
@@ -397,10 +424,11 @@ In our case, we add a `say-hello` string vec as the **action name**. This action
 Here we handle the HttpRequest:
 
 ```
-impl Handle<(), HttpRequest> for Actor {
-    async fn handle(self, HttpRequest { action, .. }: HttpRequest, _: ()) -> Result<Vec<u8>> {
+impl Handle<HttpRequest> for Actor {
+    async fn handle(&self, HttpRequest { action, .. }: HttpRequest) -> Result<Vec<u8>> {
+        log::info!("@@ aa => {:?}", action);
         match action.as_str() {
-            "say-hello" => Ok(b"Hello world!".to_vec()),
+            "say-hello" => serde_json::to_vec("Hello world!").err_into(),
             _ => Err(HttpActionNotSupported(action).into()),
         }
     }
@@ -412,8 +440,8 @@ Because we registered the http request to the "say-hello" action name, it should
 To demonstrate a more complex case, the request contains a parameter (the developers name). We have the GreetingsRequest:
 
 ```
-impl Handle<(), GreetingsRequest> for Actor {
-    async fn handle(self, GreetingsRequest(name): GreetingsRequest, _: ()) -> Result<()> {
+impl Handle<GreetingsRequest> for Actor {
+    async fn handle(&self, GreetingsRequest(name): GreetingsRequest) -> Result<()> {
         if name.is_empty() {
             return Err(GreetingNameEmpty.into());
         }
@@ -429,8 +457,8 @@ In this example handler, the `name` is the parameter of the request. The handler
 We have have multiple parameters in one request. We have the AddRequest handler to demonstrate this:
 
 ```
-impl Handle<(), AddRequest> for Actor {
-    async fn handle(self, AddRequest(lhs, rhs): AddRequest, _: ()) -> Result<AddResponse> {
+impl Handle<AddRequest> for Actor {
+    async fn handle(&self, AddRequest(lhs, rhs): AddRequest) -> Result<AddResponse> {
         Ok(AddResponse(lhs + rhs))
     }
 }

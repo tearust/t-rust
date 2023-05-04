@@ -1,13 +1,16 @@
 # Sample Front-end Code Walkthrough
 The `master` branch of the tutorial is the simple "hello world" example. There's not much front-end logic to explain. In contrast, the `login` branch is a  **typical** TApp boilerplate. We'll dig into more detail when we get there in our next step.
 
-For the current `master` branch, you can see a typical VUE front-end Single Page Application. 
+For the current `master` branch, you can see a typical VUE front-end Single Page Application.
+
+> Note: You can use any front end framework to build your own front end. TEA Project is not a front end framework, it works with any type of front end framework. We use VUE as an easy example. 
 
 The only hello world related code is in `Home.vue`
 
 This is the code:
 
 ```
+import {_, axios} from 'tearust_utils';
 export default {
   data(){
     return {};
@@ -25,7 +28,7 @@ export default {
         actor: 'someone.sample',
         address: '0x000000000000000000000000000000000000000f'
       });
-      alert(JSON.stringify(rs));
+      alert(rs.data);
     }
   }
 };
@@ -42,7 +45,7 @@ It simply send an axios post to `/say-hello` with the following JSON content:
 
 This is an example of how we test the sample-actor using CURL or Postman.
 
-Another thing we need to mention is the LAYER2_URL env var. This is the address to the [backend actor](../../../z_glossary/back_end_actor.md). It's defined in the `.env.test` file.
+Another thing we need to mention is the LAYER2_URL env var. This is the address to the [backend actor](../../../z_glossary/back_end_actor.md). It's defined in the `.env.test` file. During you local testing, by default it is set to your local IP address port 8000.
 
 ```
 NODE_ENV = dev

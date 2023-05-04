@@ -13,7 +13,7 @@ Typically there are three types of requests coming from the end users.
 
 Query will not modify state, it just get the current state of state.
 
-In some cases, the hosting nodes have local cache of state, so it will just return directly. This is a sync call. In other cases, the hosting nodes do not have local cache of state, so it cannot get back the result immediately. It has to send another request to the [obsidian/_gitbook-dev-docs/z_glossary/state_machine_actor](../_gitbook-dev-docs/z_glossary/state_machine_actor.md) for the latest state. In this case, the hosting node will response a UUID as query-stub for future result lookup. This call is considered an async call. The future looking up for result is "Get results" request. 
+In some cases, the hosting nodes have local cache of state, so it will just return directly. This is a sync call. In other cases, the hosting nodes do not have local cache of state, so it cannot get back the result immediately. It has to send another request to the [obsidian/_gitbook-dev-docs/z_glossary/state_machine_actor](../_gitbook-dev-docs/z_Glossary/state_machine_actor.md) for the latest state. In this case, the hosting node will response a UUID as query-stub for future result lookup. This call is considered an async call. The future looking up for result is "Get results" request. 
 
 ## Send transaction
 
