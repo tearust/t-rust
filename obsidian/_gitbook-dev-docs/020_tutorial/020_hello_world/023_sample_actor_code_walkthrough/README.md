@@ -201,16 +201,13 @@ tea-sdk = { workspace = true, features = ["wasm"] }
 thiserror = { workspace = true }
 
 [dev-dependencies]
-tea-sdk = { workspace = true, features = ["mock"] }
 tokio = { workspace = true, features = ["full"] }
 ```
 
 Note the line 
 `sample-actor-codec = { path = "../codec" }`.
-We'll need to use the data types defined in the codec folder.
 
-During development, we'll use **mock** for unit testing. So you can see the line
-`tea-sdk = { workspace = true, features = ["mock"] }` under the dev-dependencies section. The mock is a fake tea runtime that loads the testing wasm [actor](../../../z_glossary/actor.md)  and run the unit test functions in your dev machine without deploying to the testnet.
+We'll need to use the data types defined in the codec folder.
 
 **key.pem** is a private key file that the developer of this actor knows. It's used for verification purposes by the [TEA-runtime](../../../z_glossary/mini-runtime.md) to check if the final built wasm binary is correctly signed by the original developer when upgrading. You can generate key.pem using the openssl tool: `openssl genrsa -out key.pem`. As a developer, please make sure you keep the key.pem file securely stored. Whoever has such a pem file can impersonate you to sign a malicious wasm file under your name.
 
