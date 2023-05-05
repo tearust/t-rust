@@ -210,7 +210,7 @@ Let's use CreateTask as an example:
 
 ```
         Txns::CreateTask { task, auth_b64 } => {
-            // check_account(auth_b64, task.creator).await?;
+            check_account(auth_b64, task.creator).await?;
             let glue_ctx = new_gluedb_context().await?;
             create_task(tsid, task).await?;
             CommitContext::new(
@@ -224,7 +224,7 @@ Let's use CreateTask as an example:
         }
 ```
 
-This txn only run a SQL scripts, it's very simple. First `new_gluedb_context()` will generate a new glue_ctx. It also starts an SQL Transaction. If anything failed before the commit, no change will be written to the SQL database. 
+This txn only run a SQL scripts, it's very simple. Before any real business logic, the line of `check_account` will make sure the user is the `task.creator` not impersonated. If Alice trying to create a task but claim the creator is Bob, this check will fail. If this check pass, the next `new_gluedb_context()` will generate a new glue_ctx. It also starts an SQL Transaction. If anything failed before the commit, no change will be written to the SQL database. 
 
 The SQL scripts is inside the `create_task` function. 
 

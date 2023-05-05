@@ -31,9 +31,9 @@ In the future, almost all request handlers will be put here for easy organizing.
 Let's take a look at where these functions are called, for example in `lib.rs`:
 
 ````
-impl Handle<(), HttpRequest> for Actor {
-	async fn handle(self, req: HttpRequest, _: ()) -> Result<Vec<u8>> {
-		let from_actor = "sample_actor".to_string();
+impl Handle<HttpRequest> for Actor {
+	async fn handle(&self, req: HttpRequest) -> Result<Vec<u8>> {
+		let from_actor = String::from_utf8(NAME.to_vec())?;
 		let base_res = map_handler(&req.action, req.clone().payload, from_actor.clone()).await?;
 		let cur_res = crate::dfn::map_handler(&req.action, req.payload, from_actor).await?;
 		if cur_res.is_empty() && !base_res.is_empty() {
@@ -61,12 +61,12 @@ A new api.rs is added, and in this step it's mainly for the txn_faucet function.
 ````
 pub async fn txn_faucet(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>> {
 	let req: FaucetRequest = serde_json::from_slice(&payload)?;
-  check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
+	check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
 	info!("Start faucet action...");
 
 	let txn = TappstoreTxn::TransferTea {
-    token_id: tappstore_id().await?,
-    from: DAO_RESERVED_ACCOUNT,
+	    token_id: tappstore_id().await?,
+	    from: DAO_RESERVED_ACCOUNT,
 		to: req.address.parse()?,
 		amount: DOLLARS * 1000,
 		auth_b64: req.auth_b64.to_string(),
@@ -88,8 +88,8 @@ pub async fn txn_faucet(payload: Vec<u8>, from_actor: String) -> Result<Vec<u8>>
 When the "faucet" request is received by the [actor](../../../z_glossary/actor.md), `crate::dfn::map_handler` will dispatch the function call to txn_faucet. Inside this function, we first generate the req:
 
 ````
-	let req: FaucetRequest = serde_json::from_slice(&payload)?;
-  check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
+let req: FaucetRequest = serde_json::from_slice(&payload)?;
+check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
   
 ````
 

@@ -21,8 +21,13 @@ Follow the queryTaskList to the task.js
       address: self.layer1_account.address,
     });
     return _.map(rs.list, (item)=>{
-      item.price = utils.layer1.balanceToAmount(item.price.replace('0x', ''));
-      item.deposit = utils.layer1.balanceToAmount(item.required_deposit.replace('0x', ''));
+      try{
+        item.price = utils.layer1.balanceToAmount(item.price);
+        item.deposit = utils.layer1.balanceToAmount(item.required_deposit);
+      }catch(e){
+        item.price = utils.layer1.balanceToAmount(utils.toBN('0x'+item.price).toString());
+        item.deposit = utils.layer1.balanceToAmount(utils.toBN('0x'+item.required_deposit).toString());
+      }
       return item;
     });
   }

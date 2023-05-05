@@ -16,17 +16,19 @@ data(){
       form: {
         
       },
-      
-      read: false,
-      withdraw: false,
-      consume: true,
-      move: false,
-      bonding_curve: false,
+      // Node: please add authorizations here when needed
+      // read: false,
+      // withdraw: false,
+      // consume: true,
+      // move: true,
+      // bonding_curve: false,
     };
   },
 ```
 
-The `read, withdraw, consume, move, bonding_curve` are authorizations that the user needs to confirm which we [explained previously](../README.md). If you want the end user to select any authorization by default, you can set it to "true" like we did for `consume` in our case.
+The `read, withdraw, consume, move, bonding_curve` are authorizations that the user needs to confirm which we [explained previously](../README.md).  In this `login` step, there is no business logic to transfer fund or consume fund. So we can simple remove all authorization strings here. You can see all of them are commented out. But in our future steps, such as `reward` branch, there would be fund transfer or consumption busienss logic. You will see `consume` and `move` are set to true.  When those authorization strings are set to true, the end user may see the string in Metamask sign window. 
+
+This is important to let end user know what types of authorization he would authorize the app. In case of any suspecious strings that not expected by the app, the end user can refuse to sign and login. 
 
 The js code to handle user login is in `src/layer2/user.js`
 
