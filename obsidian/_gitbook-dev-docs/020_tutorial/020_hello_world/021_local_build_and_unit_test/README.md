@@ -26,23 +26,24 @@ You can run `cargo test` to run all the unit tests. You should see the test resu
 ```
 cargo test
 
-Compiling sample-actor v0.1.0 (/Users/kevinzhang/github/tearust/sample-actor/impl)
-
-Finished test [unoptimized + debuginfo] target(s) in 0.94s
-
-Running unittests src/lib.rs (/Users/kevinzhang/github/tearust/sample-actor/target/debug/deps/sample_actor-1495a49ca0ae2c13)
-
 running 3 tests
-
-Hello, Alice!
-
+test tests::greeting_test ... ok
+test tests::greeting_empty_string_should_err ... ok
 test tests::add_test ... ok
 
-test tests::greeting_empty_string_should_err ... ok
-
-test tests::greeting_test ... ok
-
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sample_actor_codec-0cfabb9e4ae1c025)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sample-actor-codec
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 ```
 
@@ -50,22 +51,20 @@ When you want to test a request handler and expect it to return an error, you ca
 
 ```
 
+#[tokio::test]
 async fn greeting_empty_string_should_err() -> Result<()> {
+  async {
+    init().await?;
+    let result = ActorId::Static(NAME).call(
+      GreetingsRequest("".to_string()),
+    )
+    .await;
 
-let result: Result<_> = call(
-
-RegId::from(Actor::NAME).inst(0),
-
-GreetingsRequest("".to_string()),
-
-)
-
-.await;
-
-assert!(result.is_err());
-
-Ok(())
-
+    assert!(result.is_err());
+    Ok(())
+  }
+  .with_actor_host()
+  .await
 }
 
 ```

@@ -196,8 +196,11 @@ crate-type = ["cdylib"]
 sample-actor-codec = { path = "../codec" }
 tea-sdk = { workspace = true, features = ["wasm"] }
 thiserror = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }
 
 [dev-dependencies]
+tea-sdk = { workspace = true, features = ["host"]}
 tokio = { workspace = true, features = ["full"] }
 ````
 
@@ -471,82 +474,58 @@ Here's an example unit test file, `test.rs`:
 
 ````
 
-use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest};
+use sample_actor_codec::{AddRequest, AddResponse, GreetingsRequest, NAME};
 
-use tea_sdk::actorx::{
+use crate::{Actor, error::Result};
+use tea_sdk::actorx::{ActorExt, WithActorHost, ActorId};
 
-runtime::{call, ActorHost, MockedActorName, RegisterMocked},
+async fn init() -> Result<()> {
+	Actor::default().register().await?;
+	Ok(())
+}
 
-RegId,
-
-};
-
-use crate::{error::Result, Actor};
-
-#[tea_sdk::test(init)]
-
+#[tokio::test]
 async fn greeting_test() -> Result<()> {
-
-call(
-
-RegId::from(Actor::NAME).inst(0),
-
-GreetingsRequest("Alice".to_string()),
-
-)
-
-.await?;
-
-Ok(())
-
+  async {
+		init().await?;
+		ActorId::Static(NAME).call(
+      GreetingsRequest("Alice".to_string()),
+    )
+    .await?;
+    Ok(())
+	}
+	.with_actor_host()
+	.await
 }
 
-#[tea_sdk::test(init)]
-
+#[tokio::test]
 async fn greeting_empty_string_should_err() -> Result<()> {
+  async {
+    init().await?;
+    let result = ActorId::Static(NAME).call(
+      GreetingsRequest("".to_string()),
+    )
+    .await;
 
-let result: Result<_> = call(
-
-RegId::from(Actor::NAME).inst(0),
-
-GreetingsRequest("".to_string()),
-
-)
-
-.await;
-
-assert!(result.is_err());
-
-Ok(())
-
+    assert!(result.is_err());
+    Ok(())
+  }
+  .with_actor_host()
+  .await
 }
 
-#[tea_sdk::test(init)]
-
+#[tokio::test]
 async fn add_test() -> Result<()> {
-
-let AddResponse(result) = call(RegId::from(Actor::NAME).inst(0), AddRequest(1, 2)).await?;
-
-assert_eq!(result, 3);
-
-Ok(())
-
+  async {
+    init().await?;
+    let AddResponse(result) = ActorId::Static(NAME).call(AddRequest(1, 2)).await?;
+    assert_eq!(result, 3);
+    Ok(())
+  }
+  .with_actor_host()
+  .await
 }
 
-async fn init() -> Result<ActorHost> {
 
-let host = ActorHost::new();
-
-host.register_mocked(Actor)?;
-
-Ok(host)
-
-}
-
-impl MockedActorName for Actor {
-
-const NAME: &'static [u8] = b"someone.sample";
-
-}
 
 ````
