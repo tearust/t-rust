@@ -252,16 +252,9 @@ In TEA Project, the SQL engine is [GlueSQL](https://github.com/gluesql/gluesql).
 Please make sure `sql_init` is called at `Txns::Init`. 
 
 ```
-       Txns::Init {} => {
+        Txns::Init {} => {
             sql_init(tsid).await?;
-            CommitContext::new(
-                ctx,
-                None,
-                None,
-                None,
-                GOD_MODE_AUTH_KEY,
-                txn.to_string(),
-            )
+            CommitContext::ctx_receipting(ctx, txn.to_string())
         }
 ```
 
