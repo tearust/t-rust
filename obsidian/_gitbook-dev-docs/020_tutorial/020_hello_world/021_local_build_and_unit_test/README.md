@@ -3,7 +3,7 @@
 
 The output of the build process is a Webassembly binary called `sample-actor.wasm`. This binary executable code will be loaded into the [TEA-runtime](../../../z_glossary/mini-runtime.md) which we'll talk about more in future steps. Now let's focus on how to build it.
 
-Assuming you have cloned the code and installed all dependencies as instructed in previous step. If not, please do so now. Make sure the following items have been installed correctly:
+Please make sure you've cloned the code and installed all dependencies as instructed in the previous step. In particular, make sure the following items have been installed correctly:
 
 - rust nightly
 - wasm32-unknown-unknown target
@@ -75,7 +75,7 @@ We highly recommend to write and run a unit test whenever you add / modify code.
 
 ## Run sample-front-end
 
-First  from the root of the code repo, `cd sample-front-end`. If your backend has different IP or port number other than the default localhost:8000, please edit the `.env.test` file to edit in your customized values:
+First from the root of the code repo, `cd sample-front-end`. If your backend has a different IP or port number other than the default localhost:8000, please edit the `.env.test` file to edit in your customized values:
 
 ```
 VUE_APP_LAYER2_URL=http://127.0.0.1:8000
@@ -85,6 +85,7 @@ This address will be your backend service address.
 
 Run the following  to install dependencies:
 `npm install`
+
 Then start the frontend local web server by running:
 `npm start`
 
@@ -99,9 +100,9 @@ If you can see the following:
   To create a production build, run npm run build.
 ```
 
-then your front end is up running. 
+then your frontend is up and running. 
 
-At this moment, you cannot send requests to the backend and get "hello world" message yet. We'll get into the local development environment in the next step.
+At this moment, you cannot send requests to the backend and get a "hello world" message yet. We'll get into the local development environment in the next step.
 
 You can send `Ctrl + C` to stop the frontend now.
 

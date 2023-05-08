@@ -4,7 +4,7 @@
 To install the dev environment in your local machine, you'll need some prerequisite software already installed:
 
 - Git
-- Docker: install docker and "docker compose". Note that we've only tested on the current version of Docker (20.10.23) and we only suggest that you keep your Docker updated to the latest version.
+- Docker: install docker and "docker compose". Note that we've only tested using the current version of Docker (20.10.23) and we suggest keeping your Docker updated to the latest version.
 - Rust
 - Node.js
 

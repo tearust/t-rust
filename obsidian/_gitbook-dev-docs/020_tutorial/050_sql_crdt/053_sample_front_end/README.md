@@ -111,16 +111,16 @@ async createNewTask(self, param={}, succ_cb){
   },
 ```
 
-First we get the session_key. This is used as Auth_b64 that we explained before, and will be reference as `authB64: session_key` later.
+First we get the session_key. This is used as Auth_b64 that we explained before, and will be referenced as `authB64: session_key` later.
 
-A modal window will then open up to show a form where the user can input the content. Once commited, it will call the `cb` callback function. This callback function gathers all input task parameters, then sends them back via `txn.txn_request`. After that, we close the modal and clear the Loading backdrop. 
+A modal window will then open up showing a form where the user can input the content. Once commited, it will call the `cb` callback function. This callback function gathers all input task parameters, then sends them back via `txn.txn_request`. After that, we close the modal and clear the Loading backdrop. 
 
 ## Other operation: delete, task, complete
 
-Those operations follow the same pattern but simpler.
+These operations follow the same pattern but are even simpler.
 
 ## Summary
 
 So you may have noticed the pattern we used in the front end.
 
-It will be either a query_request or a txn_request. This is exactly the same as we 've done for more than a decade in traditional web2 development. So the TEA Project is a smooth onramp from web2 to web3.
+It will be either a query_request or a txn_request. This is exactly the same as we 've done for more than a decade in traditional web2 development. We've worked hard to make the TEA Project a smooth onramp from web2 to web3.

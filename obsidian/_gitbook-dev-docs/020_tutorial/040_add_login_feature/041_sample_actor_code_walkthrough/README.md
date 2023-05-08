@@ -1,7 +1,7 @@
 # Sample-actor Code Walkthrough - Login Branch
 In the `login` branch, the majorify of the logic is in the frontend. There are only a few code changes in the backend to handle the login and faucet logic. Let's walk through it all.
 
-We moved the function to handle "say-hello" from lib.rs to a new file called `dfn.rs`. A new handler "faucet" has also been added. This is used to send faucet [txn](../../../z_glossary/txn.md) when the user clicks the "faucet" button in the frontend.
+We moved the function to handle "say-hello" from `lib.rs` to a new file called `dfn.rs`. A new handler "faucet" has also been added. This is used to send a faucet [txn](../../../z_glossary/txn.md) when the user clicks the "faucet" button in the frontend.
 
 ```
 use crate::error::Result;
@@ -51,7 +51,7 @@ If you want to override the default handler, you can define the handler function
 
 In this case, we didn't handle the login request, instead the default login handler inside the `tea_sdk::utils` is used. That's why we can write almost zero code to get the login feature.
 
-In our TEA SDK, there are many default handlers like login. For more detail about the `tea_sdk::utils` please go to [tea_sdk_utils](tea_sdk_utils.md).
+In our TEA SDK, there are many default handlers like login. For more details about the `tea_sdk::utils` please go to [tea_sdk_utils](tea_sdk_utils.md).
 
 You may also notice that the AddRequest handler is removed given it's no longer used in this and future steps.
 
@@ -94,6 +94,6 @@ check_auth(&req.tapp_id_b64, &req.address, &req.auth_b64).await?;
 
 then use `TappstoreTxn::TransferTea` to convert it to a txn. `request::send_tappstore_txn` is used to send such a txn. This txn is sent to the [state machine](../../../z_glossary/state_machine.md) and executed async.
 
-Note, we don't expect to get the execution result at this moment because all state machine nodes will handle async.
+Note we don't expect to get the execution result at this moment because all state machine nodes will handle async.
 
 Please read the code carefully and understand each parameter. 

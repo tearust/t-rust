@@ -5,7 +5,7 @@ During this tutorial, we'll build a simple TApplication step by step by cloning 
 
 ![[Pasted image 20230319210108.png]]
 
-The tutorial is broken into multiple parts that build upon each other.
+The tutorial is sectioned into multiple parts that build upon each other.
 
 - The [setup section](010_install-dev-env/README.md) goes over the software that needs to be installed in your development environment. 
 -  From there you can get started on a simple ["hello world" app](020_hello_world/021_local_build_and_unit_test/README.md) and get the UI to [display hello world](020_hello_world/022_dev-runner_the_local_development-environment/README.md).

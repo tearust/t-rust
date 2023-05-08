@@ -80,6 +80,6 @@ sequenceDiagram
 In this section, we'll explain how the distributed state machine works, including how it handles consensus among different replicas.
 Keep reading about the [magic of the state machine](../010_core_docs/080_magic_of_state_machine.md).
 
-## Understand WebAssembly Runtime
+## Understanding the WebAssembly Runtime
 
-You can learn more about how the WebAssembly code runs inside the [mini-runtime](../z_Glossary/mini-runtime.md) by reading about the [magic_of_wasm](../z_Glossary/magic_of_wasm.md).
+You can learn more about how the WebAssembly code runs inside the [mini-runtime](../z_glossary/mini-runtime.md) by reading about the [magic_of_wasm](../z_glossary/magic_of_wasm.md).

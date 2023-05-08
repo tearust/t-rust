@@ -93,13 +93,13 @@ In the next step, you'll learn how to deploy it to the testnet.
 
 ## Limitations of dev-runner
 
-Dev-runner is a docker simulator to real TEA-runtime. It is different in the following aspects:
+Dev-runner is a docker simulation of the real TEA-runtime. It's different in the following aspects:
 
 * There's no hardware security. 
 * There's only one host node and one state machine node.
 * No consensus is required since there's only one state machine node.
-* There's no real remote attestation. All nodes are "good " nodes.
+* There's no real remote attestation. All nodes are assumed to be "good " nodes.
 * There's no layer-1 (Ethereum) interaction. 
 * All initial funding is provided in the DAO_RESERVE account. Of course, this money is fake.
 
-You can stop the docker at any time, and it will get back to the original state when you restart . You cannot store the state.
+You can stop the docker container at any time, and it will get back to the original state when you restart . You cannot store the state.

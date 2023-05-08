@@ -1,5 +1,5 @@
 # Sample Front-end Code Walkthrough
-The `master` branch of the tutorial is the simple "hello world" example. There's not much front-end logic to explain. In contrast, the `login` branch is a  **typical** TApp boilerplate. We'll dig into more detail when we get there in our next step.
+The `master` branch of the tutorial is just a simple "hello world" example. There's not much front-end logic to explain. In contrast, the `login` branch is a  **typical** TApp boilerplate. We'll dig into more detail on the `login` branch when we get there in our next step.
 
 For the current `master` branch, you can see a typical VUE front-end Single Page Application.
 
@@ -34,7 +34,7 @@ export default {
 };
 ```
 
-It simply send an axios post to `/say-hello` with the following JSON content:
+It simply sends an axios post to `/say-hello` with the following JSON content:
 
 ```
 {
@@ -50,8 +50,6 @@ Another thing we need to mention is the LAYER2_URL env var. This is the address 
 ```
 NODE_ENV = dev
 VUE_APP_LAYER2_URL=http://127.0.0.1:8000
-
-
 ```
 
 If you have a special environment settings that the backend is not running on 127.0.0.1:8000, please make sure you change this value. 

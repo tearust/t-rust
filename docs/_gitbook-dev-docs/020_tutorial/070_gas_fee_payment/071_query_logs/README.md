@@ -2,7 +2,7 @@
 
 In this `gas` branch, there's only one major change and it's in the **sample-actor** project. The **sample-txn-executor** has no change because it has nothing to do with gas fee logs. The sample-front-end added a new UI but mainly it's just typical VUE web UI code changes, so there's no need to explain it in our tutorial. So let's only focus on the **sample-actor** project.
 
-We'll need to add a new query to get the list of logs and a txn to set allowance. You can find them in the `dfn.rs` file:
+We'll need to add a new query to get the list of logs and a txn to set the allowance. You can find them in the `dfn.rs` file:
 
 ````
 pub fn name_list() -> Vec<&'static str> {
@@ -23,9 +23,7 @@ pub fn name_list() -> Vec<&'static str> {
 }
 ````
 
-It is called "queryOpLogs" and 'setAllownace' at the last.
-
-//TODO:  !!!GEORGE, please add the explanation of allowance or link to our existing doc explaning Allowance!!!
+These are called "queryOpLogs" and 'setAllownace' which you can see at the end of the file. The txn to `setAllowance` is related to the fact that each TApp has an allowance associated with it.  The TApp will only be able to spend user funds up to the amount set as the allowance.
 
 In **api.rs** you can find the `async fn query_op_logs` function. The major logic is to call the `get_statements_async` function. 
 
@@ -38,7 +36,7 @@ In **api.rs** you can find the `async fn query_op_logs` function. The major logi
 	.await?;
 ````
 
-then, convert  the rows to human readable format
+then convert  the rows to human readable format:
 
 ````
 	let mut rows: Vec<JsonStatement> = Vec::new();
