@@ -1,5 +1,5 @@
 # Deploy Hello World on Testnet
-**NOTE: this section is currently under development. We'll remove this notice when it's ready to be deployed**
+**NOTE: this section is currently under development. There's currently no DevPortal URL. When the link becomes available, we'll remove this notice when it's ready to be deployed**
 
 In this section of the tutorial, we'll use the dev portal to deploy the **Hello World** boilerplate to the TEA testnet. The goal is to see the `Hello [developer's name]` TApp in the browser after launching such a TApp from the TAppStore.
 
@@ -21,8 +21,7 @@ If you'd like to check in any of your modified code to your own git repo, please
 
 
 ## Setup TApp
--    Login to the Devportal with Metamask: [http://54.180.82.194:8080/ipfs/QmQ7rStyKjfHjZfySo36wgNiBtciEjV4CYRWy6tYrNrjT2](http://54.180.82.194:8080/ipfs/QmQ7rStyKjfHjZfySo36wgNiBtciEjV4CYRWy6tYrNrjT2)
-
+-    Login to the Devportal with Metamask: (link will be updated here when ready)
 -   You can see your account balance after login. 
 -  Go to the TApps page in the Devportal. Here you'll create a new TApp and save the token_id:
 
