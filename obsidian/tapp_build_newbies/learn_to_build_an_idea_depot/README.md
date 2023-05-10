@@ -1,0 +1,8 @@
+[[Step1_the_idea_of_idea_depot]]
+[[Step2_learn_from_the_tutorial]]
+[[Step3_system_design]]
+[[Step4_run_tutorial_locally]]
+[[Step5_make_idea_struct]]
+[[Step6_ui_update]]
+[[Step7_deployment]]
+[[Step8_please_contribute_your_idea]]
