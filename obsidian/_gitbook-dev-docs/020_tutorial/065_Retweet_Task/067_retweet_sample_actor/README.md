@@ -1,3 +1,5 @@
+In this step, we will only focus on the changes related to the secure oracle. Other general changes follow the same logic we explained before, and will be ignored in this article.
+
 In sample actor, the handler of complete_task will first send a `send_custom_txn` to the state machine with param `complete_task`. This tells the state machine to prepare a secured oracle task.
 
 ```
@@ -128,4 +130,12 @@ Now, let's see how we handle the http response. It is pretty much the same as th
 }
 ```
 
-
+Note, this workflow may change after the secure oracle dispatching algorthrm is done. The call back function will become the executor function. It will be called by the state machine maintainer if this hosting node is seleccted to be an executor. No one (human) knows which node will be selected and no one knows what the final result will be, because the final result will be determined by the secure oracle consensus algorithm between the state machine maintainers. However, the basic steps would be the same as today as the following steps:
+- Hosting node handle the reqeust from client
+- Generate OracleHttpRequest
+- Send theOracleHttpRequest to the state machine maintainers
+- Callback (executor) function will be called if this hosting node is selected by the secure oracle consensus. Or nothing being called when not selected.
+- Executor (if selected, or other node) execute the http request logic, send the result back to the  state machine
+- State machine run the secure oracle consensus to determine the final result
+- State machine send the final result back to the caller hosting node.
+- Hosting node send back the final result to the client.
