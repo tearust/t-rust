@@ -1,7 +1,7 @@
 # Retweet Task
 
 ## Retweet Task App
-In this tutorial, we'll tweak our existing Task TApp such that the only kind of task available is to retweet (quote tweet) a tweet. Task creators will assign this task for others to quote tweet their desired tweet in an effort to make it go viral. 
+In this tutorial, we'll tweak our existing Task TApp such that the only kind of task available is to retweet (quote tweet) a tweet. Task creators will assign this task for others to quote tweet their desired tweet in an effort to make it go viral. This could be useful for developers who want their tweets seen by more people as quote retweets will show up in the other user's Twitter timeline.
 
 An important difference with the previous version is that the reward no longer requires human intervention to release the funds. The task worker enters their quote tweet url which can be checked by API if it's in fact a quote tweet. If it passes the api check, then the funds are automatically released to the task taker.
 
@@ -15,16 +15,14 @@ The business workflow for this branch is as follows:
 - If the api confirms that the quote tweet isn't of the original tweet, then the task taker's bounty is slashed and is added to the bounty for the task. The task then goes back into the available task queue and is available for anyone to take.
 
 
-## Build the 'Retweet' Branch
+## Build the 'http' Branch
 
-As we've done several times in previous steps, we switch branches by running `git checkout retweet` to switch to the retweet branch. Next we'll build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the **dev-runner local/a-node** and **local/b-node** folders. 
+As we've done several times in previous steps, we switch branches by running `git checkout http` to switch to the **http** branch. Next we'll build the two sample-actor and sample-txn-executor wasm files. They'll be copied to the **dev-runner local/a-node** and **local/b-node** folders. 
 
 The build scripts are in the following locations of the `tutorial-v1` repo:
 
 - `sample-actor/build.sh`
 - `sample-txn-executor/build.sh`
-
-In order to clean up the [state](../../z_glossary/state.md)  data from previous steps, make sure you delete the `.tokenstate` directory in the `dev-runner` repo before launching its docker container. This will make dev-runner start with a fresh state.
 
 Start dev-runner by running `docker compose up` from the root of the dev-runner directory.
 
@@ -58,6 +56,8 @@ Your account has no TEA when beginning from a fresh state, so you'll need to use
 Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp business logic can withdraw user funds only up to that amount.
 
 ![](https://user-images.githubusercontent.com/86096370/227608436-80601f38-e2a4-4211-b21c-677d8e782265.png)
+
+Note that the last 2 steps (using the faucet and setting the spending limit) are only available in the local environment and these buttons won't exist in the real deployment of the app.
 
 ## Test the business logic
 
@@ -98,3 +98,8 @@ At this point the business logic branches according to the response from the Twi
 - If the api returns that the quote tweet isn't of the original tweet, then the task taker's bounty is slashed and is added to the bounty for the task. The task then goes back into the available task queue and is available for anyone to take.
 
 Because the user testing their TApp has both accounts in their Metamask, switching between them will show the funds transfer logic. The task taker's deposit as well as the task creator's bounty are held in a virtual escrow account and divvied up according to if the task was completed successfully. Funds transfer can be confirmed by switching between the two accounts.
+
+## TEA Project's Secure Oracle Feature
+When we make the call to Twitter to get the api result of the retweet check, we're relying on Twitter to provide an oracle service which gets bridged over to web3 through our nodes. Note that TEA is able to vouchsafe the integrity of the oracle result because of our use of secure hardware. Once the oracle (the Twitter api in this example) reports its result to one of our TEA nodes, the result is stored within the protected enclave of the node. It's completely trustable as nothing can breach the integrity of the enclave, which is why we refer to it as a secure oracle.
+
+The biggest oracle provider in the web3 space is Chainlink and their operating procedure is must different. They instead have their own consensus protocol where multiple Chainlink nodes have to reach a consensus on an oracle result before being able to vouch for its integrity. The TEA Project's use of secure hardware means that we don't have to engage in this wasteful consensus process just to get a trustable oracle result. And because TEA's secure enclaves are also the basis of its secure compute layer, conceivably any compute logic output done on the TEA node network is a trustable oracle result avaiable to be consumed by another endpoint.
