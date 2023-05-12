@@ -53,7 +53,7 @@ Your account has no TEA when beginning from a fresh state, so you'll need to use
 
 
 ### 4. Set spending limit
-Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp business logic can withdraw user funds only up to that amount.
+Next you'll need to set the spending limit for the TApp before using it. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp's business logic can withdraw user funds only up to that amount.
 
 ![](https://user-images.githubusercontent.com/86096370/227608436-80601f38-e2a4-4211-b21c-677d8e782265.png)
 
