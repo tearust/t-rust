@@ -1,76 +1,54 @@
-# Step 4: Run Idea Depot Locally
+# Step 4: Run Tutorial Locally
+Before getting started building my first TApp, it makes sense to go through the tutorials already listed in the [TEA Project's dev docs](https://dev.teaproject.org/020_tutorial). It looks like they mostly use the same repo called **tutorial-v1** and that you checkout a branch based on what features you want to try out. Just reading them over this is what I can gather:
 
-## Build the 'tapp_idea_vote' Branch
-This is the step where you'll finally get to run the Idea Depot TApp (Idea Voter) locally on your machine. First you'll want to make sure you've followed the instructions in [installing the local development environment](https://dev.teaproject.org/020_tutorial/010_install-dev-env).
+- The first actual tutorial on building an actual TApp where someone can login with Metamask starts with the aptly named [login branch of the tutorial](https://dev.teaproject.org/020_tutorial/040_add_login_feature).
+- It looks like the tutorial goes over how to build a decentralized task app that includes confirmation that task is done as well as funds transfer. This is really cool and could be the basis of a decentralized Fiverr type of dApp. Really impressed that they released a fully-featured tutorial app like that.
+- The next step involves the `SQL` branch so named for the database because that step of the tutorial focuses on implementing the database structure.
+- Then there's the `reward` branch which goes over fund transfer.
 
-Once you've dowloaded the `dev-runner` repo, it's time to clone the Idea Depot's code repo to your local machine. Change directories to wherever you want to store the local copy of the repo and then run:
+Since every branch builds on the last, I thought it was a bit tedious to checkout each branch, do the actual tutorial, then tear it down and checkout the next branch. So I decided to read over the `login` and `sql` branch sections and decided to dive in at the `reward` branch.
 
-`git clone https://github.com/kevingzhang/tapp_idea_vote.git`
+## Follow the bouncing ball between the two repos
 
-The first steps are to build the state-actor and actor wasm files. They'll be copied to the **dev-runner local/a-node** and **local/b-node** folders. 
-
-The build scripts are in the following locations of the `tapp_idea_vote` repo:
-
-- `state-actor/build.sh`
-- `actor/build.sh`
-
-You can now hen start the `dev-runner` environment locally by running `docker compose up` from the root of the dev-runner directory.
-
-Before we start the front end, you'll want to use node version 14.14.0 for this tutorial. Make sure you have nvm 14.14.0 installed and set as default:
+To get started with the `reward` branch I download the **tutorial-v1** repo and switch branches:
 
 ```
-nvm install 14.14.0
-nvm use 14.14.0
+git clone https://github.com/tearust/tutorial-v1.git
+git checkout reward
 ```
-Now from the `front-end` directory of the `tapp_idea_vote` repo, run the following commands:
 
+I'll be following the [reward branch tutorial](https://dev.teaproject.org/020_tutorial/060_reward_fund_transfer) and taking notes here. The actual steps can be found in that link so I won't bother repeating verbatim what you can already read there, I'll just be providing my notes as I go through the process.
+
+One thing to keep in mind is that you have to have the `dev-runner` environment up to run your tutorial code on top of. So this was the first part that was a little confusing and I'll paraphrase here as best I can.
+
+- Now that I've installed the `tutorial-v1` and switched to the `reward` branch, it's time to install the dev environment.
+- I followed the [install instructions for dev-runner](https://dev.teaproject.org/020_tutorial/010_install-dev-env): `git clone https://github.com/tearust/dev-runner.git`. There's plenty of other things mentioned on that page that you should install. One of the biggest takeaways that tripped me up when trying to run `npm start` later in the tutorial was making sure I was running node version 14.14.0.
+- Now when you run the `build.sh` scripts in the `tutorial-v1` repo, these will output wasm files into the `dev-runner` local folder. These are the actor files.
+
+That's what I mean by "follow the bouncing balls" as the two repos are interlinked. I first had to run the build.sh scripts in `tutorial-v1` and only after those actor files were outputed could I then jump back into the `dev-runner` repo and start up the local dev environment with `docker-compose up`.
+
+## Launching the actual app
+With the preliminaries out of the way, I jumped back into `tutorial-v1`, specifically the `sample-front-end` directory and ran the following commands:
 ```
 npm install
 npm start
 ```
+I was really excited to access the TApp in the browser by launching [http://localhost:3200](http://localhost:3200/).
 
-## Initialization steps in the browser
-Now that the backend server is running, we'll need a few initialization steps before we can use the fund transfer function in our task TApp. The first step is to access the TApp in your browser by navigating to [http://localhost:3200](http://localhost:3200).
+I tried to login and was met with this:
 
-### 1. Init the TApp
-Because this is a brand new state, please make sure you click the Init TApp token and Init TApp db buttons located in the **Admin** page before doing anything else.
+![2023-05-12 11 12 43](https://github.com/tearust/teaproject/assets/86096370/62b72f26-4b97-4cef-8beb-e30461df615b)
 
-<img width="1264" alt="Screenshot 2023-05-11 at 3 13 55 PM" src="https://github.com/kevingzhang/tapp_idea_vote/assets/86096370/5db98395-274f-4752-80e5-ff6d2533ef77">
+I got a little ahead of myself as I forgot to go to the admin tab and press the two initialization buttons first:
 
-### 2.  Login to TApp
-Now you can login to the TApp by clicking the login button in the upper right of the browser to spawn the Metamask modal window to login to the app.
+![](https://user-images.githubusercontent.com/86096370/227608431-89da24e9-03d6-4e91-a28e-e14f63d02952.png)
 
-### 3. Use the faucet & set spending limit
+Launching the TApp the first thing you probably want to do is login so don't forget that important initialization step.
 
-Your account has no TEA when beginning from a fresh state, so you'll need to use the **Faucet** button to load your account with some TEA. Note that this sends 1000 T to your layer2 account, and you don't need to be logged in with Metamask (layer1) to do this step.
+Another issue I found is that when I returned to do this tutorial again, I got an error message when I tried to initialize the app:
 
-Next you'll need to set the spending limit for the TApp before using it. you can do this by clicking the **Set spending limit** button right next to the faucet button. Each TApp in the TEA Project has a spending limit that is set by the user to ensure that the TApp's business logic can withdraw user funds only up to that amount.
+![2023-05-12 11 11 06](https://github.com/tearust/teaproject/assets/86096370/287edf10-9521-46ed-9fe6-ac82b9b0e4da)
 
-<img width="1270" alt="Screenshot 2023-05-11 at 3 27 58 PM" src="https://github.com/kevingzhang/tapp_idea_vote/assets/86096370/9f364718-f30d-4506-a473-dc08a8b9c70a">
+I found out that this involves the dev-runner docker images being out of date. To fix, you'll need to run `docker-compose down` to clear the container and then check for updates to the docker images. There are two images which you can update using `docker pull` to get the latest docker images (the actual commands are available in [the dev-runner faq](https://dev.teaproject.org/020_tutorial/010_install-dev-env#troubleshooting-the-dev-environment)). Then you'll run `docker-compose up` to reload the `dev-runner` environment.
 
-Note that the last 2 steps (using the faucet and setting the spending limit) are only available in the local environment and these buttons won't exist in the real deployment of the app.
-
-## Test the business logic
-
-Now that we're ready to use the TApp, let's first go through the design of the business logic.
-
-The Idea Voter TApp allows anyone to submit an idea for an app along with the amount of T they want to pledge to vote for it. All users (including the idea originator) can vote on the app idea from the **Idea list** by pressing the vote button which boosts the app idea by one vote while simultaneously deducting 1T from their balance. The idea list is ordered according to the popularity of the ideas (i.e. based on the number of votes it's received).
-
-Anyone can create an idea for an app:
-
-<img width="1263" alt="Screenshot 2023-05-11 at 3 28 14 PM" src="https://github.com/kevingzhang/tapp_idea_vote/assets/86096370/6ec0c6db-7098-477e-b347-6f5306898c3e">
-
-They're required to fill out 3 pieces of information:
-
-1. The title of their app idea
-2. The number of T they want to seed for the initial pledge
-3. A description of the app idea
-
-Here's an example of the app idea form filled out:
-
-<img width="996" alt="Screenshot 2023-05-11 at 5 06 54 PM" src="https://github.com/kevingzhang/tapp_idea_vote/assets/86096370/3808afe4-f6aa-4f34-b86e-2e37521cd565">
-
-This app idea can now be voted on by anyone in the community:
-
-<img width="1257" alt="Screenshot 2023-05-11 at 5 10 26 PM" src="https://github.com/kevingzhang/tapp_idea_vote/assets/86096370/12d00087-90d1-4e1d-b4c3-eb7edf856080">
 
