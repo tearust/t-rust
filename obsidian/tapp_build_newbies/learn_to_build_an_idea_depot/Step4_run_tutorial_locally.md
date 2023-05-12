@@ -51,4 +51,23 @@ Another issue I found is that when I returned to do this tutorial again, I got a
 
 I found out that this involves the dev-runner docker images being out of date. To fix, you'll need to run `docker-compose down` to clear the container and then check for updates to the docker images. There are two images which you can update using `docker pull` to get the latest docker images (the actual commands are available in [the dev-runner faq](https://dev.teaproject.org/020_tutorial/010_install-dev-env#troubleshooting-the-dev-environment)). Then you'll run `docker-compose up` to reload the `dev-runner` environment.
 
+Then I was able to login with Metamask and activate the faucet as well as set the spending limit so I could use the TApp.
+
+![](https://user-images.githubusercontent.com/86096370/227608440-e8c2de65-149a-4de1-8051-f19028f7551b.png)
+
+## Using the actual app
+I actually needed two Metamask accounts to test the logic of the app (one for the task creator and the other for the task taker). Once the task maker has created the task, the task taker will claim it and begin working on it.
+
+![take2F](https://github.com/tearust/teaproject/assets/86096370/5ee24f29-d3b9-42b7-a47f-21e2ad3b886b)
+
+One thing that through me for a loop was that some funds were removed from the task taker's account when they took the task. Evidently this is done as a way to ensure that task takers don't indiscriminately take tasks, otherwise they could hoard all the tasks for themselves. There is some opportunity cost related to taking a task which is fair from the perspective of the system. The issue I see is that the task creator can decline the submission for whatever reason and the task taker doesn't get their funds back. This is an issue that a creative dev can solve with some forethought balancing the needs of fairness on both sides.
+
+As mentioned, the task creator alone can decide whether the task has been done up to standards or not.
+
+![confirmRrzDz](https://github.com/tearust/teaproject/assets/86096370/e9f5fc3d-80e0-43b3-b0f0-041760fd76c1)
+
+This I see as a potential for abuse as anyone who wants work done can create a task, reject it even when a good job is submitted, then claim the task with another account and sign off on it to claim the bounty. This problem is remedied by using a secure oracle to decide if the task is done properly or not without human intervention, something the TEA Project shows in their [retweet task example](https://dev.teaproject.org/020_tutorial/065_retweet_task).
+
+
+
 
