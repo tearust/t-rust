@@ -2,7 +2,7 @@
 [[Step2_using_existing_tutorial]]
 [[Step3_system_design]]
 [[Step4_run_tutorial_locally]]
-[[Step5_make_idea_struct]]
+[[Step5_setup_my_new_project]]
 [[Step6_ui_update]]
 [[Step7_deployment]]
 [[Step8_please_contribute_your_idea]]
