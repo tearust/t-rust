@@ -73,24 +73,28 @@ We'll focus on two different users to see the Retweet Task's busines logic: the 
 The task creator creates the task by setting these three parameters within the task creation modal window:
 
 1. Tweet url to be quote tweeted.
-1. The deposit task taker must put up to take on this task.
 1. The reward for completing the task.
+1. The deposit task taker must put up to take on this task.
 
-(TODO: missing UI pic)
+<img width="1138" alt="1_create" src="https://github.com/tearust/teaproject/assets/86096370/3a91f4ed-63f9-4922-b25b-a66e3f675abe">
 
 ### 2. Task Taker Takes the Task
 
 The Task page UI for the Retweet Task TApp has a "take" button as shown below:
 
-![Pasted image 20230317091008.png](../../../Pasted%20image%2020230317091008.png)
+<img width="1161" alt="2_take" src="https://github.com/tearust/teaproject/assets/86096370/a77ef01c-387d-4663-bba5-7f7b05bc4e7e">
 
 Note that at the time of taking the task, the task taker's balance will decrease by the amount required by the task. If for example the deposit required is 5T, then the task taker's account balance will decrease from 1000 to 995. 
 
 ![Pasted image 20230317091328.png](../../../Pasted%20image%2020230317091328.png)
 
-After clicking "take", our **task taker** account is now the worker for this task. After taking this task, a new modal will open up:
+After clicking "take", our **task taker** account is now the worker for this task. Next the task taker has to click **complete** to actually work on the task:
 
-(TODO: missing UI pic)
+<img width="1115" alt="3_complete" src="https://github.com/tearust/teaproject/assets/86096370/e6df40f3-ef0c-485f-836a-5ced3563b29a">
+
+After clicking on **complete**, a new modal will open up:
+
+<img width="1178" alt="4_retweet" src="https://github.com/tearust/teaproject/assets/86096370/4579ba32-9802-4ab9-bc09-1d43546b1294">
 
 To complete this task, the user will have to follow the instructions in the modal and complete a **quote tweet** of the original tweet. 
 
@@ -100,6 +104,10 @@ At this point the business logic branches according to the response from the Twi
 
 * If the api confirms it's a successful quote tweet, then the task taker gets the bounty as well their initial deposit back.
 * If the api returns that the quote tweet isn't of the original tweet, then the task taker's bounty is slashed and is added to the bounty for the task. The task then goes back into the available task queue and is available for anyone to take.
+
+If the quote retweet is confirmed by the Twitter api, the user will get a notice in the upper right corner indicating that the bounty has been deposited to their account:
+
+<img width="1187" alt="5_success" src="https://github.com/tearust/teaproject/assets/86096370/10f4a8e1-40e5-453e-abc4-c000d4f43cc1">
 
 Because the user testing their TApp has both accounts in their Metamask, switching between them will show the funds transfer logic. The task taker's deposit as well as the task creator's bounty are held in a virtual escrow account and divvied up according to if the task was completed successfully. Funds transfer can be confirmed by switching between the two accounts.
 
