@@ -56,6 +56,14 @@ If you start dev-runner using  `docker-compose up`, all docker contiainers will 
 
 If you test it locally using dev-runner, you will need to manually intiialize token and database from the admin page. When deploy your app to testnet or mainnet, you will do so in the deployment step in Developer Portal. In your local test, you will need manually click the two buttons in the admin page. If you forget to do so, you will get error message in almost every click (e.g. login, or faucet).
 
+## What? No_wallet?
+
+If you see this "no_wallet" on the UI, you have not setup Metamask browser extension correctly. 
+
+![[Pasted image 20230514094908.png]]
+
+Please install Metamask browser extension then refresh your web page. It should be alright.
+
 ## Forgot to add some fund or set spending limit
 
 If you test it locally uring dev-runner, you will need to get some free test token from the faucet button in the account page. This is built-in feature to simplify your testing experience. In the real work, there is no such faucet. You will need to somehow get some token and top up to your account before you can use your own app. 
@@ -63,6 +71,12 @@ If you test it locally uring dev-runner, you will need to get some free test tok
 If you do not have enough balance but run some task that costs some TEA, you will get error message such as `.... cross-move failed....from .... to .... balance ... overdraft` or something similar. When you read this message, you should know you will need more token in your balance.
 
 Besides some token in your account balance, you will also need to allow this app to use a certain amount of token, this is called set spending limit. Fail to do so will also cause similar error message, because the app will be rejected when trying to run some transactions that costs fund but do not have enough spending limit.
+
+## Still struggling? Do not give up, take this shortcut
+
+If you are still struggle with all the troubles after try all your can do. Please do not give up, let's take a shortcut to the final stage. 
+
+You can go to https://github.com/tearust/idea_depot/tree/step6 clone code from there and checkout to step6. This is what the code should look like at the end of step5. 
 
 
 
