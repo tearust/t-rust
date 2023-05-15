@@ -1,6 +1,6 @@
-# Troubleshooting technics
+# Troubleshooting techniques
 
-No matter how carefully you read and follow the instruction, it won't be surprise that you will get many error messages instead of a running app. This is the life as a developer. Now let's review some of the problems I experiences during the development. It is impossible to list all the potential troubles you may experience. These troubleshuttings would help you to fix your own issues. If still stuck somewhere, go to our telegram channel, asking us and other community members. We are happy to figure out together!
+No matter how carefully you read and follow instructionx, it won't be surprising that you get many error messages instead of a running app. This is basically life as a developer. Now let's review some of the problems I experienced during my development of this example TApp. It's impossible to list all the potential troubles you may experience. These troubleshooting tips will help you to fix your own issues. If you're still stuck somewhere, go to our telegram channel and ask us as well as other community members. We're happy to help you figure out together!
 
 ## Rust compiling error
 
