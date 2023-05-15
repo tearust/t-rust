@@ -1,5 +1,3 @@
 # Functions
 
-TEA SDK:
-
-https://tearust.github.io/sdk/doc/tea_sdk/index.html
+[TEA SDK link](https://tearust.github.io/sdk/doc/tea_sdk/index.html)
