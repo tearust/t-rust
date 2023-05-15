@@ -1,23 +1,26 @@
 # System design
 
 ## The déjà vu moment!
-The ultimate goal of the TEA Project is a framework for existing web2 developer to build web3 apps with minimal efford. That means if you are a web2 developer already, you do not need to learn blockchain, solidity , smart contract, consensus, etc, you can still make such web3 apps based on what you are familiar with already.
+The ultimate goal of the TEA Project is to establish a framework for existing web2 developers allowing them to build web3 apps with minimal effort. That means if you're already a web2 developer, you don't need to learn blockchain, solidity , smart contracts, consensus, etc. just so you can build web3 apps. The TEA Project helps abstract away many web3 constructs and leaves you to build with tools you're familiar with.
 
-In this step, we will design the Idea Depot app. I bet you have notice that the system design is identical to your typical web2 app design. Yes, you can still use SQL, you still need to define data structure, requests and response. Nothing new. This is exactly what TEA Project is for.
-
+In this step, we'll design the Idea Depot app. The system design of this app is actually identical to your typical web2 app design. Yes, you can still use SQL, and you still need to define data structures, requests, and responses. That's as per usual, which is exactly what we want the TEA Project to feel like using it.
 
 ![[Pasted image 20230511165644.png]]
 
 > In The Matrix, when inside the simulation, Neo (Keanu Reeves) experiences déjà vu when a black cat passes him twice. [What does this glitch signify?](https://screenrant.com/matrix-neo-black-cat-deja-vu-explained/)
 
-
-Even you have not read our TEA Project developer tutorial, you won't have difficulty understand this step. But you will have to learn the tutorial before our next step. 
+Before venturing into the next step you should familarize yourself with some of the concepts introduced in our [step by step tutorial](https://dev.teaproject.org/020_tutorial). 
 
 ## Data structure - Idea
 
-There are two type of system designer. One goes from the UI UX, design the request/response, then backend services, the last the data structures that support all the operations. Another one goes from the data structure to meet all busienss requirements, then the mutation functions, then the request/response, the last the UI that make human interactive. I happen to be the latter. So let's start with the data structure.
+We can compare two very different kinds of system designers:
 
-From our business requirement, we know we will need to have an `idea` data structure that store the idea. It was the `task` in the tutorial but a few additional properties. One of the new added property is `total_contribution: String`. This is how many TEA token has been voted to this idea. Our business requirement doesn't care how many time the same voter votes to the same idea as long as he keep adding money to it, so we do not need to store the voter's address. This siginificantly reduce the difficulty level. 
+1. The first types starts from the UI and designs the request/response before then focusing on backend services finally the data structures that support all the operations. 
+2. The second type starts from the data structure to make sure it meets all of the business requirements, then the mutation functions, and then the request/response. It's only at the very last stage where they turn their focus to make the UI interactive. 
+
+I happen to be the latter of the two and prefer to start with data structures, so let's start there.
+
+For our business requirements, we know that we'll need to have an `idea` data structure that stores the idea. It basically uses the `task` data structure in the tutorial but with a few additional properties. One of the newly added properties is `total_contribution: String`. This is how many TEA token has been voted towards this idea. Our business requirement doesn't care how many time the same voter votes on the same idea, we only care that they're adding money to their pledge, so we don't need to store the voter's address. This siginificantly reduces the difficulty level. 
 
 So the `Idea` struct looks like:
 ```
@@ -31,11 +34,11 @@ pub struct Idea {
     pub total_contribution: String,
 }
 ```
-The total_contribution is String type instead of Balance. This is because Balance:u258 is too large to store in SQL. We convert the Balance to String when store to SQL, then convert it back to u256 after read from SQL.
+The total_contribution is String type instead of Balance. This is because Balance:u258 is too large to store in SQL. We convert the Balance to String when storing to SQL, then convert it back to u256 after reading it from SQL.
 
 ## Txns
 
-There are two transactions to munipulate the idea and its votes. They are 
+There are two transactions to manipulate the idea and its votes. They are 
 
 ```
     CreateIdea {
@@ -55,15 +58,14 @@ There are two transactions to munipulate the idea and its votes. They are
 ```
 
 
-They are very straightforward. As long as you know a little about Rust language, you will understand this. The only thing to note here would be the auth_b64. This is the string that the end user signed when login to this Idea_depot app. This string contents what the end user allow this app to do with their assets. We have explained this in the tutorial `login` step. With the limitation of auth string, the app developer cannot do anything beyond the end user allow them to.
+These are very straightforward. As long as you know a little about the Rust language, you'll understand this. The only thing to note here would be the auth_b64. This is the string that the end user signed when logging in to this Idea_depot app. This string contains what the end user allows this app to do with their assets. We have explained this in the tutorial `login` step. With the limitation of auth string, the app developer cannot do anything beyond what the end user allow them to.
 
 ## SQL
 
-As simple as it was in a traditional web2 app. We will need SQL statements to create idea in SQL database and increase the vote_num when someone vote for an idea.
+SQL is in the TEA Project is as simple as you'd encounter in a traditional web2 app. We'll need SQL statements to create idea in SQL database and increase the vote_num when someone votes for an idea.
 
 The intiial SQLtable use the following SQL statement
 ```
-
 CREATE TABLE Ideas
 (
   id                      TEXT UNIQUE,
@@ -74,12 +76,11 @@ CREATE TABLE Ideas
   total_contribution      TEXT
 );
 CREATE INDEX idx_id ON Ideas (id);
-
 ```
-This SQL is called during SQL intiialization which happened the first time this TApp was deployed.
 
-Later one, when someone create an idea
+This SQL is called during SQL intiialization which happens the first time that this TApp was deployed.
 
+Later on when someone creates an idea we have the following logic:
 
 ```
     let sql = format!(
@@ -95,19 +96,18 @@ Later one, when someone create an idea
     
 ```
     
-If someone vote an idea to increase the contribution
+If someone votes on an idea to increase their T contribution:
 
 ```
  format!("UPDATE Ideas SET total_contribution = '{}' WHERE id = '{id}';", new_total_contribution.to_string()),
  ```
 
-These are the Rust code to generate the SQL statements.
-
 ## Requests and Responses
 
-The client will need to query the list of ideas and action to create idea or vote on an idea.
+The following are the Rust code that's needed to generate the SQL statements. The client will need to query the list of ideas and actions to create an idea or vote on an idea.
 
-To create an new idea
+To create a new idea:
+
 ```
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -124,7 +124,8 @@ pub struct CreateIdeaRequest {
 }
 ```
 
-To query the list of ideas
+To query the list of ideas:
+
 ```
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -132,9 +133,10 @@ pub struct QueryIdeaRequest {
   pub uuid: String,
 }
 ```
-The uuid is a system assigned id number for the client to query response at a later time. We have detail explanation on this in the tutorial.
+The uuid is a system assigned id number for the client to query for a response at a later time. We'll have a detailed explanation on this later in the tutorial.
 
-To vote and contribute to an idea
+To vote and contribute to an idea:
+
 ```
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -151,18 +153,19 @@ pub struct VoteIdeaRequest {
 
 ## Handler
 
-There are not too much complex logic for this simple app. For QueryIdeaRequest handler just query the SQL. For VoteIdeaRequest handler just query the current total_contribution, then add the new contribution then update SQL. 
+There's not too much complex logic going on in this simple app. The QueryIdeaRequest handler for instance just queries the SQL database. The VoteIdeaRequest handler just queries the current total_contribution, then adds their new contribution and then updates SQL. 
 
-You may want to ask why can we use two steps to update the total_contribution? In normal SQL design, we should use a singel-step atomic operation "increase" to update total_contribution. In TEA Project, all txn execution is serialized. No matter which hosting node send the txn to the state machine maintainers, they will be sorted based on True Timestamp in every state machine. Because the True Timestamp comes from Global sync atomic clock (GPS), all maintainer will have the same sequence of all txns. The state machine will execute those sequencial txns one by one. There is no parallel execution. You do not need to worry about multiple SQL statements executed parallelly cause race condition. This model is more like Ethereum EVM rather than SQL database. 
+You might be wondering how we can use two steps to update the total_contribution? In normal SQL design, we should use a single-step atomic operation "increase" to update total_contribution. In TEA Project, all txn execution is serialized. No matter which hosting node sends the txn to the state machine maintainers, they will be sorted based on True Timestamp in every state machine. Because the True Timestamp comes from Global sync atomic clock (GPS), all maintainers will have the same sequence of all txns. The state machine will execute those sequencial txns one by one. There is no parallel execution. You don't need to worry about multiple SQL statements executed in parallell causing race conditions. This model is more like the Ethereum EVM rather than SQL database. 
 
 ## Workflow
 
-There is nothing to explain in the workflow. This is the typical TApp workflow which is the same as the tutorial app. Basically:
-- Front end browser send request to hosting node
-- Hosting node handle the request. If needed, it will generate txn to the state machine maintainer
-- State machine maintainers sort the txn from all hosting nodes, after a short buffer delay, all txns are executed one after another.
-- State machine send back the result of txn execution
-- Front end browser keep query the result until hosting node receive and relay the result back to the front end.
-- Front end shows the UI update to user
+There's nothing special to explain about the workflow. This is the typical TApp workflow which is the same as the tutorial app. Basically:
 
-Next step, we will start to clone the code from tutorial. Make sure it can compile and run locally. Then start to modify the code to fit all business logic specific to our TApp.
+- Front end browser sends request to hosting node.
+- Hosting node handles the request. If needed, it will generate txn to the state machine maintainer.
+- State machine maintainers sort the txn from all hosting nodes. After a short buffer delay, all txns are executed one after another.
+- State machine sends back the result of txn execution.
+- The front end browser keeps querying for the result until the hosting node receives and relays the result back to the front end.
+- Front end shows the UI update to the user.
+
+In the next step, we'll start to clone the code from the tutorial to make sure it can compile and run locally. Then we'll modify the code to fit all the business logic specific to our TApp.
