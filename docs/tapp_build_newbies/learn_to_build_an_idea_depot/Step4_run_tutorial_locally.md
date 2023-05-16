@@ -3,7 +3,7 @@
 Before getting started building my first TApp, it makes sense to go through the tutorials already listed in the [TEA Project's dev docs](https://dev.teaproject.org/020_tutorial). It looks like they mostly use the same repo called **tutorial-v1** and that you checkout a branch based on what features you want to try out. Just reading them over this is what I can gather:
 
 * The first actual tutorial on building an actual TApp where someone can login with Metamask starts with the aptly named [login branch of the tutorial](https://dev.teaproject.org/020_tutorial/040_add_login_feature).
-* It looks like the tutorial goes over how to build a decentralized task app that includes confirmation that task is done as well as funds transfer. This is really cool and could be the basis of a decentralized Fiverr type of dApp. Really impressed that they released a fully-featured tutorial app like that.
+* It looks like the tutorial goes over how to build a decentralized task app that includes confirmation that task is done as well as funds transfer. This is really cool and could be the basis of a decentralized Fiverr type of dApp. Really impressed that they released a fully-featured tutorial app like this.
 * The next step involves the `SQL` branch so named for the database because that step of the tutorial focuses on implementing the database structure.
 * Then there's the `reward` branch which goes over fund transfer.
 
@@ -26,7 +26,7 @@ One thing to keep in mind is that you have to have the `dev-runner` environment 
 * I followed the [install instructions for dev-runner](https://dev.teaproject.org/020_tutorial/010_install-dev-env): `git clone https://github.com/tearust/dev-runner.git`. There's plenty of other things mentioned on that page that you should install. One of the biggest takeaways that tripped me up when trying to run `npm start` later in the tutorial was making sure I was running node version 14.14.0.
 * Now when you run the `build.sh` scripts in the `tutorial-v1` repo, these will output wasm files into the `dev-runner` local folder. These are the actor files.
 
-That's what I mean by "follow the bouncing balls" as the two repos are interlinked. I first had to run the build.sh scripts in `tutorial-v1` and only after those actor files were outputed could I then jump back into the `dev-runner` repo and start up the local dev environment with `docker-compose up`.
+That's what I mean by "follow the bouncing ball" as the two repos are interlinked. I first had to run the build.sh scripts in `tutorial-v1` and only after those actor files were output could I then jump back into the `dev-runner` repo and start up the local dev environment with `docker-compose up`.
 
 ## Launching the actual app
 
@@ -55,7 +55,7 @@ Another issue I found is that when I returned to do this tutorial again, I got a
 
 I found out that this involves the dev-runner docker images being out of date. To fix, you'll need to run `docker-compose down` to clear the container and then check for updates to the docker images. There are two images which you can update using `docker pull` to get the latest docker images (the actual commands are available in [the dev-runner faq](https://dev.teaproject.org/020_tutorial/010_install-dev-env#troubleshooting-the-dev-environment)). Then you'll run `docker-compose up` to reload the `dev-runner` environment.
 
-Then I was able to login with Metamask and activate the faucet as well as set the spending limit so I could use the TApp.
+Next I was able to login with Metamask and activate the faucet as well as set the spending limit so I could use the TApp.
 
 ![](https://user-images.githubusercontent.com/86096370/227608440-e8c2de65-149a-4de1-8051-f19028f7551b.png)
 
