@@ -62,8 +62,6 @@ If you test everything locally using dev-runner, you'll need to manually intiial
 
 If you see this "no_wallet" on the UI, you haven't setup the Metamask browser extension correctly. 
 
-
-
 Please install the Metamask browser extension then refresh your web page to fix.
 
 ## Forgot to add some funds or set spending limit

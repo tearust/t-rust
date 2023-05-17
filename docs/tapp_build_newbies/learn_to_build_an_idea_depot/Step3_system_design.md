@@ -6,8 +6,6 @@ The ultimate goal of the TEA Project is to establish a framework for existing we
 
 In this step, we'll design the Idea Depot app. The system design of this app is actually identical to your typical web2 app design. Yes, you can still use SQL, and you still need to define data structures, requests, and responses. That's as per usual, which is exactly what we want the TEA Project to feel like using it.
 
-
-
  > 
  > In The Matrix, when inside the simulation, Neo (Keanu Reeves) experiences déjà vu when a black cat passes him twice. [What does this glitch signify?](https://screenrant.com/matrix-neo-black-cat-deja-vu-explained/)
 
