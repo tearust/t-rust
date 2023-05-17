@@ -37,7 +37,7 @@ All functions you write in the code can only take effect after the actors are lo
 
 There is a system request called `Activate` that's called after an actor's loaded. So if the actor receives this request, it will write a log so that you can find this log to determine if the actor is successfully loaded.
 
-The Activite handler is in every actor. For example, in actor/impl/src/lib.rs:
+The Activate handler is in every actor. For example, in actor/impl/src/lib.rs:
 
 ````
     async fn handle(&self, _: Activate) -> Result<()> {
@@ -78,4 +78,4 @@ Besides some tokens in your account balance, you'll also need to allow this app 
 
 If you're still struggle with all the troubles after trying all you can do, please don't give up. Let's take a shortcut to the final stage. 
 
-You can go to https://github.com/tearust/idea_depot/tree/step6 and clone code from there and checkout directly from step6. This is what the code should look like at the end of our step5. 
+You can go to https://github.com/tearust/idea_depot/tree/step6 and clone code from there and checkout directly from step6. That will show you what the code should look like at the end of our step5. 
