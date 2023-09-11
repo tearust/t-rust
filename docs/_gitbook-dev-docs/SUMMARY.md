@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Basic Concepts](README.md)
+* [Basic Concepts](t-rust/docs/_gitbook-dev-docs/README.md)
   * [TEA Developer Prerequisites](010\_core\_docs/010\_Developer\_requirements.md)
   * [The TEA Economic Revolution for Developers](010\_core\_docs/050\_TEA\_economy\_and\_Web3\_revolution\_for\_developers.md)
   * [The Future of Layer-2s](010\_core\_docs/060\_The\_future\_and\_innovation\_of\_layer2.md)
