@@ -1,0 +1,1 @@
+If user balance has credit balance lower than this value, it will be clearned 

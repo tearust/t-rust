@@ -11,7 +11,7 @@ If a user has got some credit or TEA from other referrer by being invited to a V
 If a user has credit or TEA in balance, he is not new user. Only new user can use TeaFlucner to earn some initial credit.
 
 But if the user has used all its credit. The credit balance reduced to zero. He is new user again, and can use TeaFluencer to get more credit.
-# DAO Reserve initial  `_____` credit for launch
+# DAO Reserve initial  [[dao_reserve_credit_pool_initial_value=100000]] credit for launch
 
 Please fill in the number here. This value is in genesis config.
 # Credit usage
@@ -22,13 +22,13 @@ Credit can only be used to pay gas fee. Users cannot transfer credit. cannot use
 
 Credit reduce to 90% of previous balance every hour. **Note: Change to every day when launch alpha**. The reduced credit will go back to the DAO Reserver as TEA token. 
 
-When any user has `less than 0.01 credit`, reduce it to zero. 
+When any user has less than [[minimal_credit_balance=0.01]] credit, reduce it to zero. 
 
 
 # Use TeaParty video conference to air drop credit
 这个想法在视频会议完成后可以实现.
 
-在一段时间内 Promotion period. Host and guests can earn 0.1 Credit per minute during any video conference. 
+在一段时间内 Promotion period. Host and guests can earn [[meeting_promotion_credit=1]] Credit per minute during any video conference. 
 
 # 推荐人奖励计划 Referrer bonus
 
@@ -36,7 +36,7 @@ Host 发出的Invitation Link. 收到的人如果点击Link并metamask login, �
 - 如果这个Referee已经有了Referrer, 这次推荐就无效, 无需修改原有的Referrer关系. 
 - 如果这个Guest已经有了> 0 的TEA或者Credit. 他不是新用户. 这个推荐无效
 
-这个Referee和Referrer都可以使用视频会议获得Credit. 暂定0.1 Credit/minute
+这个Referee和Referrer都可以使用视频会议获得Credit. 暂定 [[meeting_promotion_credit=1]]
 
 Credit可以用于支付Gas, 正常decay
 
