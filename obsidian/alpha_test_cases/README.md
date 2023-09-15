@@ -1,4 +1,8 @@
+# 运营初期建议
+
+[[proposal_token_launch]]
 # New user earn initial credit
+
 
 New user has zero TEA balance in both layer1 and layer2. New user can get enough knowledge on how to start. How to start telling the new users to go to TeaFluencer to do a retweet task to earn some initial credit.
 
